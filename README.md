@@ -24,5 +24,7 @@ The Darkspore application makes requests to different domains. In order to use t
 (need to add hosts list)
 
 ## API
-WIP
+There is one single API that seems to be responsible by many of the game interactions with the server. We need to handle each of those interactions separately, so the API will be split by method:
 
+### api.config.getConfigs
+WIP

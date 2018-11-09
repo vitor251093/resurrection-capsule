@@ -21,7 +21,13 @@ In order to start using (or at this point, contributing) the fake server, you wi
 ## Server redirect
 The Darkspore application makes requests to different domains. In order to use the fake server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `0.0.0.0` because in that way we don't need a router (and also, the request responses come almost instantly that way), but if you are using a VM to run Darkspore, replace it with `127.0.0.1`.
 
-(need to add hosts list)
+```
+0.0.0.0 config.darkspore.com
+0.0.0.0 ea6.com.edgesuite.net
+0.0.0.0 beta-sn2.darkspore.ea.com
+0.0.0.0 dev-sn2.darkspore.ea.com
+0.0.0.0 dev.darkspore.ea.com
+```
 
 ## API
 There is one single API that seems to be responsible by many of the game interactions with the server. 

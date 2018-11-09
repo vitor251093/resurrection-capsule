@@ -29,12 +29,8 @@ The Darkspore application makes requests to different domains. In order to use t
 0.0.0.0 dev.darkspore.ea.com
 ```
 
-## API
-There is one single API that seems to be responsible by many of the game interactions with the server. 
-```
-/bootstrap/api
-```
-We need to handle each of those interactions separately, so the API will be split by method. The methods below were find in the game .EXE by opening it with Hex Fiend and searching for `api.`.
+## API (config.darkspore.com)
+There is one single API that seems to be responsible by many of the game interactions with the server: `/bootstrap/api`. We need to handle each of those interactions separately, so the API will be split by method. The methods below were find in the game .EXE by opening it with Hex Fiend and searching for `api.`.
 
 ### api.test.null
 __Description:__ ???
@@ -98,3 +94,35 @@ __Description:__ ???
 
 ### api.inventory.vendorPart
 __Description:__ ???
+
+
+## APIs (dev.darkspore.ea.com)
+Those others paths were found in the game EXE. While we can (almost) safely assume that those are other APIs, used by the SPORE Labs, which is a removed feature according to the game Wiki.
+http://darksporegame.wikia.com/wiki/Removed_Elements
+
+Considering that even the APIs are there, is it possible that the SPORE Labs were already partially implemented in-game? Maybe we can find out.
+- /web/sporelabsgame/creatureprofile
+- /web/sporelabsgame/wiki
+- /web/sporelabsgame/leaderboards
+- /web/sporelabsgame/profile
+- /web/sporelabsgame/lobby
+- /web/sporelabsgame/friends
+- /web/sporelabsgame/store
+- /web/sporelabsgame/inventory
+- /web/sporelabsgame/squad
+- /web/sporelabs/home
+- /web/sporelabs/stats
+- /web/sporelabs/alerts
+- /web/sporelabs/resetpassword
+- /web/sporelabsgame/finish
+- /web/sporelabsgame/persona
+- /web/sporelabsgame/register
+
+## APIs (dev-sn2.darkspore.ea.com)
+We can see here the main API again. Those API may have been used during the game development, following the same paths of `config.darkspore.com`, so the developers could test and debug the game without using the production server. If that theory is correct, the other 4 APIs may have existed for the official server as well.
+
+- /bugs/choosepath.php
+- /survey/takeSurvey.php
+- /survey/api
+- /game/api
+- /bootstrap/api

@@ -1,4 +1,4 @@
-__DISCLAIMER:__ I'm not a lawyer. The observations below were made after I've read the game EULA. If EA sends me a message saying _"We want you to stop working in fake server and remove it from Github"_, I'm gonna do it (unless a real lawyer proves to me that my suppositions were correct). Still, since Darkspore is literally (and totally) unplayable for now, with no expectation of a fix, and this app aims to make it work only for people with an original copy, it doesn't look like EA would have a reason to be bothered with it.
+__DISCLAIMER:__ I'm not a lawyer. The observations below were made after I've read the game EULA. If EA sends me a message saying _"We want you to stop working in fake server and remove it from Github"_, I'm gonna do it. Still, since Darkspore is literally (and totally) unplayable for now, with no expectation of a fix, and this app aims to make it work only for people with an original copy, it doesn't look like EA would have a reason to be bothered with it.
 
 
 # Is Darkspore-Fakeserver legal?

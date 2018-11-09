@@ -13,4 +13,16 @@ In order to start using (or at this point, contributing) the fake server, you wi
 - The Docker application installed;
 - Darkspore installed (use Wine, or relatives, if you are in Linux/macOS).
 
+## Progress
+- [x] Redirect Darkspore requests to the localhost;
+- [ ] Make Darkspore believe that the server is online;
+- [ ] ?
+
+## Server redirect
+The Darkspore application makes requests to different domains. In order to use the fake server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `0.0.0.0` because in that way we don't need a router (and also, the request responses come almost instantly that way), but if you are using a VM to run Darkspore, replace it with `127.0.0.1`.
+
+(need to add hosts list)
+
+## API
+WIP
 

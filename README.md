@@ -7,8 +7,8 @@ The focus is creating a "fake server" in order to make Darkspore work again. The
 Still, be aware: this project will respect every layer of DRM that is above the Darkspore application. If you bought the game in Steam, you will still need Steam to play it. If you bought the game in Origin, you will still need Origin to play it. And if you bought the game disc, you will still need the game disc in your reader to play it, and you will still need a legitimate serial to install it.
 
 The only layer of DRM that _for now_ cannot be kept is the ingame DRM, which checks if you have the game in your Origin account after the game has already started. There are two reasons for that:
-- Origin has no public API, so there is no way to check if the user is really logged in, nor there is a way to know if he/she really has the game in the library. 
-- Even if we managed to do it, it would be very simple for someone to simply fork the project and remove that. I guess the best that can be done is relying in the other DRMs, which will exist independently of the way that you bought the game,
+- Origin has no public API, so there is no way to check if the user is really logged in, nor there is a way to know if he/she really has the game in the library;
+- Even if we managed to do it, it would be very simple for someone to simply fork the project and remove that. I guess the best that can be done is relying in the other DRMs, which will exist independently of the way that you bought the game.
 
 ## Architecture
 The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrapper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.
@@ -48,10 +48,10 @@ __Description:__ ???
 __Description:__ (Uncertain) First request made by the app. Not sure of what it retrieves.
 
 ### api.account.auth
-__Description:__ (Uncertain) Probably the method used to login with your EA games account. If so, we gonna need to use some Origin API to make sure that the user exists, and that it's using a valid license of the game, manually.
+__Description:__ (Uncertain) Probably the method used to login with your EA games account. Considering that there is no Origin public API, we are probably just going to make it return that the user is authenticated independently of the case, but still using different usernames to differ different players using the same machine.
 
 ### api.account.getAccount
-__Description:__ (Uncertain) Probably the method used after the prior one to retrieve the user account details. Maybe it's here that it checks if the user has Darkspore in his/her account or not.
+__Description:__ (Uncertain) Probably the method used after the prior one to retrieve the user account details. Maybe it's here that it checks if the user has Darkspore in his/her account or not, among with some other info.
 
 ### api.creature.getCreature
 __Description:__ (Uncertain) Probably retrieves the details about said creature.

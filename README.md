@@ -2,10 +2,16 @@
 [WIP] A small local server to play Darkspore offline
 
 ## Introduction
-The focus is creating a "fake server" in order to make Darkspore work again. The game has been dead for 2 years now (you can literally buy a new physical copy by 2.99£ in Amazon.com). Since the servers shutdown, the game disc became a useless piece of plastic. This project aims to create a localhost server, which is going to make Darkspore work like if it was the original server.
+The focus is creating a "fake server" in order to make Darkspore work again. The game has been dead for 2 years now (you can literally buy a new physical copy by 2.99£ in Amazon.com). Since the servers shutdown, the game disc became a useless piece of plastic. This project aims to create a localhost server, which is going to make Darkspore work like if it was the original server, but much faster and private.
+
+Still, be aware: this project will respect every layer of DRM that is above the Darkspore application. If you bought the game in Steam, you will still need Steam to play it. If you bought the game in Origin, you will still need Origin to play it. And if you bought the game disc, you will still need the game disc in your reader to play it, and you will still need a legitimate serial to install it.
+
+The only layer of DRM that _for now_ cannot be kept is the ingame DRM, which checks if you have the game in your Origin account after the game has already started. There are two reasons for that:
+- Origin has no public API, so there is no way to check if the user is really logged in, nor there is a way to know if he/she really has the game in the library. 
+- Even if we managed to do it, it would be very simple for someone to simply fork the project and remove that. I guess the best that can be done is relying in the other DRMs, which will exist independently of the way that you bought the game,
 
 ## Architecture
-The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrspper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.
+The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrapper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.
 
 ## Requirements
 In order to start using (or at this point, contributing) the fake server, you will need:
@@ -30,7 +36,7 @@ The Darkspore application makes requests to different domains. In order to use t
 ```
 
 ## API (config.darkspore.com)
-There is one single API that seems to be responsible by many of the game interactions with the server: `/bootstrap/api`. We need to handle each of those interactions separately, so the API will be split by method. The methods below were find in the game .EXE by opening it with Hex Fiend and searching for `api.`.
+There is one single API that seems to be responsible by many of the game interactions with the server: `/bootstrap/api`. We need to handle each of those interactions separately, so the API will be split by method. 
 
 ### api.test.null
 __Description:__ ???
@@ -97,7 +103,7 @@ __Description:__ ???
 
 
 ## APIs (dev.darkspore.ea.com)
-Those others paths were found in the game EXE. While we can (almost) safely assume that those are other APIs, used by the SPORE Labs, which is a removed feature according to the game Wiki.
+We can (almost) safely assume that those are the APIs used by the SPORE Labs, which is a removed feature according to the game Wiki.
 http://darksporegame.wikia.com/wiki/Removed_Elements
 
 Considering that even the APIs are there, is it possible that the SPORE Labs were already partially implemented in-game? Maybe we can find out.
@@ -119,7 +125,7 @@ Considering that even the APIs are there, is it possible that the SPORE Labs wer
 - /web/sporelabsgame/register
 
 ## APIs (dev-sn2.darkspore.ea.com)
-We can see here the main API again. Those API may have been used during the game development, following the same paths of `config.darkspore.com`, so the developers could test and debug the game without using the production server. If that theory is correct, the other 4 APIs may have existed for the official server as well.
+We can see here the main API again. Those APIs may have been used during the game development, following the same paths of `config.darkspore.com`, so the developers could test and debug the game without using the production server. If that theory is correct, the other 4 APIs may have existed for the official server as well.
 
 - /bugs/choosepath.php
 - /survey/takeSurvey.php

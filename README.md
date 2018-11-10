@@ -21,7 +21,7 @@ In order to start using (or at this point, contributing) the fake server, you wi
 
 ## Progress
 - [x] Redirect Darkspore requests to the localhost;
-- [ ] Make Darkspore believe that the server is online;
+- [ ] Make Darkspore believe that the server is online (Erro code 102);
 - [ ] ?
 
 ## Server redirect
@@ -132,3 +132,13 @@ We can see here the main API again. Those APIs may have been used during the gam
 - /survey/api
 - /game/api
 - /bootstrap/api
+
+## API (beta-sn2.darkspore.ea.com)
+That API seems to be the one used to check server related things. Not sure of why this is the checked domain, but still...
+
+### api.status.getStatus
+This method has a callback parameter. It's unknown if that same method may respond to different callbacks, but for now we are splitting it:
+
+#### updateServerStatus(data)
+__Description:__ That callback is present when Darkspore is trying to check if the game servers are online or not. It's unknown which kind of response this callback expects.
+

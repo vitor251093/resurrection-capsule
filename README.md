@@ -21,7 +21,7 @@ In order to start using (or at this point, contributing) the fake server, you wi
 
 ## Progress
 - [x] Redirect Darkspore requests to the localhost;
-- [ ] Make Darkspore believe that the server is online (Erro code 102);
+- [ ] Make Darkspore believe that the server is online (Error code 102);
 - [ ] ?
 
 ## Server redirect

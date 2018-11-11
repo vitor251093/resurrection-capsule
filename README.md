@@ -73,6 +73,7 @@ __Description:__ ???
 
 ### api.inventory.purchasePart
 __Description:__ ???
+__Reference pic:__ http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/Inventory.png
 
 ### api.account.setNewPlayerStats
 __Description:__ ???
@@ -142,3 +143,6 @@ This method has a callback parameter. It's unknown if that same method may respo
 #### updateServerStatus(data)
 __Description:__ That callback is present when Darkspore is trying to check if the game servers are online or not. It's unknown which kind of response this callback expects.
 
+
+## Reference images
+http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/DarksporeRefs.html

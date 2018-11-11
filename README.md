@@ -35,17 +35,17 @@ The Darkspore application makes requests to different domains. In order to use t
 0.0.0.0 dev.darkspore.ea.com
 ```
 
-## API (config.darkspore.com)
-There is one single API that seems to be responsible by many of the game interactions with the server: `/bootstrap/api`. We need to handle each of those interactions separately, so the API will be split by method. 
+## Main API
+We need to handle each of the `method`s separately, so the API will be split by `method`. 
 
 ### api.test.null
 __Description:__ ???
 
-### api.survey.getSurveyList
+### api.status.getBroadcastList
 __Description:__ ???
 
-### api.config.getConfigs
-__Description:__ (Uncertain) First request made by the app. Not sure of what it retrieves.
+### api.status.getStatus
+__Description:__ This method has a callback parameter. It's unknown if that same method may respond to different callbacks, but for now we only know `updateServerStatus(data)`. That callback is present when Darkspore is trying to check if the game servers are online or not. It's unknown which kind of response this callback expects.
 
 ### api.account.auth
 __Description:__ (Uncertain) Probably the method used to login with your EA games account. Considering that there is no Origin public API, we are probably just going to make it return that the user is authenticated independently of the case, but still using different usernames to differ different players using the same machine.
@@ -53,31 +53,28 @@ __Description:__ (Uncertain) Probably the method used to login with your EA game
 ### api.account.getAccount
 __Description:__ (Uncertain) Probably the method used after the prior one to retrieve the user account details. Maybe it's here that it checks if the user has Darkspore in his/her account or not, among with some other info.
 
-### api.creature.getCreature
-__Description:__ (Uncertain) Probably retrieves the details about said creature.
-
-### api.creature.getCreaturePng
-__Description:__ (Uncertain) Probably returns the data of a PNG with the said creature, since this is the way that the SPORE engine handles the saving of creatures.
-
-### api.game.getGame
-__Description:__ ???
-
-### api.game.getRandomGame
-__Description:__ ???
-
-### api.inventory.getPartList
-__Description:__ ???
-
-### api.game.getReplay
-__Description:__ ???
-
-### api.inventory.purchasePart
+### api.account.logout
 __Description:__ ???
 
 ### api.account.setNewPlayerStats
 __Description:__ ???
 
 ### api.account.setSettings
+__Description:__ ???
+
+### api.account.unlock
+__Description:__ ???
+
+### api.config.getConfigs
+__Description:__ (Uncertain) First request made by the app. Not sure of what it retrieves.
+
+### api.creature.getCreature
+__Description:__ (Uncertain) Probably retrieves the details about said creature.
+
+### api.creature.getCreaturePng
+__Description:__ (Uncertain) Probably returns the data of a PNG with the said creature, since this is the way that the SPORE engine handles the saving of creatures.
+
+### api.creature.resetCreature
 __Description:__ ???
 
 ### api.creature.unlockCreature
@@ -89,24 +86,42 @@ __Description:__ ???
 ### api.deck.updateDecks
 __Description:__ ???
 
+### api.game.getGame
+__Description:__ ???
+
+### api.game.getRandomGame
+__Description:__ ???
+
+### api.game.getReplay
+__Description:__ ???
+
+### api.game.exitGame
+__Description:__ ???
+
+### api.inventory.getPartList
+__Description:__ ???
+
+### api.inventory.purchasePart
+__Description:__ ???
+
 ### api.inventory.flairPart
 __Description:__ ???
 
 ### api.inventory.updatePartStatus
 __Description:__ ???
 
-### api.account.unlock
+### api.inventory.vendorParts
 __Description:__ ???
 
 ### api.inventory.vendorPart
 __Description:__ ???
 
+### api.survey.getSurveyList
+__Description:__ (Uncertain) Probably related with the Demo surveys.
 
-## APIs (dev.darkspore.ea.com)
-We can (almost) safely assume that those are the APIs used by the SPORE Labs, which is a removed feature according to the game Wiki.
-http://darksporegame.wikia.com/wiki/Removed_Elements
 
-Considering that even the APIs are there, is it possible that the SPORE Labs were already partially implemented in-game? Maybe we can find out.
+## SPORE Labs APIs
+Those APIs may be a legacy part of the code, or maybe not. In any case, we have listed them here. 
 - /web/sporelabsgame/creatureprofile
 - /web/sporelabsgame/wiki
 - /web/sporelabsgame/leaderboards
@@ -124,7 +139,7 @@ Considering that even the APIs are there, is it possible that the SPORE Labs wer
 - /web/sporelabsgame/persona
 - /web/sporelabsgame/register
 
-## APIs (dev-sn2.darkspore.ea.com)
+## Other APIs
 We can see here the main API again. Those APIs may have been used during the game development, following the same paths of `config.darkspore.com`, so the developers could test and debug the game without using the production server. If that theory is correct, the other 4 APIs may have existed for the official server as well.
 
 - /bugs/choosepath.php
@@ -132,13 +147,3 @@ We can see here the main API again. Those APIs may have been used during the gam
 - /survey/api
 - /game/api
 - /bootstrap/api
-
-## API (beta-sn2.darkspore.ea.com)
-That API seems to be the one used to check server related things. Not sure of why this is the checked domain, but still...
-
-### api.status.getStatus
-This method has a callback parameter. It's unknown if that same method may respond to different callbacks, but for now we are splitting it:
-
-#### updateServerStatus(data)
-__Description:__ That callback is present when Darkspore is trying to check if the game servers are online or not. It's unknown which kind of response this callback expects.
-

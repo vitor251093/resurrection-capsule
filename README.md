@@ -146,4 +146,6 @@ __Description:__ That callback is present when Darkspore is trying to check if t
 
 
 ## Reference images
-http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/DarksporeRefs.html
+- http://kaehlerplanet.com/darkspore/
+
+- http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/DarksporeRefs.html

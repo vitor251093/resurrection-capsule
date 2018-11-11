@@ -100,6 +100,7 @@ __Description:__ ???
 
 ### api.inventory.getPartList
 __Description:__ ???
+__Reference pic:__ http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/Inventory.png
 
 ### api.inventory.purchasePart
 __Description:__ ???
@@ -147,3 +148,8 @@ We can see here the main API again. Those APIs may have been used during the gam
 - /survey/api
 - /game/api
 - /bootstrap/api
+
+## Reference images
+- http://kaehlerplanet.com/darkspore/
+
+- http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/DarksporeRefs.html

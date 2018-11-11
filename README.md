@@ -33,6 +33,8 @@ The Darkspore application makes requests to different domains. In order to use t
 0.0.0.0 beta-sn2.darkspore.ea.com
 0.0.0.0 dev-sn2.darkspore.ea.com
 0.0.0.0 dev.darkspore.ea.com
+0.0.0.0 api.darkspore.com
+0.0.0.0 content.darkspore.com
 ```
 
 ## Main API

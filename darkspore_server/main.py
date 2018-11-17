@@ -28,9 +28,12 @@ def jsonResponseWithObject(obj):
     return Response(json_data, mimetype='application/json')
 
 @app.route("/api", methods=['GET','POST'])
-@app.route("/bootstrap/api", methods=['GET','POST'])
 def api():
+    print " "
+    print "http://" + request.host + "/api"
     print request.args
+    print " "
+
     version = request.args.get('version', default='1')
     callback = request.args.get('callback', default='')
     method  = request.args.get('method', default='')
@@ -39,11 +42,6 @@ def api():
     include_patches  = (request.args.get('include_patches',  default='true') == 'true')
     include_settings = (request.args.get('include_settings', default='true') == 'true')
 
-    if method == 'api.config.getConfigs':
-        # First method called by the game on startup
-        data = {}
-        return jsonResponseWithObject(data)
-    
     if method == 'api.status.getStatus':
         if callback == 'updateServerStatus(data)':
             data = {}
@@ -51,8 +49,33 @@ def api():
 
     return jsonResponseWithObject({})
 
+@app.route("/bootstrap/api", methods=['GET','POST'])
+def bootstrapApi():
+    print " "
+    print "http://" + request.host + "/bootstrap/api"
+    print request.args
+    print " "
+
+    if request.host == "config.darkspore.com":
+        version = request.args.get('version', default='1')
+        method  = request.args.get('method', default='')
+        build   = request.args.get('build',  default='')
+        include_patches  = (request.args.get('include_patches',  default='true') == 'true')
+        include_settings = (request.args.get('include_settings', default='true') == 'true')
+
+        if method == 'api.config.getConfigs':
+            # First method called by the game on startup
+            data = {}
+            return jsonResponseWithObject(data)
+    
+    return jsonResponseWithObject({})
+
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
+    print " "
+    print "http://" + request.host + "/bootstrap/launcher/notes"
+    print " "
+
     # Still not working
     return "<html><body>Darkspore Reloaded</body></html>"
 
@@ -63,6 +86,7 @@ def favicon():
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])
 def otherRequests(path):
+    print request.host
     print request.args
     print 'You want path: %s' % path
     return ""

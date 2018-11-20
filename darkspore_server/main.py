@@ -43,9 +43,13 @@ def api():
     include_settings = (request.args.get('include_settings', default='true') == 'true')
 
     if method == 'api.status.getStatus':
+
+        # updateServerStatus progress: 100%
         if callback == 'updateServerStatus(data)':
-            data = {}
-            return jsonResponseWithObject(data)
+            javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
+                          "setPlayButtonActive(); " +
+                          callback + ";");
+            return Response(javascript, mimetype='application/javascript')
 
     return jsonResponseWithObject({})
 
@@ -63,21 +67,23 @@ def bootstrapApi():
         include_patches  = (request.args.get('include_patches',  default='true') == 'true')
         include_settings = (request.args.get('include_settings', default='true') == 'true')
 
+        # api.config.getConfigs progress: 0%
         if method == 'api.config.getConfigs':
-            # First method called by the game on startup
             data = {}
             return jsonResponseWithObject(data)
-    
+
     return jsonResponseWithObject({})
 
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
-    print " "
-    print "http://" + request.host + "/bootstrap/launcher/notes"
-    print " "
-
-    # Still not working
-    return "<html><body>Darkspore Reloaded</body></html>"
+    # Launcher notes progress: 100%
+    return ("<html><head><title>Darkspore LS</title></head><body>" +
+            "<div style=\"color:#FFF;\">Darkspore LS</div>" +
+            "<br/>" +
+            "<div style=\"color:#EEE; font-size:11px;\">If you are reading that message, then the mod required by 'Darkspore LS' has been installed properly.</div>" +
+            "<br/>" +
+            "<div style=\"color:#EEE; font-size:11px;\">If the server status is online, you should be able to play Darkspore now.</div>" +
+            "</body></html>")
 
 @app.route("/favicon.ico")
 def favicon():

@@ -1,4 +1,4 @@
-# Darkspore-Reloaded
+# Darkspore-LS
 [WIP] A small local server to play Darkspore offline
 
 ## Introduction

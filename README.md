@@ -25,7 +25,7 @@ In order to start using (or at this point, contributing) the local server, you w
 ## Progress
 - [x] Redirect Darkspore requests to the localhost;
 - [x] Make Darkspore believe that the server is online (Error code 102);
-- [ ] Make Darkspore open after the Play button has been pressed.
+- [ ] Make Darkspore open after the Play button has been pressed (Error 3001).
 - [ ] ?
 
 ## Server redirect

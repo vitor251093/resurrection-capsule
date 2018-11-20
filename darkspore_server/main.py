@@ -48,6 +48,7 @@ def api():
         if callback == 'updateServerStatus(data)':
             javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
                           "setPlayButtonActive(); " +
+                          "setTimeout(function(){updateBottomleftProgressComment('Local server enabled');updateProgressBar(1);},100); " +
                           callback + ";");
             return Response(javascript, mimetype='application/javascript')
 

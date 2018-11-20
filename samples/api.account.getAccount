@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <stat>ok</stat>
+   <version>1</version>
+   <timestamp>1296018318</timestamp>
+   <exectime>299</exectime>
+   <account>
+      <avatar_id>1</avatar_id>
+      <avatar_updated>0</avatar_updated>
+      <blaze_id>386573487</blaze_id>
+      <chain_progression>0</chain_progression>
+      <creature_rewards>0</creature_rewards>
+      <current_game_id>1207</current_game_id>
+      <current_playgroup_id>0</current_playgroup_id>
+      <default_deck_pve_id>463</default_deck_pve_id>
+      <default_deck_pvp_id />
+      <dna>100</dna>
+      <email>thomasf@maxis.com</email>
+      <id>386573487</id>
+      <level>3</level>
+      <name>somegamerdood</name>
+      <new_player_inventory>1</new_player_inventory>
+      <new_player_progress>7000</new_player_progress>
+      <nucleus_id>12275996159</nucleus_id>
+      <tutorial_completed>Y</tutorial_completed>
+      <unlock_catalysts>0</unlock_catalysts>
+      <unlock_diagonal_catalysts>0</unlock_diagonal_catalysts>
+      <unlock_editor_flair_slots>3</unlock_editor_flair_slots>
+      <unlock_fuel_tanks>2</unlock_fuel_tanks>
+      <unlock_inventory>180</unlock_inventory>
+      <unlock_inventory_identify>0</unlock_inventory_identify>
+      <unlock_pve_decks>1</unlock_pve_decks>
+      <unlock_pvp_decks>0</unlock_pvp_decks>
+      <unlock_stats>0</unlock_stats>
+      <xp>201</xp>
+   </account>
+   <creatures>
+      <creature>
+         <ability_basic>868969257</ability_basic>
+         <ability_passive>4022963036</ability_passive>
+         <ability_random>2779439490</ability_random>
+         <ability_special_1>1137096183</ability_special_1>
+         <ability_special_2>1479879510</ability_special_2>
+         <account_level>3</account_level>
+         <class>ravager</class>
+         <created>1294220029</created>
+         <creator_id>386573487</creator_id>
+         <gear_score>0</gear_score>
+         <id>1000277</id>
+         <item_points>0</item_points>
+         <name>Blitz, the Storm Striker</name>
+         <name_locale_id>0xdf75b8ce!0x0ababafd</name_locale_id>
+         <noun_id>1667741389</noun_id>
+         <noun_name>PC_EL_Rogue.Noun</noun_name>
+         <rarity>0</rarity>
+         <stats>STR,12,0;DEX,20,0;MIND,8,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats>
+         <stats_ability />
+         <stats_ability_keyvalues />
+         <stats_template>STR,12,0;DEX,20,0;MIND,8,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats_template>
+         <text_locale_id>0xdf75b8ce!0x0acaf252</text_locale_id>
+         <type_a>plasma</type_a>
+         <type_b>plasma</type_b>
+         <unlock_level>1</unlock_level>
+         <version>1</version>
+      </creature>
+      <creature>
+         <ability_basic>885660025</ability_basic>
+         <ability_passive>1152331895</ability_passive>
+         <ability_random>1829107826</ability_random>
+         <ability_special_1>424126604</ability_special_1>
+         <ability_special_2>4200701581</ability_special_2>
+         <account_level>3</account_level>
+         <class>tempest</class>
+         <created>1294220030</created>
+         <creator_id>386573487</creator_id>
+         <gear_score>0</gear_score>
+         <id>1000278</id>
+         <item_points>0</item_points>
+         <name>Sage, the Life Forester</name>
+         <name_locale_id>0x36e9a22d!0x0ab99d2e</name_locale_id>
+         <noun_id>749013658</noun_id>
+         <noun_name>PC_LF_Mage.Noun</noun_name>
+         <rarity>0</rarity>
+         <stats>STR,6,0;DEX,12,0;MIND,22,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats>
+         <stats_ability />
+         <stats_ability_keyvalues />
+         <stats_template>STR,6,0;DEX,12,0;MIND,22,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats_template>
+         <text_locale_id>0x36e9a22d!0x0acaf252</text_locale_id>
+         <type_a>bio</type_a>
+         <type_b>bio</type_b>
+         <unlock_level>2</unlock_level>
+         <version>1</version>
+      </creature>
+      <creature>
+         <ability_basic>1510749589</ability_basic>
+         <ability_passive>1896811150</ability_passive>
+         <ability_random>638735652</ability_random>
+         <ability_special_1>2457641635</ability_special_1>
+         <ability_special_2>3176239913</ability_special_2>
+         <account_level>3</account_level>
+         <class>sentinel</class>
+         <created>1294220391</created>
+         <creator_id>386573487</creator_id>
+         <gear_score>0</gear_score>
+         <id>1000280</id>
+         <item_points>0</item_points>
+         <name>Wraith, the Specter of Vengeance</name>
+         <name_locale_id>0x06458f60!0x0abaec01</name_locale_id>
+         <noun_id>3591937345</noun_id>
+         <noun_name>PC_SN_Tank.Noun</noun_name>
+         <rarity>0</rarity>
+         <stats>STR,20,0;DEX,10,0;MIND,10,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats>
+         <stats_ability />
+         <stats_ability_keyvalues />
+         <stats_template>STR,20,0;DEX,10,0;MIND,10,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats_template>
+         <text_locale_id>0x06458f60!0x0acaf252</text_locale_id>
+         <type_a>necro</type_a>
+         <type_b>necro</type_b>
+         <unlock_level>3</unlock_level>
+         <version>1</version>
+      </creature>
+   </creatures>
+   <decks>
+      <deck>
+         <category>pve</category>
+         <created>1294220030</created>
+         <creator_id>386573487</creator_id>
+         <creature_1>1000277</creature_1>
+         <creature_2>1000278</creature_2>
+         <creature_3>1000280</creature_3>
+         <id>463</id>
+         <last_edit>0</last_edit>
+         <last_used>0</last_used>
+         <locked>0</locked>
+         <name>Squad 1</name>
+         <slot>1</slot>
+         <valid>Y</valid>
+         <creatures>
+            <creature>
+               <ability_basic>868969257</ability_basic>
+               <ability_passive>4022963036</ability_passive>
+               <ability_random>2779439490</ability_random>
+               <ability_special_1>1137096183</ability_special_1>
+               <ability_special_2>1479879510</ability_special_2>
+               <account_level>3</account_level>
+               <class>ravager</class>
+               <created>1294220029</created>
+               <creator_id>386573487</creator_id>
+               <gear_score>0</gear_score>
+               <id>1000277</id>
+               <item_points>0</item_points>
+               <name>Blitz, the Storm Striker</name>
+               <name_locale_id>0xdf75b8ce!0x0ababafd</name_locale_id>
+               <noun_id>1667741389</noun_id>
+               <noun_name>PC_EL_Rogue.Noun</noun_name>
+               <rarity>0</rarity>
+               <stats>STR,12,0;DEX,20,0;MIND,8,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats>
+               <stats_ability />
+               <stats_ability_keyvalues />
+               <stats_template>STR,12,0;DEX,20,0;MIND,8,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats_template>
+               <text_locale_id>0xdf75b8ce!0x0acaf252</text_locale_id>
+               <type_a>plasma</type_a>
+               <type_b>plasma</type_b>
+               <unlock_level>1</unlock_level>
+               <version>1</version>
+               <slot>1</slot>
+            </creature>
+            <creature>
+               <ability_basic>885660025</ability_basic>
+               <ability_passive>1152331895</ability_passive>
+               <ability_random>1829107826</ability_random>
+               <ability_special_1>424126604</ability_special_1>
+               <ability_special_2>4200701581</ability_special_2>
+               <account_level>3</account_level>
+               <class>tempest</class>
+               <created>1294220030</created>
+               <creator_id>386573487</creator_id>
+               <gear_score>0</gear_score>
+               <id>1000278</id>
+               <item_points>0</item_points>
+               <name>Sage, the Life Forester</name>
+               <name_locale_id>0x36e9a22d!0x0ab99d2e</name_locale_id>
+               <noun_id>749013658</noun_id>
+               <noun_name>PC_LF_Mage.Noun</noun_name>
+               <rarity>0</rarity>
+               <stats>STR,6,0;DEX,12,0;MIND,22,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats>
+               <stats_ability />
+               <stats_ability_keyvalues />
+               <stats_template>STR,6,0;DEX,12,0;MIND,22,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats_template>
+               <text_locale_id>0x36e9a22d!0x0acaf252</text_locale_id>
+               <type_a>bio</type_a>
+               <type_b>bio</type_b>
+               <unlock_level>2</unlock_level>
+               <version>1</version>
+               <slot>2</slot>
+            </creature>
+            <creature>
+               <ability_basic>1510749589</ability_basic>
+               <ability_passive>1896811150</ability_passive>
+               <ability_random>638735652</ability_random>
+               <ability_special_1>2457641635</ability_special_1>
+               <ability_special_2>3176239913</ability_special_2>
+               <account_level>3</account_level>
+               <class>sentinel</class>
+               <created>1294220391</created>
+               <creator_id>386573487</creator_id>
+               <gear_score>0</gear_score>
+               <id>1000280</id>
+               <item_points>0</item_points>
+               <name>Wraith, the Specter of Vengeance</name>
+               <name_locale_id>0x06458f60!0x0abaec01</name_locale_id>
+               <noun_id>3591937345</noun_id>
+               <noun_name>PC_SN_Tank.Noun</noun_name>
+               <rarity>0</rarity>
+               <stats>STR,20,0;DEX,10,0;MIND,10,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats>
+               <stats_ability />
+               <stats_ability_keyvalues />
+               <stats_template>STR,20,0;DEX,10,0;MIND,10,0;HLTH,200,0;MANA,100,0;PDEF,50,0;EDEF,50,0;CRTR,50,0;</stats_template>
+               <text_locale_id>0x06458f60!0x0acaf252</text_locale_id>
+               <type_a>necro</type_a>
+               <type_b>necro</type_b>
+               <unlock_level>3</unlock_level>
+               <version>1</version>
+               <slot>3</slot>
+            </creature>
+         </creatures>
+      </deck>
+      <deck>
+         <category>pve</category>
+         <created>1294220030</created>
+         <creator_id>386573487</creator_id>
+         <creature_1 />
+         <creature_2 />
+         <creature_3 />
+         <id>464</id>
+         <last_edit>0</last_edit>
+         <last_used>0</last_used>
+         <locked>1</locked>
+         <name>Squad 2</name>
+         <slot>2</slot>
+         <valid>N</valid>
+         <creatures />
+      </deck>
+      <deck>
+         <category>pve</category>
+         <created>1294220030</created>
+         <creator_id>386573487</creator_id>
+         <creature_1 />
+         <creature_2 />
+         <creature_3 />
+         <id>465</id>
+         <last_edit>0</last_edit>
+         <last_used>0</last_used>
+         <locked>1</locked>
+         <name>Squad 3</name>
+         <slot>3</slot>
+         <valid>N</valid>
+         <creatures />
+      </deck>
+   </decks>
+   <feed>
+      <count>20</count>
+      <total>161</total>
+      <items>
+         <item>
+            <account_id>386571374</account_id>
+            <id>1803</id>
+            <message_id>2</message_id>
+            <metadata>3524487169;1002340</metadata>
+            <name>maxisjohn</name>
+            <time>1296011517</time>
+         </item>
+         <item>
+            <account_id>386571374</account_id>
+            <id>1802</id>
+            <message_id>2</message_id>
+            <metadata>2128242117;1002339</metadata>
+            <name>maxisjohn</name>
+            <time>1296011487</time>
+         </item>
+         <item>
+            <account_id>386571374</account_id>
+            <id>1798</id>
+            <message_id>3</message_id>
+            <metadata>8</metadata>
+            <name>maxisjohn</name>
+            <time>1296008728</time>
+         </item>
+         <item>
+            <account_id>386573487</account_id>
+            <id>1773</id>
+            <message_id>1</message_id>
+            <metadata>Synesthesiac</metadata>
+            <name>somegamerdood</name>
+            <time>1295961120</time>
+         </item>
+         <item>
+            <account_id>386573487</account_id>
+            <id>1772</id>
+            <message_id>1</message_id>
+            <metadata>MaxisJohn</metadata>
+            <name>somegamerdood</name>
+            <time>1295961116</time>
+         </item>
+      </items>
+   </feed>
+</response>

@@ -1,6 +1,8 @@
 # Darkspore-LS
 [WIP] A small local server to play Darkspore offline
 
+![alt Darkspore launcher with LS](https://raw.githubusercontent.com/vitor251093/Darkspore-LS/master/readme-launcher.png)
+
 ## Introduction
 The focus is creating a local server in order to make Darkspore work again. The game has been dead since 2016 (you can literally buy a new physical copy by 2.99£ in Amazon.com). Since the servers shutdown, the game discs became useless pieces of plastic. This project aims to create a localhost server, which is going to make Darkspore work like if it was the original server, but much faster and private.
 
@@ -17,11 +19,13 @@ The project has been done by now using Python, Flask and a Docker. The reason fo
 In order to start using (or at this point, contributing) the local server, you will need:
 - A computer with Linux, MacOS or Windows 10;
 - The Docker application installed;
-- Darkspore installed (use Wine, or relatives, if you are in Linux/macOS).
+- Darkspore installed (use Wine, or relatives, if you are in Linux/macOS);
+- The mod from the `required_mod` folder inside your Darkspore Data folder.
 
 ## Progress
 - [x] Redirect Darkspore requests to the localhost;
-- [ ] Make Darkspore believe that the server is online (Error code 102);
+- [x] Make Darkspore believe that the server is online (Error code 102);
+- [ ] Make Darkspore open after the Play button has been pressed.
 - [ ] ?
 
 ## Server redirect

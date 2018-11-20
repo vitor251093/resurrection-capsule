@@ -83,6 +83,10 @@ def bootstrapLauncherNotes():
 def favicon():
     return render_template('favicon.ico')
 
+@app.route("/")
+def index():
+    return render_template('index.html')
+
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])
 def otherRequests(path):

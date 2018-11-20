@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <style>
+      html, body {
+        color:        #C3C7EA;
+        font-family: Arial,helvetica,verdana,sans-serif;
+
+      }
+
+      body {
+        background-image:    url("{{ url_for('static', filename='background_image.jpg')}}");
+        background-position: center 0px;
+      }
+
+      div#closure_message {
+        width:        600px;
+        margin-top:   300px;
+        margin-left:  auto;
+        margin-right: auto;
+        background:   none;
+      }
+
+      div#footer {
+        margin-top:   50px;
+        color:        #306FB5;
+      }
+
+
+      a:link    { color: #AC7C4D; }
+      a:visited { color: #AC7C4D; }
+      a:hover   { color: #FFFFFF; }
+      a:active  { color: #FFFFFF; }
+
+    </style>
+
+  </head>
+
+  <title>
+    Darkspore LS
+  </title>
+
+  <body>
+    <div id="closure_message">
+      Welcome back... It has been a long time since the servers shutdown.
+      <br><br>
+      We have been kept locked in the deeps of distant hard disks. The game discs became useless pieces of plastic, and the game files a waste of space. This ends now.
+      <br><br>
+      Brace yourself, and be prepared. Darkspore has returned.
+      <br><br>
+
+      <div id="footer">
+        <center>
+          <img src="{{ url_for('static', filename='MaxisLogoBlue.png')}}">
+          <p>&copy; 2011-2016 Electronic Arts Inc. All Rights Reserved.</p>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>

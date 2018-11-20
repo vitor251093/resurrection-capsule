@@ -34,10 +34,10 @@ def api():
     print request.args
     print " "
 
-    version = request.args.get('version', default='1')
+    version  = request.args.get('version',  default='1')
     callback = request.args.get('callback', default='')
-    method  = request.args.get('method', default='')
-    build   = request.args.get('build',  default='')
+    method   = request.args.get('method',   default='')
+    build    = request.args.get('build',    default='')
     format_type = request.args.get('format', default='json')
     include_patches  = (request.args.get('include_patches',  default='true') == 'true')
     include_settings = (request.args.get('include_settings', default='true') == 'true')
@@ -49,7 +49,7 @@ def api():
             javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
                           "setPlayButtonActive(); " +
                           "setTimeout(function(){updateBottomleftProgressComment('Local server enabled');updateProgressBar(1);},100); " +
-                          callback + ";");
+                          callback + ";")
             return Response(javascript, mimetype='application/javascript')
 
     return jsonResponseWithObject({})
@@ -77,18 +77,11 @@ def bootstrapApi():
 
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
-    # Launcher notes progress: 100%
-    return ("<html><head><title>Darkspore LS</title></head><body>" +
-            "<div style=\"color:#FFF;\">Darkspore LS</div>" +
-            "<br/>" +
-            "<div style=\"color:#EEE; font-size:11px;\">If you are reading that message, then the mod required by 'Darkspore LS' has been installed properly.</div>" +
-            "<br/>" +
-            "<div style=\"color:#EEE; font-size:11px;\">Also, that means that the local server is working, so you should be able to play Darkspore now.</div>" +
-            "</body></html>")
+    return render_template('launcher_notes.html')
 
 @app.route("/favicon.ico")
 def favicon():
-    return ""
+    return render_template('favicon.ico')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])

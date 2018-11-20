@@ -38,93 +38,148 @@ The Darkspore application makes requests to different domains. In order to use t
 ```
 
 ## Main API
-We need to handle each of the `method`s separately, so the API will be split by `method`. 
+We need to handle each of the `method`s separately, so the API will be split by `method`.
 
 ### api.test.null
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.status.getBroadcastList
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.status.getStatus
-__Description:__ This method has a callback parameter. It's unknown if that same method may respond to different callbacks, but for now we only know `updateServerStatus(data)`. That callback is present when Darkspore is trying to check if the game servers are online or not. It's unknown which kind of response this callback expects.
+__Progress:__ 100%
+
+__Description:__ This method checks if the game needed servers are online (`blaze`, `gms`, `nucleus` and `game`). It receives a callback parameter, `updateServerStatus(data)`. It's unknown if that same method may respond to different callbacks.
 
 ### api.account.auth
+__Progress:__ 0%
+
 __Description:__ (Uncertain) Probably the method used to login with your EA games account. Considering that there is no Origin public API, we are probably just going to make it return that the user is authenticated independently of the case, but still using different usernames to differ different players using the same machine.
 
 ### api.account.getAccount
+__Progress:__ 0%
+
 __Description:__ (Uncertain) Probably the method used after the prior one to retrieve the user account details. Maybe it's here that it checks if the user has Darkspore in his/her account or not, among with some other info.
 
 ### api.account.logout
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.account.setNewPlayerStats
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.account.setSettings
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.account.unlock
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.config.getConfigs
-__Description:__ (Uncertain) First request made by the app. Not sure of what it retrieves.
+__Progress:__ 0%
+
+__Description:__ (Uncertain) First request made by the app. Not sure of what it retrieves, but it seems to contain (among other things) the server host (`config.darkspore.com`), which seems kinda redundant.
 
 ### api.creature.getCreature
+__Progress:__ 0%
+
 __Description:__ (Uncertain) Probably retrieves the details about said creature.
 
 ### api.creature.getCreaturePng
+__Progress:__ 0%
+
 __Description:__ (Uncertain) Probably returns the data of a PNG with the said creature, since this is the way that the SPORE engine handles the saving of creatures.
 
 ### api.creature.resetCreature
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.creature.unlockCreature
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.creature.updateCreature
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.deck.updateDecks
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.game.getGame
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.game.getRandomGame
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.game.getReplay
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.game.exitGame
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.inventory.getPartList
+__Progress:__ 0%
+
 __Description:__ ???
+
 __Reference pic:__ http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/Inventory.png
 
 ### api.inventory.purchasePart
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.inventory.flairPart
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.inventory.updatePartStatus
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.inventory.vendorParts
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.inventory.vendorPart
+__Progress:__ 0%
+
 __Description:__ ???
 
 ### api.survey.getSurveyList
+__Progress:__ 0%
+
 __Description:__ (Uncertain) Probably related with the Demo surveys.
 
 
 ## SPORE Labs APIs
-Those APIs may be a legacy part of the code, or maybe not. In any case, we have listed them here. 
+Those APIs may be a legacy part of the code, or maybe not. In any case, we have listed them here.
 - /web/sporelabsgame/creatureprofile
 - /web/sporelabsgame/wiki
 - /web/sporelabsgame/leaderboards

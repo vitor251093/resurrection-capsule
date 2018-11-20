@@ -2,7 +2,7 @@
 [WIP] A small local server to play Darkspore offline
 
 ## Introduction
-The focus is creating a "fake server" in order to make Darkspore work again. The game has been dead since 2016 (you can literally buy a new physical copy by 2.99£ in Amazon.com). Since the servers shutdown, the game discs became useless pieces of plastic. This project aims to create a localhost server, which is going to make Darkspore work like if it was the original server, but much faster and private.
+The focus is creating a local server in order to make Darkspore work again. The game has been dead since 2016 (you can literally buy a new physical copy by 2.99£ in Amazon.com). Since the servers shutdown, the game discs became useless pieces of plastic. This project aims to create a localhost server, which is going to make Darkspore work like if it was the original server, but much faster and private.
 
 Still, be aware: this project will respect every layer of DRM that is above the Darkspore application. If you bought the game in Steam, you will still need Steam to play it. If you bought the game in Origin, you will still need Origin to play it. And if you bought the game disc, you will still need the game disc in your reader to play it, and you will still need a legitimate serial to install it.
 
@@ -14,7 +14,7 @@ The only layer of DRM that _for now_ cannot be kept is the ingame DRM, which che
 The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrapper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.
 
 ## Requirements
-In order to start using (or at this point, contributing) the fake server, you will need:
+In order to start using (or at this point, contributing) the local server, you will need:
 - A computer with Linux, MacOS or Windows 10;
 - The Docker application installed;
 - Darkspore installed (use Wine, or relatives, if you are in Linux/macOS).
@@ -25,7 +25,7 @@ In order to start using (or at this point, contributing) the fake server, you wi
 - [ ] ?
 
 ## Server redirect
-The Darkspore application makes requests to different domains. In order to use the fake server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `0.0.0.0` because in that way we don't need a router (and also, the request responses come almost instantly that way), but if you are using a VM to run Darkspore, replace it with `127.0.0.1`.
+The Darkspore application makes requests to different domains. In order to use the local server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `0.0.0.0` because in that way we don't need a router (and also, the request responses come almost instantly that way), but if you are using a VM to run Darkspore, replace it with `127.0.0.1`.
 
 ```
 0.0.0.0 config.darkspore.com

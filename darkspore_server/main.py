@@ -83,7 +83,7 @@ def bootstrapLauncherNotes():
             "<br/>" +
             "<div style=\"color:#EEE; font-size:11px;\">If you are reading that message, then the mod required by 'Darkspore LS' has been installed properly.</div>" +
             "<br/>" +
-            "<div style=\"color:#EEE; font-size:11px;\">If the server status is online, you should be able to play Darkspore now.</div>" +
+            "<div style=\"color:#EEE; font-size:11px;\">Also, that means that the local server is working, so you should be able to play Darkspore now.</div>" +
             "</body></html>")
 
 @app.route("/favicon.ico")

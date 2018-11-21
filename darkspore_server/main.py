@@ -34,18 +34,13 @@ def api():
     print request.args
     print " "
 
-    version  = request.args.get('version',  default='1')
-    callback = request.args.get('callback', default='')
-    method   = request.args.get('method',   default='')
-    build    = request.args.get('build',    default='')
-    format_type = request.args.get('format', default='json')
-    include_patches  = (request.args.get('include_patches',  default='true') == 'true')
-    include_settings = (request.args.get('include_settings', default='true') == 'true')
-
+    method      = request.args.get('method',   default='')
+    callback    = request.args.get('callback', default='')
+    version     = request.args.get('version',  default='')
+    format_type = request.args.get('format',   default='')
+    
     if method == 'api.status.getStatus':
-
-        # updateServerStatus progress: 100%
-        if callback == 'updateServerStatus(data)':
+        if callback == 'updateServerStatus(data)' and version == '1' and format_type == 'json':
             javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
                           "setPlayButtonActive(); " +
                           "setTimeout(function(){updateBottomleftProgressComment('Local server enabled');updateProgressBar(1);},100); " +
@@ -61,15 +56,15 @@ def bootstrapApi():
     print request.args
     print " "
 
-    if request.host == "config.darkspore.com":
-        version = request.args.get('version', default='1')
-        method  = request.args.get('method', default='')
-        build   = request.args.get('build',  default='')
-        include_patches  = (request.args.get('include_patches',  default='true') == 'true')
-        include_settings = (request.args.get('include_settings', default='true') == 'true')
+    method  = request.args.get('method',  default='')
+    version = request.args.get('version', default='')
+    build   = request.args.get('build',   default='')
+    include_patches  = (request.args.get('include_patches',  default='') == 'true')
+    include_settings = (request.args.get('include_settings', default='') == 'true')
 
-        # api.config.getConfigs progress: 0%
-        if method == 'api.config.getConfigs':
+    # api.config.getConfigs progress: 0%
+    if method == 'api.config.getConfigs':
+        if version == '1' and include_patches and include_settings:
             data = {}
             return jsonResponseWithObject(data)
 

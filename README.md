@@ -29,16 +29,25 @@ In order to start using (or at this point, contributing) the local server, you w
 - [ ] ?
 
 ## Server redirect
-The Darkspore application makes requests to different domains. In order to use the local server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `0.0.0.0` because in that way we don't need a router (and also, the request responses come almost instantly that way), but if you are using a VM to run Darkspore, replace it with `127.0.0.1`.
+The Darkspore application makes requests to different domains. In order to use the local server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `127.0.0.1` because it will make things easier when when we try to support programs like Hamachi.
 
 ```
-0.0.0.0 config.darkspore.com
-0.0.0.0 ea6.com.edgesuite.net
-0.0.0.0 beta-sn2.darkspore.ea.com
-0.0.0.0 dev-sn2.darkspore.ea.com
-0.0.0.0 dev.darkspore.ea.com
-0.0.0.0 api.darkspore.com
-0.0.0.0 content.darkspore.com
+127.0.0.1 api.darkspore.com
+127.0.0.1 config.darkspore.com
+127.0.0.1 content.darkspore.com
+127.0.0.1 beta-sn.darkspore.ea.com
+127.0.0.1 beta-sn2.darkspore.ea.com
+127.0.0.1 dev.darkspore.ea.com
+127.0.0.1 dev-sn.darkspore.ea.com
+127.0.0.1 dev-sn2.darkspore.ea.com
+127.0.0.1 fail.spore.rws.ad.ea.com
+127.0.0.1 ea6.com.edgesuite.net
+127.0.0.1 darkspore.alpha.lockbox.ea.com
+127.0.0.1 darkspore.com
+127.0.0.1 www.darkspore.com
+127.0.0.1 www.sporelabs.com
+127.0.0.1 splabbetamydb1b.rspc-iad.ea.com
+127.0.0.1 321917-prodmydb009.spore.rspc-iad.ea.com
 ```
 
 ## Main API

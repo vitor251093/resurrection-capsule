@@ -67,12 +67,14 @@ class DarkSporeServerApi(object):
             "default_deck_pvp_id": None, # Not sure of what is that
             "dna": '0', # TODO
             "email": account.email,
+            "grant_online_access": '0', # Not sure of what is that
             "id": str(account.id),
             "level": str(account.level),
             "name": account.name,
             "new_player_inventory": '1', # Not sure of what is that
             "new_player_progress": '7000', # Not sure of what is that
-            "nucleus_id": '1', # Not sure of what is that
+            "nucleus_id": '1', # A different per-user ID (may be the same here?)
+            "star_level": '0', # Not sure of what is that for, but it can't be 65536 or bigger
             "tutorial_completed": ('Y' if account.tutorialCompleted else 'N'),
             "unlock_catalysts": '0', # Not sure of what is that
             "unlock_diagonal_catalysts": '0', # Not sure of what is that
@@ -142,7 +144,7 @@ def bootstrapApi():
         xml_tree.SubElement(root, "stat").text = 'ok'
         xml_tree.SubElement(root, "version").text = version
         xml_tree.SubElement(root, "timestamp").text = str(long(time.time()))
-        xml_tree.SubElement(root, "exectime").text = '1' # Not sure of what is that
+        xml_tree.SubElement(root, "exectime").text = '1' # Not sure of what is that; amount of logged times?
 
         account = xml_tree.SubElement(root, "account")
         accountInfo = DarkSporeServerApi.getAccount_object(player_id)

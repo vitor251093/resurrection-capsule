@@ -74,9 +74,9 @@ __Progress:__ 0%
 __Description:__ (Uncertain) Probably the method used to login with your EA games account. Considering that there is no Origin public API, we are probably just going to make it return that the user is authenticated independently of the case, but still using different usernames to differ different players using the same machine.
 
 ### api.account.getAccount
-__Progress:__ 0%
+__Progress:__ 3.5%
 
-__Description:__ (Uncertain) Probably the method used after the prior one to retrieve the user account details. Maybe it's here that it checks if the user has Darkspore in his/her account or not, among with some other info.
+__Description:__ Method used to retrieve the user account details (DNA, XP, level, name, avatar, etc). It can also return the user feed, decks and creatures.
 
 ### api.account.logout
 __Progress:__ 0%
@@ -217,6 +217,7 @@ We can see here the main API again. Those APIs may have been used during the gam
 - /survey/takeSurvey.php
 - /survey/api
 - /game/api
+- /game/service/png
 - /bootstrap/api
 
 ## Reference images

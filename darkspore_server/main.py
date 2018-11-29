@@ -1,4 +1,5 @@
 from models.account import *
+from controllers.config import *
 import os
 import sys
 import getopt
@@ -14,11 +15,6 @@ from flask import render_template
 from flask import Response
 from flask import send_from_directory
 import logging
-
-class DarkSporeServerConfig(object):
-    @staticmethod
-    def shouldSkipLauncher():
-        return True
 
 class DarkSporeServer(object):
     def __init__(self):
@@ -47,7 +43,7 @@ class DarkSporeServerApi(object):
                           "updateProgressBar(1);" +
                       "},100); " +
                       callback + ";")
-        if DarkSporeServerConfig.shouldSkipLauncher():
+        if serverConfig.get("SHOULD_SKIP_LAUNCHER"):
             javascript = "clickPlayButton();"
         return javascript
 
@@ -90,6 +86,7 @@ class DarkSporeServerApi(object):
 
 app = Flask(__name__)
 server = DarkSporeServer()
+serverConfig = DarkSporeServerConfig()
 
 handler = logging.FileHandler('/darkspore_server/templates/app.log')  # errors logged to this file
 handler.setLevel(logging.ERROR)  # only log errors and above

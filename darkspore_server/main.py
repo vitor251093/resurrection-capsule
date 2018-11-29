@@ -43,8 +43,8 @@ class DarkSporeServerApi(object):
                           "updateProgressBar(1);" +
                       "},100); " +
                       callback + ";")
-        if serverConfig.get("SHOULD_SKIP_LAUNCHER"):
-            javascript = "clickPlayButton();"
+        if serverConfig.get("SHOULD_SKIP_LAUNCHER") == True:
+            javascript = "setTimeout(function(){clickPlayButton();},200);"
         return javascript
 
     @staticmethod
@@ -88,7 +88,7 @@ app = Flask(__name__)
 server = DarkSporeServer()
 serverConfig = DarkSporeServerConfig()
 
-handler = logging.FileHandler('/darkspore_server/templates/app.log')  # errors logged to this file
+handler = logging.FileHandler('/darkspore_server_save/app.log')  # errors logged to this file
 handler.setLevel(logging.ERROR)  # only log errors and above
 app.logger.addHandler(handler)
 

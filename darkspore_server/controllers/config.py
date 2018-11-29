@@ -25,7 +25,11 @@ class DarkSporeServerConfig(object):
                             value = True
                     self.config[key] = value
         except:
+            print('')
             print('Error while reading config file')
+            print('')
+
+        print self.config
 
     def get(self,key):
         return self.config[key]

@@ -3,8 +3,8 @@ class DarkSporeServerConfig(object):
     
     def __init__(self):
         self.config = {
-                        "SHOULD_SKIP_LAUNCHER": False
-                      }
+            "SHOULD_SKIP_LAUNCHER": False
+        }
 
         try:
             configFile = open("/darkspore_server_save/config.txt","r")
@@ -13,7 +13,7 @@ class DarkSporeServerConfig(object):
                 if len(line.strip()) > 0 and line.strip().startswith('#') == False:
                     l_comp = line.split('=', 1)
                     if len(l_comp) != 2:
-                        raise ValueError('Invalid config line: ' + line)
+                        raise SyntaxError('Invalid config line: ' + line)
                     key   = l_comp[0].strip()
                     value = l_comp[1].strip()
                     try: 
@@ -24,9 +24,9 @@ class DarkSporeServerConfig(object):
                         if value == "true":
                             value = True
                     self.config[key] = value
-        except:
+        except Exception as e:
             print('')
-            print('Error while reading config file')
+            print('Error while reading config file: ' + e)
             print('')
 
         print self.config

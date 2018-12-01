@@ -37,6 +37,7 @@ class DarkSporeServerApi(object):
     @staticmethod
     def getStatus_javascript(callback):
         javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
+                      "oncriticalerror = false; " +
                       "setPlayButtonActive(); " +
                       "setTimeout(function(){" +
                           "updateBottomleftProgressComment('Local server enabled');" +

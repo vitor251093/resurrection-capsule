@@ -255,7 +255,9 @@ def index():
 
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
-    return render_template('launcher_notes.html')
+    launcherNotesFile = open("/darkspore_server_save/launcher_notes.html","r")
+    launcherNotesContents = launcherNotesFile.read()
+    return Response(launcherNotesContents, mimetype='text/html')
 
 @app.route('/favicon.ico')
 def favicon():

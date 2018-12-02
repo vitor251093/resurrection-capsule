@@ -46,5 +46,8 @@ class DarkSporeServerConfig(object):
         return self.get("SHOULD_SKIP_LAUNCHER") == True
 
     def storagePath(self):
-        return self.get("STORAGE_PATH")
+        storagePath = self.get("STORAGE_PATH")
+        while storagePath.endswith('/') or storagePath.endswith('\\'):
+            storagePath = storagePath[:-1]
+        return storagePath
 

@@ -1,5 +1,5 @@
 # Allow to skip the game launcher
-SHOULD_SKIP_LAUNCHER=true
+SHOULD_SKIP_LAUNCHER=false
 
 # Location where the game data is saved (only useful if you are not using Docker)
 #STORAGE_PATH=/darkspore_server_save

@@ -42,6 +42,8 @@ class DarkSporeServerApi(object):
                           "setPlayButtonActive(); " +
                           "updateBottomleftProgressComment('Local server enabled');" +
                           "updateProgressBar(1);" +
+                          "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
+                          "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
                       "},200); " +
                       callback + ";")
         if serverConfig.shouldSkipLauncher():

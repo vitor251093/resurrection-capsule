@@ -34,3 +34,6 @@ class DarkSporeServerConfig(object):
     def get(self,key):
         return self.config[key]
 
+    def shouldSkipLauncher(self):
+        return self.get("SHOULD_SKIP_LAUNCHER") == True
+

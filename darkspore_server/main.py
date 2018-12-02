@@ -37,14 +37,14 @@ class DarkSporeServerApi(object):
     @staticmethod
     def getStatus_javascript(callback):
         javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
-                      "oncriticalerror = false; " +
-                      "setPlayButtonActive(); " +
                       "setTimeout(function(){" +
+                          "oncriticalerror = false; " +
+                          "setPlayButtonActive(); " +
                           "updateBottomleftProgressComment('Local server enabled');" +
                           "updateProgressBar(1);" +
-                      "},100); " +
+                      "},200); " +
                       callback + ";")
-        if serverConfig.get("SHOULD_SKIP_LAUNCHER") == True:
+        if serverConfig.shouldSkipLauncher():
             javascript = "setTimeout(function(){clickPlayButton();},200);"
         return javascript
 
@@ -247,6 +247,10 @@ def gameServicePng():
 
     return ""
 
+@app.route("/")
+def index():
+    return render_template('index.html')
+
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
     return render_template('launcher_notes.html')
@@ -255,10 +259,6 @@ def bootstrapLauncherNotes():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
-@app.route("/")
-def index():
-    return render_template('index.html')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])

@@ -91,7 +91,7 @@ app = Flask(__name__)
 server = DarkSporeServer()
 serverConfig = DarkSporeServerConfig()
 
-handler = logging.FileHandler('/darkspore_server_save/app.log')  # errors logged to this file
+handler = logging.FileHandler(serverConfig.storagePath() + '/app.log')  # errors logged to this file
 handler.setLevel(logging.ERROR)  # only log errors and above
 app.logger.addHandler(handler)
 
@@ -255,11 +255,11 @@ def index():
 
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
-    return send_from_directory('/darkspore_server_save', 'launcher_notes.html', mimetype='text/html')
+    return send_from_directory(serverConfig.storagePath(), 'launcher_notes.html', mimetype='text/html')
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory('/darkspore_server/static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(serverConfig.serverPath + '/static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])

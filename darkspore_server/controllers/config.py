@@ -1,13 +1,21 @@
+import os
 
 class DarkSporeServerConfig(object):
     
     def __init__(self):
+        self.serverPath = "/darkspore_server"
         self.config = {
-            "SHOULD_SKIP_LAUNCHER": False
+            "SHOULD_SKIP_LAUNCHER": False,
+            "STORAGE_PATH": "/darkspore_server_save"
         }
 
         try:
-            configFile = open("/darkspore_server_save/config.txt","r")
+            scriptPath = os.path.abspath(os.path.dirname(__file__))
+            serverPath = os.path.join(scriptPath, "..")
+            self.serverPath = serverPath
+
+            configPath = os.path.join(serverPath, "config.txt")
+            configFile = open(configPath,"r")
             lines = configFile.readlines()
             for line in lines:
                 if len(line.strip()) > 0 and line.strip().startswith('#') == False:
@@ -36,4 +44,7 @@ class DarkSporeServerConfig(object):
 
     def shouldSkipLauncher(self):
         return self.get("SHOULD_SKIP_LAUNCHER") == True
+
+    def storagePath(self):
+        return self.get("STORAGE_PATH")
 

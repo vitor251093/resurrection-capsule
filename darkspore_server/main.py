@@ -188,9 +188,14 @@ def bootstrapApi():
         xml_tree.SubElement(config, "sporenet_db_name").text = 'darkspore'
         xml_tree.SubElement(config, "sporenet_db_port").text = '57373' #LSDS3
         xml_tree.SubElement(config, "sporenet_db_host").text = '127.0.0.1'
+        xml_tree.SubElement(config, "http_secure").text = 'false'
+        xml_tree.SubElement(config, "sporenet_cdn_host").text = '127.0.0.1'
+        xml_tree.SubElement(config, "sporenet_cdn_port").text = '57373' #LSDS4
         xml_tree.SubElement(config, "blaze_env").text = 'production' # Reblaze to protect the servers?
         xml_tree.SubElement(config, "blaze_secure").text = 'low'
         xml_tree.SubElement(config, "blaze_service_name").text = 'darkspore'
+        xml_tree.SubElement(config, "telemetry_rate").text = '1'
+        xml_tree.SubElement(config, "telemetry_setting").text = '{}'
 
         if include_patches:
             xml_tree.SubElement(root, "patches")
@@ -260,6 +265,14 @@ def bootstrapLauncherNotes():
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(serverConfig.serverPath + '/static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@app.route('/images/<file_name>.jpg')
+def steamDemoImages(file_name):
+    return send_from_directory(serverConfig.serverPath + '/static/images', file_name, mimetype='image/jpeg')
+
+@app.route('/launcher/<file_name>.html')
+def steamDemoLinks(file_name):
+    return send_from_directory(serverConfig.serverPath + '/static/launcher', file_name, mimetype='text/html')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])

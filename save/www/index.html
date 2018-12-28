@@ -1,7 +1,7 @@
 <html>
   <head>
     <style>
-      @font-face { font-family: Pirulen; src: url("{{ url_for('static', filename='fonts/pirulen.ttf')}}"); } 
+      @font-face { font-family: Pirulen; src: url("static/fonts/pirulen.ttf"); } 
 
       html, body {
         color:        #C3C7EA;
@@ -10,7 +10,7 @@
       }
 
       body {
-        background-image:    url("{{ url_for('static', filename='images/background_image.jpg')}}");
+        background-image:    url("static/images/background_image.jpg");
         background-position: center 0px;
       }
 
@@ -58,7 +58,7 @@
 
       <div id="footer">
         <center>
-          <img src="{{ url_for('static', filename='images/MaxisLogoBlue.png')}}">
+          <img src="static/images/MaxisLogoBlue.png">
           <p>&copy; 2011-2016 Electronic Arts Inc. All Rights Reserved.</p>
         </center>
       </div>

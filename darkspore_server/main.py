@@ -107,11 +107,12 @@ class DarkSporeServerApi(object):
             "xp": '201' # TODO
         }
 
-app = Flask(__name__)
 server = DarkSporeServer()
 serverConfig = DarkSporeServerConfig()
+staticFolderPath = os.path.join(os.path.join(serverConfig.storagePath(), 'www'), 'static')
+app = Flask(__name__, static_url_path='/static', static_folder=staticFolderPath)
 
-handler = logging.FileHandler(serverConfig.storagePath() + '/app.log')  # errors logged to this file
+handler = logging.FileHandler(os.path.join(serverConfig.storagePath(), 'app.log'))  # errors logged to this file
 handler.setLevel(logging.ERROR)  # only log errors and above
 app.logger.addHandler(handler)
 
@@ -286,11 +287,11 @@ def gameServicePng():
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return send_from_directory(os.path.join(serverConfig.storagePath(), 'www'), 'index.html', mimetype='text/html')
 
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
-    file = open(serverConfig.storagePath() + '/launcher_notes.html', "r") 
+    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), 'launcher_notes.html'), "r") 
     launcherNotesHtml = file.read()
 
     if serverConfig.versionLockEnabled():
@@ -302,15 +303,15 @@ def bootstrapLauncherNotes():
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(serverConfig.serverPath + '/static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(staticFolderPath, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/images/<file_name>.jpg')
 def steamDemoImages(file_name):
-    return send_from_directory(serverConfig.serverPath + '/static/images', file_name, mimetype='image/jpeg')
+    return send_from_directory(os.path.join(staticFolderPath,'images'), file_name, mimetype='image/jpeg')
 
 @app.route('/launcher/<file_name>.html')
 def steamDemoLinks(file_name):
-    return send_from_directory(serverConfig.serverPath + '/static/launcher', file_name, mimetype='text/html')
+    return send_from_directory(os.path.join(staticFolderPath,'launcher'), file_name, mimetype='text/html')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])

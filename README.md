@@ -59,6 +59,7 @@ The Darkspore application makes requests to different domains. In order to use t
 127.0.0.1 www.sporelabs.com
 127.0.0.1 splabbetamydb1b.rspc-iad.ea.com
 127.0.0.1 321917-prodmydb009.spore.rspc-iad.ea.com
+127.0.0.1 telemetry.maxis.com
 ```
 
 ## Main API

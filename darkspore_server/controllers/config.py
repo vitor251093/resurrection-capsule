@@ -5,6 +5,7 @@ class DarkSporeServerConfig(object):
     def __init__(self):
         self.serverPath = "/darkspore_server"
         self.config = {
+            "VERSION_LOCKED": False,
             "SHOULD_SKIP_LAUNCHER": False,
             "STORAGE_PATH": "/darkspore_server_save"
         }
@@ -42,6 +43,9 @@ class DarkSporeServerConfig(object):
     def get(self,key):
         return self.config[key]
 
+    def versionLockEnabled(self):
+        return self.get("VERSION_LOCKED") == True
+
     def shouldSkipLauncher(self):
         return self.get("SHOULD_SKIP_LAUNCHER") == True
 
@@ -53,7 +57,7 @@ class DarkSporeServerConfig(object):
 
     def steamDemoVersion(self):
         return "5.3.0.103"
-        
+
     def dvdVersion(self):
         return "5.3.0.15"
 

@@ -3,3 +3,6 @@ SHOULD_SKIP_LAUNCHER=false
 
 # Location where the game data is saved (only useful if you are not using Docker)
 #STORAGE_PATH=/darkspore_server_save
+
+# Once the D-LS is working, if you want to play with friends, this must be enabled for a better experience
+VERSION_LOCKED=false

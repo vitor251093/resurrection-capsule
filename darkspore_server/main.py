@@ -45,7 +45,6 @@ class DarkSporeServer(object):
 class DarkSporeServerApi(object):
     @staticmethod
     def getStatus_javascript(callback):
-        
         javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
                         "setTimeout(function(){" +
                         "oncriticalerror = false; " +
@@ -157,6 +156,8 @@ def bootstrapApi():
     # Different players must be using the same version of the game, otherwise
     # there may be issue during a match.
     validVersion = server.setVersion(build)
+    if serverConfig.versionLockEnabled() and validVersion == False:
+        return jsonResponseWithObject({})
 
     # api.account.getAccount progress: 3.5%
     if method == 'api.account.getAccount':

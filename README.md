@@ -21,7 +21,7 @@ This is the progress so far with each version of the game.
 
 ### Brazilian DVD version (5.3.0.15)
 - **Without mod:** no change;
-- **With mod:** launcher status become connected, and play button becomes selectable. Pressing Play makes the game crash.
+- **With mod:** launcher looks like screenshot above. Pressing Play makes the game crash.
 
 ## Architecture
 The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrapper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.

@@ -288,7 +288,12 @@ def index():
 def bootstrapLauncherNotes():
     file = open((serverConfig.storagePath() + '/launcher_notes.html').replace("//","/"), "r") 
     launcherNotesHtml = file.read()
-    launcherNotesHtml = launcherNotesHtml.replace("{{version}}", server.version)
+
+    if serverConfig.versionLockEnabled():
+        launcherNotesHtml = launcherNotesHtml.replace("{{version}}", server.version)
+    else:
+        launcherNotesHtml = launcherNotesHtml.replace("{{version}}", "available")
+
     return Response(launcherNotesHtml, mimetype='text/html')
 
 @app.route('/favicon.ico')

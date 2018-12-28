@@ -115,6 +115,10 @@ handler = logging.FileHandler(serverConfig.storagePath() + '/app.log')  # errors
 handler.setLevel(logging.ERROR)  # only log errors and above
 app.logger.addHandler(handler)
 
+darksporeBuild_dvd = "5.3.0.15"
+darksporeBuild_onlineInstaller = "5.3.0.84"
+darksporeBuild_steamDemo = "5.3.0.103"
+
 def jsonResponseWithObject(obj):
     json_data = json.dumps(obj)
     return Response(json_data, mimetype='application/json')

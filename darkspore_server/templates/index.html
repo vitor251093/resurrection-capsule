@@ -1,6 +1,8 @@
 <html>
   <head>
     <style>
+      @font-face { font-family: Pirulen; src: url("{{ url_for('static', filename='fonts/pirulen.ttf')}}"); } 
+
       html, body {
         color:        #C3C7EA;
         font-family: Arial,helvetica,verdana,sans-serif;
@@ -8,16 +10,20 @@
       }
 
       body {
-        background-image:    url("{{ url_for('static', filename='background_image.jpg')}}");
+        background-image:    url("{{ url_for('static', filename='images/background_image.jpg')}}");
         background-position: center 0px;
       }
 
       div#closure_message {
-        width:        600px;
+        width:        800px;
         margin-top:   300px;
         margin-left:  auto;
         margin-right: auto;
         background:   none;
+      }
+
+      #message {
+        font-family: Pirulen,Arial,helvetica,verdana,sans-serif;
       }
 
       div#footer {
@@ -41,16 +47,18 @@
 
   <body>
     <div id="closure_message">
-      Welcome back... It has been a long time since the servers shutdown.
-      <br><br>
-      We have been kept locked in the deeps of distant hard disks. The game discs became useless pieces of plastic, and the game files a waste of space. This ends now.
-      <br><br>
-      Brace yourself, and be prepared. Darkspore has returned.
-      <br><br>
+      <div id="message">
+        Welcome back... It has been a long time since the servers shutdown.
+        <br><br>
+        We have been kept locked in the deeps of distant hard disks. The game discs became useless pieces of plastic, and the game files a waste of space. This ends now.
+        <br><br>
+        Brace yourself, and be prepared. Darkspore has returned.
+        <br><br>
+      </div>
 
       <div id="footer">
         <center>
-          <img src="{{ url_for('static', filename='MaxisLogoBlue.png')}}">
+          <img src="{{ url_for('static', filename='images/MaxisLogoBlue.png')}}">
           <p>&copy; 2011-2016 Electronic Arts Inc. All Rights Reserved.</p>
         </center>
       </div>

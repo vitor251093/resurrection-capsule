@@ -20,6 +20,15 @@ class DarkSporeServer(object):
     def __init__(self):
         self.accounts = {}
         self.accountsSequenceNext = 0
+        self.version = None
+
+    def setVersion(self, version):
+        if self.version == None:
+            self.version = version
+        else:
+            if self.version != version:
+                return False
+        return True
 
     def getAccount(self, id):
         return self.accounts[str(id)]
@@ -36,18 +45,30 @@ class DarkSporeServer(object):
 class DarkSporeServerApi(object):
     @staticmethod
     def getStatus_javascript(callback):
+        
         javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
-                      "setTimeout(function(){" +
-                          "oncriticalerror = false; " +
-                          "setPlayButtonActive(); " +
-                          "updateBottomleftProgressComment('Local server enabled');" +
-                          "updateProgressBar(1);" +
-                          "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
-                          "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
-                      "},200); " +
-                      callback + ";")
+                        "setTimeout(function(){" +
+                        "oncriticalerror = false; " +
+                        "setPlayButtonActive(); " +
+                        "updateBottomleftProgressComment('Local server enabled');" +
+                        "updateProgressBar(1);" +
+                        "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
+                        "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
+                        "},200); " +
+                        callback + ";")
         if serverConfig.shouldSkipLauncher():
-            javascript = "setTimeout(function(){clickPlayButton();},200);"
+            javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; "
+                            "clickPlayButton();" + 
+                            "setTimeout(function(){" +
+                            "oncriticalerror = false; " +
+                            "setPlayButtonActive(); " +
+                            "updateBottomleftProgressComment('Local server enabled');" +
+                            "updateProgressBar(1);" +
+                            "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
+                            "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
+                            "clickPlayButton();" + 
+                            "},200); " +
+                            callback + ";")
         return javascript
 
     @staticmethod
@@ -132,6 +153,10 @@ def bootstrapApi():
     method  = request.args.get('method',  default='')
     version = request.args.get('version', default='')
     build   = request.args.get('build',   default='')
+
+    # Different players must be using the same version of the game, otherwise
+    # there may be issue during a match.
+    validVersion = server.setVersion(build)
 
     # api.account.getAccount progress: 3.5%
     if method == 'api.account.getAccount':
@@ -260,7 +285,10 @@ def index():
 
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
-    return send_from_directory(serverConfig.storagePath(), 'launcher_notes.html', mimetype='text/html')
+    file = open((serverConfig.storagePath() + '/launcher_notes.html').replace("//","/"), "r") 
+    launcherNotesHtml = file.read()
+    launcherNotesHtml = launcherNotesHtml.replace("{{version}}", server.version)
+    return Response(launcherNotesHtml, mimetype='text/html')
 
 @app.route('/favicon.ico')
 def favicon():

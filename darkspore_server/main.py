@@ -291,7 +291,7 @@ def index():
 
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
-    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), 'launcher_notes.html'), "r") 
+    file = open(os.path.join(os.path.join(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), 'bootstrap'), 'launcher'), 'notes.html'), "r") 
     launcherNotesHtml = file.read()
 
     if serverConfig.versionLockEnabled():

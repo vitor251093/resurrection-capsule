@@ -286,10 +286,12 @@ def gameServicePng():
     return ""
 
 @app.route("/")
+@app.route("/index.html")
 def index():
     return send_from_directory(os.path.join(serverConfig.storagePath(), 'www'), 'index.html', mimetype='text/html')
 
 @app.route("/bootstrap/launcher/notes")
+@app.route("/bootstrap/launcher/notes.html")
 def bootstrapLauncherNotes():
     file = open(os.path.join(os.path.join(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), 'bootstrap'), 'launcher'), 'notes.html'), "r") 
     launcherNotesHtml = file.read()

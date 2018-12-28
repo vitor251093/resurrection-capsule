@@ -55,6 +55,9 @@ class DarkSporeServerConfig(object):
             storagePath = storagePath[:-1]
         return storagePath
 
+    def onlineInstallerVersion(self):
+        return "5.3.0.84"
+
     def steamDemoVersion(self):
         return "5.3.0.103"
 

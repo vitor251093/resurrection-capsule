@@ -286,7 +286,7 @@ def index():
 
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
-    file = open((serverConfig.storagePath() + '/launcher_notes.html').replace("//","/"), "r") 
+    file = open(serverConfig.storagePath() + '/launcher_notes.html', "r") 
     launcherNotesHtml = file.read()
 
     if serverConfig.versionLockEnabled():

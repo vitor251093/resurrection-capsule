@@ -21,7 +21,7 @@ This is the progress so far with each version of the game.
 
 ### Online installer version (5.3.0.84)
 - **Without mod:** no change;
-- **With mod:** launcher looks like screenshot above, but with a different font. Pressing Play gives error 3001.
+- **With mod:** launcher looks like screenshot above, but with a different font. Pressing Play makes the splash image crash.
 
 ### Steam Beta version (5.3.0.103)
 - **Without mod:** no change;

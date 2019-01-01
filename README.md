@@ -12,6 +12,16 @@ The only layer of DRM that _for now_ cannot be kept is the ingame DRM, which che
 - Origin has no public API, so there is no way to check if the user is really logged in, nor there is a way to know if he/she really has the game in the library;
 - Even if we managed to do it, it would be very simple for someone to simply fork the project and remove that. I guess the best that can be done is relying in the other DRMs, which will exist independently of the way that you bought the game.
 
+## FAQ
+
+### With that, will Darkspore work exactly like it did before?
+No. There are two factors that most likely will change; a positive one and a negative one. The positive one is that there will no server instability (for obvious reason); still, if someone uses that to create an open private server, it may experiencs similar instabilities, unless we fix them.
+
+The negative one is that, at this moment, there is no sign of packet logs from the original server. That means thst, most likely, the game procedures won't be exactly like the original Darkspore ones. That includes damage calculation, drop chance, spawn frequency, experience calculstion, among other things.
+
+### How long it will take to be finished?
+I have no idea. The biggest issue at this moment is tbe getConfigs request, so any help is welcome.
+
 ## Actual state
 This is the progress so far with each version of the game.
 

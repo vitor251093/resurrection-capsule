@@ -15,9 +15,9 @@ The only layer of DRM that _for now_ cannot be kept is the ingame DRM, which che
 ## FAQ
 
 ### With that, will Darkspore work exactly like it did before?
-No. There are two factors that most likely will change; a positive one and a negative one. The positive one is that there will no server instability (for obvious reason); still, if someone uses that to create an open private server, it may experiencs similar instabilities, unless we fix them.
+No. There are two factors that most likely will change; a positive one and a negative one. The positive one is that there will be no server instability (for obvious reason); still, if someone uses that to create an open private server, it may experience similar instabilities, unless we fix them.
 
-The negative one is that, at this moment, there is no sign of packet logs from the original server. That means thst, most likely, the game procedures won't be exactly like the original Darkspore ones. That includes damage calculation, drop chance, spawn frequency, experience calculstion, among other things.
+The negative one is that, at this moment, there is no sign of packet logs from the original server. That means that, most likely, the game procedures won't be exactly like the original Darkspore ones. That includes damage calculation, drop chance, spawn frequency, experience calculation, among other things.
 
 ### How long it will take to be finished?
 I have no idea. The biggest issue at this moment is tbe getConfigs request, so any help is welcome.

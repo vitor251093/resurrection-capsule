@@ -7,7 +7,7 @@ class DarkSporeServerConfig(object):
         self.config = {
             "VERSION_LOCKED": False,
             "SHOULD_SKIP_LAUNCHER": False,
-            "STORAGE_PATH": "/darkspore_server_save"
+            "STORAGE_PATH": "/darkspore_server_storage"
         }
 
         try:

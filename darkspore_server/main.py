@@ -47,26 +47,28 @@ class DarkSporeServerApi(object):
     def getStatus_javascript(callback):
         javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
                         "setTimeout(function(){" +
-                        "oncriticalerror = false; " +
-                        "setPlayButtonActive(); " +
-                        "updateBottomleftProgressComment('Local server enabled');" +
-                        "updateProgressBar(1);" +
-                        "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
-                        "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
-                        "},200); " +
-                        callback + ";")
-        if serverConfig.shouldSkipLauncher():
-            javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; "
-                            "clickPlayButton();" + 
-                            "setTimeout(function(){" +
                             "oncriticalerror = false; " +
                             "setPlayButtonActive(); " +
                             "updateBottomleftProgressComment('Local server enabled');" +
                             "updateProgressBar(1);" +
                             "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
                             "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
+                        "},200); " +
+                        callback + ";")
+        if serverConfig.shouldSkipLauncher():
+            javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; "
                             "clickPlayButton();" + 
-                            "},200); " +
+                            "var runNow = function(){" +
+                                "oncriticalerror = false; " +
+                                "setPlayButtonActive(); " +
+                                "updateBottomleftProgressComment('Local server enabled');" +
+                                "updateProgressBar(1);" +
+                                "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
+                                "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
+                                "clickPlayButton();" + 
+                                "setTimeout(runNow,1); " +
+                            "}; " + 
+                            "runNow(); " +
                             callback + ";")
         return javascript
 
@@ -205,7 +207,7 @@ def bootstrapApi():
         xml_tree.SubElement(root, "stat").text = 'ok'
         xml_tree.SubElement(root, "version").text = version
         xml_tree.SubElement(root, "timestamp").text = str(long(time.time()))
-        xml_tree.SubElement(root, "exectime").text = '1' # Not sure of what is that
+        xml_tree.SubElement(root, "exectime").text = '10' # Not sure of what is that
 
         configs = xml_tree.SubElement(root, "configs")
         config = xml_tree.SubElement(configs, "config")
@@ -309,11 +311,11 @@ def favicon():
 
 @app.route('/images/<file_name>.jpg')
 def steamDemoImages(file_name):
-    return send_from_directory(os.path.join(staticFolderPath,'images'), file_name, mimetype='image/jpeg')
+    return send_from_directory(os.path.join(staticFolderPath,'images'), file_name + '.jpg', mimetype='image/jpeg')
 
 @app.route('/launcher/<file_name>.html')
 def steamDemoLinks(file_name):
-    return send_from_directory(os.path.join(staticFolderPath,'launcher'), file_name, mimetype='text/html')
+    return send_from_directory(os.path.join(staticFolderPath,'launcher'), file_name + '.html', mimetype='text/html')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])

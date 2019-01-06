@@ -14,11 +14,6 @@ __Progress:__ 0%
 
 __Description:__ ???
 
-### api.status.getStatus
-__Progress:__ 100%
-
-__Description:__ This method checks if the game needed servers are online (`blaze`, `gms`, `nucleus` and `game`). It receives a callback parameter, `updateServerStatus(data)`. It's unknown if that same method may respond to different callbacks.
-
 ### api.account.auth
 __Progress:__ 0%
 
@@ -52,7 +47,7 @@ __Description:__ ???
 ### api.config.getConfigs
 __Progress:__ 0%
 
-__Description:__ (Uncertain) First request made by the app. Not sure of what it retrieves, but it seems to contain (among other things) the server host (`config.darkspore.com`), which seems kinda redundant.
+__Description:__ (Uncertain) First request made by the app. Not sure of what it retrieves, but it seems to contain (among other things) the main API host (`config.darkspore.com`), which seems kinda redundant.
 
 ### api.creature.getCreature
 __Progress:__ 0%
@@ -139,32 +134,46 @@ __Description:__ ???
 ### api.survey.getSurveyList
 __Progress:__ 0%
 
-__Description:__ (Uncertain) Probably related with the Demo surveys.
+__Description:__ (Uncertain) Probably related with the Demo version surveys.
+
+
+## Status API
+That name is provisory, and is due to the fact that the only use found for that API until now is updating the server status in the Darkspore launcher. That API path is `/api`, and its host varies according to the game version. Just like the API above, it receives the GET parameter `method`, which in the case above defines which kind of information should be returned. Considering that, and the possibility that we can find other utilities for that API in the future, we gonna handle each of the `method`s separately, so that API will be split by `method` as well.
+
+### api.status.getStatus
+__Progress:__ 100% (?)
+
+__Description:__ This method checks if the game needed servers are online (`blaze`, `gms`, `nucleus` and `game`). It receives a callback parameter, `updateServerStatus(data)`. It's unknown if that same method may respond to different callbacks.
 
 
 ## SPORE Labs APIs
 Those APIs may be a legacy part of the code, or maybe not. In any case, those are the paths of its requests. The host is still unknown, but most likely in the hosts list, so it's irrelevant.
-- /web/sporelabsgame/creatureprofile
-- /web/sporelabsgame/wiki
-- /web/sporelabsgame/leaderboards
-- /web/sporelabsgame/profile
-- /web/sporelabsgame/lobby
-- /web/sporelabsgame/friends
-- /web/sporelabsgame/store
-- /web/sporelabsgame/inventory
-- /web/sporelabsgame/squad
-- /web/sporelabs/home
-- /web/sporelabs/stats
-- /web/sporelabs/alerts
-- /web/sporelabs/resetpassword
-- /web/sporelabsgame/finish
-- /web/sporelabsgame/persona
-- /web/sporelabsgame/register
+- `/web/sporelabsgame/creatureprofile`
+- `/web/sporelabsgame/wiki`
+- `/web/sporelabsgame/leaderboards`
+- `/web/sporelabsgame/profile`
+- `/web/sporelabsgame/lobby`
+- `/web/sporelabsgame/friends`
+- `/web/sporelabsgame/store`
+- `/web/sporelabsgame/inventory`
+- `/web/sporelabsgame/squad`
+- `/web/sporelabs/home`
+- `/web/sporelabs/stats`
+- `/web/sporelabs/alerts`
+- `/web/sporelabs/resetpassword`
+- `/web/sporelabsgame/finish`
+- `/web/sporelabsgame/persona`
+- `/web/sporelabsgame/register`
+
 
 ## Other APIs
 The use of those APIs is still unknown, although they can be found in the game EXE strings. Their hosts is also unknown.
-- /bugs/choosepath.php
-- /survey/takeSurvey.php
-- /survey/api
-- /game/api
-- /game/service/png
+- `/bugs/choosepath.php`
+- `/survey/takeSurvey.php`
+- `/survey/api`
+- `/game/api`
+- `/game/service/png`
+
+
+## Extra: Launcher notes
+Technically, this was an API in the original Darkspore; it was just the HTML page that was shown in the game launcher. Although, it's handled by Flask in Darkspore-LS in a way that it can be customized per-request, so here it's an API. The original path was `/bootstrap/launcher/notes`, and the host varies according to the game version.

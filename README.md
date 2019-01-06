@@ -20,7 +20,7 @@ No. There are two factors that most likely will change; a positive one and a neg
 The negative one is that, at this moment, there is no sign of packet logs from the original server. That means that, most likely, the game procedures won't be exactly like the original Darkspore ones. That includes damage calculation, drop chance, spawn frequency, experience calculation, among other things.
 
 ### How long it will take to be finished?
-I have no idea. The biggest issue at this moment is tbe getConfigs request, so any help is welcome.
+I have no idea. The biggest issue at this moment is the getConfigs request, so any help is welcome.
 
 ## Actual state
 This is the progress so far with each version of the game.
@@ -250,3 +250,6 @@ We can see here the main API again. Those APIs may have been used during the gam
 - http://kaehlerplanet.com/darkspore/
 
 - http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/DarksporeRefs.html
+
+## Future plans
+- Creating a small EXE which can be used to use Darkspore.exe redirecting its requests to a specific host, in order to avoid modifying the hosts file and to allow the use of different Darkspore servers. It may be based in [tinyproxy](https://github.com/tinyproxy/tinyproxy).

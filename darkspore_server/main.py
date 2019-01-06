@@ -6,6 +6,7 @@ import getopt
 import warnings
 import time
 import timeit
+import datetime
 import json
 import xml.etree.cElementTree as xml_tree
 from xml.etree import ElementTree
@@ -114,7 +115,9 @@ serverConfig = DarkSporeServerConfig()
 staticFolderPath = os.path.join(os.path.join(serverConfig.storagePath(), 'www'), 'static')
 app = Flask(__name__, static_url_path='/static', static_folder=staticFolderPath)
 
-handler = logging.FileHandler(os.path.join(serverConfig.storagePath(), 'app.log'))  # errors logged to this file
+now = datetime.datetime.now()
+logFileName = 'dls-' + now.strftime("%Y-%m-%d_%H-%M-%S") + '.log'
+handler = logging.FileHandler(os.path.join(serverConfig.storagePath(), logFileName))  # errors logged to this file
 handler.setLevel(logging.ERROR)  # only log errors and above
 app.logger.addHandler(handler)
 

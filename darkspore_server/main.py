@@ -327,4 +327,4 @@ def otherRequests(path):
 
 if __name__ == "__main__":
     # Needed by Flask if the Python file is called directly
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=80)

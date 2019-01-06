@@ -7,5 +7,8 @@ SHOULD_SKIP_LAUNCHER=false
 # Once the D-LS is working, if you want to play with friends, this must be enabled for a better experience
 VERSION_LOCKED=false
 
-# In case, for any reason, you want to place the index.html file in a different location, or give it a different name, you can do it by changing the line below
+# In case you want to place the index.html file in a different location, or give it a different name, you can do it by changing the line below
 DARKSPORE_INDEX_PAGE_PATH=index.html
+
+# In case you want to place the launcher notes in a different location, you can do it by changing the line below
+DARKSPORE_LAUNCHER_NOTES_PATH=bootstrap/launcher/notes.html

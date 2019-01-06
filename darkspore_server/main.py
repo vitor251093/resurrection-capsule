@@ -293,9 +293,9 @@ def index():
     return send_from_directory(os.path.join(serverConfig.storagePath(), 'www'), indexPath, mimetype='text/html')
 
 @app.route("/bootstrap/launcher/notes")
-@app.route("/bootstrap/launcher/notes.html")
 def bootstrapLauncherNotes():
-    file = open(os.path.join(os.path.join(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), 'bootstrap'), 'launcher'), 'notes.html'), "r") 
+    notesPath = serverConfig.darksporeLauncherNotesPath()
+    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), notesPath), "r") 
     launcherNotesHtml = file.read()
 
     if serverConfig.versionLockEnabled():

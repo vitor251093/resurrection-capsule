@@ -8,7 +8,8 @@ class DarkSporeServerConfig(object):
             "VERSION_LOCKED": False,
             "SHOULD_SKIP_LAUNCHER": False,
             "STORAGE_PATH": "/darkspore_server_storage",
-            "DARKSPORE_INDEX_PAGE_PATH": "index.html"
+            "DARKSPORE_INDEX_PAGE_PATH": "index.html",
+            "DARKSPORE_LAUNCHER_NOTES_PATH": "bootstrap/launcher/notes.html"
         }
 
         try:
@@ -52,6 +53,9 @@ class DarkSporeServerConfig(object):
 
     def darksporeIndexPagePath(self):
         return self.get("DARKSPORE_INDEX_PAGE_PATH")
+
+    def darksporeLauncherNotesPath(self):
+        return self.get("DARKSPORE_LAUNCHER_NOTES_PATH")
 
     def storagePath(self):
         storagePath = self.get("STORAGE_PATH")

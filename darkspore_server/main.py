@@ -122,8 +122,9 @@ handler.setLevel(logging.ERROR)  # only log errors and above
 app.logger.addHandler(handler)
 
 darksporeBuild_limitedEditionDvd = "5.3.0.15"
-darksporeBuild_onlineInstaller = "5.3.0.84"
-darksporeBuild_steamDemo = "5.3.0.103"
+darksporeBuild_onlineInstaller   = "5.3.0.84"  # Released at 27/04/2011
+darksporeBuild_steamDemo         = "5.3.0.103" # Released between 23/05/2011 and 14/06/2011
+darksporeBuild_latestOfficial    = "5.3.0.127" # Released between 15/11/2011 and 30/11/2012
 
 def jsonResponseWithObject(obj):
     json_data = json.dumps(obj)

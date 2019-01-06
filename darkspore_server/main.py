@@ -121,7 +121,7 @@ handler = logging.FileHandler(os.path.join(serverConfig.storagePath(), logFileNa
 handler.setLevel(logging.ERROR)  # only log errors and above
 app.logger.addHandler(handler)
 
-darksporeBuild_dvd = "5.3.0.15"
+darksporeBuild_limitedEditionDvd = "5.3.0.15"
 darksporeBuild_onlineInstaller = "5.3.0.84"
 darksporeBuild_steamDemo = "5.3.0.103"
 

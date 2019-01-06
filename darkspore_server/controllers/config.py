@@ -7,7 +7,8 @@ class DarkSporeServerConfig(object):
         self.config = {
             "VERSION_LOCKED": False,
             "SHOULD_SKIP_LAUNCHER": False,
-            "STORAGE_PATH": "/darkspore_server_storage"
+            "STORAGE_PATH": "/darkspore_server_storage",
+            "DARKSPORE_INDEX_PAGE_PATH": "index.html"
         }
 
         try:
@@ -48,6 +49,9 @@ class DarkSporeServerConfig(object):
 
     def shouldSkipLauncher(self):
         return self.get("SHOULD_SKIP_LAUNCHER") == True
+
+    def darksporeIndexPagePath(self):
+        return self.get("DARKSPORE_INDEX_PAGE_PATH")
 
     def storagePath(self):
         storagePath = self.get("STORAGE_PATH")

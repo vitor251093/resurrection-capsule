@@ -288,9 +288,9 @@ def gameServicePng():
     return ""
 
 @app.route("/")
-@app.route("/index.html")
 def index():
-    return send_from_directory(os.path.join(serverConfig.storagePath(), 'www'), 'index.html', mimetype='text/html')
+    indexPath = serverConfig.darksporeIndexPagePath()
+    return send_from_directory(os.path.join(serverConfig.storagePath(), 'www'), indexPath, mimetype='text/html')
 
 @app.route("/bootstrap/launcher/notes")
 @app.route("/bootstrap/launcher/notes.html")

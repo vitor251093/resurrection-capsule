@@ -1,4 +1,5 @@
 from models.account import *
+from controllers.gameApi import *
 from controllers.config import *
 import os
 import sys
@@ -21,13 +22,14 @@ class DarkSporeServer(object):
     def __init__(self):
         self.accounts = {}
         self.accountsSequenceNext = 0
-        self.version = None
+        self.gameVersion = None
+        self.version = "0.1"
 
-    def setVersion(self, version):
-        if self.version == None:
-            self.version = version
+    def setGameVersion(self, gameVersion):
+        if self.gameVersion == None:
+            self.gameVersion = gameVersion
         else:
-            if self.version != version:
+            if self.gameVersion != gameVersion:
                 return False
         return True
 
@@ -43,75 +45,9 @@ class DarkSporeServer(object):
         self.accountsSequenceNext += 1
         return id
 
-class DarkSporeServerApi(object):
-    @staticmethod
-    def getStatus_javascript(callback):
-        javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
-                        "setTimeout(function(){" +
-                            "oncriticalerror = false; " +
-                            "setPlayButtonActive(); " +
-                            "updateBottomleftProgressComment('Local server enabled');" +
-                            "updateProgressBar(1);" +
-                            "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
-                            "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
-                        "},200); " +
-                        callback + ";")
-        if serverConfig.shouldSkipLauncher():
-            javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; "
-                            "clickPlayButton();" + 
-                            "var runNow = function(){" +
-                                "oncriticalerror = false; " +
-                                "setPlayButtonActive(); " +
-                                "updateBottomleftProgressComment('Local server enabled');" +
-                                "updateProgressBar(1);" +
-                                "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
-                                "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
-                                "clickPlayButton();" + 
-                                "setTimeout(runNow,1); " +
-                            "}; " + 
-                            "runNow(); " +
-                            callback + ";")
-        return javascript
-
-    @staticmethod
-    def getAccount_object(id):
-        print "Retrieving user info..."
-        account = server.getAccount(id)
-        return {
-            "avatar_id": '1', # TODO
-            "avatar_updated": '0', # Not sure of what is that
-            "blaze_id": str(account.id),
-            "chain_progression": str(account.chainProgression()), 
-            "creature_rewards": '0', # Not sure of what is that
-            "current_game_id": '1', # Not sure of what is that
-            "current_playgroup_id": '0', # Not sure of what is that
-            "default_deck_pve_id": '1', # Not sure of what is that
-            "default_deck_pvp_id": None, # Not sure of what is that
-            "dna": '0', # TODO
-            "email": account.email,
-            "grant_online_access": '0', # Not sure of what is that
-            "id": str(account.id),
-            "level": str(account.level),
-            "name": account.name,
-            "new_player_inventory": '1', # Not sure of what is that
-            "new_player_progress": '7000', # Not sure of what is that
-            "nucleus_id": '1', # A different per-user ID (may be the same here?)
-            "star_level": '0', # Not sure of what is that for, but it can't be 65536 or bigger
-            "tutorial_completed": ('Y' if account.tutorialCompleted else 'N'),
-            "unlock_catalysts": '0', # Not sure of what is that
-            "unlock_diagonal_catalysts": '0', # Not sure of what is that
-            "unlock_editor_flair_slots": '3', # Not sure of what is that
-            "unlock_fuel_tanks": '2', # Not sure of what is that
-            "unlock_inventory": '180', # Not sure of what is that
-            "unlock_inventory_identify": '0', # Not sure of what is that
-            "unlock_pve_decks": '1', # Not sure of what is that
-            "unlock_pvp_decks": '0', # Not sure of what is that
-            "unlock_stats": '0', # Not sure of what is that
-            "xp": '201' # TODO
-        }
-
 server = DarkSporeServer()
 serverConfig = DarkSporeServerConfig()
+serverApi = DarkSporeServerApi(serverConfig, server)
 staticFolderPath = os.path.join(os.path.join(serverConfig.storagePath(), 'www'), 'static')
 app = Flask(__name__, static_url_path='/static', static_folder=staticFolderPath)
 
@@ -143,7 +79,7 @@ def api():
 
     if method == 'api.status.getStatus':
         if callback == 'updateServerStatus(data)' and version == '1' and format_type == 'json':
-            javascript = DarkSporeServerApi.getStatus_javascript(callback)
+            javascript = serverApi.getStatus_javascript(callback)
             return Response(javascript, mimetype='application/javascript')
 
     print " "
@@ -166,7 +102,7 @@ def bootstrapApi():
 
     # Different players must be using the same version of the game, otherwise
     # there may be issue during a match.
-    validVersion = server.setVersion(build)
+    validVersion = server.setGameVersion(build)
     if serverConfig.versionLockEnabled() and validVersion == False:
         return jsonResponseWithObject({})
 
@@ -184,7 +120,7 @@ def bootstrapApi():
         xml_tree.SubElement(root, "exectime").text = '1' # Not sure of what is that; amount of logged times?
 
         account = xml_tree.SubElement(root, "account")
-        accountInfo = DarkSporeServerApi.getAccount_object(player_id)
+        accountInfo = serverApi.getAccount_object(player_id)
         for key,val in accountInfo.items():
             if val is None:
                 xml_tree.SubElement(account, key)
@@ -264,7 +200,7 @@ def gameServicePng():
     if creature_id != None:
         print("Should return creature PNG")
         return ""
-    
+
     template_id = request.args.get('template_id')
     if template_id != None:
         size = request.args.get('size')
@@ -279,7 +215,7 @@ def gameServicePng():
     rigblock_id = request.args.get('rigblock_id')
     if rigblock_id != None:
         # Rig blocks are:
-        # Eyes, noses, mouths, hands, feet, tails, wings, armor, 
+        # Eyes, noses, mouths, hands, feet, tails, wings, armor,
         # weapons, jewelry and all types of assets used in character creation.
         print("Should return creature part PNG")
         return ""
@@ -299,13 +235,14 @@ def index():
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
     notesPath = serverConfig.darksporeLauncherNotesPath()
-    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), notesPath), "r") 
+    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), notesPath), "r")
     launcherNotesHtml = file.read()
 
+    launcherNotesHtml = launcherNotesHtml.replace("{{dls-version}}", server.version)
     if serverConfig.versionLockEnabled():
-        launcherNotesHtml = launcherNotesHtml.replace("{{version}}", server.version)
+        launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", server.gameVersion)
     else:
-        launcherNotesHtml = launcherNotesHtml.replace("{{version}}", "available")
+        launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", "available")
 
     return Response(launcherNotesHtml, mimetype='text/html')
 

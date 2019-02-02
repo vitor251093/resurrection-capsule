@@ -1,12 +1,13 @@
 import os
 
 class DarkSporeServerConfig(object):
-    
+
     def __init__(self):
         self.serverPath = "/darkspore_server"
         self.config = {
             "VERSION_LOCKED": False,
             "SHOULD_SKIP_LAUNCHER": False,
+            "SINGLEPLAYER_ONLY": True,
             "STORAGE_PATH": "/darkspore_server_storage",
             "DARKSPORE_INDEX_PAGE_PATH": "index.html",
             "DARKSPORE_LAUNCHER_NOTES_PATH": "bootstrap/launcher/notes.html"
@@ -27,7 +28,7 @@ class DarkSporeServerConfig(object):
                         raise SyntaxError('Invalid config line: ' + line)
                     key   = l_comp[0].strip()
                     value = l_comp[1].strip()
-                    try: 
+                    try:
                         value = int(value)
                     except ValueError:
                         if value == "false":
@@ -45,11 +46,14 @@ class DarkSporeServerConfig(object):
     def get(self,key):
         return self.config[key]
 
+    def singlePlayerOnly(self):
+        return self.get("SHOULD_SKIP_LAUNCHER") == True
+
     def versionLockEnabled(self):
-        return self.get("VERSION_LOCKED") == True
+        return self.singlePlayerOnly() == False and self.get("VERSION_LOCKED") == True
 
     def shouldSkipLauncher(self):
-        return self.get("SHOULD_SKIP_LAUNCHER") == True
+        return self.singlePlayerOnly() == True or self.get("SHOULD_SKIP_LAUNCHER") == True
 
     def darksporeIndexPagePath(self):
         return self.get("DARKSPORE_INDEX_PAGE_PATH")
@@ -62,4 +66,3 @@ class DarkSporeServerConfig(object):
         while storagePath.endswith('/') or storagePath.endswith('\\'):
             storagePath = storagePath[:-1]
         return storagePath
-

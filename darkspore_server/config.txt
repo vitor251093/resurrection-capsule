@@ -1,6 +1,3 @@
-# Allow to skip the game launcher
-SHOULD_SKIP_LAUNCHER=false
-
 # Location where the game storage is saved (only useful if you are not using Docker)
 #STORAGE_PATH=/darkspore_server_storage
 
@@ -12,3 +9,10 @@ DARKSPORE_INDEX_PAGE_PATH=index.html
 
 # In case you want to place the launcher notes in a different location, you can do it by changing the line below
 DARKSPORE_LAUNCHER_NOTES_PATH=bootstrap/launcher/notes.html
+
+# By default, D-LS is used to play in singleplayer; if you decide to change that, you need to modify the value below
+# In the future, that should be to be selected by a custom launcher.
+SINGLEPLAYER_ONLY=false
+
+# Allow to skip the game launcher; if SINGLEPLAYER_ONLY=true, than the value below is ignored, and the launcher is skipped anyway
+SHOULD_SKIP_LAUNCHER=false

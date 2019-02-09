@@ -3,6 +3,8 @@
 
 ![alt Darkspore launcher with LS](https://raw.githubusercontent.com/vitor251093/Darkspore-LS/master/readme-launcher.png)
 
+Join our [Discord](https://discord.gg/sDxuRNv) to keep in touch with the latest updates and/or to help with the project.
+
 ## Introduction
 The focus is creating a local server in order to make Darkspore work again. The game has been dead since 2016 (you can literally buy a new physical copy by 2.99£ in Amazon.com). Since the servers shutdown, the game discs became useless pieces of plastic. This project aims to create a localhost server, which is going to make Darkspore work like if it was the original server, but much faster and private.
 

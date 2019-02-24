@@ -164,7 +164,7 @@ def bootstrapApi():
         configs = xml_tree.SubElement(root, "configs") # --CONFIRMED--
         config  = xml_tree.SubElement(configs, "config") # --CONFIRMED--
         xml_tree.SubElement(config, "blaze_service_name").text = 'darkspore'
-        xml_tree.SubElement(config, "blaze_secure").text = 'Y' # --CONFIRMED--
+        xml_tree.SubElement(config, "blaze_secure").text = 'N' # --CONFIRMED--
         xml_tree.SubElement(config, "blaze_env").text = 'production'
         xml_tree.SubElement(config, "sporenet_db_host").text = 'darkspore.com'
         xml_tree.SubElement(config, "sporenet_db_port").text = '80'
@@ -178,7 +178,7 @@ def bootstrapApi():
 
         if include_settings:
             settings = xml_tree.SubElement(root, "settings") # --CONFIRMED--
-            xml_tree.SubElement(settings, "open").text = 'true'
+            xml_tree.SubElement(settings, "open").text = 'false'
             xml_tree.SubElement(settings, "telemetry-rate").text = '256'
             xml_tree.SubElement(settings, "telemetry-setting").text = '0' # --NUMBER--
 

@@ -52,7 +52,8 @@ In order to start using (or at this point, contributing) the local server, you w
 ## Progress
 - [x] Redirect Darkspore requests to the localhost;
 - [x] Make Darkspore believe that the server is online (Error code 102);
-- [ ] Make Darkspore open after the Play button has been pressed (Error 3001).
+- [x] Make Darkspore open after the Play button has been pressed (Error 3001).
+- [ ] Make the login screen appear properly.
 - [ ] ?
 
 ## Server redirect
@@ -76,6 +77,7 @@ The Darkspore application makes requests to different domains. In order to use t
 127.0.0.1 splabbetamydb1b.rspc-iad.ea.com
 127.0.0.1 321917-prodmydb009.spore.rspc-iad.ea.com
 127.0.0.1 telemetry.maxis.com
+127.0.0.1 159.153.64.175
 ```
 
 ## Reference images

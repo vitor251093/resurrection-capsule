@@ -184,11 +184,16 @@ def bootstrapApi():
 
         if include_patches:
             xml_tree.SubElement(root, "patches")
-            # Needs at least one patch?
 
         return xmlResponseWithXmlElement(root)
 
     return jsonResponseWithObject({})
+
+@app.route("/web/sporelabsgame/announceen", methods=['GET','POST'])
+def webSporeLabsGameAnnounceen():
+    print request.host
+    print request.args
+    return ""
 
 @app.route("/game/service/png", methods=['GET','POST'])
 def gameServicePng():

@@ -67,7 +67,7 @@ def jsonResponseWithObject(obj):
     return Response(json_data, mimetype='application/json')
 
 def xmlResponseWithXmlElement(xmlElement):
-    tree_str = ElementTree.tostring(xmlElement, encoding='utf8', method='xml')
+    tree_str = ElementTree.tostring(xmlElement, encoding='iso-8859-1', method='xml')
     return Response(tree_str, mimetype='text/xml')
 
 @app.route("/api", methods=['GET','POST'])
@@ -96,9 +96,9 @@ def bootstrapApi():
     print request.args
     print " "
 
-    method  = request.args.get('method',  default='')
     version = request.args.get('version', default='')
     build   = request.args.get('build',   default='')
+    method  = request.args.get('method',  default='')
 
     # Different players must be using the same version of the game, otherwise
     # there may be issue during a match.
@@ -112,6 +112,7 @@ def bootstrapApi():
         include_decks = (request.args.get('include_decks', default='') == 'true')
         include_creatures = (request.args.get('include_creatures', default='') == 'true')
         player_id = int(request.args.get('id', default='0'))
+        callback = request.args.get('callback', default='') # targetaccountinfocallback
 
         root = xml_tree.Element("response")
         xml_tree.SubElement(root, "stat").text = 'ok'
@@ -137,53 +138,53 @@ def bootstrapApi():
 
         return xmlResponseWithXmlElement(root)
 
+    if method == 'api.creature.getCreature': # Not template
+        include_parts  = (request.args.get('include_parts',  default='') == 'true')
+        include_abilities = (request.args.get('include_abilities', default='') == 'true')
+        include_creatures = (request.args.get('include_creatures', default='') == 'true')
+        creature_id = int(request.args.get('id', default='0'))
+        callback = request.args.get('callback', default='') #spgetcreaturecallback
+
+        return jsonResponseWithObject({})
+
+    # For browser tests:
+    # http://darkspore.com/bootstrap/api?version=1&method=api.config.getConfigs&build=5.3.0.15&include_patches=true&include_settings=true
 
     # api.config.getConfigs progress: 0%
     if method == 'api.config.getConfigs':
         include_patches  = (request.args.get('include_patches',  default='') == 'true')
         include_settings = (request.args.get('include_settings', default='') == 'true')
 
-        root = xml_tree.Element("response")
+        root = xml_tree.Element("response") # --CONFIRMED--
         xml_tree.SubElement(root, "stat").text = 'ok'
         xml_tree.SubElement(root, "version").text = version
         xml_tree.SubElement(root, "timestamp").text = str(long(time.time()))
-        xml_tree.SubElement(root, "exectime").text = '10' # Not sure of what is that
+        xml_tree.SubElement(root, "exectime").text = '10' # ?
 
-        configs = xml_tree.SubElement(root, "configs")
-        config = xml_tree.SubElement(configs, "config")
-        xml_tree.SubElement(config, "open").text = 'true'
-        xml_tree.SubElement(config, "launcher_url").text = 'http://127.0.0.1/'
-        xml_tree.SubElement(config, "launcher_action").text = 'x'
-        xml_tree.SubElement(config, "liferay_host").text = '127.0.0.1'
-        xml_tree.SubElement(config, "liferay_port").text = '57371' #LSDS1 / Local Server Darkspore 1
-        xml_tree.SubElement(config, "sporenet_host").text = '127.0.0.1'
-        xml_tree.SubElement(config, "sporenet_port").text = '57372' #LSDS2
-        xml_tree.SubElement(config, "sporenet_db_name").text = 'darkspore'
-        xml_tree.SubElement(config, "sporenet_db_port").text = '57373' #LSDS3
-        xml_tree.SubElement(config, "sporenet_db_host").text = '127.0.0.1'
-        xml_tree.SubElement(config, "http_secure").text = 'false'
-        xml_tree.SubElement(config, "sporenet_cdn_host").text = '127.0.0.1'
-        xml_tree.SubElement(config, "sporenet_cdn_port").text = '57373' #LSDS4
-        xml_tree.SubElement(config, "blaze_env").text = 'production' # Reblaze to protect the servers?
-        xml_tree.SubElement(config, "blaze_secure").text = 'low'
+        configs = xml_tree.SubElement(root, "configs") # --CONFIRMED--
+        config  = xml_tree.SubElement(configs, "config") # --CONFIRMED--
         xml_tree.SubElement(config, "blaze_service_name").text = 'darkspore'
-        xml_tree.SubElement(config, "telemetry_rate").text = '1'
-        xml_tree.SubElement(config, "telemetry_setting").text = '{}'
+        xml_tree.SubElement(config, "blaze_secure").text = 'Y' # --CONFIRMED--
+        xml_tree.SubElement(config, "blaze_env").text = 'production'
+        xml_tree.SubElement(config, "sporenet_db_host").text = 'darkspore.com'
+        xml_tree.SubElement(config, "sporenet_db_port").text = '80'
+        xml_tree.SubElement(config, "sporenet_db_name").text = 'darkspore'
+        xml_tree.SubElement(config, "sporenet_port").text = '80'
+        xml_tree.SubElement(config, "sporenet_host").text = 'darkspore.com'
+        xml_tree.SubElement(config, "liferay_port").text = '80'
+        xml_tree.SubElement(config, "liferay_host").text = 'darkspore.com'
+        xml_tree.SubElement(config, "launcher_action").text = '1' # --NUMBER--
+        xml_tree.SubElement(config, "launcher_url").text = 'http://darkspore.com/bootstrap/launcher/notes' # --KEY_CONFIRMED--
+
+        if include_settings:
+            settings = xml_tree.SubElement(root, "settings") # --CONFIRMED--
+            xml_tree.SubElement(settings, "open").text = 'true'
+            xml_tree.SubElement(settings, "telemetry-rate").text = '256'
+            xml_tree.SubElement(settings, "telemetry-setting").text = '0' # --NUMBER--
 
         if include_patches:
             xml_tree.SubElement(root, "patches")
-
-        if include_settings:
-            settings = xml_tree.SubElement(root, "settings")
-            xml_tree.SubElement(settings, "active").text = 'true'
-            xml_tree.SubElement(settings, "locale").text = 'en-US'
-            xml_tree.SubElement(settings, "sessionId").text = '1'
-            xml_tree.SubElement(settings, "token").text = 'abcdef0123456789'
-            xml_tree.SubElement(settings, "count").text = '1'
-            xml_tree.SubElement(settings, "round_id").text = '1'
-            xml_tree.SubElement(settings, "reference_id").text = '1'
-            xml_tree.SubElement(settings, "new_player_inventory").text = '1'
-            xml_tree.SubElement(settings, "new_player_progress").text = '0'
+            # Needs at least one patch?
 
         return xmlResponseWithXmlElement(root)
 

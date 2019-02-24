@@ -7,12 +7,14 @@ class DarkSporeServerApi(object):
     def getStatus_javascript(self, callback):
         javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
                         "setTimeout(function(){" +
+
                             "oncriticalerror = false; " +
                             "setPlayButtonActive(); " +
                             "updateBottomleftProgressComment('DARKSPORE-LS ENABLED');" +
                             "updateProgressBar(1);" +
                             "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
                             "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
+
                         "},200); " +
                         callback + ";")
 
@@ -20,12 +22,14 @@ class DarkSporeServerApi(object):
             javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; "
                             "clickPlayButton();" +
                             "var runNow = function(){" +
+
                                 "oncriticalerror = false; " +
                                 "setPlayButtonActive(); " +
                                 "updateBottomleftProgressComment('DARKSPORE-LS ENABLED');" +
                                 "updateProgressBar(1);" +
                                 "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
                                 "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
+
                                 "clickPlayButton();" +
                                 "setTimeout(runNow,1); " +
                             "}; " +

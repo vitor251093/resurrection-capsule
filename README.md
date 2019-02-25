@@ -28,16 +28,16 @@ I have no idea. The biggest issue at this moment is the getConfigs request, so a
 This is the progress so far with each version of the game.
 
 ### Brazilian Limited Edition DVD version (5.3.0.15)
-- **Without mod:** no change;
-- **With mod:** launcher looks like screenshot above. Pressing Play makes the game crash.
+- **Without mod:** game launches, but login screen gives lost network connecting error.
+- **With mod:** game launches, but login screen gives lost network connection error.
 
 ### Online installer version (5.3.0.84)
 - **Without mod:** no change;
-- **With mod:** launcher looks like screenshot above, but with a different font. Pressing Play makes the splash image crash.
+- **With mod:** game launches, but login screen gives lost network connection error.
 
 ### Steam Beta version (5.3.0.103)
 - **Without mod:** no change;
-- **With mod:** launcher looks like screenshot above. Pressing Play gives error 3001.
+- **With mod:** game launches, but login screen gives lost network connection error.
 
 ## Architecture
 The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrapper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.
@@ -53,7 +53,7 @@ In order to start using (or at this point, contributing) the local server, you w
 - [x] Redirect Darkspore requests to the localhost;
 - [x] Make Darkspore believe that the server is online (Error code 102);
 - [x] Make Darkspore open after the Play button has been pressed (Error 3001).
-- [ ] Make the login screen appear properly.
+- [ ] Make the login screen appear properly (Network connection lost).
 - [ ] ?
 
 ## Server redirect
@@ -77,7 +77,8 @@ The Darkspore application makes requests to different domains. In order to use t
 127.0.0.1 splabbetamydb1b.rspc-iad.ea.com
 127.0.0.1 321917-prodmydb009.spore.rspc-iad.ea.com
 127.0.0.1 telemetry.maxis.com
-127.0.0.1 159.153.64.175
+127.0.0.1 gosredirector.ea.com
+127.0.0.1 undefined.Home
 ```
 
 ## Reference images

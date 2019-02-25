@@ -1,10 +1,11 @@
+import time
 
 class DarkSporeServerApi(object):
     def __init__(self, serverConfig, server):
         self.serverConfig = serverConfig
         self.server = server
 
-    def getStatus_javascript(self, callback):
+    def api_getStatus_javascript(self, callback):
         javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
                         "setTimeout(function(){" +
 
@@ -37,7 +38,41 @@ class DarkSporeServerApi(object):
                             callback + ";")
         return javascript
 
-    def getAccount_object(self, id):
+    def api_getStatus_object(self, include_broadcast):
+        return {
+                    "status": {
+                        "blaze":   {"health": 1},
+                        "gms":     {"health": 1},
+                        "nucleus": {"health": 1},
+                        "game":    {"health": 1}
+                    }
+                }
+
+    def bootstrapApi_response_object(self, version):
+        return {
+                    "stat": 'ok',
+                    "version": version,
+                    "timestamp": str(long(time.time())),
+                    "exectime": '1'
+                }
+
+    def bootstrapApi_getConfigs_object(self):
+        return {
+                    "blaze_service_name": 'darkspore',
+                    "blaze_secure": 'N', # --CONFIRMED--
+                    "blaze_env": 'production',
+                    "sporenet_db_host": 'darkspore.com',
+                    "sporenet_db_port": '80',
+                    "sporenet_db_name": 'darkspore',
+                    "sporenet_host": 'darkspore.com',
+                    "sporenet_port": '80',
+                    "liferay_host": 'darkspore.com',
+                    "liferay_port": '80',
+                    "launcher_action": '1', # --NUMBER--
+                    "launcher_url": 'http://darkspore.com/bootstrap/launcher/notes'
+                }
+
+    def bootstrapApi_getAccount_object(self, id):
         print "Retrieving user info..."
         account = self.server.getAccount(id)
         return {

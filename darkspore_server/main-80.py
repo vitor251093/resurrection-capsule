@@ -11,11 +11,13 @@ import datetime
 import json
 import xml.etree.cElementTree as xml_tree
 from xml.etree import ElementTree
+
 from flask import Flask
 from flask import request
 from flask import render_template
 from flask import Response
 from flask import send_from_directory
+
 import logging
 
 class DarkSporeServer(object):
@@ -62,6 +64,13 @@ darksporeBuild_onlineInstaller   = "5.3.0.84"  # Released at 27/04/2011
 darksporeBuild_steamDemo         = "5.3.0.103" # Released between 23/05/2011 and 14/06/2011
 darksporeBuild_latestOfficial    = "5.3.0.127" # Released between 15/11/2011 and 30/11/2012
 
+def setXmlValues(xml, values):
+    for key,val in values.items():
+        if val is None:
+            xml_tree.SubElement(xml, key)
+        else:
+            xml_tree.SubElement(xml, key).text = val
+
 def jsonResponseWithObject(obj):
     json_data = json.dumps(obj)
     return Response(json_data, mimetype='application/json')
@@ -72,15 +81,32 @@ def xmlResponseWithXmlElement(xmlElement):
 
 @app.route("/api", methods=['GET','POST'])
 def api():
-    method      = request.args.get('method',   default='')
-    callback    = request.args.get('callback', default='')
-    version     = request.args.get('version',  default='')
+    method   = request.args.get('method',   default='')
+    version  = request.args.get('version',  default='')
+    callback = request.args.get('callback', default='')
     format_type = request.args.get('format',   default='')
 
     if method == 'api.status.getStatus':
         if callback == 'updateServerStatus(data)' and version == '1' and format_type == 'json':
-            javascript = serverApi.getStatus_javascript(callback)
+            javascript = serverApi.api_getStatus_javascript(callback)
             return Response(javascript, mimetype='application/javascript')
+
+    print " "
+    print "http://" + request.host + "/api"
+    print request.args
+    print " "
+
+    return "";
+
+@app.route("/game/api", methods=['GET','POST'])
+def gameApi():
+    method  = request.args.get('method',  default='')
+    version = request.args.get('version', default='')
+
+    if method == 'api.status.getStatus':
+        include_broadcasts = request.args.get('include_broadcast', default='')
+        statusObj = serverApi.api_getStatus_object(include_broadcasts)
+        return jsonResponseWithObject(statusObj)
 
     print " "
     print "http://" + request.host + "/api"
@@ -91,11 +117,6 @@ def api():
 
 @app.route("/bootstrap/api", methods=['GET','POST'])
 def bootstrapApi():
-    print " "
-    print "http://" + request.host + "/bootstrap/api"
-    print request.args
-    print " "
-
     version = request.args.get('version', default='')
     build   = request.args.get('build',   default='')
     method  = request.args.get('method',  default='')
@@ -115,18 +136,10 @@ def bootstrapApi():
         callback = request.args.get('callback', default='') # targetaccountinfocallback
 
         root = xml_tree.Element("response")
-        xml_tree.SubElement(root, "stat").text = 'ok'
-        xml_tree.SubElement(root, "version").text = version
-        xml_tree.SubElement(root, "timestamp").text = str(long(time.time()))
-        xml_tree.SubElement(root, "exectime").text = '1' # Not sure of what is that; amount of logged times?
+        setXmlValues(account, serverApi.bootstrapApi_response_object(version))
 
         account = xml_tree.SubElement(root, "account")
-        accountInfo = serverApi.getAccount_object(player_id)
-        for key,val in accountInfo.items():
-            if val is None:
-                xml_tree.SubElement(account, key)
-            else:
-                xml_tree.SubElement(account, key).text = val
+        setXmlValues(account, serverApi.bootstrapApi_getAccount_object(player_id))
 
         # Still missing creatures, decks and feed
         if include_feed:
@@ -155,26 +168,12 @@ def bootstrapApi():
         include_patches  = (request.args.get('include_patches',  default='') == 'true')
         include_settings = (request.args.get('include_settings', default='') == 'true')
 
-        root = xml_tree.Element("response") # --CONFIRMED--
-        xml_tree.SubElement(root, "stat").text = 'ok'
-        xml_tree.SubElement(root, "version").text = version
-        xml_tree.SubElement(root, "timestamp").text = str(long(time.time()))
-        xml_tree.SubElement(root, "exectime").text = '10' # ?
+        root = xml_tree.Element("response")
+        setXmlValues(root, serverApi.bootstrapApi_response_object(version))
 
-        configs = xml_tree.SubElement(root, "configs") # --CONFIRMED--
-        config  = xml_tree.SubElement(configs, "config") # --CONFIRMED--
-        xml_tree.SubElement(config, "blaze_service_name").text = 'darkspore'
-        xml_tree.SubElement(config, "blaze_secure").text = 'N' # --CONFIRMED--
-        xml_tree.SubElement(config, "blaze_env").text = 'production'
-        xml_tree.SubElement(config, "sporenet_db_host").text = 'darkspore.com'
-        xml_tree.SubElement(config, "sporenet_db_port").text = '80'
-        xml_tree.SubElement(config, "sporenet_db_name").text = 'darkspore'
-        xml_tree.SubElement(config, "sporenet_port").text = '80'
-        xml_tree.SubElement(config, "sporenet_host").text = 'darkspore.com'
-        xml_tree.SubElement(config, "liferay_port").text = '80'
-        xml_tree.SubElement(config, "liferay_host").text = 'darkspore.com'
-        xml_tree.SubElement(config, "launcher_action").text = '1' # --NUMBER--
-        xml_tree.SubElement(config, "launcher_url").text = 'http://darkspore.com/bootstrap/launcher/notes' # --KEY_CONFIRMED--
+        configs = xml_tree.SubElement(root, "configs")
+        config  = xml_tree.SubElement(configs, "config")
+        setXmlValues(config, serverApi.bootstrapApi_getConfigs_object())
 
         if include_settings:
             settings = xml_tree.SubElement(root, "settings") # --CONFIRMED--
@@ -187,13 +186,16 @@ def bootstrapApi():
 
         return xmlResponseWithXmlElement(root)
 
+    print " "
+    print "http://" + request.host + "/bootstrap/api"
+    print request.args
+    print " "
+
     return jsonResponseWithObject({})
 
 @app.route("/web/sporelabsgame/announceen", methods=['GET','POST'])
 def webSporeLabsGameAnnounceen():
-    print request.host
-    print request.args
-    return ""
+    return "Can you see me"
 
 @app.route("/game/service/png", methods=['GET','POST'])
 def gameServicePng():

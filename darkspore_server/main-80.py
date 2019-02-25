@@ -127,7 +127,6 @@ def bootstrapApi():
     if serverConfig.versionLockEnabled() and validVersion == False:
         return jsonResponseWithObject({})
 
-    # api.account.getAccount progress: 3.5%
     if method == 'api.account.getAccount':
         include_feed  = (request.args.get('include_feed',  default='') == 'true')
         include_decks = (request.args.get('include_decks', default='') == 'true')
@@ -160,10 +159,6 @@ def bootstrapApi():
 
         return jsonResponseWithObject({})
 
-    # For browser tests:
-    # http://darkspore.com/bootstrap/api?version=1&method=api.config.getConfigs&build=5.3.0.15&include_patches=true&include_settings=true
-
-    # api.config.getConfigs progress: 0%
     if method == 'api.config.getConfigs':
         include_patches  = (request.args.get('include_patches',  default='') == 'true')
         include_settings = (request.args.get('include_settings', default='') == 'true')
@@ -193,9 +188,29 @@ def bootstrapApi():
 
     return jsonResponseWithObject({})
 
+@app.route("/web/sporelabs/alerts", methods=['GET','POST'])
+def webSporeLabsAlerts():
+    return ""
+
 @app.route("/web/sporelabsgame/announceen", methods=['GET','POST'])
 def webSporeLabsGameAnnounceen():
     return "Can you see me"
+
+@app.route("/survey/api", methods=['GET','POST'])
+def surveyApi():
+    method = request.args.get('method', default='')
+
+    if method == "api.survey.getSurveyList":
+        root = xml_tree.Element("response")
+        setXmlValues(root, serverApi.bootstrapApi_response_object(server.gameVersion))
+
+        surveys = xml_tree.SubElement(root, "surveys")
+        survey  = xml_tree.SubElement(surveys, "survey")
+        #xml_tree.SubElement(survey, "").text = ""
+
+        return xmlResponseWithXmlElement(root)
+
+    return ""
 
 @app.route("/game/service/png", methods=['GET','POST'])
 def gameServicePng():

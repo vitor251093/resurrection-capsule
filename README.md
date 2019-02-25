@@ -63,6 +63,7 @@ The Darkspore application makes requests to different domains. In order to use t
 127.0.0.1 api.darkspore.com
 127.0.0.1 config.darkspore.com
 127.0.0.1 content.darkspore.com
+127.0.0.1 beta.darkspore.ea.com
 127.0.0.1 beta-sn.darkspore.ea.com
 127.0.0.1 beta-sn2.darkspore.ea.com
 127.0.0.1 dev.darkspore.ea.com

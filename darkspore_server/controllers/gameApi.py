@@ -39,14 +39,19 @@ class DarkSporeServerApi(object):
         return javascript
 
     def api_getStatus_object(self, include_broadcast):
-        return {
-                    "status": {
-                        "blaze":   {"health": 1},
-                        "gms":     {"health": 1},
-                        "nucleus": {"health": 1},
-                        "game":    {"health": 1}
-                    }
+        obj = {
+                "status": {
+                    "blaze":   {"health": 1},
+                    "gms":     {"health": 1},
+                    "nucleus": {"health": 1},
+                    "game":    {"health": 1}
                 }
+              }
+
+        if include_broadcast:
+            obj.broadcast = []
+
+        return obj
 
     def bootstrapApi_response_object(self, version):
         return {

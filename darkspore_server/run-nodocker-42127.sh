@@ -1,1 +1,1 @@
-FLASK_APP=main-42127.py flask run
+python main-42127.py

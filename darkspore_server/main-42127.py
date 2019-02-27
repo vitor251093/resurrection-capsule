@@ -17,6 +17,7 @@ from flask import request
 from flask import render_template
 from flask import Response
 from flask import send_from_directory
+from flask import redirect
 
 import logging
 
@@ -45,6 +46,13 @@ def xmlResponseWithXmlElement(xmlElement):
     tree_str = ElementTree.tostring(xmlElement, encoding='iso-8859-1', method='xml')
     return Response(tree_str, mimetype='text/xml')
 
+# @app.before_request
+# def before_request():
+#     if request.url.startswith('https://'):
+#         url = request.url.replace('https://', 'http://', 1)
+#         code = 301
+#         return redirect(url, code=code)
+
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])
 def otherRequests(path):
@@ -55,4 +63,4 @@ def otherRequests(path):
 
 if __name__ == "__main__":
     # Needed by Flask if the Python file is called directly
-    app.run(host='0.0.0.0', ssl_context='adhoc', port=42127)
+    app.run(debug=True, host='0.0.0.0', port=42127)

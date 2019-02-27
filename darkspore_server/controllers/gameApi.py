@@ -101,12 +101,21 @@ class DarkSporeServerApi(object):
             "nucleus_id": '1', # A different per-user ID (may be the same here?)
             "star_level": '0', # Not sure of what is that for, but it can't be 65536 or bigger
             "tutorial_completed": ('Y' if account.tutorialCompleted else 'N'),
-            "unlock_catalysts": '0', # Not sure of what is that
-            "unlock_diagonal_catalysts": '0', # Not sure of what is that
-            "unlock_editor_flair_slots": '3', # Not sure of what is that
-            "unlock_fuel_tanks": '2', # Not sure of what is that
-            "unlock_inventory": '180', # Not sure of what is that
-            "unlock_inventory_identify": '0', # Not sure of what is that
+
+            # catalysts are things you collect in game and make you stronger, and max amount of them is 9
+            "unlock_catalysts": '0', # TODO
+            "unlock_diagonal_catalysts": '0', # TODO
+
+            # Editor flair is probably amount of "detail"  slots you can put on creature.
+            "unlock_editor_flair_slots": '3', # TODO
+
+            # Fuel might be: higher threat level unlock or amount of levels you can repeat after each one
+            "unlock_fuel_tanks": '2', # TODO
+
+            # Inventory is probably the amount of parts player can store.
+            "unlock_inventory": '180', # TODO
+            "unlock_inventory_identify": '0', # TODO
+
             "unlock_pve_decks": '1', # Not sure of what is that
             "unlock_pvp_decks": '0', # Not sure of what is that
             "unlock_stats": '0', # Not sure of what is that

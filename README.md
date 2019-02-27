@@ -53,7 +53,7 @@ In order to start using (or at this point, contributing) the local server, you w
 - [x] Redirect Darkspore requests to the localhost;
 - [x] Make Darkspore believe that the server is online (Error code 102);
 - [x] Make Darkspore open after the Play button has been pressed (Error 3001).
-- [ ] Make the login screen appear properly (Network connection lost).
+- [ ] Make the login screen appear properly (Network connection was lost / Error 73000).
 - [ ] ?
 
 ## Server redirect

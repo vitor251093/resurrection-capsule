@@ -84,30 +84,6 @@ def xmlResponseWithXmlElement(xmlElement):
     tree_str = ElementTree.tostring(xmlElement, encoding='iso-8859-1', method='xml')
     return Response(tree_str, mimetype='text/xml')
 
-def handleBlazeConnection(client_socket):
-    request = client_socket.recv(1024)
-    print 'Received {}'.format(request)
-    client_socket.send('ACK!')
-    client_socket.close()
-
-def startBlazeConnection(bind_port,callback):
-    bind_ip = '0.0.0.0'
-
-    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind((bind_ip, bind_port))
-    server.listen(5)  # max backlog of connections
-
-    print 'Listening on {}:{}'.format(bind_ip, bind_port)
-
-    while True:
-        client_sock, address = server.accept()
-        print 'Accepted connection from {}:{}'.format(address[0], address[1])
-        client_handler = threading.Thread(
-            target=callback,
-            args=(client_sock,)
-        )
-        client_handler.start()
-
 @app.route("/api", methods=['GET','POST'])
 def api():
     method   = request.args.get('method',   default='')
@@ -319,6 +295,4 @@ def otherRequests(path):
     return ""
 
 if __name__ == "__main__":
-    blaze = Thread(target=startBlazeConnection,args=[42127,handleBlazeConnection])
-    blaze.start()
     app.run(host='0.0.0.0', port=80)

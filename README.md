@@ -39,6 +39,10 @@ This is the progress so far with each version of the game.
 - **Without mod:** no change;
 - **With mod:** game launches, but login screen gives lost network connection error.
 
+### Latest version (5.3.0.127)
+- **Without mod:** ?
+- **With mod:** ?
+
 ## Architecture
 The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrapper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.
 
@@ -53,7 +57,7 @@ In order to start using (or at this point, contributing) the local server, you w
 
 ### Non-Docker version
 - A computer with Linux, MacOS or Windows XP (or above);
-- Python and Flask installed;
+- Python 2.7 and Flask installed;
 - Darkspore installed (use Wine, or relatives, if you are in Linux/macOS);
 - The mod from the `required_mod` folder inside your Darkspore Data folder (non-DVD versions only).
 

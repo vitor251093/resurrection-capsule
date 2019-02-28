@@ -22,12 +22,12 @@ No. There are two factors that most likely will change; a positive one and a neg
 The negative one is that, at this moment, there is no sign of packet logs from the original server. That means that, most likely, the game procedures won't be exactly like the original Darkspore ones. That includes damage calculation, drop chance, spawn frequency, experience calculation, among other things.
 
 ### How long it will take to be finished?
-I have no idea. The biggest issue at this moment is the getConfigs request, so any help is welcome.
+I have no idea. The biggest issue at this moment is reaching the login screen fields, so any help is welcome.
 
 ## Actual state
 This is the progress so far with each version of the game.
 
-### Brazilian Limited Edition DVD version (5.3.0.15)
+### Limited Edition DVD version (5.3.0.15)
 - **Without mod:** game launches, but login screen gives lost network connecting error.
 - **With mod:** game launches, but login screen gives lost network connection error.
 
@@ -44,10 +44,18 @@ The project has been done by now using Python, Flask and a Docker. The reason fo
 
 ## Requirements
 In order to start using (or at this point, contributing) the local server, you will need:
+
+### Docker version
 - A computer with Linux, MacOS or Windows 10;
 - The Docker application installed;
 - Darkspore installed (use Wine, or relatives, if you are in Linux/macOS);
-- The mod from the `required_mod` folder inside your Darkspore Data folder.
+- The mod from the `required_mod` folder inside your Darkspore Data folder (non-DVD versions only).
+
+### Non-Docker version
+- A computer with Linux, MacOS or Windows XP (or above);
+- Python and Flask installed;
+- Darkspore installed (use Wine, or relatives, if you are in Linux/macOS);
+- The mod from the `required_mod` folder inside your Darkspore Data folder (non-DVD versions only).
 
 ## Progress
 - [x] Redirect Darkspore requests to the localhost;
@@ -57,7 +65,7 @@ In order to start using (or at this point, contributing) the local server, you w
 - [ ] ?
 
 ## Server redirect
-The Darkspore application makes requests to different domains. In order to use the local server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `127.0.0.1` because it will make things easier when when we try to support programs like Hamachi.
+The Darkspore application makes requests to different domains. In order to use the local server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `127.0.0.1` because it will make things easier when we try to support programs like Hamachi.
 
 ```
 127.0.0.1 api.darkspore.com
@@ -89,3 +97,8 @@ The Darkspore application makes requests to different domains. In order to use t
 
 ## Future plans
 - Creating a small EXE which can be used to use Darkspore.exe redirecting its requests to a specific host, in order to avoid modifying the hosts file and to allow the use of different Darkspore servers. It may be based in [tinyproxy](https://github.com/tinyproxy/tinyproxy) or [proxifier](http://proxifier.sourceforge.net).
+
+## Special Thanks
+- rob55rod (Discord)
+- nonchip (Github)
+- haradons (Discord)

@@ -4,6 +4,14 @@ class DarkSporeServerApi(object):
     def __init__(self, serverConfig, server):
         self.serverConfig = serverConfig
         self.server = server
+        self.exectimeInt = 0
+
+    def timestamp(self):
+        return str(long(time.time()))
+
+    def exectime(self):
+        self.exectimeInt += 1
+        return str(self.exectimeInt)
 
     def api_getStatus_javascript(self, callback):
         javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
@@ -57,8 +65,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'error',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1'
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime()
         }
         return obj
 
@@ -67,8 +75,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "account": {
                 "avatar_id": '1', # TODO
                 "avatar_updated": '0', # Not sure of what is that
@@ -128,8 +136,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
@@ -141,8 +149,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "configs": [{
                 "config": {
                     "blaze_service_name": 'darkspore',
@@ -177,8 +185,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
@@ -196,8 +204,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
@@ -212,8 +220,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
@@ -225,8 +233,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
@@ -238,8 +246,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
@@ -251,8 +259,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
@@ -264,8 +272,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
@@ -277,8 +285,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "leaderboard": [{
                 # TODO:
             }]
@@ -290,8 +298,8 @@ class DarkSporeServerApi(object):
         obj = {
             "stat": 'ok',
             "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
+            "timestamp": self.timestamp(),
+            "exectime": self.exectime(),
             "surveys": [{
                 "survey": {
                     # TODO:

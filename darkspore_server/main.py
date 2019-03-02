@@ -1,6 +1,8 @@
 from models.account import *
+from models.server import *
 from controllers.gameApi import *
 from controllers.config import *
+from utils.response import *
 
 import os
 import sys
@@ -9,48 +11,16 @@ import warnings
 import time
 import timeit
 import datetime
-import json
 import socket
+import logging
 import threading
 from threading import Thread
-
-import xml.etree.cElementTree as xml_tree
-from xml.etree import ElementTree
 
 from flask import Flask
 from flask import request
 from flask import render_template
 from flask import Response
 from flask import send_from_directory
-
-import logging
-
-class DarkSporeServer(object):
-    def __init__(self):
-        self.accounts = {}
-        self.accountsSequenceNext = 0
-        self.gameVersion = None
-        self.version = "0.1"
-
-    def setGameVersion(self, gameVersion):
-        if self.gameVersion == None:
-            self.gameVersion = gameVersion
-        else:
-            if self.gameVersion != gameVersion:
-                return False
-        return True
-
-    def getAccount(self, id):
-        return self.accounts[str(id)]
-
-    def createAccount(self, email, name):
-        id = self.accountsSequenceNext
-        if self.accounts[str(id)] != None:
-            return -1
-
-        self.accounts[str(id)] = Account(id, email, name)
-        self.accountsSequenceNext += 1
-        return id
 
 server = DarkSporeServer()
 serverConfig = DarkSporeServerConfig()
@@ -63,26 +33,6 @@ logFileName = 'dls-' + now.strftime("%Y-%m-%d_%H-%M-%S") + '.log'
 handler = logging.FileHandler(os.path.join(serverConfig.storagePath(), logFileName))  # errors logged to this file
 handler.setLevel(logging.ERROR)  # only log errors and above
 app.logger.addHandler(handler)
-
-darksporeBuild_limitedEditionDvd = "5.3.0.15"
-darksporeBuild_onlineInstaller   = "5.3.0.84"  # Released at 27/04/2011
-darksporeBuild_steamDemo         = "5.3.0.103" # Released between 23/05/2011 and 14/06/2011
-darksporeBuild_latestOfficial    = "5.3.0.127" # Released between 15/11/2011 and 30/11/2012
-
-def setXmlValues(xml, values):
-    for key,val in values.items():
-        if val is None:
-            xml_tree.SubElement(xml, key)
-        else:
-            xml_tree.SubElement(xml, key).text = val
-
-def jsonResponseWithObject(obj):
-    json_data = json.dumps(obj)
-    return Response(json_data, mimetype='application/json')
-
-def xmlResponseWithXmlElement(xmlElement):
-    tree_str = ElementTree.tostring(xmlElement, encoding='iso-8859-1', method='xml')
-    return Response(tree_str, mimetype='text/xml')
 
 @app.route("/api", methods=['GET','POST'])
 def api():
@@ -110,8 +60,7 @@ def gameApi():
 
     if method == 'api.status.getStatus':
         include_broadcasts = request.args.get('include_broadcast', default='')
-        statusObj = serverApi.api_getStatus_object(include_broadcasts)
-        return jsonResponseWithObject(statusObj)
+        return jsonResponseWithObject(serverApi.gameApi_getStatus_object(include_broadcasts))
 
     print " "
     print "http://" + request.host + "/api"
@@ -139,21 +88,7 @@ def bootstrapApi():
         player_id = int(request.args.get('id', default='0'))
         callback = request.args.get('callback', default='') # targetaccountinfocallback
 
-        root = xml_tree.Element("response")
-        setXmlValues(account, serverApi.bootstrapApi_response_object(version))
-
-        account = xml_tree.SubElement(root, "account")
-        setXmlValues(account, serverApi.bootstrapApi_getAccount_object(player_id))
-
-        # Still missing creatures, decks and feed
-        if include_feed:
-            print "include feed"
-        if include_decks:
-            print "include decks"
-        if include_creatures:
-            print "include creatures"
-
-        return xmlResponseWithXmlElement(root)
+        return xmlResponseWithObject(serverApi.bootstrapApi_getAccount_object(player_id,include_feed,include_decks,include_creatures))
 
     if method == 'api.creature.getCreature': # Not template
         include_parts  = (request.args.get('include_parts',  default='') == 'true')
@@ -162,36 +97,20 @@ def bootstrapApi():
         creature_id = int(request.args.get('id', default='0'))
         callback = request.args.get('callback', default='') #spgetcreaturecallback
 
-        return jsonResponseWithObject({})
+        return xmlResponseWithObject({})
 
     if method == 'api.config.getConfigs':
-        include_patches  = (request.args.get('include_patches',  default='') == 'true')
         include_settings = (request.args.get('include_settings', default='') == 'true')
+        include_patches  = (request.args.get('include_patches',  default='') == 'true')
 
-        root = xml_tree.Element("response")
-        setXmlValues(root, serverApi.bootstrapApi_response_object(version))
-
-        configs = xml_tree.SubElement(root, "configs")
-        config  = xml_tree.SubElement(configs, "config")
-        setXmlValues(config, serverApi.bootstrapApi_getConfigs_object())
-
-        if include_settings:
-            settings = xml_tree.SubElement(root, "settings") # --CONFIRMED--
-            xml_tree.SubElement(settings, "open").text = 'false'
-            xml_tree.SubElement(settings, "telemetry-rate").text = '256'
-            xml_tree.SubElement(settings, "telemetry-setting").text = '0' # --NUMBER--
-
-        if include_patches:
-            xml_tree.SubElement(root, "patches")
-
-        return xmlResponseWithXmlElement(root)
+        return xmlResponseWithObject(serverApi.bootstrapApi_getConfigs_object(include_settings, include_patches))
 
     print " "
     print "http://" + request.host + "/bootstrap/api"
     print request.args
     print " "
 
-    return jsonResponseWithObject({})
+    return xmlResponseWithObject({})
 
 @app.route("/web/sporelabs/alerts", methods=['GET','POST'])
 def webSporeLabsAlerts():
@@ -206,14 +125,7 @@ def surveyApi():
     method = request.args.get('method', default='')
 
     if method == "api.survey.getSurveyList":
-        root = xml_tree.Element("response")
-        setXmlValues(root, serverApi.bootstrapApi_response_object(server.gameVersion))
-
-        surveys = xml_tree.SubElement(root, "surveys")
-        survey  = xml_tree.SubElement(surveys, "survey")
-        #xml_tree.SubElement(survey, "").text = ""
-
-        return xmlResponseWithXmlElement(root)
+        return xmlResponseWithObject(serverApi.surveyApi_getSurveyList_object())
 
     return ""
 

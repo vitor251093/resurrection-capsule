@@ -53,42 +53,6 @@ class DarkSporeServerApi(object):
 
         return obj
 
-    def bootstrapApi_getConfigs_object(self, include_settings, include_patches):
-        obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": str(long(time.time())),
-            "exectime": '1',
-            "configs": [{
-                "config": {
-                    "blaze_service_name": 'darkspore',
-                    "blaze_secure": 'N', # --CONFIRMED--
-                    "blaze_env": 'production',
-                    "sporenet_db_host": 'darkspore.com',
-                    "sporenet_db_port": '80',
-                    "sporenet_db_name": 'darkspore',
-                    "sporenet_host": 'darkspore.com',
-                    "sporenet_port": '80',
-                    "liferay_host": 'darkspore.com',
-                    "liferay_port": '80',
-                    "launcher_action": '1', # --NUMBER--
-                    "launcher_url": 'http://darkspore.com/bootstrap/launcher/notes'
-                }
-            }]
-        }
-
-        if include_settings:
-            obj["settings"] = {
-                "open": 'false',
-                "telemetry-rate": '256',
-                "telemetry-setting": '0' # --NUMBER--
-            }
-
-        if include_patches:
-            obj["patches"] = []
-
-        return obj
-
     def bootstrapApi_getAccount_object(self, id, include_feed, include_decks, include_creatures):
         account = self.server.getAccount(id)
         obj = {
@@ -151,6 +115,168 @@ class DarkSporeServerApi(object):
 
         return obj
 
+    def bootstrapApi_searchAccounts_object(self, count, terms):
+        obj = {
+            "stat": 'ok',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1',
+            "configs": [{
+                # TODO:
+            }]
+        }
+
+        return obj
+
+    def bootstrapApi_getConfigs_object(self, include_settings, include_patches):
+        obj = {
+            "stat": 'ok',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1',
+            "configs": [{
+                "config": {
+                    "blaze_service_name": 'darkspore',
+                    "blaze_secure": 'N', # --CONFIRMED--
+                    "blaze_env": 'production',
+                    "sporenet_db_host": 'darkspore.com',
+                    "sporenet_db_port": '80',
+                    "sporenet_db_name": 'darkspore',
+                    "sporenet_host": 'darkspore.com',
+                    "sporenet_port": '80',
+                    "liferay_host": 'darkspore.com',
+                    "liferay_port": '80',
+                    "launcher_action": '1', # --NUMBER--
+                    "launcher_url": 'http://darkspore.com/bootstrap/launcher/notes'
+                }
+            }]
+        }
+
+        if include_settings:
+            obj["settings"] = {
+                "open": 'false',
+                "telemetry-rate": '256',
+                "telemetry-setting": '0' # --NUMBER--
+            }
+
+        if include_patches:
+            obj["patches"] = []
+
+        return obj
+
+    def bootstrapApi_getCreature_object(self, creature_id, include_parts, include_abilities):
+        obj = {
+            "stat": 'ok',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1',
+            "configs": [{
+                # TODO:
+            }]
+        }
+
+        if include_parts:
+            print "include_parts"
+
+        if include_abilities:
+            print "include_abilities"
+
+        return obj
+
+    def bootstrapApi_getCreatureTemplate_object(self, creature_id, include_abilities):
+        obj = {
+            "stat": 'ok',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1',
+            "configs": [{
+                # TODO:
+            }]
+        }
+
+        if include_abilities:
+            print "include_abilities"
+
+        return obj
+
+    def bootstrapApi_getFriendsList_object(self, start, sort, list):
+        obj = {
+            "stat": 'ok',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1',
+            "configs": [{
+                # TODO:
+            }]
+        }
+
+        return obj
+
+    def bootstrapApi_followFriend_object(self, name):
+        obj = {
+            "stat": 'ok',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1',
+            "configs": [{
+                # TODO:
+            }]
+        }
+
+        return obj
+
+    def bootstrapApi_unfollowFriend_object(self, name):
+        obj = {
+            "stat": 'ok',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1',
+            "configs": [{
+                # TODO:
+            }]
+        }
+
+        return obj
+
+    def bootstrapApi_blockFriend_object(self, name):
+        obj = {
+            "stat": 'ok',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1',
+            "configs": [{
+                # TODO:
+            }]
+        }
+
+        return obj
+
+    def bootstrapApi_unblockFriend_object(self, name):
+        obj = {
+            "stat": 'ok',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1',
+            "configs": [{
+                # TODO:
+            }]
+        }
+
+        return obj
+
+    def bootstrapApi_getLeaderboard_object(self, name, varient, count, start):
+        obj = {
+            "stat": 'ok',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1',
+            "configs": [{
+                # TODO:
+            }]
+        }
+
+        return obj
+
     def surveyApi_getSurveyList_object(self):
         obj = {
             "stat": 'ok',
@@ -160,7 +286,7 @@ class DarkSporeServerApi(object):
             "surveys": [{
                 "survey": {
                     # TODO:
-                    "id": 1,
+                    "id": str(1),
                     "trigger1": "",
                     "trigger2": ""
                 }

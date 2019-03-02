@@ -79,31 +79,64 @@ def bootstrapApi():
     # there may be issue during a match.
     validVersion = server.setGameVersion(build)
     if serverConfig.versionLockEnabled() and validVersion == False:
-        return jsonResponseWithObject({})
+        return xmlResponseWithObject({})
 
     if method == 'api.account.getAccount':
-        include_feed  = (request.args.get('include_feed',  default='') == 'true')
-        include_decks = (request.args.get('include_decks', default='') == 'true')
-        include_creatures = (request.args.get('include_creatures', default='') == 'true')
-        player_id = int(request.args.get('id', default='0'))
-        callback = request.args.get('callback', default='') # targetaccountinfocallback
+        include_feed      =    (request.args.get('include_feed',      default='') == 'true')
+        include_decks     =    (request.args.get('include_decks',     default='') == 'true')
+        include_creatures =    (request.args.get('include_creatures', default='') == 'true')
+        player_id         = int(request.args.get('id',                default='0'))
+        return xmlResponseWithObject(serverApi.bootstrapApi_getAccount_object(player_id, include_feed, include_decks, include_creatures))
 
-        return xmlResponseWithObject(serverApi.bootstrapApi_getAccount_object(player_id,include_feed,include_decks,include_creatures))
-
-    if method == 'api.creature.getCreature': # Not template
-        include_parts  = (request.args.get('include_parts',  default='') == 'true')
-        include_abilities = (request.args.get('include_abilities', default='') == 'true')
-        include_creatures = (request.args.get('include_creatures', default='') == 'true')
-        creature_id = int(request.args.get('id', default='0'))
-        callback = request.args.get('callback', default='') #spgetcreaturecallback
-
-        return xmlResponseWithObject({})
+    if method == 'api.account.searchAccounts':
+        count = int(request.args.get('count', default='0'))
+        terms =     request.args.get('terms', default='')
+        return xmlResponseWithObject(serverApi.bootstrapApi_searchAccounts_object(count, terms))
 
     if method == 'api.config.getConfigs':
         include_settings = (request.args.get('include_settings', default='') == 'true')
         include_patches  = (request.args.get('include_patches',  default='') == 'true')
-
         return xmlResponseWithObject(serverApi.bootstrapApi_getConfigs_object(include_settings, include_patches))
+
+    if method == 'api.creature.getCreature':
+        creature_id       = int(request.args.get('id',                default='0'))
+        include_parts     =    (request.args.get('include_parts',     default='') == 'true')
+        include_abilities =    (request.args.get('include_abilities', default='') == 'true')
+        return xmlResponseWithObject(serverApi.bootstrapApi_getCreature_object(creature_id, include_parts, include_abilities))
+
+    if method == 'api.creature.getTemplate':
+        creature_id       = int(request.args.get('id',                default='0'))
+        include_abilities    = (request.args.get('include_abilities', default='') == 'true')
+        return xmlResponseWithObject(serverApi.bootstrapApi_getCreatureTemplate_object(creature_id, include_abilities))
+
+    if method == 'api.friend.getList':
+        start = int(request.args.get('start', default='0'))
+        sort  =     request.args.get('sort',  default='') # eg. 'name'
+        list  =     request.args.get('list',  default='') # eg. 'following'
+        return xmlResponseWithObject(serverApi.bootstrapApi_getFriendsList_object(start, sort, list))
+
+    if method == 'api.friend.follow':
+        name = request.args.get('name', default='')
+        return xmlResponseWithObject(serverApi.bootstrapApi_followFriend_object(name))
+
+    if method == 'api.friend.unfollow':
+        name = request.args.get('name', default='')
+        return xmlResponseWithObject(serverApi.bootstrapApi_unfollowFriend_object(name))
+
+    if method == 'api.friend.block':
+        name = request.args.get('name', default='')
+        return xmlResponseWithObject(serverApi.bootstrapApi_blockFriend_object(name))
+
+    if method == 'api.friend.unblock':
+        name = request.args.get('name', default='')
+        return xmlResponseWithObject(serverApi.bootstrapApi_unblockFriend_object(name))
+
+    if method == 'api.leaderboard.getLeaderboard':
+        name    =     request.args.get('name',    default='') # eg. 'xp' / 'pvp_wins' / 'team'
+        varient =     request.args.get('varient', default='') # eg. 'friends'
+        count   = int(request.args.get('count',   default='0'))
+        start   = int(request.args.get('start',   default='0'))
+        return xmlResponseWithObject(serverApi.bootstrapApi_getLeaderboard_object(name, varient, count, start))
 
     print " "
     print "http://" + request.host + "/bootstrap/api"
@@ -118,7 +151,7 @@ def webSporeLabsAlerts():
 
 @app.route("/web/sporelabsgame/announceen", methods=['GET','POST'])
 def webSporeLabsGameAnnounceen():
-    return "Can you see me"
+    return "<html><head><title>x</title></head><body>Announces</body></html>"
 
 @app.route("/survey/api", methods=['GET','POST'])
 def surveyApi():
@@ -127,7 +160,7 @@ def surveyApi():
     if method == "api.survey.getSurveyList":
         return xmlResponseWithObject(serverApi.surveyApi_getSurveyList_object())
 
-    return ""
+    return xmlResponseWithObject({})
 
 @app.route("/game/service/png", methods=['GET','POST'])
 def gameServicePng():

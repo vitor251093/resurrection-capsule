@@ -53,6 +53,15 @@ class DarkSporeServerApi(object):
 
         return obj
 
+    def bootstrapApi_error_object(self):
+        obj = {
+            "stat": 'error',
+            "version": self.server.gameVersion,
+            "timestamp": str(long(time.time())),
+            "exectime": '1'
+        }
+        return obj
+
     def bootstrapApi_getAccount_object(self, id, include_feed, include_decks, include_creatures):
         account = self.server.getAccount(id)
         obj = {

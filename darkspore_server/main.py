@@ -79,7 +79,7 @@ def bootstrapApi():
     # there may be issue during a match.
     validVersion = server.setGameVersion(build)
     if serverConfig.versionLockEnabled() and validVersion == False:
-        return xmlResponseWithObject({})
+        return xmlResponseWithObject(serverApi.bootstrapApi_error_object())
 
     if method == 'api.account.getAccount':
         include_feed      =    (request.args.get('include_feed',      default='') == 'true')
@@ -143,7 +143,7 @@ def bootstrapApi():
     print request.args
     print " "
 
-    return xmlResponseWithObject({})
+    return xmlResponseWithObject(serverApi.bootstrapApi_error_object())
 
 @app.route("/web/sporelabs/alerts", methods=['GET','POST'])
 def webSporeLabsAlerts():

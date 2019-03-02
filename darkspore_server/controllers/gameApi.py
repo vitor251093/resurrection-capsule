@@ -160,6 +160,9 @@ class DarkSporeServerApi(object):
             "surveys": [{
                 "survey": {
                     # TODO:
+                    "id": 1,
+                    "trigger1": "",
+                    "trigger2": ""
                 }
             }]
         }

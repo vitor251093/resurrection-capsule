@@ -270,7 +270,7 @@ class DarkSporeServerApi(object):
             "version": self.server.gameVersion,
             "timestamp": str(long(time.time())),
             "exectime": '1',
-            "configs": [{
+            "leaderboard": [{
                 # TODO:
             }]
         }

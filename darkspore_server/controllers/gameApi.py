@@ -1,3 +1,4 @@
+import json
 import time
 
 class DarkSporeServerApi(object):
@@ -7,15 +8,17 @@ class DarkSporeServerApi(object):
         self.exectimeInt = 0
 
     def timestamp(self):
-        return str(long(time.time()))
+        return long(time.time())
 
     def exectime(self):
         self.exectimeInt += 1
-        return str(self.exectimeInt)
+        return self.exectimeInt
 
+    # Not used by the latest version of the game
     def api_getStatus_javascript(self, callback):
-        javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; " +
-                        "setTimeout(function(){" +
+        data = json.dumps(self.gameApi_getStatus_object(False))
+        javascript = ("var data = " + data + "; " +
+                      "setTimeout(function(){" +
 
                             "oncriticalerror = false; " +
                             "setPlayButtonActive(); " +
@@ -24,11 +27,12 @@ class DarkSporeServerApi(object):
                             "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
                             "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
 
-                        "},200); " +
-                        callback + ";")
+                      "},200); " +
+                      "if (setServerStatus !== undefined) {setServerStatus(true, false, 0);} " +
+                      callback + ";")
 
         if self.serverConfig.shouldSkipLauncher():
-            javascript = ("var data = {status: {blaze: {health: 1}, gms: {health: 1}, nucleus: {health: 1}, game: {health: 1}}}; "
+            javascript = ("var data = " + data + "; "
                             "clickPlayButton();" +
                             "var runNow = function(){" +
 
@@ -46,18 +50,33 @@ class DarkSporeServerApi(object):
                             callback + ";")
         return javascript
 
-    def gameApi_getStatus_object(self, include_broadcast):
+    def gameApi_getStatus_object(self, include_broadcasts):
         obj = {
+                "stat": 'ok',
+                "version": self.server.gameVersion,
+                "timestamp": self.timestamp(),
+                "exectime": self.exectime(),
                 "status": {
+                    "api": {
+                        "health": 1,
+                        "revision": 1,
+                        "version": 1
+                    },
                     "blaze":   {"health": 1},
                     "gms":     {"health": 1},
                     "nucleus": {"health": 1},
-                    "game":    {"health": 1}
+                    "game": {
+                        "health": 1,
+                        "countdown": 0,
+                        "open": 1,
+                        "throttle": 0,
+                        "vip": 0
+                    }
                 }
               }
 
-        if include_broadcast:
-            obj.broadcast = []
+        if include_broadcasts:
+            obj["broadcasts"] = []
 
         return obj
 
@@ -156,17 +175,21 @@ class DarkSporeServerApi(object):
                     "blaze_service_name": 'darkspore',
                     "blaze_secure": 'N', # --CONFIRMED--
                     "blaze_env": 'production',
+                    "sporenet_cdn_host": 'darkspore.com',
                     "sporenet_db_host": 'darkspore.com',
                     "sporenet_db_port": '80',
                     "sporenet_db_name": 'darkspore',
                     "sporenet_host": 'darkspore.com',
                     "sporenet_port": '80',
+                    'http_secure': 'N',
                     "liferay_host": 'darkspore.com',
                     "liferay_port": '80',
-                    "launcher_action": '1', # --NUMBER--
+                    "launcher_action": '0', # 0, 1, 4, 5 and 8 work; 2, 3, 6 and 7 breaks everything
                     "launcher_url": 'http://darkspore.com/bootstrap/launcher/notes'
                 }
-            }]
+            }],
+            "to_image": "",
+            "from_image": ""
         }
 
         if include_settings:
@@ -178,6 +201,9 @@ class DarkSporeServerApi(object):
 
         if include_patches:
             obj["patches"] = []
+            # target, date, from_version, to_version, id, description, application_instructions,
+            # locale, shipping, file_url, archive_size, uncompressed_size,
+            # hashes (attributes, Version, Hash, Size, BlockSize)
 
         return obj
 

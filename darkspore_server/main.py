@@ -55,19 +55,26 @@ def api():
 
 @app.route("/game/api", methods=['GET','POST'])
 def gameApi():
-    method  = request.args.get('method',  default='')
     version = request.args.get('version', default='')
+    build   = request.args.get('build',   default='')
+    method  = request.args.get('method',  default='')
+
+    # Different players must be using the same version of the game, otherwise
+    # there may be issue during a match.
+    validVersion = server.setGameVersion(build)
+    if serverConfig.versionLockEnabled() and validVersion == False:
+        return xmlResponseWithObject(serverApi.bootstrapApi_error_object())
 
     if method == 'api.status.getStatus':
-        include_broadcasts = request.args.get('include_broadcast', default='')
-        return jsonResponseWithObject(serverApi.gameApi_getStatus_object(include_broadcasts))
+        include_broadcasts = request.args.get('include_broadcasts', default='')
+        return xmlResponseWithObject(serverApi.gameApi_getStatus_object(include_broadcasts))
 
     print " "
     print "http://" + request.host + "/api"
     print request.args
     print " "
 
-    return jsonResponseWithObject({})
+    return xmlResponseWithObject({})
 
 @app.route("/bootstrap/api", methods=['GET','POST'])
 def bootstrapApi():

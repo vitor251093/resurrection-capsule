@@ -36,4 +36,4 @@ def setXmlValues(xml, key, values):
             setXmlValues(sub, sub_key, val)
         return
 
-    xml_tree.SubElement(xml, key).text = values
+    xml_tree.SubElement(xml, key).text = str(values)

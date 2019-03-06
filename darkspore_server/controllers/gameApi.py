@@ -16,38 +16,12 @@ class DarkSporeServerApi(object):
 
     # Not used by the latest version of the game
     def api_getStatus_javascript(self, callback):
-        data = json.dumps(self.gameApi_getStatus_object(False))
+        data = json.dumps(self.gameApi_getStatus_object(True))
         javascript = ("var data = " + data + "; " +
-                      "setTimeout(function(){" +
-
-                            "oncriticalerror = false; " +
-                            "setPlayButtonActive(); " +
-                            "updateBottomleftProgressComment('DARKSPORE-LS ENABLED');" +
-                            "updateProgressBar(1);" +
-                            "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
-                            "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
-
-                      "},200); " +
-                      "if (setServerStatus !== undefined) {setServerStatus(true, false, 0);} " +
+                      "oncriticalerror = false; " +
+                      "setPlayButtonActive(); " +
+                      "updateProgressBar(1); " +
                       callback + ";")
-
-        if self.serverConfig.shouldSkipLauncher():
-            javascript = ("var data = " + data + "; "
-                            "clickPlayButton();" +
-                            "var runNow = function(){" +
-
-                                "oncriticalerror = false; " +
-                                "setPlayButtonActive(); " +
-                                "updateBottomleftProgressComment('DARKSPORE-LS ENABLED');" +
-                                "updateProgressBar(1);" +
-                                "document.getElementById('Patch_Content_Frame').style.display = 'block'; " +
-                                "document.getElementById('ERROR_MESSAGE').style.height = '0px'; " +
-
-                                "clickPlayButton();" +
-                                "setTimeout(runNow,1); " +
-                            "}; " +
-                            "runNow(); " +
-                            callback + ";")
         return javascript
 
     def gameApi_getStatus_object(self, include_broadcasts):

@@ -6,7 +6,6 @@ class DarkSporeServerConfig(object):
         self.serverPath = "/darkspore_server"
         self.config = {
             "VERSION_LOCKED": False,
-            "SHOULD_SKIP_LAUNCHER": False,
             "SINGLEPLAYER_ONLY": True,
             "STORAGE_PATH": "/darkspore_server_storage",
             "DARKSPORE_INDEX_PAGE_PATH": "index.html",
@@ -47,13 +46,10 @@ class DarkSporeServerConfig(object):
         return self.config[key]
 
     def singlePlayerOnly(self):
-        return self.get("SHOULD_SKIP_LAUNCHER") == True
+        return self.get("SINGLEPLAYER_ONLY") == True
 
     def versionLockEnabled(self):
         return self.singlePlayerOnly() == False and self.get("VERSION_LOCKED") == True
-
-    def shouldSkipLauncher(self):
-        return self.singlePlayerOnly() == True or self.get("SHOULD_SKIP_LAUNCHER") == True
 
     def darksporeIndexPagePath(self):
         return self.get("DARKSPORE_INDEX_PAGE_PATH")

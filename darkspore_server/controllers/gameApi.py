@@ -14,22 +14,34 @@ class DarkSporeServerApi(object):
         self.exectimeInt += 1
         return self.exectimeInt
 
+    def objectByAddingResponseCommonKeys(self, obj):
+        obj["stat"] = 'ok'
+        obj["version"] = self.server.gameVersion
+        obj["timestamp"] = self.timestamp()
+        obj["exectime"] = self.exectime()
+        return obj
+
+    def bootstrapApi_error_object(self):
+        obj = self.objectByAddingResponseCommonKeys({})
+        obj["stat"] = 'error'
+        return obj
+
     # Not used by the latest version of the game
     def api_getStatus_javascript(self, callback):
+        showDebug = True
+        debugString = "''"
+
         data = json.dumps(self.gameApi_getStatus_object(True))
         javascript = ("var data = " + data + "; " +
                       "oncriticalerror = false; " +
                       "setPlayButtonActive(); " +
-                      "updateProgressBar(1); " +
+                      (("updateBottomleftProgressComment(" + debugString + "); ") if showDebug else "") +
+                      "updateProgressBar(1);" +
                       callback + ";")
         return javascript
 
     def gameApi_getStatus_object(self, include_broadcasts):
         obj = {
-                "stat": 'ok',
-                "version": self.server.gameVersion,
-                "timestamp": self.timestamp(),
-                "exectime": self.exectime(),
                 "status": {
                     "api": {
                         "health": 1,
@@ -52,24 +64,11 @@ class DarkSporeServerApi(object):
         if include_broadcasts:
             obj["broadcasts"] = []
 
-        return obj
-
-    def bootstrapApi_error_object(self):
-        obj = {
-            "stat": 'error',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime()
-        }
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_getAccount_object(self, id, include_feed, include_decks, include_creatures):
         account = self.server.getAccount(id)
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "account": {
                 "avatar_id": '1', # TODO
                 "avatar_updated": '0', # Not sure of what is that
@@ -123,27 +122,19 @@ class DarkSporeServerApi(object):
         if include_creatures:
             print "include creatures"
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_searchAccounts_object(self, count, terms):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
         }
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_getConfigs_object(self, include_settings, include_patches):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "configs": [{
                 "config": {
                     "blaze_service_name": 'darkspore',
@@ -179,14 +170,10 @@ class DarkSporeServerApi(object):
             # locale, shipping, file_url, archive_size, uncompressed_size,
             # hashes (attributes, Version, Hash, Size, BlockSize)
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_getCreature_object(self, creature_id, include_parts, include_abilities):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
@@ -198,14 +185,10 @@ class DarkSporeServerApi(object):
         if include_abilities:
             print "include_abilities"
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_getCreatureTemplate_object(self, creature_id, include_abilities):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
@@ -214,92 +197,64 @@ class DarkSporeServerApi(object):
         if include_abilities:
             print "include_abilities"
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_getFriendsList_object(self, start, sort, list):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
         }
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_followFriend_object(self, name):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
         }
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_unfollowFriend_object(self, name):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
         }
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_blockFriend_object(self, name):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
         }
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_unblockFriend_object(self, name):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "configs": [{
                 # TODO:
             }]
         }
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def bootstrapApi_getLeaderboard_object(self, name, varient, count, start):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "leaderboard": [{
                 # TODO:
             }]
         }
 
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)
 
     def surveyApi_getSurveyList_object(self):
         obj = {
-            "stat": 'ok',
-            "version": self.server.gameVersion,
-            "timestamp": self.timestamp(),
-            "exectime": self.exectime(),
             "surveys": [{
                 "survey": {
                     # TODO:
@@ -309,4 +264,4 @@ class DarkSporeServerApi(object):
                 }
             }]
         }
-        return obj
+        return self.objectByAddingResponseCommonKeys(obj)

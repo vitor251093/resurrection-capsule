@@ -149,8 +149,8 @@ class DarkSporeServerApi(object):
                     'http_secure': 'N',
                     "liferay_host": 'darkspore.com',
                     "liferay_port": '80',
-                    "launcher_action": '0', # 0, 1, 4, 5 and 8 work; 2, 3, 6 and 7 breaks everything
-                    "launcher_url": 'http://darkspore.com/bootstrap/launcher/notes'
+                    "launcher_action": '2', # 0, 1, 4, 5 and 8 work; 2, 3, 6 and 7 breaks everything
+                    "launcher_url": ('http://darkspore.com/bootstrap/launcher/?version=' + self.server.gameVersion)
                 }
             }],
             "to_image": "",

@@ -9,7 +9,8 @@ class DarkSporeServerConfig(object):
             "SINGLEPLAYER_ONLY": True,
             "STORAGE_PATH": "/darkspore_server_storage",
             "DARKSPORE_INDEX_PAGE_PATH": "index.html",
-            "DARKSPORE_LAUNCHER_NOTES_PATH": "bootstrap/launcher/notes.html"
+            "DARKSPORE_LAUNCHER_NOTES_PATH": "bootstrap/launcher/notes.html",
+            "DARKSPORE_LAUNCHER_PATH": "bootstrap/launcher/index.html"
         }
 
         try:
@@ -56,6 +57,9 @@ class DarkSporeServerConfig(object):
 
     def darksporeLauncherNotesPath(self):
         return self.get("DARKSPORE_LAUNCHER_NOTES_PATH")
+
+    def darksporeLauncherPath(self):
+        return self.get("DARKSPORE_LAUNCHER_PATH")
 
     def storagePath(self):
         storagePath = self.get("STORAGE_PATH")

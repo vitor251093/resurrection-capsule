@@ -212,6 +212,20 @@ def index():
     indexPath = serverConfig.darksporeIndexPagePath()
     return send_from_directory(os.path.join(serverConfig.storagePath(), 'www'), indexPath, mimetype='text/html')
 
+@app.route("/bootstrap/launcher/")
+def bootstrapLauncher():
+    notesPath = serverConfig.darksporeLauncherPath()
+    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), notesPath), "r")
+    launcherNotesHtml = file.read()
+
+    launcherNotesHtml = launcherNotesHtml.replace("{{dls-version}}", server.version)
+    if serverConfig.versionLockEnabled():
+        launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", server.gameVersion)
+    else:
+        launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", "available")
+
+    return Response(launcherNotesHtml, mimetype='text/html')
+
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
     notesPath = serverConfig.darksporeLauncherNotesPath()
@@ -225,6 +239,16 @@ def bootstrapLauncherNotes():
         launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", "available")
 
     return Response(launcherNotesHtml, mimetype='text/html')
+
+@app.route("/bootstrap/launcher/<path:path>")
+def bootstrapLauncherImages(path):
+    notesPath = serverConfig.darksporeLauncherPath()
+    launcherFolder = os.path.dirname(notesPath)
+    imagePath = os.path.join(launcherFolder, path)
+
+    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), imagePath), "r")
+    launcherNotesHtml = file.read()
+    return Response(launcherNotesHtml)
 
 @app.route('/favicon.ico')
 def favicon():

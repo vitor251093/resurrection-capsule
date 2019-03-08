@@ -138,7 +138,7 @@ class DarkSporeServerApi(object):
             "configs": [{
                 "config": {
                     "blaze_service_name": 'darkspore',
-                    "blaze_secure": 'N', # --CONFIRMED--
+                    "blaze_secure": 'N',
                     "blaze_env": 'production',
                     "sporenet_cdn_host": 'darkspore.com',
                     "sporenet_db_host": 'darkspore.com',
@@ -149,7 +149,7 @@ class DarkSporeServerApi(object):
                     'http_secure': 'N',
                     "liferay_host": 'darkspore.com',
                     "liferay_port": '80',
-                    "launcher_action": '2', # 0, 1, 4, 5 and 8 work; 2, 3, 6 and 7 breaks everything
+                    "launcher_action": '2',
                     "launcher_url": ('http://darkspore.com/bootstrap/launcher/?version=' + build)
                 }
             }],
@@ -161,7 +161,7 @@ class DarkSporeServerApi(object):
             obj["settings"] = {
                 "open": 'false',
                 "telemetry-rate": '256',
-                "telemetry-setting": '0' # --NUMBER--
+                "telemetry-setting": '0'
             }
 
         if include_patches:

@@ -103,7 +103,7 @@ def bootstrapApi():
     if method == 'api.config.getConfigs':
         include_settings = (request.args.get('include_settings', default='') == 'true')
         include_patches  = (request.args.get('include_patches',  default='') == 'true')
-        return xmlResponseWithObject(serverApi.bootstrapApi_getConfigs_object(include_settings, include_patches))
+        return xmlResponseWithObject(serverApi.bootstrapApi_getConfigs_object(build, include_settings, include_patches))
 
     if method == 'api.creature.getCreature':
         creature_id       = int(request.args.get('id',                default='0'))

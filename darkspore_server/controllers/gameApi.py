@@ -133,7 +133,7 @@ class DarkSporeServerApi(object):
 
         return self.objectByAddingResponseCommonKeys(obj)
 
-    def bootstrapApi_getConfigs_object(self, include_settings, include_patches):
+    def bootstrapApi_getConfigs_object(self, build, include_settings, include_patches):
         obj = {
             "configs": [{
                 "config": {
@@ -150,7 +150,7 @@ class DarkSporeServerApi(object):
                     "liferay_host": 'darkspore.com',
                     "liferay_port": '80',
                     "launcher_action": '2', # 0, 1, 4, 5 and 8 work; 2, 3, 6 and 7 breaks everything
-                    "launcher_url": ('http://darkspore.com/bootstrap/launcher/?version=' + self.server.gameVersion)
+                    "launcher_url": ('http://darkspore.com/bootstrap/launcher/?version=' + build)
                 }
             }],
             "to_image": "",
@@ -170,7 +170,9 @@ class DarkSporeServerApi(object):
             # locale, shipping, file_url, archive_size, uncompressed_size,
             # hashes (attributes, Version, Hash, Size, BlockSize)
 
-        return self.objectByAddingResponseCommonKeys(obj)
+        obj = self.objectByAddingResponseCommonKeys(obj)
+        obj["version"] = build
+        return obj
 
     def bootstrapApi_getCreature_object(self, creature_id, include_parts, include_abilities):
         obj = {

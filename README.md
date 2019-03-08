@@ -28,16 +28,16 @@ I have no idea. The biggest issue at this moment is reaching the login screen fi
 This is the progress so far with each version of the game.
 
 ### Limited Edition DVD version (5.3.0.15)
-- **(Mod required)** Game launches, but login screen gives lost network connection error.
+- Game launches, but login screen gives lost network connection error.
 
 ### Online installer version (5.3.0.84)
-- **(Mod required)** Game launches, but login screen gives lost network connection error.
+- Game launches, but login screen gives lost network connection error.
 
 ### Steam Beta version (5.3.0.103)
-- **(Mod required)** Game launches, but login screen gives lost network connection error.
+- Game launches, but login screen gives lost network connection error.
 
 ### Latest version (5.3.0.127)
-- Launcher looks a bit glitchy. Game launches, but login screen gives lost network connection error.
+- Game launches, but login screen gives lost network connection error.
 
 ## Architecture
 The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrapper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.
@@ -49,13 +49,13 @@ In order to start using (or at this point, contributing) the local server, you w
 - A computer with Linux, MacOS or Windows 10;
 - The Docker application installed;
 - Darkspore installed (use Wine, or relatives, if you are in Linux/macOS);
-- The mod from the `required_mod` folder inside your Darkspore Data folder (non-latest versions only).
+- Your `hosts` file modified according to the specifications in **Server redirect** (will change in the future).
 
 ### Non-Docker version
 - A computer with Linux, MacOS or Windows XP (or above);
 - Python 2.7 and Flask installed;
 - Darkspore installed (use Wine, or relatives, if you are in Linux/macOS);
-- The mod from the `required_mod` folder inside your Darkspore Data folder (non-latest versions only).
+- Your `hosts` file modified according to the specifications in **Server redirect** (will change in the future).
 
 ## Progress
 - [x] Redirect Darkspore requests to the localhost;

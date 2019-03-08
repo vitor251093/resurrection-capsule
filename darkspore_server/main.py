@@ -212,15 +212,17 @@ def index():
     indexPath = serverConfig.darksporeIndexPagePath()
     return send_from_directory(os.path.join(serverConfig.storagePath(), 'www'), indexPath, mimetype='text/html')
 
-@app.route("/bootstrap/launcher/")
+@app.route("/bootstrap/launcher/", methods=['GET','POST'])
 def bootstrapLauncher():
+    version = request.args.get('version', default='')
+
     notesPath = serverConfig.darksporeLauncherPath()
     file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), notesPath), "r")
     launcherNotesHtml = file.read()
 
     launcherNotesHtml = launcherNotesHtml.replace("{{dls-version}}", server.version)
     if serverConfig.versionLockEnabled():
-        launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", server.gameVersion)
+        launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", version)
     else:
         launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", "available")
 

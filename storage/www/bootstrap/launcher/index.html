@@ -711,7 +711,6 @@
              */
             function setServerStatus(health, maintenance, countdown)
             {
-
                 mServerStatus = true;
                 mServerHealth = health;
                 mServerMaintenance = maintenance;
@@ -756,8 +755,13 @@
                     // turn on the play button
                     updateProgressBar(1.0);
                     setPlayButtonActive();
-                    setValidateButtonActive();
 
+                    if (hasClientCheckImage()) {
+                        setValidateButtonActive();
+                    }
+                    else {
+                        setValidateButtonDeactive();
+                    }
                 }
                 else
                 {
@@ -779,21 +783,15 @@
              */
             function setFrameAsUrl(url)
             {
-
                 // make sure no errors are already in place
-                if (!mError
-                 && typeof url !== 'undefined'
-                 && 0 < url.length) {
-
+                if (!mError) {
                     el = document.getElementById('Patch_note_frame');
                     if (null != el)
                     {
                         altUrl = "/bootstrap/launcher/notes";
                         el.innerHTML =  '<iframe id="Patch_Content_Frame" src ="' + altUrl + '" width="473" height="280" frameBorder="0"></iframe>';
                     }
-
                 }
-
             } //end setFrameAsUrl
 
             function setFrameAsEmpty()
@@ -952,8 +950,7 @@
               location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]})
               return queryDict["version"];
             }
-
-            function hasClientRequestStatusRefresh() {
+            function gameVersionParts() {
               var version = gameVersion();
               if (version === undefined) return true;
 
@@ -964,17 +961,26 @@
               var versionComp2 = parseInt(versionParts[1]);
               var versionComp3 = parseInt(versionParts[2]);
               var versionComp4 = parseInt(versionParts[3]);
-              if (versionComp1 > 5) return true;
-              if (versionComp2 > 3) return true;
-              if (versionComp3 > 0) return true;
-              return versionComp4 >= 127;
+              return [versionComp1,versionComp2,versionComp3,versionComp4];
+            }
+            function isGameVersionAtLeast(versionArray) {
+              var versionParts = gameVersionParts();
+              if (versionParts[0] > versionArray[0]) return true;
+              if (versionParts[1] > versionArray[1]) return true;
+              if (versionParts[2] > versionArray[2]) return true;
+              return versionParts[3] >= versionArray[3];
+            }
+            function hasClientRequestStatusRefresh() {
+              return isGameVersionAtLeast([5,3,0,103]);
+            }
+            function hasClientCheckImage() {
+              return isGameVersionAtLeast([5,3,0,127]);
             }
 
             /**
              * request a server side refresh
              */
             function refreshStatus() {
-
                 mError = false;
                 stopCountdown();
                 if (hasClientRequestStatusRefresh()) {
@@ -1025,8 +1031,15 @@
                 // start the patcher progress part to 0
                 updateProgressBar(0.0);
 
+                updateBottomleftProgressComment("x");
+
                 // localized material
                 setLocalizedText();
+
+                if (!hasClientRequestStatusRefresh()) {
+                    refreshStatus();
+                    setFrameAsUrl(undefined);
+                }
 
                 // refresh the launcher every 5 minutes
                 setInterval("refreshStatus()", 300000);

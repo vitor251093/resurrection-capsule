@@ -6,81 +6,81 @@ All the notes taken here consider only the latest official version of the game (
 ## Known functions
 
 ### sub_401A80: allocStringWithSize
-**Full name:** `void allocStringWithSize(void* stringPointer, unsigned int size)`
-
-**Example:** `allocStringWithSize(&string, 0x11u);`
-
-**Purpose:** Allocs in `stringPointer` a string with size `size`. No content is written in that space.
+```cpp
+void allocStringWithSize(void* stringPointer, unsigned int size) {(...)}
+allocStringWithSize(&string, 0x11u);
+```
+Allocs in `stringPointer` a string with size `size`. No content is written in that space.
 
 ### sub_402380: allocAndInitString
-**Full name:** `void allocAndInitString(void* stringPointer, void* string);`
-
-**Example:** `allocAndInitString(&string, "Version");`
-
-**Purpose:** Allocs in `stringPointer` a string with `string`'s size +1, and writes `string` in that space.
+```cpp
+void allocAndInitString(void* stringPointer, void* string) {(...)}
+allocAndInitString(&string, "Version");
+```
+Allocs in `stringPointer` a string with `string`'s size +1, and writes `string` in that space.
 
 ### sub_45D810: getXmlValueForKey
-**Full name:** `int getXmlValueForKey(void* xml, int key_begin_address, int u1, int u2, int u3)`
-
-**Example:** `getXmlValueForKey(xml, key_begin_address, ?, ?, ?);`
-
-**Purpose:** Returns the value of the mentioned key from the `xml` dictionary/map.
+```cpp
+int getXmlValueForKey(void* xml, int key_begin_address, int u1, int u2, int u3) {(...)}
+getXmlValueForKey(xml, key_begin_address, ?, ?, ?);
+```
+Returns the value of the mentioned key from the `xml` dictionary/map.
 
 ### sub_45E310: retrieveAccountDetailsFromXmlObj
-**Full name:** `unsigned __int64 retrieveAccountDetailsFromXmlObj(void* account, int u1)`
-
-**Example:** `retrieveAccountDetailsFromXmlObj(account, ?);`
-
-**Purpose:** Read the account details from an `account` object retrieved from a xml dictionary/map.
+```cpp
+void retrieveAccountDetailsFromXmlObj(void* account, int u1) {(...)}
+retrieveAccountDetailsFromXmlObj(account, ?);
+```
+Read the account details from an `account` object retrieved from a xml dictionary/map.
 
 ### sub_461600: getSurveysCallback
-**Full name:** `void getSurveysCallback(int u1, void* xml)`
-
-**Example:** `getSurveysCallback(?, xml)`
-
-**Purpose:** The callback of the getSurveys function, with the returned `xml` dictionary/map.
+```cpp
+void getSurveysCallback(int u1, void* xml) {(...)}
+getSurveysCallback(?, xml);
+```
+The callback of the getSurveys function, with the returned `xml` dictionary/map.
 
 ### sub_461EC0: bootstrapApiCallback
-**Full name:** `char bootstrapApiCallback(int u1, void** u2, int u3, int u4)`
-
-**Example:** `bootstrapApiCallback(?, ?, ?, ?)`
-
-**Purpose:** The first step of all bootstrap/api functions responses.
+```cpp
+char bootstrapApiCallback(int u1, void** u2, int u3, int u4) {(...)}
+bootstrapApiCallback(?, ?, ?, ?)
+```
+The first step of all bootstrap/api functions responses.
 
 ### sub_468120: retrieveBroadcastsDetailsFromXmlObj
-**Full name:** `void retrieveBroadcastsDetailsFromXmlObj(int response, _DWORD* broadcasts)`
-
-**Example:** `retrieveBroadcastsDetailsFromXmlObj(response, broadcasts)`
-
-**Purpose:** Read the broadcasts details from a `broadcasts` object retrieved from a xml dictionary/map, and store them in `response`.
+```cpp
+void retrieveBroadcastsDetailsFromXmlObj(int response, _DWORD* broadcasts) {(...)}
+retrieveBroadcastsDetailsFromXmlObj(response, broadcasts);
+```
+Read the broadcasts details from a `broadcasts` object retrieved from a xml dictionary/map, and store them in `response`.
 
 ### sub_469CE0: getBroadcastsCallback
-**Full name:** `void getBroadcastsCallback(_DWORD* u1, void* xml)`
-
-**Example:** `getBroadcastsCallback(?, xml);`
-
-**Purpose:** The callback of the getBroadcasts function, with the returned `xml` dictionary/map.
+```cpp
+void getBroadcastsCallback(_DWORD* u1, void* xml) {(...)}
+getBroadcastsCallback(?, xml);
+```
+The callback of the getBroadcasts function, with the returned `xml` dictionary/map.
 
 ### sub_469E00: getStatusCallback
-**Full name:** `void getStatusCallback(int u1, void* xml)`
-
-**Example:** `getStatusCallback(?, xml);`
-
-**Purpose:** The callback of the getStatus function, with the returned `xml` dictionary/map.
+```cpp
+void getStatusCallback(int u1, void* xml) {(...)}
+getStatusCallback(?, xml);
+```
+The callback of the getStatus function, with the returned `xml` dictionary/map.
 
 ### sub_46BDD0: getConfigsCallback
-**Full name:** `void getConfigsCallback(void* configs, void* xml)`
-
-**Example:** `getConfigsCallback(configs, xml);`
-
-**Purpose:** The callback of the getConfigs function, with the returned `xml` dictionary/map, and store them in `configs`.
+```cpp
+void getConfigsCallback(void* configs, void* xml) {(...)}
+getConfigsCallback(configs, xml);
+```
+The callback of the getConfigs function, with the returned `xml` dictionary/map, and store them in `configs`.
 
 ### sub_AE44B0: stringToInteger
-**Full name:** `unsigned __int64 stringToInteger(signed __int16* string, int* u1, signed int u2)`
-
-**Example:** `stringToInteger(string, ?, ?);`
-
-**Purpose:** Parse `string` into an unsigned integer number.
+```cpp
+unsigned long long stringToInteger(signed __int16* string, int* u1, signed int u2) {(...)}
+integer = stringToInteger(string, ?, ?);
+```
+Parse `string` into an unsigned integer number.
 
 
 ## Unknown functions

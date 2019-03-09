@@ -6,7 +6,7 @@ All the notes taken here consider only the latest official version of the game (
 ## Known functions
 
 ### sub_401A80: allocStringWithSize
-**Full name:** `void allocStringWithSize(void* stringPointer, unsigned int size)``
+**Full name:** `void allocStringWithSize(void* stringPointer, unsigned int size)`
 
 **Example:** `allocStringWithSize(&string, 0x11u);`
 

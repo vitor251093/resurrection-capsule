@@ -1,0 +1,1 @@
+BF4WebHelper.exe -webMode MP -Origin_NoAppFocus -authCode noneed -blazeIP 192.168.1.40 -patchSSL -noConsole -requestState State_ConnectToGameId -requestStateParams "<data putinsquad=\"true\" gameid=\"1\" role=\"soldier\" personaref=\"1\" levelmode=\"mp\"></data>"

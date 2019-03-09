@@ -1,0 +1,62 @@
+[
+  {
+    "GroupName": "BF4PC",
+    "PRID": "DR:235663400",
+    "TAG": "ONLINE_ACCESS",
+    "Type": 1
+  },
+  {
+    "GroupName": "BF4PC",
+    "PRID": "",
+    "TAG": "PREMIUM_ACCESS",
+    "Type": 5
+  },
+  {
+    "GroupName": "BF4PC",
+    "PRID": "",
+    "TAG": "XPACK0_ACCESS",
+    "Type": 5
+  },
+  {
+    "GroupName": "BF4PC",
+    "PRID": "",
+    "TAG": "XPACK1_ACCESS",
+    "Type": 5
+  },
+  {
+    "GroupName": "BF4PC",
+    "PRID": "",
+    "TAG": "XPACK2_ACCESS",
+    "Type": 5
+  },
+  {
+    "GroupName": "BF4PC",
+    "PRID": "",
+    "TAG": "XPACK3_ACCESS",
+    "Type": 5
+  },
+  {
+    "GroupName": "BF4PC",
+    "PRID": "",
+    "TAG": "XPACK4_ACCESS",
+    "Type": 5
+  },
+  {
+    "GroupName": "BF4PC",
+    "PRID": "",
+    "TAG": "XPACK5_ACCESS",
+    "Type": 5
+  },
+  {
+    "GroupName": "BF4PC",
+    "PRID": "",
+    "TAG": "XPACK6_ACCESS",
+    "Type": 5
+  },
+  {
+    "GroupName": "BF4PC",
+    "PRID": "",
+    "TAG": "XPACK7_ACCESS",
+    "Type": 5
+  }
+]

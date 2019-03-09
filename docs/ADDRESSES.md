@@ -5,77 +5,77 @@ All the notes taken here consider only the latest official version of the game (
 
 ## Known functions
 
-### sub_401A80: allocStringWithSize
+#### sub_401A80: allocStringWithSize
 ```cpp
 void allocStringWithSize(void* stringPointer, unsigned int size) {(...)}
 allocStringWithSize(&string, 0x11u);
 ```
 Allocs in `stringPointer` a string with size `size`. No content is written in that space.
 
-### sub_402380: allocAndInitString
+#### sub_402380: allocAndInitString
 ```cpp
 void allocAndInitString(void* stringPointer, void* string) {(...)}
 allocAndInitString(&string, "Version");
 ```
 Allocs in `stringPointer` a string with `string`'s size +1, and writes `string` in that space.
 
-### sub_45D810: getXmlValueForKey
+#### sub_45D810: getXmlValueForKey
 ```cpp
 int getXmlValueForKey(void* xml, int key_begin_address, int u1, int u2, int u3) {(...)}
 getXmlValueForKey(xml, key_begin_address, ?, ?, ?);
 ```
 Returns the value of the mentioned key from the `xml` dictionary/map.
 
-### sub_45E310: retrieveAccountDetailsFromXmlObj
+#### sub_45E310: retrieveAccountDetailsFromXmlObj
 ```cpp
 void retrieveAccountDetailsFromXmlObj(void* account, int u1) {(...)}
 retrieveAccountDetailsFromXmlObj(account, ?);
 ```
 Read the account details from an `account` object retrieved from a xml dictionary/map.
 
-### sub_461600: getSurveysCallback
+#### sub_461600: getSurveysCallback
 ```cpp
 void getSurveysCallback(int u1, void* xml) {(...)}
 getSurveysCallback(?, xml);
 ```
 The callback of the getSurveys function, with the returned `xml` dictionary/map.
 
-### sub_461EC0: bootstrapApiCallback
+#### sub_461EC0: bootstrapApiCallback
 ```cpp
 char bootstrapApiCallback(int u1, void** u2, int u3, int u4) {(...)}
 bootstrapApiCallback(?, ?, ?, ?)
 ```
 The first step of all bootstrap/api functions responses.
 
-### sub_468120: retrieveBroadcastsDetailsFromXmlObj
+#### sub_468120: retrieveBroadcastsDetailsFromXmlObj
 ```cpp
 void retrieveBroadcastsDetailsFromXmlObj(int response, _DWORD* broadcasts) {(...)}
 retrieveBroadcastsDetailsFromXmlObj(response, broadcasts);
 ```
 Read the broadcasts details from a `broadcasts` object retrieved from a xml dictionary/map, and store them in `response`.
 
-### sub_469CE0: getBroadcastsCallback
+#### sub_469CE0: getBroadcastsCallback
 ```cpp
 void getBroadcastsCallback(_DWORD* u1, void* xml) {(...)}
 getBroadcastsCallback(?, xml);
 ```
 The callback of the getBroadcasts function, with the returned `xml` dictionary/map.
 
-### sub_469E00: getStatusCallback
+#### sub_469E00: getStatusCallback
 ```cpp
 void getStatusCallback(int u1, void* xml) {(...)}
 getStatusCallback(?, xml);
 ```
 The callback of the getStatus function, with the returned `xml` dictionary/map.
 
-### sub_46BDD0: getConfigsCallback
+#### sub_46BDD0: getConfigsCallback
 ```cpp
 void getConfigsCallback(void* configs, void* xml) {(...)}
 getConfigsCallback(configs, xml);
 ```
 The callback of the getConfigs function, with the returned `xml` dictionary/map, and store them in `configs`.
 
-### sub_AE44B0: stringToInteger
+#### sub_AE44B0: stringToInteger
 ```cpp
 unsigned long long stringToInteger(signed __int16* string, int* u1, signed int u2) {(...)}
 integer = stringToInteger(string, ?, ?);

@@ -15,7 +15,7 @@ DARKSPORE_LAUNCHER_PATH=bootstrap/launcher/default/index.html
 
 # By default, D-LS is used to play in singleplayer; if you decide to change that, you need to modify the value below
 # In the future, that should be to be selected by a custom launcher.
-SINGLEPLAYER_ONLY=false
+SINGLEPLAYER_ONLY=true
 
 # In case you want to skip the game launcher.
 # WARNING: By enabling that, the game won't receive update patches

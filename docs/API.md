@@ -45,9 +45,9 @@ __Progress:__ 0%
 __Description:__ ???
 
 ### api.config.getConfigs
-__Progress:__ 90%
+__Progress:__ 100%
 
-__Description:__ Configures how to the game should handle requests.
+__Description:__ Configures how to the game should handle requests. It can also be used to completely modify the launcher.
 
 ### api.creature.getCreature
 __Progress:__ 0%
@@ -145,9 +145,9 @@ __Description:__ (Uncertain) Probably list the Demo version surveys.
 That name is provisory, and is due to the fact that the only use found for that API until now is updating the server status in the Darkspore launcher. That API path is `/api` and `/game/api`. Just like the API above, it receives the GET parameter `method`, which in the case above defines which kind of information should be returned. Considering that, and the possibility that we can find other utilities for that API in the future, we gonna handle each of the `method`s separately, so that API will be split by `method` as well.
 
 ### api.status.getStatus
-__Progress:__ 100% (?)
+__Progress:__ 100%
 
-__Description:__ This method checks if the game needed servers are online (`blaze`, `gms`, `nucleus` and `game`). Most of the time it receives a callback parameter, `updateServerStatus(data)`, but that's not always the case.
+__Description:__ This method checks if the game needed servers are online (`api` (added later), `blaze`, `gms`, `nucleus` and `game`). In the older versions it also received a callback parameter, with the value `updateServerStatus(data)`, but that's no longer the case.
 
 
 ## SPORE Labs APIs
@@ -176,7 +176,3 @@ The use of those APIs is still unknown, although they can be found in the game E
 - `/bugs/choosepath.php`
 - `/survey/takeSurvey.php`
 - `/game/service/png`
-
-
-## Extra: Launcher notes
-Technically, this was an API in the original Darkspore; it was just the HTML page that was shown in the game launcher. Although, it's handled by Flask in Darkspore-LS in a way that it can be customized per-request, so here it's an API. The original path was `/bootstrap/launcher/notes`, and the host varies according to the game version.

@@ -5,6 +5,7 @@ class DarkSporeServerConfig(object):
     def __init__(self):
         self.serverPath = "/darkspore_server"
         self.config = {
+            "SKIP_LAUNCHER": False,
             "VERSION_LOCKED": False,
             "SINGLEPLAYER_ONLY": True,
             "STORAGE_PATH": "/darkspore_server_storage",
@@ -45,6 +46,9 @@ class DarkSporeServerConfig(object):
 
     def get(self,key):
         return self.config[key]
+
+    def skipLauncher(self):
+        return self.get("SKIP_LAUNCHER") == True
 
     def singlePlayerOnly(self):
         return self.get("SINGLEPLAYER_ONLY") == True

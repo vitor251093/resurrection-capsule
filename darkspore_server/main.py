@@ -216,6 +216,13 @@ def index():
 def bootstrapLauncher():
     version = request.args.get('version', default='')
 
+    if serverConfig.skipLauncher():
+        launcherNotesHtml = ('<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">'
+                           + '<html><head><script type="text/javascript">'
+                           + 'window.onload = function(){ Client.playCurrentApp(); }'
+                           + '</script></head><body></body></html>')
+        return Response(launcherNotesHtml, mimetype='text/html')
+
     notesPath = serverConfig.darksporeLauncherPath()
     file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), notesPath), "r")
     launcherNotesHtml = file.read()

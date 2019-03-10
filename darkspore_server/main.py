@@ -22,6 +22,7 @@ from flask import request
 from flask import render_template
 from flask import Response
 from flask import send_from_directory
+from flask import send_file
 
 server = DarkSporeServer()
 serverConfig = DarkSporeServerConfig()
@@ -266,11 +267,7 @@ def bootstrapLauncherImages(path):
     imagePath = pathJoin(launcherFolder, path)
 
     filePath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), imagePath)
-    print filePath
-
-    file = open(filePath, "r")
-    launcherNotesHtml = file.read()
-    return Response(launcherNotesHtml, mimetype=mime.from_file(filePath))
+    return send_file(filePath, mimetype=mime.from_file(filePath))
 
 @app.route('/favicon.ico')
 def favicon():

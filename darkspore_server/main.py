@@ -29,7 +29,7 @@ serverApi = DarkSporeServerApi(serverConfig, server)
 
 def pathJoin(comp1, comp2):
     if os.name == 'nt':
-        while comp2.startswith('..')
+        while comp2.startswith('..'):
             comp1 = os.path.dirname(comp1)
             comp2 = comp2[3:]
         return os.path.join(comp1.replace("/","\\"), comp2.replace("/","\\"))

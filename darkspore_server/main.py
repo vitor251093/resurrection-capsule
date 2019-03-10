@@ -234,18 +234,15 @@ def bootstrapLauncherNotes():
     file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), notesPath), "r")
     launcherNotesHtml = file.read()
 
-    def notesByReplacing(notes, tag, condition, trueValue, falseValue):
-        if condition:
-            return notes.replace("{{" + tag + "}}", trueValue)
-        else:
-            return notes.replace("{{" + tag + "}}", falseValue)
+    versionLocked = serverConfig.versionLockEnabled()
+    singleplayer = serverConfig.singlePlayerOnly()
     isLatest = (server.gameVersion == darksporeBuild_latestOfficial)
 
     launcherNotesHtml = launcherNotesHtml.replace("{{dls-version}}", server.version)
-    launcherNotesHtml = notesByReplacing(launcherNotesHtml, "version-lock", serverConfig.versionLockEnabled(), server.gameVersion, "no")
-    launcherNotesHtml = notesByReplacing(launcherNotesHtml, "game-mode", serverConfig.singlePlayerOnly(), "singleplayer", "multiplayer")
-    launcherNotesHtml = notesByReplacing(launcherNotesHtml, "display-latest-version", serverConfig.versionLockEnabled(), "block", "none")
-    launcherNotesHtml = notesByReplacing(launcherNotesHtml, "latest-version", isLatest, "yes", "no")
+    launcherNotesHtml = launcherNotesHtml.replace("{{version-lock}}", server.gameVersion if versionLocked else "no")
+    launcherNotesHtml = launcherNotesHtml.replace("{{game-mode}}", "singleplayer" if singleplayer else "multiplayer")
+    launcherNotesHtml = launcherNotesHtml.replace("{{display-latest-version}}", "block" if versionLocked else "none")
+    launcherNotesHtml = launcherNotesHtml.replace("{{latest-version}}", "yes" if isLatest else "no")
 
     return Response(launcherNotesHtml, mimetype='text/html')
 

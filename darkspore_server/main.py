@@ -29,6 +29,9 @@ serverApi = DarkSporeServerApi(serverConfig, server)
 
 def pathJoin(comp1, comp2):
     if os.name == 'nt':
+        while comp2.startswith('..')
+            comp1 = os.path.dirname(comp1)
+            comp2 = comp2[3:]
         return os.path.join(comp1.replace("/","\\"), comp2.replace("/","\\"))
     return os.path.join(comp1.replace("\\","/"), comp2.replace("\\","/"))
 
@@ -263,6 +266,8 @@ def bootstrapLauncherImages(path):
     imagePath = pathJoin(launcherFolder, path)
 
     filePath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), imagePath)
+    print filePath
+
     file = open(filePath, "r")
     launcherNotesHtml = file.read()
     return Response(launcherNotesHtml, mimetype=mime.from_file(filePath))

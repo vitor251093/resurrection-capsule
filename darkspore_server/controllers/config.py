@@ -17,7 +17,7 @@ class DarkSporeServerConfig(object):
 
         try:
             scriptPath = os.path.abspath(os.path.dirname(__file__))
-            serverPath = os.path.join(scriptPath, "..")
+            serverPath = os.path.dirname(scriptPath)
             self.serverPath = serverPath
 
             configPath = os.path.join(serverPath, "config.txt")

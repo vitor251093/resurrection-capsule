@@ -11,6 +11,7 @@ import warnings
 import time
 import timeit
 import datetime
+import magic
 import socket
 import logging
 import threading
@@ -31,6 +32,7 @@ def pathJoin(comp1, comp2):
         return os.path.join(comp1.replace("/","\\"), comp2.replace("/","\\"))
     return os.path.join(comp1.replace("\\","/"), comp2.replace("\\","/"))
 
+mime = magic.Magic(mime=True)
 staticFolderPath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), 'static')
 app = Flask(__name__, static_url_path='/static', static_folder=staticFolderPath)
 
@@ -263,7 +265,7 @@ def bootstrapLauncherImages(path):
     filePath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), imagePath)
     file = open(filePath, "r")
     launcherNotesHtml = file.read()
-    return Response(launcherNotesHtml)
+    return Response(launcherNotesHtml, mimetype=mime.from_file(filePath))
 
 @app.route('/favicon.ico')
 def favicon():
@@ -284,6 +286,7 @@ def otherRequests(path):
     print request.args
     print 'You want path: %s' % path
     return ""
+    return Response(status=500)
 
 if __name__ == "__main__":
     runningInDocker = ("docker" in sys.argv)

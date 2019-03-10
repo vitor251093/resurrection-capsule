@@ -9,7 +9,7 @@ RUN pip install --upgrade pip
 RUN pip install setuptools
 RUN pip install flask
 RUN pip install twisted
-RUN pip install pyopenssl
+RUN pip install python-magic
 RUN pip install service_identity
 
 COPY darkspore_server /darkspore_server

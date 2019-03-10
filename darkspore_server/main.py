@@ -36,9 +36,9 @@ app.logger.addHandler(handler)
 
 @app.route("/api", methods=['GET','POST'])
 def api():
-    method   = request.args.get('method',   default='')
-    version  = request.args.get('version',  default='')
-    callback = request.args.get('callback', default='')
+    method      = request.args.get('method',   default='')
+    version     = request.args.get('version',  default='')
+    callback    = request.args.get('callback', default='')
     format_type = request.args.get('format',   default='')
 
     if method == 'api.status.getStatus':

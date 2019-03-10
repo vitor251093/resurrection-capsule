@@ -9,7 +9,7 @@ class DarkSporeServerConfig(object):
             "SKIP_LAUNCHER": False,
             "VERSION_LOCKED": False,
             "SINGLEPLAYER_ONLY": True,
-            "STORAGE_PATH": ("/darkspore_server_storage" if (len(sys.argv) > 1 and sys.argv[1] == "docker") else "../storage"),
+            "STORAGE_PATH": ("/darkspore_server_storage" if ("docker" in sys.argv) else "../storage"),
             "DARKSPORE_INDEX_PAGE_PATH": "index.html",
             "DARKSPORE_LAUNCHER_NOTES_PATH": "bootstrap/launcher/notes.html",
             "DARKSPORE_LAUNCHER_PATH": "bootstrap/launcher/default/index.html"

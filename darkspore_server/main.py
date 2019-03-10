@@ -34,11 +34,13 @@ def pathJoin(comp1, comp2):
 staticFolderPath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), 'static')
 app = Flask(__name__, static_url_path='/static', static_folder=staticFolderPath)
 
-now = datetime.datetime.now()
-logFileName = 'dls-' + now.strftime("%Y-%m-%d_%H-%M-%S") + '.log'
-handler = logging.FileHandler(pathJoin(serverConfig.storagePath(), logFileName))  # errors logged to this file
-handler.setLevel(logging.ERROR)  # only log errors and above
-app.logger.addHandler(handler)
+debugMode = ("debug" in sys.argv)
+if debugMode:
+    now = datetime.datetime.now()
+    logFileName = 'dls-' + now.strftime("%Y-%m-%d_%H-%M-%S") + '.log'
+    handler = logging.FileHandler(pathJoin(serverConfig.storagePath(), logFileName))  # errors logged to this file
+    handler.setLevel(logging.ERROR)  # only log errors and above
+    app.logger.addHandler(handler)
 
 @app.route("/api", methods=['GET','POST'])
 def api():
@@ -283,4 +285,8 @@ def otherRequests(path):
     return ""
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80)
+    runningInDocker = ("docker" in sys.argv)
+    if runningInDocker or serverConfig.singlePlayerOnly() == False:
+        app.run(debug=debugMode, host='0.0.0.0', port=80)
+    else:
+        app.run(debug=debugMode, port=80)

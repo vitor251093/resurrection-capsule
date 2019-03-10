@@ -25,12 +25,18 @@ from flask import send_from_directory
 server = DarkSporeServer()
 serverConfig = DarkSporeServerConfig()
 serverApi = DarkSporeServerApi(serverConfig, server)
-staticFolderPath = os.path.join(os.path.join(serverConfig.storagePath(), 'www'), 'static')
+
+def pathJoin(comp1, comp2):
+    if os.name == 'nt':
+        return os.path.join(comp1.replace("/","\\"), comp2.replace("/","\\"))
+    return os.path.join(comp1.replace("\\","/"), comp2.replace("\\","/"))
+
+staticFolderPath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), 'static')
 app = Flask(__name__, static_url_path='/static', static_folder=staticFolderPath)
 
 now = datetime.datetime.now()
 logFileName = 'dls-' + now.strftime("%Y-%m-%d_%H-%M-%S") + '.log'
-handler = logging.FileHandler(os.path.join(serverConfig.storagePath(), logFileName))  # errors logged to this file
+handler = logging.FileHandler(pathJoin(serverConfig.storagePath(), logFileName))  # errors logged to this file
 handler.setLevel(logging.ERROR)  # only log errors and above
 app.logger.addHandler(handler)
 
@@ -210,7 +216,7 @@ def gameServicePng():
 @app.route("/")
 def index():
     indexPath = serverConfig.darksporeIndexPagePath()
-    return send_from_directory(os.path.join(serverConfig.storagePath(), 'www'), indexPath, mimetype='text/html')
+    return send_from_directory(pathJoin(serverConfig.storagePath(), 'www'), indexPath, mimetype='text/html')
 
 @app.route("/bootstrap/launcher/", methods=['GET','POST'])
 def bootstrapLauncher():
@@ -224,14 +230,14 @@ def bootstrapLauncher():
         return Response(launcherNotesHtml, mimetype='text/html')
 
     launcherPath = serverConfig.darksporeLauncherPath()
-    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), launcherPath), "r")
+    file = open(pathJoin(pathJoin(serverConfig.storagePath(), 'www'), launcherPath), "r")
     launcherHtml = file.read()
     return Response(launcherHtml, mimetype='text/html')
 
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
     notesPath = serverConfig.darksporeLauncherNotesPath()
-    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), notesPath), "r")
+    file = open(pathJoin(pathJoin(serverConfig.storagePath(), 'www'), notesPath), "r")
     launcherNotesHtml = file.read()
 
     versionLocked = serverConfig.versionLockEnabled()
@@ -250,9 +256,9 @@ def bootstrapLauncherNotes():
 def bootstrapLauncherImages(path):
     notesPath = serverConfig.darksporeLauncherPath()
     launcherFolder = os.path.dirname(notesPath)
-    imagePath = os.path.join(launcherFolder, path)
+    imagePath = pathJoin(launcherFolder, path)
 
-    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), imagePath), "r")
+    file = open(pathJoin(pathJoin(serverConfig.storagePath(), 'www'), imagePath), "r")
     launcherNotesHtml = file.read()
     return Response(launcherNotesHtml)
 
@@ -262,11 +268,11 @@ def favicon():
 
 @app.route('/images/<file_name>.jpg')
 def steamDemoImages(file_name):
-    return send_from_directory(os.path.join(staticFolderPath,'images'), file_name + '.jpg', mimetype='image/jpeg')
+    return send_from_directory(pathJoin(staticFolderPath,'images'), file_name + '.jpg', mimetype='image/jpeg')
 
 @app.route('/launcher/<file_name>.html')
 def steamDemoLinks(file_name):
-    return send_from_directory(os.path.join(staticFolderPath,'launcher'), file_name + '.html', mimetype='text/html')
+    return send_from_directory(pathJoin(staticFolderPath,'launcher'), file_name + '.html', mimetype='text/html')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])

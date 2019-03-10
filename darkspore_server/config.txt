@@ -19,4 +19,4 @@ SINGLEPLAYER_ONLY=true
 
 # In case you want to skip the game launcher.
 # WARNING: By enabling that, the game won't receive update patches
-SKIP_LAUNCHER=true
+SKIP_LAUNCHER=false

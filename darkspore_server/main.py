@@ -288,11 +288,11 @@ def otherRequests(path):
     print request.args
     print 'You want path: %s' % path
     return ""
-    return Response(status=500)
+    return Response(status=404)
 
 if __name__ == "__main__":
     runningInDocker = ("docker" in sys.argv)
     if runningInDocker or serverConfig.singlePlayerOnly() == False:
-        app.run(debug=debugMode, host='0.0.0.0', port=80)
+        app.run(debug=debugMode, host='0.0.0.0', port=80, threaded=True)
     else:
-        app.run(debug=debugMode, port=80)
+        app.run(debug=debugMode, port=80, threaded=True)

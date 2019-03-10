@@ -261,9 +261,6 @@ def bootstrapLauncherImages(path):
     imagePath = pathJoin(launcherFolder, path)
 
     filePath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), imagePath)
-    if debugMode:
-        print filePath
-
     file = open(filePath, "r")
     launcherNotesHtml = file.read()
     return Response(launcherNotesHtml)

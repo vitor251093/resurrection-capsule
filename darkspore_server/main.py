@@ -223,17 +223,10 @@ def bootstrapLauncher():
                            + '</script></head><body></body></html>')
         return Response(launcherNotesHtml, mimetype='text/html')
 
-    notesPath = serverConfig.darksporeLauncherPath()
-    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), notesPath), "r")
-    launcherNotesHtml = file.read()
-
-    launcherNotesHtml = launcherNotesHtml.replace("{{dls-version}}", server.version)
-    if serverConfig.versionLockEnabled():
-        launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", version)
-    else:
-        launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", "available")
-
-    return Response(launcherNotesHtml, mimetype='text/html')
+    launcherPath = serverConfig.darksporeLauncherPath()
+    file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), launcherPath), "r")
+    launcherHtml = file.read()
+    return Response(launcherHtml, mimetype='text/html')
 
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
@@ -241,11 +234,18 @@ def bootstrapLauncherNotes():
     file = open(os.path.join(os.path.join(serverConfig.storagePath(), 'www'), notesPath), "r")
     launcherNotesHtml = file.read()
 
+    def notesByReplacing(notes, tag, condition, trueValue, falseValue):
+        if condition:
+            return notes.replace("{{" + tag + "}}", trueValue)
+        else:
+            return notes.replace("{{" + tag + "}}", falseValue)
+    isLatest = (server.gameVersion == darksporeBuild_latestOfficial)
+
     launcherNotesHtml = launcherNotesHtml.replace("{{dls-version}}", server.version)
-    if serverConfig.versionLockEnabled():
-        launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", server.gameVersion)
-    else:
-        launcherNotesHtml = launcherNotesHtml.replace("{{game-version}}", "available")
+    launcherNotesHtml = notesByReplacing(launcherNotesHtml, "version-lock", serverConfig.versionLockEnabled(), server.gameVersion, "no")
+    launcherNotesHtml = notesByReplacing(launcherNotesHtml, "game-mode", serverConfig.singlePlayerOnly(), "singleplayer", "multiplayer")
+    launcherNotesHtml = notesByReplacing(launcherNotesHtml, "display-latest-version", serverConfig.versionLockEnabled(), "block", "none")
+    launcherNotesHtml = notesByReplacing(launcherNotesHtml, "latest-version", isLatest, "yes", "no")
 
     return Response(launcherNotesHtml, mimetype='text/html')
 

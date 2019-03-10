@@ -1,12 +1,30 @@
 <html>
     <head>
         <title>Darkspore LS</title>
+        <style type="text/css">
+            * {
+                font-family:"EA Pirulen Rg DS";
+            }
+            .title {
+                color:#FFF; 
+                font-size:18px;
+            }
+            .topic {
+                color:#EEE;
+                font-size:11px;
+            }
+            .topic .topic-label {
+                font-size:14px;
+            }
+        </style>
     </head>
     <body>
-        <div style="color:#FFF;">Darkspore LS {{dls-version}}</div>
+        <div class="title">Darkspore LS {{dls-version}}</div>
         <br/>
-        <div style="color:#EEE; font-size:11px;">If you are reading that message, then the mod required by 'Darkspore LS' has been installed properly.</div>
+        <div class="topic"><span class="topic-label">Game mode:</span> {{game-mode}}</div>
         <br/>
-        <div style="color:#EEE; font-size:11px;">Also, that means that the local server is working, so you should be able to play Darkspore now using the {{game-version}} version.</div>
+        <div class="topic"><span class="topic-label">Version lock:</span> {{version-lock}}</div>
+        <br/>
+        <div class="topic" style="display: {{display-latest-version}};"><span class="topic-label">Latest version:</span> {{latest-version}}</div>
     </body>
 </html>

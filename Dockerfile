@@ -9,6 +9,10 @@ RUN pip install --upgrade pip
 RUN pip install setuptools
 RUN pip install flask
 RUN pip install python-magic
+# Instead in Windows:
+# pip install python-libmagic
+# pip install python-magic-bin==0.4.14
+# Also requires VCforPython from Microsoft
 
 RUN pip install twisted
 RUN pip install pyopenssl

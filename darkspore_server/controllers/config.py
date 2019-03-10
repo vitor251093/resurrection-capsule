@@ -1,4 +1,5 @@
 import os
+import sys
 
 class DarkSporeServerConfig(object):
 
@@ -8,7 +9,7 @@ class DarkSporeServerConfig(object):
             "SKIP_LAUNCHER": False,
             "VERSION_LOCKED": False,
             "SINGLEPLAYER_ONLY": True,
-            "STORAGE_PATH": "/darkspore_server_storage",
+            "STORAGE_PATH": ("/darkspore_server_storage" if (len(sys.argv) > 1 and sys.argv[1] == "docker") else "../storage"),
             "DARKSPORE_INDEX_PAGE_PATH": "index.html",
             "DARKSPORE_LAUNCHER_NOTES_PATH": "bootstrap/launcher/notes.html",
             "DARKSPORE_LAUNCHER_PATH": "bootstrap/launcher/default/index.html"
@@ -66,12 +67,14 @@ class DarkSporeServerConfig(object):
         return self.get("DARKSPORE_LAUNCHER_PATH")
 
     def storagePath(self):
+        def pathJoin(comp1, comp2):
+            if os.name == 'nt':
+                return os.path.join(comp1.replace("/","\\"), comp2.replace("/","\\"))
+            return os.path.join(comp1.replace("\\","/"), comp2.replace("\\","/"))
+
         storagePath = self.get("STORAGE_PATH")
-        if storagePath.startswith('./') or storagePath.startswith('.\\'):
-            serverPath = self.serverPath
-            while serverPath.endswith('/') or serverPath.endswith('\\'):
-                serverPath = serverPath[:-1]
-            storagePath = serverPath + storagePath[1:]
+        if storagePath.startswith('.'):
+            storagePath = pathJoin(self.serverPath,storagePath)
 
         while storagePath.endswith('/') or storagePath.endswith('\\'):
             storagePath = storagePath[:-1]

@@ -37,18 +37,17 @@
             var mousebuttondown = false;
             var serverstatusdataload = false;
             var patchnoteunlocked = true;
-            var localeingamegroupkey = '0x7fb9cee0!';
             var localizedkeymap = {
-                "FAILED_TO_CONNECT" : "0x7fb9cef7",
-                "PLAY" : "0x7fb9cef6",
-                "SERVER_STATUS" : "0x7fb9cef5",
-                "SUPPORT_STRING" : "0x7fb9cefc",
-                "LOST_CONNECTION" : "0x7fb9cefa",
-                "SERVER_GOOD" : "0x7fb9cef1",
-                "SERVER_UNAVAILABLE" : "0x7fb9cef2",
-                "CONTACTING" : "0x7fb9cf01",
-                "REFRESH" : "0x7fb9cf05",
-                "VALIDATE_INSTALL" : "0x7fb9cf08"
+                "FAILED_TO_CONNECT" : "CONNECTION FAILED",
+                "PLAY" : "PLAY",
+                "SERVER_STATUS" : "SERVER STATUS",
+                "SUPPORT_STRING" : "SUPPORT STRING", // ?
+                "LOST_CONNECTION" : "DISCONNECTED",
+                "SERVER_GOOD" : "CONNECTED",
+                "SERVER_UNAVAILABLE" : "UNAVAILABLE",
+                "CONTACTING" : "CONTACTING...",
+                "REFRESH" : "REFRESH",
+                "VALIDATE_INSTALL" : "VALIDATE&nbsp;&nbsp;INSTALL"
 
             };
             var localizedstringmap = {};
@@ -995,11 +994,7 @@
              * Our text needs to be localized!
              */
             function setLocalizedText(){
-                for (var x in localizedkeymap){
-                    //localizedstringmap[x] = Client.retrieveLocaleString(localeingamegroupkey+localizedkeymap[x]);
-                    localizedstringmap[x] = x;
-                }
-                //localizedstringmap = {};
+                localizedstringmap = localizedkeymap;
 
                 // play button
                 document.getElementById("Play_button_font_active").innerHTML = localizedstringmap['PLAY'];

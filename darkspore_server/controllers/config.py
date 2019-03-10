@@ -67,6 +67,12 @@ class DarkSporeServerConfig(object):
 
     def storagePath(self):
         storagePath = self.get("STORAGE_PATH")
+        if storagePath.startswith('./') or storagePath.startswith('.\\'):
+            serverPath = self.serverPath
+            while serverPath.endswith('/') or serverPath.endswith('\\'):
+                serverPath = serverPath[:-1]
+            storagePath = serverPath + storagePath[1:]
+
         while storagePath.endswith('/') or storagePath.endswith('\\'):
             storagePath = storagePath[:-1]
         return storagePath

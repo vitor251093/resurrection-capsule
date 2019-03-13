@@ -2,8 +2,7 @@ import json
 import time
 
 class DarkSporeServerApi(object):
-    def __init__(self, serverConfig, server):
-        self.serverConfig = serverConfig
+    def __init__(self, server):
         self.server = server
         self.exectimeInt = 0
 
@@ -27,15 +26,12 @@ class DarkSporeServerApi(object):
         return obj
 
     # Not used by the latest version of the game
+    # TODO: Check if this can be removed
     def api_getStatus_javascript(self, callback):
-        showDebug = True
-        debugString = "''"
-
         data = json.dumps(self.gameApi_getStatus_object(True))
         javascript = ("var data = " + data + "; " +
                       "oncriticalerror = false; " +
                       "setPlayButtonActive(); " +
-                      (("updateBottomleftProgressComment(" + debugString + "); ") if showDebug else "") +
                       "updateProgressBar(1);" +
                       callback + ";")
         return javascript

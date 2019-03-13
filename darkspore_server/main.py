@@ -3,6 +3,8 @@ from models.server import *
 from controllers.gameApi import *
 from controllers.config import *
 from utils.response import *
+from utils.launcher import *
+from utils.path import *
 
 import os
 import sys
@@ -24,17 +26,9 @@ from flask import Response
 from flask import send_from_directory
 from flask import send_file
 
-server = DarkSporeServer()
 serverConfig = DarkSporeServerConfig()
-serverApi = DarkSporeServerApi(serverConfig, server)
-
-def pathJoin(comp1, comp2):
-    if os.name == 'nt':
-        while comp2.startswith('..'):
-            comp1 = os.path.dirname(comp1)
-            comp2 = comp2[3:]
-        return os.path.join(comp1.replace("/","\\"), comp2.replace("/","\\"))
-    return os.path.join(comp1.replace("\\","/"), comp2.replace("\\","/"))
+server = DarkSporeServer(serverConfig)
+serverApi = DarkSporeServerApi(server)
 
 mime = magic.Magic(mime=True)
 staticFolderPath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), 'static')
@@ -44,9 +38,31 @@ debugMode = ("debug" in sys.argv)
 if debugMode:
     now = datetime.datetime.now()
     logFileName = 'dls-' + now.strftime("%Y-%m-%d_%H-%M-%S") + '.log'
-    handler = logging.FileHandler(pathJoin(serverConfig.storagePath(), logFileName))  # errors logged to this file
+    handler = logging.FileHandler(pathJoin(pathJoin(serverConfig.storagePath(), "logs"), logFileName))  # errors logged to this file
     handler.setLevel(logging.ERROR)  # only log errors and above
     app.logger.addHandler(handler)
+
+@app.route("/dls/api", methods=['GET','POST'])
+def dlsApi():
+    method = request.args.get('method', default='')
+
+    if method == 'api.launcher.setTheme':
+        theme = request.args.get('theme', default='')
+        server.setActiveTheme(theme)
+        return jsonResponseWithObject({'stat': 'ok'})
+
+    if method == 'api.launcher.listThemes':
+        themesFolder = serverConfig.darksporeLauncherThemesPath()
+        themesFolderContents = os.listdir(themesFolder)
+        themesList = []
+        for file in themesFolderContents:
+            themeFolder = pathJoin(themesFolder,file)
+            themeFolderIndex = pathJoin(themeFolder,"index.html")
+            if os.path.isdir(themeFolder) and os.path.isfile(themeFolderIndex):
+                themesList.append(file)
+        return jsonResponseWithObject({'stat': 'ok', 'themes': themesList})
+
+    return Response(status=500)
 
 @app.route("/api", methods=['GET','POST'])
 def api():
@@ -231,15 +247,18 @@ def bootstrapLauncher():
     version = request.args.get('version', default='')
 
     if serverConfig.skipLauncher():
-        launcherNotesHtml = ('<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">'
-                           + '<html><head><script type="text/javascript">'
-                           + 'window.onload = function(){ Client.playCurrentApp(); }'
-                           + '</script></head><body></body></html>')
+        launcherNotesHtml = launcher_directToGameHtml()
         return Response(launcherNotesHtml, mimetype='text/html')
 
-    launcherPath = serverConfig.darksporeLauncherPath()
+    launcherPath = serverConfig.darksporeLauncherThemesPath()
+    launcherPath = pathJoin(pathJoin(launcherPath, server.getActiveTheme()), "index.html")
+
     file = open(pathJoin(pathJoin(serverConfig.storagePath(), 'www'), launcherPath), "r")
     launcherHtml = file.read()
+
+    dlsClientScript = launcher_dlsClientScript()
+    launcherHtml = launcherHtml.replace('</head>', dlsClientScript + '</head>')
+
     return Response(launcherHtml, mimetype='text/html')
 
 @app.route("/bootstrap/launcher/notes")
@@ -262,11 +281,11 @@ def bootstrapLauncherNotes():
 
 @app.route("/bootstrap/launcher/<path:path>")
 def bootstrapLauncherImages(path):
-    notesPath = serverConfig.darksporeLauncherPath()
-    launcherFolder = os.path.dirname(notesPath)
-    imagePath = pathJoin(launcherFolder, path)
+    notesPath = serverConfig.darksporeLauncherThemesPath()
+    launcherFolder = pathJoin(notesPath, server.getActiveTheme())
+    resourcePath = pathJoin(launcherFolder, path)
 
-    filePath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), imagePath)
+    filePath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), resourcePath)
     return send_file(filePath, mimetype=mime.from_file(filePath))
 
 @app.route('/favicon.ico')

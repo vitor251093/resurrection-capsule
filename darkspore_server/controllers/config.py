@@ -1,5 +1,6 @@
 import os
 import sys
+from utils.path import *
 
 class DarkSporeServerConfig(object):
 
@@ -12,7 +13,7 @@ class DarkSporeServerConfig(object):
             "STORAGE_PATH": ("/darkspore_server_storage" if ("docker" in sys.argv) else "../storage"),
             "DARKSPORE_INDEX_PAGE_PATH": "index.html",
             "DARKSPORE_LAUNCHER_NOTES_PATH": "bootstrap/launcher/notes.html",
-            "DARKSPORE_LAUNCHER_PATH": "bootstrap/launcher/default/index.html"
+            "DARKSPORE_LAUNCHER_THEMES_PATH": "bootstrap/launcher"
         }
 
         try:
@@ -63,18 +64,13 @@ class DarkSporeServerConfig(object):
     def darksporeLauncherNotesPath(self):
         return self.get("DARKSPORE_LAUNCHER_NOTES_PATH")
 
-    def darksporeLauncherPath(self):
-        return self.get("DARKSPORE_LAUNCHER_PATH")
+    def darksporeLauncherThemesPath(self):
+        themesPath = self.get("DARKSPORE_LAUNCHER_THEMES_PATH")
+        while themesPath.endswith('/') or themesPath.endswith('\\'):
+            themesPath = themesPath[:-1]
+        return themesPath
 
     def storagePath(self):
-        def pathJoin(comp1, comp2):
-            if os.name == 'nt':
-                while comp2.startswith('..'):
-                    comp1 = os.path.dirname(comp1)
-                    comp2 = comp2[3:]
-                return os.path.join(comp1.replace("/","\\"), comp2.replace("/","\\"))
-            return os.path.join(comp1.replace("\\","/"), comp2.replace("\\","/"))
-
         storagePath = self.get("STORAGE_PATH")
         if storagePath.startswith('.'):
             storagePath = pathJoin(self.serverPath,storagePath)
@@ -82,3 +78,6 @@ class DarkSporeServerConfig(object):
         while storagePath.endswith('/') or storagePath.endswith('\\'):
             storagePath = storagePath[:-1]
         return storagePath
+
+    def serverDataFilePath(self):
+        return pathJoin(self.storagePath(),'server.data')

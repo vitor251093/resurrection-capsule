@@ -1,3 +1,6 @@
+# Darkspore related
+storage/server.data
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

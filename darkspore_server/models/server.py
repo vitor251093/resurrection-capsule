@@ -5,26 +5,13 @@ darksporeBuild_onlineInstaller   = "5.3.0.84"  # Released at 27/04/2011
 darksporeBuild_steamDemo         = "5.3.0.103" # Released between 23/05/2011 and 14/06/2011
 darksporeBuild_latestOfficial    = "5.3.0.127" # Released between 15/11/2011 and 30/11/2012
 
+class DarkSporeServerData(object):
+    def __init__(self):
+        self.accounts = {}
+        self.accountsSequenceNext = 0
+        self.activeTheme = "default"
+
 class DarkSporeServer(object):
-    def setGameVersion(self, gameVersion):
-        if self.gameVersion == None:
-            self.gameVersion = gameVersion
-        return self.gameVersion == gameVersion
-
-    def __init__(self, config):
-        self.config = config
-        self.version = "0.1"
-        self.gameVersion = None
-
-        class DarkSporeServerData(object):
-            def __init__(self):
-                self.accounts = {}
-                self.accountsSequenceNext = 0
-                self.activeTheme = "default"
-
-        self.data = DarkSporeServerData()
-        self.loadServerDataFromFile()
-
     def loadServerDataFromFile(self):
         newServerData = loadObjectFromFile(self.config.serverDataFilePath())
         if newServerData != None:
@@ -53,3 +40,15 @@ class DarkSporeServer(object):
     def setActiveTheme(self, activeTheme):
         self.data.activeTheme = activeTheme
         self.saveServerDataToFile()
+
+    def __init__(self, config):
+        self.config = config
+        self.version = "0.1"
+        self.gameVersion = None
+        self.data = DarkSporeServerData()
+        self.loadServerDataFromFile()
+
+    def setGameVersion(self, gameVersion):
+        if self.gameVersion == None:
+            self.gameVersion = gameVersion
+        return self.gameVersion == gameVersion

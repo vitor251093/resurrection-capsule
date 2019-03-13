@@ -9,7 +9,7 @@ class DarkSporeServer(object):
     def setGameVersion(self, gameVersion):
         if self.gameVersion == None:
             self.gameVersion = gameVersion
-        return self.gameVersion == gameVersion:
+        return self.gameVersion == gameVersion
 
     def __init__(self, config):
         self.config = config

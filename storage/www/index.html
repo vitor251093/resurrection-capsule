@@ -1,19 +1,15 @@
 <html>
   <head>
     <style>
-      @font-face { font-family: Pirulen; src: url("static/fonts/pirulen.ttf"); } 
-
+      @font-face { font-family: Pirulen; src: url("static/fonts/pirulen.ttf"); }
       html, body {
         color:        #C3C7EA;
         font-family: Arial,helvetica,verdana,sans-serif;
-
       }
-
       body {
         background-image:    url("static/images/background_image.jpg");
         background-position: center 0px;
       }
-
       div#closure_message {
         width:        800px;
         margin-top:   300px;
@@ -21,30 +17,55 @@
         margin-right: auto;
         background:   none;
       }
-
       #message {
         font-family: Pirulen,Arial,helvetica,verdana,sans-serif;
       }
-
       div#footer {
         margin-top:   50px;
         color:        #306FB5;
       }
-
-
       a:link    { color: #AC7C4D; }
       a:visited { color: #AC7C4D; }
       a:hover   { color: #FFFFFF; }
       a:active  { color: #FFFFFF; }
-
     </style>
+    <script>
+        var DLSClient = {};
+        DLSClient.getRequest = function(url, callback) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onload = function() {
+                callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", url, true);
+            xmlHttp.send(null);
+        }
+        DLSClient.request = function(name, params, callback) {
+            DLSClient.getRequest("http://darkspore.com/dls/api?method=" + name + (params === undefined ? "" : ("&" + params)), callback);
+        }
 
+        DLSClient.request("api.launcher.listThemes", undefined, function(responseText){
+            var json = JSON.parse(responseText);
+            var themesList = json.themes;
+            var comboElement = document.getElementById("theme");
+
+            for (var index = 0; index < themesList.length; index++) {
+                var option = document.createElement("option");
+                option.value = themesList[index];
+                option.innerText = themesList[index];
+                comboElement.appendChild(option);
+            }
+
+            comboElement.value = json.selectedTheme;
+        });
+        function onChangeTheme() {
+            var comboElement = document.getElementById("theme");
+            var themeName = comboElement.value;
+            DLSClient.request("api.launcher.setTheme", "theme=" + themeName, function(responseText){
+            });
+        }
+    </script>
+    <title>Darkspore LS</title>
   </head>
-
-  <title>
-    Darkspore LS
-  </title>
-
   <body>
     <div id="closure_message">
       <div id="message">
@@ -55,7 +76,10 @@
         Brace yourself, and be prepared. Darkspore has returned.
         <br><br>
       </div>
-
+      <div id="config">
+        <select id="theme" onchange="onChangeTheme()">
+        </select>
+      </div>
       <div id="footer">
         <center>
           <img src="static/images/MaxisLogoBlue.png">

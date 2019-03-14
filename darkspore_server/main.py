@@ -52,7 +52,9 @@ def dlsApi():
         return jsonResponseWithObject({'stat': 'ok'})
 
     if method == 'api.launcher.listThemes':
+        selectedTheme = server.getActiveTheme()
         themesFolder = serverConfig.darksporeLauncherThemesPath()
+        themesFolder = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), themesFolder)
         themesFolderContents = os.listdir(themesFolder)
         themesList = []
         for file in themesFolderContents:
@@ -60,7 +62,7 @@ def dlsApi():
             themeFolderIndex = pathJoin(themeFolder,"index.html")
             if os.path.isdir(themeFolder) and os.path.isfile(themeFolderIndex):
                 themesList.append(file)
-        return jsonResponseWithObject({'stat': 'ok', 'themes': themesList})
+        return jsonResponseWithObject({'stat': 'ok', 'themes': themesList, 'selectedTheme': selectedTheme})
 
     return Response(status=500)
 

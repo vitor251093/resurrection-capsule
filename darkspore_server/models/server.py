@@ -1,3 +1,4 @@
+import os
 from utils.path import *
 
 darksporeBuild_limitedEditionDvd = "5.3.0.15"
@@ -40,6 +41,18 @@ class DarkSporeServer(object):
     def setActiveTheme(self, activeTheme):
         self.data.activeTheme = activeTheme
         self.saveServerDataToFile()
+
+    def availableThemes(self):
+        themesFolder = self.config.darksporeLauncherThemesPath()
+        themesFolder = pathJoin(pathJoin(self.config.storagePath(), 'www'), themesFolder)
+        themesFolderContents = os.listdir(themesFolder)
+        themesList = []
+        for file in themesFolderContents:
+            themeFolder = pathJoin(themesFolder,file)
+            themeFolderIndex = pathJoin(themeFolder,"index.html")
+            if os.path.isdir(themeFolder) and os.path.isfile(themeFolderIndex):
+                themesList.append(file)
+        return themesList
 
     def __init__(self, config):
         self.config = config

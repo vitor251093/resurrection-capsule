@@ -1,6 +1,8 @@
 import os
 from utils.path import *
 
+dls_version = "0.1"
+
 darksporeBuild_limitedEditionDvd = "5.3.0.15"
 darksporeBuild_onlineInstaller   = "5.3.0.84"  # Released at 27/04/2011
 darksporeBuild_steamDemo         = "5.3.0.103" # Released between 23/05/2011 and 14/06/2011
@@ -56,7 +58,7 @@ class DarkSporeServer(object):
 
     def __init__(self, config):
         self.config = config
-        self.version = "0.1"
+        self.version = dls_version
         self.gameVersion = None
         self.data = DarkSporeServerData()
         self.loadServerDataFromFile()

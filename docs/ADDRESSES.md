@@ -12,6 +12,13 @@ allocStringWithSize(&string, 0x11u);
 ```
 Allocs in `stringPointer` a string with size `size`. No content is written in that space.
 
+#### sub_402270: compareStrings
+```cpp
+void compareStrings(void* str, void* string, int u1) {(...)}
+compareStrings(string, "version", \?);
+```
+Compares two strings. Where it stores the result? No idea.
+
 #### sub_402380: allocAndInitString
 ```cpp
 void allocAndInitString(void* stringPointer, void* string) {(...)}
@@ -19,52 +26,73 @@ allocAndInitString(&string, "Version");
 ```
 Allocs in `stringPointer` a string with `string`'s size +1, and writes `string` in that space.
 
+#### sub_43FF00: getValueFromXmlKey
+```cpp
+void* getValueFromXmlKey(void* valuePointer, void* u1, void* keyPointer) {(...)}
+value = getValueFromXmlKey((keyAddr + keyAddrSize), \?, keyAddr);
+```
+Returns the string value of a XML key.
+
 #### sub_45D810: getXmlValueForKey
 ```cpp
 int getXmlValueForKey(void* xml, int key_begin_address, int u1, int u2, int u3) {(...)}
-getXmlValueForKey(xml, key_begin_address, ?, ?, ?);
+getXmlValueForKey(xml, key_begin_address, \?, \?, \?);
 ```
 Returns the value of the mentioned key from the `xml` dictionary/map.
 
 #### sub_45E310: retrieveAccountDetailsFromXmlObj
 ```cpp
 void retrieveAccountDetailsFromXmlObj(void* account, int u1) {(...)}
-retrieveAccountDetailsFromXmlObj(account, ?);
+retrieveAccountDetailsFromXmlObj(account, \?);
 ```
 Read the account details from an `account` object retrieved from a xml dictionary/map.
+
+#### sub_45EDE0: retrievePartsDetailsFromXmlObj
+```cpp
+void retrievePartsDetailsFromXmlObj(int response, void* parts) {(...)}
+retrievePartsDetailsFromXmlObj(response, parts);
+```
+Read the parts details from a `parts` object retrieved from a xml dictionary/map, and store them in `response`.
+
+#### sub_45F4C0: retrievePartsSimpleDetailsFromXmlObj
+```cpp
+void retrievePartsDetailsFromXmlObj(int response, void* parts) {(...)}
+retrievePartsDetailsFromXmlObj(response, parts);
+```
+Read the parts details from a `parts` object retrieved from a xml dictionary/map, and store them in `response`.
 
 #### sub_461600: getSurveysCallback
 ```cpp
 void getSurveysCallback(int u1, void* xml) {(...)}
-getSurveysCallback(?, xml);
+getSurveysCallback(\?, xml);
 ```
 The callback of the getSurveys function, with the returned `xml` dictionary/map.
 
 #### sub_461EC0: bootstrapApiCallback
 ```cpp
 char bootstrapApiCallback(int u1, void** u2, int u3, int u4) {(...)}
-bootstrapApiCallback(?, ?, ?, ?)
+bootstrapApiCallback(\?, \?, \?, \?)
 ```
 The first step of all bootstrap/api functions responses.
 
 #### sub_468120: retrieveBroadcastsDetailsFromXmlObj
 ```cpp
-void retrieveBroadcastsDetailsFromXmlObj(int response, _DWORD* broadcasts) {(...)}
+void retrieveBroadcastsDetailsFromXmlObj(int response, void* broadcasts) {(...)}
 retrieveBroadcastsDetailsFromXmlObj(response, broadcasts);
 ```
 Read the broadcasts details from a `broadcasts` object retrieved from a xml dictionary/map, and store them in `response`.
 
 #### sub_469CE0: getBroadcastsCallback
 ```cpp
-void getBroadcastsCallback(_DWORD* u1, void* xml) {(...)}
-getBroadcastsCallback(?, xml);
+void getBroadcastsCallback(\_DWORD* u1, void* xml) {(...)}
+getBroadcastsCallback(\?, xml);
 ```
 The callback of the getBroadcasts function, with the returned `xml` dictionary/map.
 
 #### sub_469E00: getStatusCallback
 ```cpp
 void getStatusCallback(int u1, void* xml) {(...)}
-getStatusCallback(?, xml);
+getStatusCallback(\?, xml);
 ```
 The callback of the getStatus function, with the returned `xml` dictionary/map.
 
@@ -77,8 +105,8 @@ The callback of the getConfigs function, with the returned `xml` dictionary/map,
 
 #### sub_AE44B0: stringToInteger
 ```cpp
-unsigned long long stringToInteger(signed __int16* string, int* u1, signed int u2) {(...)}
-integer = stringToInteger(string, ?, ?);
+unsigned long long stringToInteger(signed \_\_int16* string, int* u1, signed int u2) {(...)}
+integer = stringToInteger(string, \?, \?);
 ```
 Parse `string` into an unsigned integer number.
 
@@ -114,6 +142,9 @@ Parse `string` into an unsigned integer number.
 
 ### Possibly connected with the Blaze callback (login screen error handler)
 - sub_E07760
+
+### Deserves attention
+- sub_AB42E0
 
 ## Known errors
 

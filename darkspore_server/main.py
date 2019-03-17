@@ -128,11 +128,13 @@ def bootstrapApi():
             terms = requestUtils.get(request,'terms', str)
             return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_searchAccounts_object(count, terms))
 
+
     if method.startswith('api.config.'):
         if method == 'api.config.getConfigs':
             include_settings = requestUtils.get(request,'include_settings', bool)
             include_patches  = requestUtils.get(request,'include_patches',  bool)
             return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getConfigs_object(build, include_settings, include_patches))
+
 
     if method.startswith('api.creature.'):
         if method == 'api.creature.getCreature':
@@ -145,6 +147,7 @@ def bootstrapApi():
             creature_id       = requestUtils.get(request,'id', int)
             include_abilities = requestUtils.get(request,'include_abilities', bool)
             return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getCreatureTemplate_object(creature_id, include_abilities))
+
 
     if method.startswith('api.friend.'):
         if method == 'api.friend.getList':
@@ -168,6 +171,7 @@ def bootstrapApi():
         if method == 'api.friend.unblock':
             name = requestUtils.get(request,'name',str)
             return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_unblockFriend_object(name))
+
 
     if method.startswith('api.leaderboard.'):
         if method == 'api.leaderboard.getLeaderboard':

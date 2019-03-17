@@ -75,7 +75,7 @@ def api():
     print request.args
     print " "
 
-    return "";
+    return ""
 
 @app.route("/game/api", methods=['GET','POST'])
 def gameApi():

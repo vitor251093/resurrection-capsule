@@ -10,7 +10,7 @@ class DarkSporeServerConfig(object):
             "SKIP_LAUNCHER": False,
             "VERSION_LOCKED": False,
             "SINGLEPLAYER_ONLY": True,
-            "STORAGE_PATH": ("/darkspore_server_storage" if ("docker" in sys.argv) else "../storage"),
+            "STORAGE_PATH": "../storage",
             "DARKSPORE_INDEX_PAGE_PATH": "index.html",
             "DARKSPORE_LAUNCHER_NOTES_PATH": "bootstrap/launcher/notes.html",
             "DARKSPORE_LAUNCHER_THEMES_PATH": "bootstrap/launcher"
@@ -71,6 +71,9 @@ class DarkSporeServerConfig(object):
         return themesPath
 
     def storagePath(self):
+        if "docker" in sys.argv:
+            return "/darkspore_server_storage"
+
         storagePath = self.get("STORAGE_PATH")
         if storagePath.startswith('.'):
             storagePath = pathJoin(self.serverPath,storagePath)

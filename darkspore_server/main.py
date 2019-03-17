@@ -305,15 +305,26 @@ def otherRequests(path):
     return ""
     return Response(status=404)
 
-def startApi():
+def startApi(debug):
+    runInDebug = debugMode and debug
     runningInDocker = ("docker" in sys.argv)
     if runningInDocker or serverConfig.singlePlayerOnly() == False:
-        app.run(debug=debugMode, host='0.0.0.0', port=80, threaded=True)
+        app.run(debug=runInDebug, host='0.0.0.0', port=80, threaded=True)
     else:
-        app.run(debug=debugMode, port=80, threaded=True)
+        app.run(debug=runInDebug, port=80, threaded=True)
 
 if __name__ == "__main__":
-    if "blaze" in sys.argv:
+    if "blaze-only" in sys.argv:
         startBlaze()
-    else:
-        startApi()
+        sys.exit()
+
+    if "api-only" in sys.argv:
+        startApi(True)
+        sys.exit()
+
+    apiThread = Thread(target=startApi, args=(False, ))
+    apiThread.start()
+
+    startBlaze()
+            
+        

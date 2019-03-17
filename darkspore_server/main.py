@@ -115,62 +115,67 @@ def bootstrapApi():
     if serverConfig.versionLockEnabled() and validVersion == False:
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_error_object())
 
-    if method == 'api.account.getAccount':
-        include_feed      = requestUtils.get(request,'include_feed',      bool)
-        include_decks     = requestUtils.get(request,'include_decks',     bool)
-        include_creatures = requestUtils.get(request,'include_creatures', bool)
-        player_id         = requestUtils.get(request,'id', int)
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getAccount_object(player_id, include_feed, include_decks, include_creatures))
+    if method.startswith('api.account.'):
+        if method == 'api.account.getAccount':
+            include_feed      = requestUtils.get(request,'include_feed',      bool)
+            include_decks     = requestUtils.get(request,'include_decks',     bool)
+            include_creatures = requestUtils.get(request,'include_creatures', bool)
+            player_id         = requestUtils.get(request,'id', int)
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getAccount_object(player_id, include_feed, include_decks, include_creatures))
 
-    if method == 'api.account.searchAccounts':
-        count = requestUtils.get(request,'count', int)
-        terms = requestUtils.get(request,'terms', str)
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_searchAccounts_object(count, terms))
+        if method == 'api.account.searchAccounts':
+            count = requestUtils.get(request,'count', int)
+            terms = requestUtils.get(request,'terms', str)
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_searchAccounts_object(count, terms))
 
-    if method == 'api.config.getConfigs':
-        include_settings = requestUtils.get(request,'include_settings', bool)
-        include_patches  = requestUtils.get(request,'include_patches',  bool)
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getConfigs_object(build, include_settings, include_patches))
+    if method.startswith('api.config.'):
+        if method == 'api.config.getConfigs':
+            include_settings = requestUtils.get(request,'include_settings', bool)
+            include_patches  = requestUtils.get(request,'include_patches',  bool)
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getConfigs_object(build, include_settings, include_patches))
 
-    if method == 'api.creature.getCreature':
-        creature_id       = requestUtils.get(request,'id', int)
-        include_parts     = requestUtils.get(request,'include_parts', bool)
-        include_abilities = requestUtils.get(request,'include_abilities', bool)
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getCreature_object(creature_id, include_parts, include_abilities))
+    if method.startswith('api.creature.'):
+        if method == 'api.creature.getCreature':
+            creature_id       = requestUtils.get(request,'id', int)
+            include_parts     = requestUtils.get(request,'include_parts', bool)
+            include_abilities = requestUtils.get(request,'include_abilities', bool)
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getCreature_object(creature_id, include_parts, include_abilities))
 
-    if method == 'api.creature.getTemplate':
-        creature_id       = requestUtils.get(request,'id', int)
-        include_abilities = requestUtils.get(request,'include_abilities', bool)
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getCreatureTemplate_object(creature_id, include_abilities))
+        if method == 'api.creature.getTemplate':
+            creature_id       = requestUtils.get(request,'id', int)
+            include_abilities = requestUtils.get(request,'include_abilities', bool)
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getCreatureTemplate_object(creature_id, include_abilities))
 
-    if method == 'api.friend.getList':
-        start     = requestUtils.get(request,'start',int)
-        sort      = requestUtils.get(request,'sort', str) # eg. 'name'
-        list_type = requestUtils.get(request,'list', str) # eg. 'following'
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getFriendsList_object(start, sort, list))
+    if method.startswith('api.friend.'):
+        if method == 'api.friend.getList':
+            start     = requestUtils.get(request,'start',int)
+            sort      = requestUtils.get(request,'sort', str) # eg. 'name'
+            list_type = requestUtils.get(request,'list', str) # eg. 'following'
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getFriendsList_object(start, sort, list))
 
-    if method == 'api.friend.follow':
-        name = requestUtils.get(request,'name',str)
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_followFriend_object(name))
+        if method == 'api.friend.follow':
+            name = requestUtils.get(request,'name',str)
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_followFriend_object(name))
 
-    if method == 'api.friend.unfollow':
-        name = requestUtils.get(request,'name',str)
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_unfollowFriend_object(name))
+        if method == 'api.friend.unfollow':
+            name = requestUtils.get(request,'name',str)
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_unfollowFriend_object(name))
 
-    if method == 'api.friend.block':
-        name = requestUtils.get(request,'name',str)
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_blockFriend_object(name))
+        if method == 'api.friend.block':
+            name = requestUtils.get(request,'name',str)
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_blockFriend_object(name))
 
-    if method == 'api.friend.unblock':
-        name = requestUtils.get(request,'name',str)
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_unblockFriend_object(name))
+        if method == 'api.friend.unblock':
+            name = requestUtils.get(request,'name',str)
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_unblockFriend_object(name))
 
-    if method == 'api.leaderboard.getLeaderboard':
-        name    = requestUtils.get(request,'name',   str) # eg. 'xp' / 'pvp_wins' / 'team'
-        varient = requestUtils.get(request,'varient',str) # eg. 'friends'
-        count   = requestUtils.get(request,'count',  int)
-        start   = requestUtils.get(request,'start',  int)
-        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getLeaderboard_object(name, varient, count, start))
+    if method.startswith('api.leaderboard.'):
+        if method == 'api.leaderboard.getLeaderboard':
+            name    = requestUtils.get(request,'name',   str) # eg. 'xp' / 'pvp_wins' / 'team'
+            varient = requestUtils.get(request,'varient',str) # eg. 'friends'
+            count   = requestUtils.get(request,'count',  int)
+            start   = requestUtils.get(request,'start',  int)
+            return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getLeaderboard_object(name, varient, count, start))
 
     print " "
     print "http://" + request.host + "/bootstrap/api"

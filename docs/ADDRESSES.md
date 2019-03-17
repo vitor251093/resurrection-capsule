@@ -15,7 +15,7 @@ Allocs in `stringPointer` a string with size `size`. No content is written in th
 #### sub_402270: compareStrings
 ```cpp
 void compareStrings(void* str, void* string, int u1) {(...)}
-compareStrings(string, "version", \?);
+compareStrings(string, "version", ?);
 ```
 Compares two strings. Where it stores the result? No idea.
 
@@ -29,21 +29,21 @@ Allocs in `stringPointer` a string with `string`'s size +1, and writes `string` 
 #### sub_43FF00: getValueFromXmlKey
 ```cpp
 void* getValueFromXmlKey(void* valuePointer, void* u1, void* keyPointer) {(...)}
-value = getValueFromXmlKey((keyAddr + keyAddrSize), \?, keyAddr);
+value = getValueFromXmlKey((keyAddr + keyAddrSize), ?, keyAddr);
 ```
 Returns the string value of a XML key.
 
 #### sub_45D810: getXmlValueForKey
 ```cpp
 int getXmlValueForKey(void* xml, int key_begin_address, int u1, int u2, int u3) {(...)}
-getXmlValueForKey(xml, key_begin_address, \?, \?, \?);
+getXmlValueForKey(xml, key_begin_address, ?, ?, ?);
 ```
 Returns the value of the mentioned key from the `xml` dictionary/map.
 
 #### sub_45E310: retrieveAccountDetailsFromXmlObj
 ```cpp
 void retrieveAccountDetailsFromXmlObj(void* account, int u1) {(...)}
-retrieveAccountDetailsFromXmlObj(account, \?);
+retrieveAccountDetailsFromXmlObj(account, ?);
 ```
 Read the account details from an `account` object retrieved from a xml dictionary/map.
 
@@ -64,14 +64,14 @@ Read the parts details from a `parts` object retrieved from a xml dictionary/map
 #### sub_461600: getSurveysCallback
 ```cpp
 void getSurveysCallback(int u1, void* xml) {(...)}
-getSurveysCallback(\?, xml);
+getSurveysCallback(?, xml);
 ```
 The callback of the getSurveys function, with the returned `xml` dictionary/map.
 
 #### sub_461EC0: bootstrapApiCallback
 ```cpp
 char bootstrapApiCallback(int u1, void** u2, int u3, int u4) {(...)}
-bootstrapApiCallback(\?, \?, \?, \?)
+bootstrapApiCallback(?, ?, ?, ?)
 ```
 The first step of all bootstrap/api functions responses.
 
@@ -84,15 +84,15 @@ Read the broadcasts details from a `broadcasts` object retrieved from a xml dict
 
 #### sub_469CE0: getBroadcastsCallback
 ```cpp
-void getBroadcastsCallback(\_DWORD* u1, void* xml) {(...)}
-getBroadcastsCallback(\?, xml);
+void getBroadcastsCallback(_DWORD* u1, void* xml) {(...)}
+getBroadcastsCallback(?, xml);
 ```
 The callback of the getBroadcasts function, with the returned `xml` dictionary/map.
 
 #### sub_469E00: getStatusCallback
 ```cpp
 void getStatusCallback(int u1, void* xml) {(...)}
-getStatusCallback(\?, xml);
+getStatusCallback(?, xml);
 ```
 The callback of the getStatus function, with the returned `xml` dictionary/map.
 
@@ -105,8 +105,8 @@ The callback of the getConfigs function, with the returned `xml` dictionary/map,
 
 #### sub_AE44B0: stringToInteger
 ```cpp
-unsigned long long stringToInteger(signed \_\_int16* string, int* u1, signed int u2) {(...)}
-integer = stringToInteger(string, \?, \?);
+unsigned long long stringToInteger(signed __int16* string, int* u1, signed int u2) {(...)}
+integer = stringToInteger(string, ?, ?);
 ```
 Parse `string` into an unsigned integer number.
 

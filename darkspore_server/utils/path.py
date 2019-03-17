@@ -1,7 +1,7 @@
 import os
 import pickle
 
-def pathJoin(comp1, comp2):
+def join(comp1, comp2):
     if os.name == 'nt':
         while comp2.startswith('..'):
             comp1 = os.path.dirname(comp1)

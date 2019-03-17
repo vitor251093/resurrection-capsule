@@ -1,5 +1,5 @@
 import os
-from utils.path import *
+from utils import path as pathUtils
 
 dls_version = "0.1"
 
@@ -16,12 +16,12 @@ class DarkSporeServerData(object):
 
 class DarkSporeServer(object):
     def loadServerDataFromFile(self):
-        newServerData = loadObjectFromFile(self.config.serverDataFilePath())
+        newServerData = pathUtils.loadObjectFromFile(self.config.serverDataFilePath())
         if newServerData != None:
             self.data = newServerData
 
     def saveServerDataToFile(self):
-        saveObjectToFile(self.config.serverDataFilePath(), self.data)
+        pathUtils.saveObjectToFile(self.config.serverDataFilePath(), self.data)
 
     def getAccount(self, id):
         return self.accounts[str(id)]
@@ -46,12 +46,12 @@ class DarkSporeServer(object):
 
     def availableThemes(self):
         themesFolder = self.config.darksporeLauncherThemesPath()
-        themesFolder = pathJoin(pathJoin(self.config.storagePath(), 'www'), themesFolder)
+        themesFolder = pathUtils.join(pathUtils.join(self.config.storagePath(), 'www'), themesFolder)
         themesFolderContents = os.listdir(themesFolder)
         themesList = []
         for file in themesFolderContents:
-            themeFolder = pathJoin(themesFolder,file)
-            themeFolderIndex = pathJoin(themeFolder,"index.html")
+            themeFolder = pathUtils.join(themesFolder,file)
+            themeFolderIndex = pathUtils.join(themeFolder,"index.html")
             if os.path.isdir(themeFolder) and os.path.isfile(themeFolderIndex):
                 themesList.append(file)
         return themesList

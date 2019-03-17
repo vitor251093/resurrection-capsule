@@ -1,13 +1,3 @@
-from blaze.Init import *
-
-from models.account import *
-from models.server import *
-from controllers.gameApi import *
-from controllers.config import *
-from utils.response import *
-from utils.launcher import *
-from utils.path import *
-
 import os
 import sys
 import getopt
@@ -20,7 +10,6 @@ import socket
 import logging
 import threading
 from threading import Thread
-
 from flask import Flask
 from flask import request
 from flask import render_template
@@ -28,19 +17,30 @@ from flask import Response
 from flask import send_from_directory
 from flask import send_file
 
+from blaze.Init import *
+
+from models.account import *
+from models.server import *
+from controllers.gameApi import *
+from controllers.config import *
+
+from utils import response as responseUtils
+from utils import launcher as launcherUtils
+from utils import path as pathUtils
+
 serverConfig = DarkSporeServerConfig()
 server = DarkSporeServer(serverConfig)
 serverApi = DarkSporeServerApi(server)
 
 mime = magic.Magic(mime=True)
-staticFolderPath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), 'static')
+staticFolderPath = pathUtils.join(pathUtils.join(serverConfig.storagePath(), 'www'), 'static')
 app = Flask(__name__, static_url_path='/static', static_folder=staticFolderPath)
 
 debugMode = ("debug" in sys.argv)
 if debugMode:
     now = datetime.datetime.now()
     logFileName = 'dls-' + now.strftime("%Y-%m-%d_%H-%M-%S") + '.log'
-    handler = logging.FileHandler(pathJoin(pathJoin(serverConfig.storagePath(), "logs"), logFileName))  # errors logged to this file
+    handler = logging.FileHandler(pathUtils.join(pathUtils.join(serverConfig.storagePath(), "logs"), logFileName))  # errors logged to this file
     handler.setLevel(logging.ERROR)  # only log errors and above
     app.logger.addHandler(handler)
 
@@ -51,12 +51,12 @@ def dlsApi():
     if method == 'api.launcher.setTheme':
         theme = request.args.get('theme', default='')
         server.setActiveTheme(theme)
-        return jsonResponseWithObject({'stat': 'ok'})
+        return responseUtils.jsonResponseWithObject({'stat': 'ok'})
 
     if method == 'api.launcher.listThemes':
         selectedTheme = server.getActiveTheme()
         themesList = server.availableThemes()
-        return jsonResponseWithObject({'stat': 'ok', 'themes': themesList, 'selectedTheme': selectedTheme})
+        return responseUtils.jsonResponseWithObject({'stat': 'ok', 'themes': themesList, 'selectedTheme': selectedTheme})
 
     return Response(status=500)
 
@@ -89,18 +89,18 @@ def gameApi():
     # there may be issue during a match.
     validVersion = server.setGameVersion(build)
     if serverConfig.versionLockEnabled() and validVersion == False:
-        return xmlResponseWithObject(serverApi.bootstrapApi_error_object())
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_error_object())
 
     if method == 'api.status.getStatus':
         include_broadcasts = request.args.get('include_broadcasts', default='')
-        return xmlResponseWithObject(serverApi.gameApi_getStatus_object(include_broadcasts))
+        return responseUtils.xmlResponseWithObject(serverApi.gameApi_getStatus_object(include_broadcasts))
 
     print " "
     print "http://" + request.host + "/api"
     print request.args
     print " "
 
-    return xmlResponseWithObject({})
+    return responseUtils.xmlResponseWithObject({})
 
 @app.route("/bootstrap/api", methods=['GET','POST'])
 def bootstrapApi():
@@ -112,71 +112,71 @@ def bootstrapApi():
     # there may be issue during a match.
     validVersion = server.setGameVersion(build)
     if serverConfig.versionLockEnabled() and validVersion == False:
-        return xmlResponseWithObject(serverApi.bootstrapApi_error_object())
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_error_object())
 
     if method == 'api.account.getAccount':
         include_feed      =    (request.args.get('include_feed',      default='') == 'true')
         include_decks     =    (request.args.get('include_decks',     default='') == 'true')
         include_creatures =    (request.args.get('include_creatures', default='') == 'true')
         player_id         = int(request.args.get('id',                default='0'))
-        return xmlResponseWithObject(serverApi.bootstrapApi_getAccount_object(player_id, include_feed, include_decks, include_creatures))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getAccount_object(player_id, include_feed, include_decks, include_creatures))
 
     if method == 'api.account.searchAccounts':
         count = int(request.args.get('count', default='0'))
         terms =     request.args.get('terms', default='')
-        return xmlResponseWithObject(serverApi.bootstrapApi_searchAccounts_object(count, terms))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_searchAccounts_object(count, terms))
 
     if method == 'api.config.getConfigs':
         include_settings = (request.args.get('include_settings', default='') == 'true')
         include_patches  = (request.args.get('include_patches',  default='') == 'true')
-        return xmlResponseWithObject(serverApi.bootstrapApi_getConfigs_object(build, include_settings, include_patches))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getConfigs_object(build, include_settings, include_patches))
 
     if method == 'api.creature.getCreature':
         creature_id       = int(request.args.get('id',                default='0'))
         include_parts     =    (request.args.get('include_parts',     default='') == 'true')
         include_abilities =    (request.args.get('include_abilities', default='') == 'true')
-        return xmlResponseWithObject(serverApi.bootstrapApi_getCreature_object(creature_id, include_parts, include_abilities))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getCreature_object(creature_id, include_parts, include_abilities))
 
     if method == 'api.creature.getTemplate':
         creature_id       = int(request.args.get('id',                default='0'))
         include_abilities    = (request.args.get('include_abilities', default='') == 'true')
-        return xmlResponseWithObject(serverApi.bootstrapApi_getCreatureTemplate_object(creature_id, include_abilities))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getCreatureTemplate_object(creature_id, include_abilities))
 
     if method == 'api.friend.getList':
         start = int(request.args.get('start', default='0'))
         sort  =     request.args.get('sort',  default='') # eg. 'name'
         list  =     request.args.get('list',  default='') # eg. 'following'
-        return xmlResponseWithObject(serverApi.bootstrapApi_getFriendsList_object(start, sort, list))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getFriendsList_object(start, sort, list))
 
     if method == 'api.friend.follow':
         name = request.args.get('name', default='')
-        return xmlResponseWithObject(serverApi.bootstrapApi_followFriend_object(name))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_followFriend_object(name))
 
     if method == 'api.friend.unfollow':
         name = request.args.get('name', default='')
-        return xmlResponseWithObject(serverApi.bootstrapApi_unfollowFriend_object(name))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_unfollowFriend_object(name))
 
     if method == 'api.friend.block':
         name = request.args.get('name', default='')
-        return xmlResponseWithObject(serverApi.bootstrapApi_blockFriend_object(name))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_blockFriend_object(name))
 
     if method == 'api.friend.unblock':
         name = request.args.get('name', default='')
-        return xmlResponseWithObject(serverApi.bootstrapApi_unblockFriend_object(name))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_unblockFriend_object(name))
 
     if method == 'api.leaderboard.getLeaderboard':
         name    =     request.args.get('name',    default='') # eg. 'xp' / 'pvp_wins' / 'team'
         varient =     request.args.get('varient', default='') # eg. 'friends'
         count   = int(request.args.get('count',   default='0'))
         start   = int(request.args.get('start',   default='0'))
-        return xmlResponseWithObject(serverApi.bootstrapApi_getLeaderboard_object(name, varient, count, start))
+        return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getLeaderboard_object(name, varient, count, start))
 
     print " "
     print "http://" + request.host + "/bootstrap/api"
     print request.args
     print " "
 
-    return xmlResponseWithObject(serverApi.bootstrapApi_error_object())
+    return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_error_object())
 
 @app.route("/web/sporelabs/alerts", methods=['GET','POST'])
 def webSporeLabsAlerts():
@@ -191,9 +191,9 @@ def surveyApi():
     method = request.args.get('method', default='')
 
     if method == "api.survey.getSurveyList":
-        return xmlResponseWithObject(serverApi.surveyApi_getSurveyList_object())
+        return responseUtils.xmlResponseWithObject(serverApi.surveyApi_getSurveyList_object())
 
-    return xmlResponseWithObject({})
+    return responseUtils.xmlResponseWithObject({})
 
 @app.route("/game/service/png", methods=['GET','POST'])
 def gameServicePng():
@@ -236,23 +236,23 @@ def gameServicePng():
 @app.route("/")
 def index():
     indexPath = serverConfig.darksporeIndexPagePath()
-    return send_from_directory(pathJoin(serverConfig.storagePath(), 'www'), indexPath, mimetype='text/html')
+    return send_from_directory(pathUtils.join(serverConfig.storagePath(), 'www'), indexPath, mimetype='text/html')
 
 @app.route("/bootstrap/launcher/", methods=['GET','POST'])
 def bootstrapLauncher():
     version = request.args.get('version', default='')
 
     if serverConfig.skipLauncher():
-        launcherNotesHtml = launcher_directToGameHtml()
+        launcherNotesHtml = launcherUtils.directToGameHtml()
         return Response(launcherNotesHtml, mimetype='text/html')
 
     launcherPath = serverConfig.darksporeLauncherThemesPath()
-    launcherPath = pathJoin(pathJoin(launcherPath, server.getActiveTheme()), "index.html")
+    launcherPath = pathUtils.join(pathUtils.join(launcherPath, server.getActiveTheme()), "index.html")
 
-    file = open(pathJoin(pathJoin(serverConfig.storagePath(), 'www'), launcherPath), "r")
+    file = open(pathUtils.join(pathUtils.join(serverConfig.storagePath(), 'www'), launcherPath), "r")
     launcherHtml = file.read()
 
-    dlsClientScript = launcher_dlsClientScript()
+    dlsClientScript = launcherUtils.dlsClientScript()
     launcherHtml = launcherHtml.replace('</head>', dlsClientScript + '</head>')
 
     return Response(launcherHtml, mimetype='text/html')
@@ -260,7 +260,7 @@ def bootstrapLauncher():
 @app.route("/bootstrap/launcher/notes")
 def bootstrapLauncherNotes():
     notesPath = serverConfig.darksporeLauncherNotesPath()
-    file = open(pathJoin(pathJoin(serverConfig.storagePath(), 'www'), notesPath), "r")
+    file = open(pathUtils.join(pathUtils.join(serverConfig.storagePath(), 'www'), notesPath), "r")
     launcherNotesHtml = file.read()
 
     versionLocked = serverConfig.versionLockEnabled()
@@ -278,10 +278,10 @@ def bootstrapLauncherNotes():
 @app.route("/bootstrap/launcher/<path:path>")
 def bootstrapLauncherImages(path):
     notesPath = serverConfig.darksporeLauncherThemesPath()
-    launcherFolder = pathJoin(notesPath, server.getActiveTheme())
-    resourcePath = pathJoin(launcherFolder, path)
+    launcherFolder = pathUtils.join(notesPath, server.getActiveTheme())
+    resourcePath = pathUtils.join(launcherFolder, path)
 
-    filePath = pathJoin(pathJoin(serverConfig.storagePath(), 'www'), resourcePath)
+    filePath = pathUtils.join(pathUtils.join(serverConfig.storagePath(), 'www'), resourcePath)
     return send_file(filePath, mimetype=mime.from_file(filePath))
 
 @app.route('/favicon.ico')
@@ -290,11 +290,11 @@ def favicon():
 
 @app.route('/images/<file_name>.jpg')
 def steamDemoImages(file_name):
-    return send_from_directory(pathJoin(staticFolderPath,'images'), file_name + '.jpg', mimetype='image/jpeg')
+    return send_from_directory(pathUtils.join(staticFolderPath,'images'), file_name + '.jpg', mimetype='image/jpeg')
 
 @app.route('/launcher/<file_name>.html')
 def steamDemoLinks(file_name):
-    return send_from_directory(pathJoin(staticFolderPath,'launcher'), file_name + '.html', mimetype='text/html')
+    return send_from_directory(pathUtils.join(staticFolderPath,'launcher'), file_name + '.html', mimetype='text/html')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])

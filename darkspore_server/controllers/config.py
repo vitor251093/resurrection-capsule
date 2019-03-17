@@ -1,6 +1,6 @@
 import os
 import sys
-from utils.path import *
+from utils import path as pathUtils
 
 class DarkSporeServerConfig(object):
 
@@ -76,11 +76,11 @@ class DarkSporeServerConfig(object):
 
         storagePath = self.get("STORAGE_PATH")
         if storagePath.startswith('.'):
-            storagePath = pathJoin(self.serverPath,storagePath)
+            storagePath = pathUtils.join(self.serverPath,storagePath)
 
         while storagePath.endswith('/') or storagePath.endswith('\\'):
             storagePath = storagePath[:-1]
         return storagePath
 
     def serverDataFilePath(self):
-        return pathJoin(self.storagePath(),'server.data')
+        return pathUtils.join(self.storagePath(),'server.data')

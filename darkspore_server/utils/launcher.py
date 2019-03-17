@@ -1,11 +1,11 @@
 
-def launcher_directToGameHtml():
+def directToGameHtml():
     return ('<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">'
           + '<html><head><script type="text/javascript">'
           + 'window.onload = function(){ Client.playCurrentApp(); }'
           + '</script></head><body></body></html>')
 
-def launcher_dlsClientScript():
+def dlsClientScript():
     return ('\n<script>'
           + '\n    var DLSClient = {};'
           + '\n    DLSClient.getRequest = function(url, callback) {'

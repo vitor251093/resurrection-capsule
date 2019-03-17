@@ -1,7 +1,6 @@
 import json
 import xml.etree.cElementTree as xml_tree
 from xml.etree import ElementTree
-
 from flask import Response
 
 def jsonResponseWithObject(obj):

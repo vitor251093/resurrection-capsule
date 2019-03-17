@@ -24,6 +24,7 @@ from models.server import *
 from controllers.gameApi import *
 from controllers.config import *
 
+from utils import request as requestUtils
 from utils import response as responseUtils
 from utils import launcher as launcherUtils
 from utils import path as pathUtils
@@ -46,10 +47,10 @@ if debugMode:
 
 @app.route("/dls/api", methods=['GET','POST'])
 def dlsApi():
-    method = request.args.get('method', default='')
+    method = requestUtils.get(request,'method',str)
 
     if method == 'api.launcher.setTheme':
-        theme = request.args.get('theme', default='')
+        theme = requestUtils.get(request,'theme',str)
         server.setActiveTheme(theme)
         return responseUtils.jsonResponseWithObject({'stat': 'ok'})
 
@@ -62,10 +63,10 @@ def dlsApi():
 
 @app.route("/api", methods=['GET','POST'])
 def api():
-    method      = request.args.get('method',   default='')
-    version     = request.args.get('version',  default='')
-    callback    = request.args.get('callback', default='')
-    format_type = request.args.get('format',   default='')
+    method      = requestUtils.get(request,'method',  str)
+    version     = requestUtils.get(request,'version', str)
+    callback    = requestUtils.get(request,'callback',str)
+    format_type = requestUtils.get(request,'format',  str)
 
     if method == 'api.status.getStatus':
         if callback == 'updateServerStatus(data)' and version == '1' and format_type == 'json':
@@ -81,9 +82,9 @@ def api():
 
 @app.route("/game/api", methods=['GET','POST'])
 def gameApi():
-    version = request.args.get('version', default='')
-    build   = request.args.get('build',   default='')
-    method  = request.args.get('method',  default='')
+    version = requestUtils.get(request,'version',str)
+    build   = requestUtils.get(request,'build',  str) 
+    method  = requestUtils.get(request,'method', str)
 
     # Different players must be using the same version of the game, otherwise
     # there may be issue during a match.
@@ -92,7 +93,7 @@ def gameApi():
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_error_object())
 
     if method == 'api.status.getStatus':
-        include_broadcasts = request.args.get('include_broadcasts', default='')
+        include_broadcasts = requestUtils.get(request,'include_broadcasts', str) 
         return responseUtils.xmlResponseWithObject(serverApi.gameApi_getStatus_object(include_broadcasts))
 
     print " "
@@ -104,9 +105,9 @@ def gameApi():
 
 @app.route("/bootstrap/api", methods=['GET','POST'])
 def bootstrapApi():
-    version = request.args.get('version', default='')
-    build   = request.args.get('build',   default='')
-    method  = request.args.get('method',  default='')
+    version = requestUtils.get(request,'version',str)
+    build   = requestUtils.get(request,'build',  str) 
+    method  = requestUtils.get(request,'method', str)
 
     # Different players must be using the same version of the game, otherwise
     # there may be issue during a match.
@@ -115,60 +116,60 @@ def bootstrapApi():
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_error_object())
 
     if method == 'api.account.getAccount':
-        include_feed      =    (request.args.get('include_feed',      default='') == 'true')
-        include_decks     =    (request.args.get('include_decks',     default='') == 'true')
-        include_creatures =    (request.args.get('include_creatures', default='') == 'true')
-        player_id         = int(request.args.get('id',                default='0'))
+        include_feed      = requestUtils.get(request,'include_feed',      bool)
+        include_decks     = requestUtils.get(request,'include_decks',     bool)
+        include_creatures = requestUtils.get(request,'include_creatures', bool)
+        player_id         = requestUtils.get(request,'id', int)
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getAccount_object(player_id, include_feed, include_decks, include_creatures))
 
     if method == 'api.account.searchAccounts':
-        count = int(request.args.get('count', default='0'))
-        terms =     request.args.get('terms', default='')
+        count = requestUtils.get(request,'count', int)
+        terms = requestUtils.get(request,'terms', str)
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_searchAccounts_object(count, terms))
 
     if method == 'api.config.getConfigs':
-        include_settings = (request.args.get('include_settings', default='') == 'true')
-        include_patches  = (request.args.get('include_patches',  default='') == 'true')
+        include_settings = requestUtils.get(request,'include_settings', bool)
+        include_patches  = requestUtils.get(request,'include_patches',  bool)
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getConfigs_object(build, include_settings, include_patches))
 
     if method == 'api.creature.getCreature':
-        creature_id       = int(request.args.get('id',                default='0'))
-        include_parts     =    (request.args.get('include_parts',     default='') == 'true')
-        include_abilities =    (request.args.get('include_abilities', default='') == 'true')
+        creature_id       = requestUtils.get(request,'id', int)
+        include_parts     = requestUtils.get(request,'include_parts', bool)
+        include_abilities = requestUtils.get(request,'include_abilities', bool)
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getCreature_object(creature_id, include_parts, include_abilities))
 
     if method == 'api.creature.getTemplate':
-        creature_id       = int(request.args.get('id',                default='0'))
-        include_abilities    = (request.args.get('include_abilities', default='') == 'true')
+        creature_id       = requestUtils.get(request,'id', int)
+        include_abilities = requestUtils.get(request,'include_abilities', bool)
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getCreatureTemplate_object(creature_id, include_abilities))
 
     if method == 'api.friend.getList':
-        start = int(request.args.get('start', default='0'))
-        sort  =     request.args.get('sort',  default='') # eg. 'name'
-        list  =     request.args.get('list',  default='') # eg. 'following'
+        start     = requestUtils.get(request,'start',int)
+        sort      = requestUtils.get(request,'sort', str) # eg. 'name'
+        list_type = requestUtils.get(request,'list', str) # eg. 'following'
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getFriendsList_object(start, sort, list))
 
     if method == 'api.friend.follow':
-        name = request.args.get('name', default='')
+        name = requestUtils.get(request,'name',str)
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_followFriend_object(name))
 
     if method == 'api.friend.unfollow':
-        name = request.args.get('name', default='')
+        name = requestUtils.get(request,'name',str)
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_unfollowFriend_object(name))
 
     if method == 'api.friend.block':
-        name = request.args.get('name', default='')
+        name = requestUtils.get(request,'name',str)
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_blockFriend_object(name))
 
     if method == 'api.friend.unblock':
-        name = request.args.get('name', default='')
+        name = requestUtils.get(request,'name',str)
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_unblockFriend_object(name))
 
     if method == 'api.leaderboard.getLeaderboard':
-        name    =     request.args.get('name',    default='') # eg. 'xp' / 'pvp_wins' / 'team'
-        varient =     request.args.get('varient', default='') # eg. 'friends'
-        count   = int(request.args.get('count',   default='0'))
-        start   = int(request.args.get('start',   default='0'))
+        name    = requestUtils.get(request,'name',   str) # eg. 'xp' / 'pvp_wins' / 'team'
+        varient = requestUtils.get(request,'varient',str) # eg. 'friends'
+        count   = requestUtils.get(request,'count',  int)
+        start   = requestUtils.get(request,'start',  int)
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_getLeaderboard_object(name, varient, count, start))
 
     print " "
@@ -188,7 +189,7 @@ def webSporeLabsGameAnnounceen():
 
 @app.route("/survey/api", methods=['GET','POST'])
 def surveyApi():
-    method = request.args.get('method', default='')
+    method = requestUtils.get(request,'method', str)
 
     if method == "api.survey.getSurveyList":
         return responseUtils.xmlResponseWithObject(serverApi.surveyApi_getSurveyList_object())
@@ -197,28 +198,28 @@ def surveyApi():
 
 @app.route("/game/service/png", methods=['GET','POST'])
 def gameServicePng():
-    account_id = request.args.get('account_id')
+    account_id = requestUtils.get(request,'account_id', int)
     if account_id != None:
         print("Should return user account PNG")
         return ""
 
-    creature_id = request.args.get('creature_id')
+    creature_id = requestUtils.get(request,'creature_id', int)
     if creature_id != None:
         print("Should return creature PNG")
         return ""
 
-    template_id = request.args.get('template_id')
+    template_id = requestUtils.get(request,'template_id', int)
     if template_id != None:
-        size = request.args.get('size')
+        size = requestUtils.get(request,'size',int)
         print("Should return creature template PNG")
         return ""
 
-    ability_id = request.args.get('ability_id')
+    ability_id = requestUtils.get(request,'ability_id', int)
     if ability_id != None:
         print("Should return ability PNG")
         return ""
 
-    rigblock_id = request.args.get('rigblock_id')
+    rigblock_id = requestUtils.get(request,'rigblock_id', int)
     if rigblock_id != None:
         # Rig blocks are:
         # Eyes, noses, mouths, hands, feet, tails, wings, armor,
@@ -240,7 +241,7 @@ def index():
 
 @app.route("/bootstrap/launcher/", methods=['GET','POST'])
 def bootstrapLauncher():
-    version = request.args.get('version', default='')
+    version = requestUtils.get(request,'version', str)
 
     if serverConfig.skipLauncher():
         launcherNotesHtml = launcherUtils.directToGameHtml()

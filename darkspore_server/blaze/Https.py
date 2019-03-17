@@ -5,7 +5,7 @@ import os
 from time import sleep
 #import MySQLdb
 import hashlib
-from Utils import Globals
+from blaze.Utils import Globals
 import threading
 
 

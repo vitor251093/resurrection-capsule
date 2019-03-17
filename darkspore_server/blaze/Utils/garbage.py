@@ -1,7 +1,7 @@
 from datetime import datetime
 from threading import Timer
 
-from Utils import Globals
+from blaze.Utils import Globals
 
 x=datetime.today()
 y=x.replace(day=x.day, hour=0, minute=10, second=0, microsecond=0)

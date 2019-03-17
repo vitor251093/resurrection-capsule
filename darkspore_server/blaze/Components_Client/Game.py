@@ -1,4 +1,4 @@
-import Utils.BlazeFuncs as BlazeFuncs, Utils.Globals as Globals, Utils.DataClass as DataClass
+import blaze.Utils.BlazeFuncs as BlazeFuncs, blaze.Utils.Globals as Globals, blaze.Utils.DataClass as DataClass
 import time, uuid, socket, struct
 import shutil
 import os

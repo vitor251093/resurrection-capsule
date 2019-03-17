@@ -1,4 +1,4 @@
-import Utils.BlazeFuncs as BlazeFuncs, Utils.Globals as Globals
+import blaze.Utils.BlazeFuncs as BlazeFuncs, blaze.Utils.Globals as Globals
 import time
 
 def UpdateNetworkInfo(self,data_e):

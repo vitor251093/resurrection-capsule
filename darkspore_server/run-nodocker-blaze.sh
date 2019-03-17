@@ -1,1 +1,1 @@
-python blaze/Init.py
+python main.py blaze

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import Utils.BlazeFuncs as BlazeFuncs, Utils.Globals as Globals
+import blaze.Utils.BlazeFuncs as BlazeFuncs, blaze.Utils.Globals as Globals
 import time, os
 #import MySQLdb
 

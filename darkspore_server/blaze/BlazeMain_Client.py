@@ -2,7 +2,7 @@ import threading
 from twisted.internet import ssl, reactor
 from twisted.internet.protocol import Factory, Protocol
 
-import Utils.BlazeFuncs as BlazeFuncs, Utils.DataClass as DataClass
+import blaze.Utils.BlazeFuncs as BlazeFuncs, blaze.Utils.DataClass as DataClass
 
 from Components_Client import Util, Authentication as Auth, Game, UserSessions as UserSe, Unknown, Stats, Accounts, Friends, Inventory, Packs
 

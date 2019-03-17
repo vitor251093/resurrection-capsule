@@ -1,7 +1,7 @@
 #import Utils.BlazeFuncs as BlazeFuncs
 import json
 #import MySQLdb
-import Utils.BlazeFuncs as BlazeFuncs, Utils.Globals as Globals
+import blaze.Utils.BlazeFuncs as BlazeFuncs, blaze.Utils.Globals as Globals
 
 
 def getItems(self, data_e):

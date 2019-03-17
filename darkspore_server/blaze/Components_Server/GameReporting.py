@@ -1,5 +1,5 @@
-import Utils.BlazeFuncs as BlazeFuncs
-import Utils.Globals as Globals
+import blaze.Utils.BlazeFuncs as BlazeFuncs
+import blaze.Utils.Globals as Globals
 #import MySQLdb
 
 def ReciveComponent(self,func,data_e):

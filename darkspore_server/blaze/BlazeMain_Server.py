@@ -5,9 +5,9 @@ from twisted.internet import ssl, reactor
 from twisted.internet.protocol import Factory, Protocol
 from twisted.protocols.policies import TimeoutMixin
 
-import Utils.BlazeFuncs as BlazeFuncs
-import Utils.DataClass as DataClass
-import Utils.Globals as Globals
+import blaze.Utils.BlazeFuncs as BlazeFuncs
+import blaze.Utils.DataClass as DataClass
+import blaze.Utils.Globals as Globals
 
 ##from Components import Authentication as Auth, Util, Game, UserSessions as UsrSe, Unknown
 from Components_Server import Util, Authentication as Auth, Game, UserSessions as UserSe, Unknown, Clubs, Stats, GameReporting as GameRpt, Inventory, Packs

@@ -1,4 +1,4 @@
-import Utils.BlazeFuncs as BlazeFuncs, math, time, os
+import blaze.Utils.BlazeFuncs as BlazeFuncs, math, time, os
 #import MySQLdb
 
 def getStatGroup(self, data_e):

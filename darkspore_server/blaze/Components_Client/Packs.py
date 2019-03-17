@@ -3,7 +3,7 @@ import json
 from random import randint
 import time
 #import MySQLdb
-import Utils.BlazeFuncs as BlazeFuncs, Utils.Globals as Globals
+import blaze.Utils.BlazeFuncs as BlazeFuncs, blaze.Utils.Globals as Globals
 
 
 def getPacks(self, data_e):

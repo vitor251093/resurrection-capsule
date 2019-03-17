@@ -1,4 +1,4 @@
-import Utils.BlazeFuncs as BlazeFuncs
+import blaze.Utils.BlazeFuncs as BlazeFuncs
 
 def getClubMembership(self, data_e):
 	packet = BlazeFuncs.BlazeDecoder(data_e)

@@ -3,8 +3,8 @@ from twisted.internet import ssl, reactor
 from twisted.internet.protocol import Factory, Protocol
 import struct, socket
 
-import Utils.Globals as Globals
-import Utils.BlazeFuncs as BlazeFuncs
+import blaze.Utils.Globals as Globals
+import blaze.Utils.BlazeFuncs as BlazeFuncs
 
 class GOSRedirector(Protocol):
 	def dataReceived(self, data):

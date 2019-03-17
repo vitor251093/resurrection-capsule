@@ -1,6 +1,6 @@
-import Utils.BlazeFuncs as BlazeFuncs, socket, struct, Utils.Globals as Globals, Utils.DataClass as DataClass
+import blaze.Utils.BlazeFuncs as BlazeFuncs, socket, struct, blaze.Utils.Globals as Globals, blaze.Utils.DataClass as DataClass
 import os
-import Https
+import blaze.Https
 
 def getUserSessionFromAuth(self, data_e):
 	if self.GAMEOBJ == None:

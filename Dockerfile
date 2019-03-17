@@ -19,5 +19,3 @@ RUN pip install pyopenssl
 RUN pip install service_identity
 
 COPY darkspore_server /darkspore_server
-
-EXPOSE 5000

@@ -1,5 +1,5 @@
-import Utils.BlazeFuncs as BlazeFuncs, time, os, shutil
-import Utils.DataClass as DataClass, Utils.Globals as Globals, socket, struct, random, string, json
+import blaze.Utils.BlazeFuncs as BlazeFuncs, time, os, shutil
+import blaze.Utils.DataClass as DataClass, blaze.Utils.Globals as Globals, socket, struct, random, string, json
 
 def SilentLogin(self,data_e):
 

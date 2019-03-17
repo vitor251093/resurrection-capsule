@@ -1,3 +1,5 @@
+from blaze.Init import *
+
 from models.account import *
 from models.server import *
 from controllers.gameApi import *
@@ -303,9 +305,15 @@ def otherRequests(path):
     return ""
     return Response(status=404)
 
-if __name__ == "__main__":
+def startApi():
     runningInDocker = ("docker" in sys.argv)
     if runningInDocker or serverConfig.singlePlayerOnly() == False:
         app.run(debug=debugMode, host='0.0.0.0', port=80, threaded=True)
     else:
         app.run(debug=debugMode, port=80, threaded=True)
+
+if __name__ == "__main__":
+    if "blaze" in sys.argv:
+        startBlaze()
+    else:
+        startApi()

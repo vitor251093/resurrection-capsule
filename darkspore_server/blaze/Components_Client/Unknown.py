@@ -1,4 +1,4 @@
-import Utils.BlazeFuncs as BlazeFuncs
+import blaze.Utils.BlazeFuncs as BlazeFuncs
 
 def ReciveComponent(self,func,data_e):
 	func = func.upper()

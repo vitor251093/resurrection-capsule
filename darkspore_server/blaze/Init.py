@@ -10,8 +10,8 @@ import Https
 import sys
 import os
 
-from Utils import garbage
-import Utils.Globals as Globals
+from blaze.Utils import garbage
+import blaze.Utils.Globals as Globals
 
 from OpenSSL import SSL
 from twisted.internet import ssl, reactor
@@ -26,7 +26,7 @@ def verifyCallback(connection, x509, errnum, errdepth, ok):
         print "Certs are fine"
     return True
 
-def Start():
+def startBlaze():
 	#Globals.serverIP = "192.168.1.5"
 	Globals.serverIP = "127.0.0.1"
 
@@ -82,7 +82,3 @@ def CheckMySqlConn():
 	# except MySQLdb.Error, e:
 	# 	print "[MySQL] Server connection failed! Error: %d in connection: %s" % (e.args[0], e.args[1])
 	# 	sys.exit()
-
-
-if __name__ == '__main__':
-	Start()

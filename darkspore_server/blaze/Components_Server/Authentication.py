@@ -1,6 +1,6 @@
-import Utils.DataClass as DataClass, Utils.BlazeFuncs as BlazeFuncs, Utils.Globals as Globals
+import blaze.Utils.DataClass as DataClass, blaze.Utils.BlazeFuncs as BlazeFuncs, blaze.Utils.Globals as Globals
 import time, socket, struct, random, string, json
-import Utils.BlazeFuncs as BlazeFuncs, time, os, shutil
+import blaze.Utils.BlazeFuncs as BlazeFuncs, time, os, shutil
 #import MySQLdb
 import hashlib
 

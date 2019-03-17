@@ -1,0 +1,1 @@
+Get-Content -Path "$env:APPDATA\DarksporeData\SporeNet.log" -Wait

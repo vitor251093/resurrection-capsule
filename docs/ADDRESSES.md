@@ -26,6 +26,13 @@ allocAndInitString(&string, "Version");
 ```
 Allocs in `stringPointer` a string with `string`'s size +1, and writes `string` in that space.
 
+#### sub_402FB0: stringWithFormat
+```cpp
+int __cdecl stringWithFormat(int destinationAddr, int formatAddr, char component);
+stringWithFormat(&path, "/game/api?version=%u", 1);
+```
+Replaced `%` variables in `formatAddr` with `component` values, and store the result in `destinationAddr`. Replacement system works just like `printf`, for reference.
+
 #### sub_43FF00: getValueFromXmlKey
 ```cpp
 void* getValueFromXmlKey(void* valuePointer, void* u1, void* keyPointer) {(...)}
@@ -103,6 +110,13 @@ getConfigsCallback(configs, xml);
 ```
 The callback of the getConfigs function, with the returned `xml` dictionary/map, and store them in `configs`.
 
+#### sub_ADF6C0: copyString (THEORY)
+```cpp
+int __cdecl copyString(int destination, int source)
+copyString(&destination, &source) {(...)}
+```
+Copy the contents of `source` to `destination`.
+
 #### sub_AE44B0: stringToInteger
 ```cpp
 unsigned long long stringToInteger(signed __int16* string, int* u1, signed int u2) {(...)}
@@ -110,6 +124,12 @@ integer = stringToInteger(string, ?, ?);
 ```
 Parse `string` into an unsigned integer number.
 
+#### sub_AE54C0: compareStrings
+```cpp
+char __cdecl compareStrings(int stringBeginAddr, int stringEndAddr, _WORD *stringToCompare, int u1);
+result = compareStrings(&string, &string + 4, "Y", ?);
+```
+Compares two different strings. Returns `0` if the two strings are equal, like `strcmp`.
 
 ## Unknown functions
 

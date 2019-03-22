@@ -131,6 +131,21 @@ result = compareStrings(&string, &string + 4, "Y", ?);
 ```
 Compares two different strings. Returns `0` if the two strings are equal, like `strcmp`.
 
+#### sub_B1C380: isAutodialEnabled
+```cpp
+bool isAutodialEnabled();
+enabled = isAutodialEnabled();
+```
+Checks if autodial is enabled in the Windows registry.
+**Note:** Microsoft Windows operating systems offer a networking feature that is convenient for users who use a modem to connect to the Internet: any TCP/IP request that occurs on the system activates an automatic modem dialing program.
+
+#### sub_B1C3F0: setAutodialEnabled
+```cpp
+bool setAutodialEnabled(bool value);
+setAutodialEnabled(true);
+```
+Set autodial to enabled/disabled in the Windows registry.
+
 ## Unknown functions
 
 ### Possibly connected with an event handler

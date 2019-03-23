@@ -33,6 +33,13 @@ stringWithFormat(&path, "/game/api?version=%u", 1);
 ```
 Replaced `%` variables in `formatAddr` with `component` values, and store the result in `destinationAddr`. Replacement system works just like `printf`, for reference.
 
+#### sub_40B6F0: copyString
+```cpp
+int __cdecl copyString(int destination, int source, u1)
+copyString(&destination, &source, ?) {(...)}
+```
+Copy the contents of `source` to `destination`.
+
 #### sub_43FF00: getValueFromXmlKey
 ```cpp
 void* getValueFromXmlKey(void* valuePointer, void* u1, void* keyPointer) {(...)}
@@ -110,7 +117,21 @@ getConfigsCallback(configs, xml);
 ```
 The callback of the getConfigs function, with the returned `xml` dictionary/map, and store them in `configs`.
 
-#### sub_ADF6C0: copyString (THEORY)
+#### sub_7B3A20: setDarksporeVersion
+```cpp
+void setDarksporeVersion(char* version) {(...)}
+setDarksporeVersion("5.3.0.127");
+```
+Saves the Darkspore version in `off_11444D4`, so it can be used in other places.
+
+#### sub_ADF590: copyString
+```cpp
+int __cdecl copyString(int destination, int source, u1)
+copyString(&destination, &source, ?) {(...)}
+```
+Copy the contents of `source` to `destination`.
+
+#### sub_ADF6C0: copyString
 ```cpp
 int __cdecl copyString(int destination, int source)
 copyString(&destination, &source) {(...)}
@@ -145,6 +166,12 @@ bool setAutodialEnabled(bool value);
 setAutodialEnabled(true);
 ```
 Set autodial to enabled/disabled in the Windows registry.
+
+#### sub_C2D450: getter from dword_15E64F0
+#### sub_C2D460: setter from dword_15E64F0
+
+#### sub_BE49D0: setter from dword_15E5B30
+#### sub_BE49E0: getter from dword_15E5B30
 
 ## Unknown functions
 
@@ -193,5 +220,6 @@ Set autodial to enabled/disabled in the Windows registry.
 - sub_C46B50: Create account failed
 
 ## Known strings
+- off_11444D4: Darkspore version ("5.3.0.127")
 - off_FDB54C: "gms"
 - off_FDB788: "false"

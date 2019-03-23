@@ -95,9 +95,6 @@ The Darkspore application makes requests to different domains. In order to use t
 
 - http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/DarksporeRefs.html
 
-## Future plans
-- Creating a small EXE which can be used to use Darkspore.exe redirecting its requests to a specific host, in order to avoid modifying the hosts file and to allow the use of different Darkspore servers. It may be based in [tinyproxy](https://github.com/tinyproxy/tinyproxy) or [proxifier](http://proxifier.sourceforge.net). Another option is injecting code in the Darkspore EXE in order to redirect its requests to the user computer, or to a different one.
-
 ## Projects used has references
 - [buchacho/BF4BlazeEmulator](https://github.com/buchacho/BF4BlazeEmulator)
 - [pedromartins1/BlazeServer](https://github.com/pedromartins1/BlazeServer)

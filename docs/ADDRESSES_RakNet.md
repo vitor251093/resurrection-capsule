@@ -1,17 +1,48 @@
 # Darkspore.exe RakNet Addresses
 This is the list of known RakNet functions inside the Darkspore.exe. We are trying to find out how the game works to make the server, and for that, the more we know about the game code, the best.
 
+- **sub_A97E50:** RakNet::BitStream::destructor
+- **sub_A97E90:** RakNet::BitStream::Reset
 - **sub_A97EB0:** RakNet::BitStream::Write
+- **sub_A97F30:** RakNet::BitStream::Write
+- **sub_A97F60:** RakNet::BitStream::Write
 - **sub_A982A0:** RakNet::BitStream::Write0
 - **sub_A982E0:** RakNet::BitStream::Write1
 - **sub_A98360:** RakNet::BitStream::ReadBit
 - **sub_A983B0:** RakNet::BitStream::WriteAlignedBytes
 - **sub_A98470:** RakNet::BitStream::Read
+- **sub_A98640:** RakNet::BitStream::WriteBits
 - **sub_A98BC0:** RakNet::BitStream::AddBitsAndReallocate
+- **sub_A98D00:** RakNet::BitStream::PadWithZeroToByteLength
+- **sub_A98DA0:** RakNet::BitStream::NumberOfLeadingZeroes
+- **sub_A98E40:** RakNet::BitStream::NumberOfLeadingZeroes
+- **sub_A98F00:** RakNet::BitStream::NumberOfLeadingZeroes
+- **sub_A98FD0:** RakNet::BitStream::NumberOfLeadingZeroes
+- **sub_A99110:** RakNet::BitStream::PrintBits
+- **sub_A99280:** RakNet::BitStream::PrintHex
+- **sub_A99320:** RakNet::BitStream::CopyData
+- **sub_A99380:** RakNet::BitStream::IgnoreBits
+- **sub_A993A0:** RakNet::BitStream::IgnoreBytes
+- **sub_A99460:** RakNet::BitStream::IsNetworkOrderInternal
+- **sub_A994A0:** RakNet::BitStream::ReverseBytes
+- **sub_A994E0:** RakNet::BitStream::ReverseBytesInPlace
+- **sub_A99580:** RakNet::BitStream::WriteAlignedVar8
+- **sub_A995C0:** RakNet::BitStream::ReadAlignedVar8
+- **sub_A99610:** RakNet::BitStream::WriteAlignedVar16
+- **sub_A996A0:** RakNet::BitStream::ReadAlignedVar16
+- **sub_A99740:** RakNet::BitStream::WriteAlignedVar32
+- **sub_A99830:** RakNet::BitStream::ReadAlignedVar32
+- **sub_A99940:** RakNet::BitStream::ReadFloat16
+- **sub_A99A20:** RakNet::BitStream::WriteFloat16
 - **sub_A99B20:** RakNet::BitStream::AlignWriteToByteBoundary
+- **sub_A99B50:** RakNet::BitStream::DoEndianSwap
+- **sub_A99BA0:** RakNet::BitStream::AlignReadToByteBoundary
+- **sub_A99B70:** RakNet::BitStream::IsNetworkOrder
+- **sub_A99C40:** RakNet::BitStream::GetNumberOfBytesUsed
 - **sub_A99C60:** RakNet::BitStream::Write
 - **sub_A99C80:** RakNet::BitStream::Write
 - **sub_A99CA0:** RakNet::BitStream::Write
+- **sub_A99CD0:** RakNet::BitStream::Read
 - **sub_AAE930:** $0(RakNet::freeList)[i]
 - **sub_AB20D0:** $0(RakNet::freeList)::Clear
 - **sub_ABDD60:** RakNet::RakString::constructor
@@ -41,4 +72,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **off_118B7B0:** RakNet::rakFree_Ex
 - **off_118B7B4:** RakNet::RakMemoryOverride::notifyOutOfMemory
 - **unk_15C8754:** RakNet::freeList
+- **unknown_libname_43:** $0(RakNet::BitStream)::GetNumberOfBitsUsed
+- **unknown_libname_127:** $0(RakNet::BitStream)::GetData
 - **unknown_libname_131:** $0(RakNet::freeList)::Size
+- **unknown_libname_141:** $0(RakNet::BitStream)::GetReadOffset

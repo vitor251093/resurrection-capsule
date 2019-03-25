@@ -21,23 +21,19 @@ No. There are two factors that most likely will change; a positive one and a neg
 
 The negative one is that, at this moment, there is no sign of packet logs from the original server. That means that, most likely, the game procedures won't be exactly like the original Darkspore ones. That includes damage calculation, drop chance, spawn frequency, experience calculation, among other things.
 
+### Which are your priorities?
+1- Making the game playable offline;
+2- Making the game playable on LAN;
+3- Creating a server-client mechanic so servers can be hosted;
+4- Fix the original game issues, including connectivity issues.
+
 ### How long it will take to be finished?
 I have no idea. The biggest issue at this moment is reaching the login screen fields, so any help is welcome.
 
 ## Actual state
-This is the progress so far with each version of the game.
+We are only focusing in making it work with the latest version of the game (5.3.0.127), although it may work with older versions of it, like the DVD version (5.3.0.15) and the Steam Beta (5.3.0.103). Once we have worked through the launcher patching system, DLS should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
 
-### Limited Edition DVD version (5.3.0.15)
-- Game launches, but login screen gives lost network connection error.
-
-### Online installer version (5.3.0.84)
-- Game launches, but login screen gives lost network connection error.
-
-### Steam Beta version (5.3.0.103)
-- Game launches, but login screen gives lost network connection error.
-
-### Latest version (5.3.0.127)
-- Game launches, but login screen gives lost network connection error.
+At this moment (25/05/19): the game launches, but the login screen gives a lost network connection error.
 
 ## Architecture
 The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrapper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.

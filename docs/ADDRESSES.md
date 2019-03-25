@@ -176,9 +176,16 @@ Set autodial to enabled/disabled in the Windows registry.
 ## RakNet known functions
 
 #### sub_A97EB0: RakNet::BitStream::Write
+#### sub_A982A0: RakNet::BitStream::Write0
+#### sub_A982E0: RakNet::BitStream::Write1
+#### sub_A98360: RakNet::BitStream::ReadBit
 #### sub_A983B0: RakNet::BitStream::WriteAlignedBytes
+#### sub_A98470: RakNet::BitStream::Read
+#### sub_A98BC0: RakNet::BitStream::AddBitsAndReallocate
 #### sub_A99B20: RakNet::BitStream::AlignWriteToByteBoundary
 #### sub_A99C60: RakNet::BitStream::Write
+#### sub_A99C80: RakNet::BitStream::Write
+#### sub_A99CA0: RakNet::BitStream::Write
 #### sub_AAE930: $0[i]
 #### sub_AB20D0: $0.Clear
 #### sub_ABDD60: RakNet::RakString::constructor
@@ -202,8 +209,11 @@ Set autodial to enabled/disabled in the Windows registry.
 #### sub_AC0060: RakNet::RakString::C_String
 #### sub_AC0230: RakNet::SimpleMutex::Lock
 #### sub_AC0250: RakNet::SimpleMutex::Unlock
+#### sub_AC9F70: $0.RemoveAtIndex
 #### off_118B7A8: RakNet::rakMalloc_Ex
+#### off_118B7AC: RakNet::rakRealloc_Ex
 #### off_118B7B0: RakNet::rakFree_Ex
+#### off_118B7B4: RakNet::RakMemoryOverride::notifyOutOfMemory
 #### unk_15C8754: RakNet::freeList
 #### unknown_libname_131: $0.Size
 

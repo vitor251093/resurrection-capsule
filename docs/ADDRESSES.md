@@ -173,6 +173,40 @@ Set autodial to enabled/disabled in the Windows registry.
 #### sub_BE49D0: setter from dword_15E5B30
 #### sub_BE49E0: getter from dword_15E5B30
 
+## RakNet known functions
+
+#### sub_A97EB0: RakNet::BitStream::Write
+#### sub_A983B0: RakNet::BitStream::WriteAlignedBytes
+#### sub_A99B20: RakNet::BitStream::AlignWriteToByteBoundary
+#### sub_A99C60: RakNet::BitStream::Write
+#### sub_AAE930: $0[i]
+#### sub_AB20D0: $0.Clear
+#### sub_ABDD60: RakNet::RakString::constructor
+#### sub_ABDE00: RakNet::RakString::operator_Equal
+#### sub_ABDE80: RakNet::RakString::operator_Equal
+#### sub_ABDF40: RakNet::RakString::Realloc
+#### sub_ABE010: RakNet::RakString::operator_Sum
+#### sub_ABE0B0: RakNet::RakString::operator_Sum
+#### sub_ABE7D0: RakNet::RakString::IsEmpty
+#### sub_ABE7F0: RakNet::RakString::GetLength
+#### sub_ABF570: RakNet::RakString::FreeMemoryNoMutex
+#### sub_ABF630: RakNet::RakString::Serialize
+#### sub_ABF970: RakNet::RakString::Allocate
+#### sub_ABFAB0: RakNet::RakString::Assign
+#### sub_ABFB20: RakNet::RakString::Assign
+#### sub_ABFD70: RakNet::RakString::ToInteger
+#### sub_ABFE50: RakNet::RakString::Clone
+#### sub_ABFEC0: RakNet::RakString::Free
+#### sub_ABFF90: RakNet::RakString::ToLower
+#### sub_ABFFC0: RakNet::RakString::ToUpper
+#### sub_AC0060: RakNet::RakString::C_String
+#### sub_AC0230: RakNet::SimpleMutex::Lock
+#### sub_AC0250: RakNet::SimpleMutex::Unlock
+#### off_118B7A8: RakNet::rakMalloc_Ex
+#### off_118B7B0: RakNet::rakFree_Ex
+#### unk_15C8754: RakNet::freeList
+#### unknown_libname_131: $0.Size
+
 ## Unknown functions
 
 ### Possibly connected with an event handler

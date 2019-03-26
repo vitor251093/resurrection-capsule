@@ -22,10 +22,10 @@ No. There are two factors that most likely will change; a positive one and a neg
 The negative one is that, at this moment, there is no sign of packet logs from the original server. That means that, most likely, the game procedures won't be exactly like the original Darkspore ones. That includes damage calculation, drop chance, spawn frequency, experience calculation, among other things.
 
 ### Which are your priorities?
-1- Making the game playable offline;
-2- Making the game playable on LAN;
-3- Creating a server-client mechanic so servers can be hosted;
-4- Fix the original game issues, including connectivity issues.
+1. Making the game playable offline;
+2. Making the game playable on LAN;
+3. Creating a server-client mechanic so servers can be hosted;
+4. Fix the original game issues, including connectivity issues.
 
 ### How long it will take to be finished?
 I have no idea. The biggest issue at this moment is reaching the login screen fields, so any help is welcome.

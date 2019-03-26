@@ -1,6 +1,8 @@
 # Darkspore.exe RakNet Addresses
 This is the list of known RakNet functions inside the Darkspore.exe. We are trying to find out how the game works to make the server, and for that, the more we know about the game code, the best.
 
+- **sub_A96AB0:** RakNet::NonNumericHostString
+- **sub_A96E40:** RakNet::SystemAddress::SetBinaryAddress
 - **sub_A97E50:** RakNet::BitStream::destructor
 - **sub_A97E90:** RakNet::BitStream::Reset
 - **sub_A97EB0:** RakNet::BitStream::Write
@@ -43,6 +45,8 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A99C80:** RakNet::BitStream::Write
 - **sub_A99CA0:** RakNet::BitStream::Write
 - **sub_A99CD0:** RakNet::BitStream::Read
+- **sub_A99EB0:** RakNet::StatisticsToString
+- **sub_A9A640:** RakNet::TimeUS::GetTimeUS_Windows
 - **sub_AAE930:** $0(RakNet::freeList)[i]
 - **sub_AB20D0:** $0(RakNet::freeList)::Clear
 - **sub_ABDD60:** RakNet::RakString::constructor
@@ -67,12 +71,22 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_AC0230:** RakNet::SimpleMutex::Lock
 - **sub_AC0250:** RakNet::SimpleMutex::Unlock
 - **sub_AC9F70:** $0(RakNet::freeList)::RemoveAtIndex
+- **sub_ADEB40:** RakNet::ByteQueue::constructor
+- **sub_ADEB80:** RakNet::ByteQueue::destructor
+- **sub_ADEBA0:** RakNet::ByteQueue::WriteBytes
+- **sub_ADED70:** RakNet::ByteQueue::ReadBytes
+- **sub_ADEE70:** RakNet::ByteQueue::PeekContiguousBytes
+- **sub_ADEEC0:** RakNet::ByteQueue::Clear
+- **sub_ADEF20:** RakNet::ByteQueue::GetBytesWritten
+- **sub_ADEF60:** RakNet::ByteQueue::IncrementReadOffset
+- **sub_ADEF90:** RakNet::ByteQueue::DecrementReadOffset
 - **off_118B7A8:** RakNet::rakMalloc_Ex
 - **off_118B7AC:** RakNet::rakRealloc_Ex
 - **off_118B7B0:** RakNet::rakFree_Ex
 - **off_118B7B4:** RakNet::RakMemoryOverride::notifyOutOfMemory
 - **unk_15C8754:** RakNet::freeList
 - **unknown_libname_43:** $0(RakNet::BitStream)::GetNumberOfBitsUsed
+- **unknown_libname_44:** RakNet::GetTimeUS
 - **unknown_libname_127:** $0(RakNet::BitStream)::GetData
 - **unknown_libname_131:** $0(RakNet::freeList)::Size
 - **unknown_libname_141:** $0(RakNet::BitStream)::GetReadOffset

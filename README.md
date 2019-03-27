@@ -97,6 +97,7 @@ The Darkspore application makes requests to different domains. In order to use t
 
 ## Special Thanks
 - rob55rod (Discord)
-- nonchip (Github)
 - haradons (Discord)
 - Snek (Discord)
+- Emd (Discord)
+- nonchip (Github)

@@ -5,6 +5,19 @@
 
 Join our [Discord](https://discord.gg/sDxuRNv) to keep in touch with the latest updates and/or to help with the project.
 
+## Overall progress
+- [ ] Making the game playable offline;
+- [ ] Making the game playable on LAN;
+- [ ] Creating a server-client mechanic so servers can be hosted;
+- [ ] Fix the original game issues, including connectivity issues.
+
+## _Making the game playable offline_ progress
+- [x] Redirect Darkspore requests to the localhost;
+- [x] Make Darkspore believe that the server is online (Error code 102);
+- [x] Make Darkspore open after the Play button has been pressed (Error 3001).
+- [ ] Make the login screen appear properly (Network connection was lost / Error 73000).
+- [ ] ?
+
 ## Introduction
 The focus is creating a local server in order to make Darkspore work again. The game has been dead since 2016 (you can literally buy a new physical copy by 2.99£ in Amazon.com). Since the servers shutdown, the game discs became useless pieces of plastic. This project aims to create a localhost server, which is going to make Darkspore work like if it was the original server, but much faster and private.
 
@@ -12,7 +25,7 @@ Still, be aware: this project will respect every layer of DRM that is above the 
 
 The only layer of DRM that _for now_ cannot be kept is the ingame DRM, which checks if you have the game in your Origin account after the game has already started. There are two reasons for that:
 - Origin has no public API, so there is no way to check if the user is really logged in, nor there is a way to know if he/she really has the game in the library;
-- Even if we managed to do it, it would be very simple for someone to simply fork the project and remove that. I guess the best that can be done is relying in the other DRMs, which will exist independently of the way that you bought the game.
+- Even if we managed to do it, it would be very simple for someone to simply fork the project and remove that. I guess the best that can be done is relying in the serial DRM, which will exist independently of the way that you bought the game.
 
 ## FAQ
 
@@ -20,12 +33,6 @@ The only layer of DRM that _for now_ cannot be kept is the ingame DRM, which che
 No. There are two factors that most likely will change; a positive one and a negative one. The positive one is that there will be no server instability (for obvious reason); still, if someone uses that to create an open private server, it may experience similar instabilities, unless we fix them.
 
 The negative one is that, at this moment, there is no sign of packet logs from the original server. That means that, most likely, the game procedures won't be exactly like the original Darkspore ones. That includes damage calculation, drop chance, spawn frequency, experience calculation, among other things.
-
-### Which are your priorities?
-1- Making the game playable offline;
-2- Making the game playable on LAN;
-3- Creating a server-client mechanic so servers can be hosted;
-4- Fix the original game issues, including connectivity issues.
 
 ### How long it will take to be finished?
 I have no idea. The biggest issue at this moment is reaching the login screen fields, so any help is welcome.
@@ -52,13 +59,6 @@ In order to start using (or at this point, contributing) the local server, you w
 - Python 2.7 and Flask installed;
 - Darkspore installed (use Wine, or relatives, if you are in Linux/macOS);
 - Your `hosts` file modified according to the specifications in **Server redirect** (will change in the future).
-
-## Progress
-- [x] Redirect Darkspore requests to the localhost;
-- [x] Make Darkspore believe that the server is online (Error code 102);
-- [x] Make Darkspore open after the Play button has been pressed (Error 3001).
-- [ ] Make the login screen appear properly (Network connection was lost / Error 73000).
-- [ ] ?
 
 ## Server redirect
 The Darkspore application makes requests to different domains. In order to use the local server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `127.0.0.1` because it will make things easier when we try to support programs like Hamachi.

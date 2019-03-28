@@ -17,6 +17,6 @@ def dlsClientScript():
           + '\n        xmlHttp.send(null);'
           + '\n    };'
           + '\n    DLSClient.request = function(name, params, callback) {'
-          + '\n        DLSClient.getRequest("http://darkspore.com/dls/api?method=" + name + (params === undefined ? "" : ("&" + params)), callback); '
+          + '\n        DLSClient.getRequest("http://config.darkspore.com/dls/api?method=" + name + (params === undefined ? "" : ("&" + params)), callback); '
           + '\n    };'
           + '\n</script>')

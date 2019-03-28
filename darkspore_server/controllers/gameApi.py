@@ -136,17 +136,17 @@ class DarkSporeServerApi(object):
                     "blaze_service_name": 'darkspore',
                     "blaze_secure": 'N',
                     "blaze_env": 'production',
-                    "sporenet_cdn_host": 'darkspore.com',
-                    "sporenet_db_host": 'darkspore.com',
+                    "sporenet_cdn_host": 'config.darkspore.com',
+                    "sporenet_db_host": 'config.darkspore.com',
                     "sporenet_db_port": '80',
                     "sporenet_db_name": 'darkspore',
-                    "sporenet_host": 'darkspore.com',
+                    "sporenet_host": 'config.darkspore.com',
                     "sporenet_port": '80',
                     'http_secure': 'N',
-                    "liferay_host": 'darkspore.com',
+                    "liferay_host": 'config.darkspore.com',
                     "liferay_port": '80',
                     "launcher_action": '2',
-                    "launcher_url": ('http://darkspore.com/bootstrap/launcher/?version=' + build)
+                    "launcher_url": ('http://config.darkspore.com/bootstrap/launcher/?version=' + build)
                 }
             }],
             "to_image": "",

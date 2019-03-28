@@ -12,12 +12,12 @@ allocStringWithSize(&string, 0x11u);
 ```
 Allocs in `stringPointer` a string with size `size`. No content is written in that space.
 
-#### sub_402270: compareStrings
+#### sub_402270: copyString
 ```cpp
-void compareStrings(void* str, void* string, int u1) {(...)}
-compareStrings(string, "version", ?);
+void copyString(void* destination, void* source, int size) {(...)}
+copyString(string, "version", 7);
 ```
-Compares two strings. Where it stores the result? No idea.
+Copies the contents of `source` to `destination`.
 
 #### sub_402380: allocAndInitString
 ```cpp

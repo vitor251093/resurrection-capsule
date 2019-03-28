@@ -1,6 +1,7 @@
 # Darkspore.exe RakNet Addresses
 This is the list of known RakNet functions inside the Darkspore.exe. We are trying to find out how the game works to make the server, and for that, the more we know about the game code, the best.
 
+- **sub_A91410:** RakNet::BitStream::WriteByte1
 - **sub_A96AB0:** RakNet::NonNumericHostString
 - **sub_A96E40:** RakNet::SystemAddress::SetBinaryAddress
 - **sub_A97E50:** RakNet::BitStream::destructor
@@ -47,8 +48,9 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A99CD0:** RakNet::BitStream::Read
 - **sub_A99EB0:** RakNet::StatisticsToString
 - **sub_A9A640:** RakNet::TimeUS::GetTimeUS_Windows
+- **sub_AABC00:** RakNet::BitStream::WriteByte1
 - **sub_AAE930:** $0(RakNet::freeList)[i]
-- **sub_AB20D0:** $0(RakNet::freeList)::Clear
+- **sub_AB20D0:** $0(RakNet::freeList).Clear
 - **sub_ABDD60:** RakNet::RakString::constructor
 - **sub_ABDE00:** RakNet::RakString::operator_Equal
 - **sub_ABDE80:** RakNet::RakString::operator_Equal
@@ -70,6 +72,17 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_AC0060:** RakNet::RakString::C_String
 - **sub_AC0230:** RakNet::SimpleMutex::Lock
 - **sub_AC0250:** RakNet::SimpleMutex::Unlock
+- **sub_AC2E00:** RakNet::SplitPacketChannelComp
+- **sub_AC7E80:** RakNet::ReliabilityLayer::BuildPacketFromSplitPacketList
+- **sub_AC8030:** RakNet::ReliabilityLayer::BuildPacketFromSplitPacketList
+- **sub_AC80F0:** RakNet::ReliabilityLayer::CreateInternalPacketCopy
+- **sub_AC81D0:** RakNet::ReliabilityLayer::GetOrderingListAtOrderingStream
+- **sub_AC87A0:** RakNet::ReliabilityLayer::ResetPacketsAndDatagrams
+- **sub_AC8DA0:** RakNet::ReliabilityLayer::SendACKs
+- **sub_AC8ED0:** RakNet::ReliabilityLayer::AllocateFromInternalPacketPool
+- **sub_AC8F50:** RakNet::ReliabilityLayer::ReleaseToInternalPacketPool
+- **sub_AC9440:** RakNet::ReliabilityLayer::AllocInternalPacketData
+- **sub_AC9480:** RakNet::ReliabilityLayer::FreeInternalPacketData
 - **sub_AC9F70:** $0(RakNet::freeList)::RemoveAtIndex
 - **sub_ADEB40:** RakNet::ByteQueue::constructor
 - **sub_ADEB80:** RakNet::ByteQueue::destructor
@@ -87,6 +100,20 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **unk_15C8754:** RakNet::freeList
 - **unknown_libname_43:** $0(RakNet::BitStream)::GetNumberOfBitsUsed
 - **unknown_libname_44:** RakNet::GetTimeUS
+- **unknown_libname_125:** splitPacketChannelList[$0]
+- **unknown_libname_126:** splitPacketChannelList.RemoveAtIndex($0)
 - **unknown_libname_127:** $0(RakNet::BitStream)::GetData
 - **unknown_libname_131:** $0(RakNet::freeList)::Size
 - **unknown_libname_141:** $0(RakNet::BitStream)::GetReadOffset
+
+## Structures
+### InternalPacket
+- this+20: this->dataBitLength
+- this+40: this->creationTime
+- this+60: this->data
+
+### SplitPacketChannel
+- this+8: this->splitPacketList
+
+## Defines
+- #define PREALLOCATE_LARGE_MESSAGES = 0

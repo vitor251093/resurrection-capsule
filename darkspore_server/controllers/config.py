@@ -10,6 +10,7 @@ class DarkSporeServerConfig(object):
             "SKIP_LAUNCHER": False,
             "VERSION_LOCKED": False,
             "SINGLEPLAYER_ONLY": True,
+            "SERVER_HOST": "127.0.0.1",
             "STORAGE_PATH": "../storage",
             "DARKSPORE_INDEX_PAGE_PATH": "index.html",
             "DARKSPORE_LAUNCHER_NOTES_PATH": "bootstrap/launcher/notes.html",
@@ -48,6 +49,11 @@ class DarkSporeServerConfig(object):
 
     def get(self,key):
         return self.config[key]
+
+    def host(self):
+        if self.singlePlayerOnly():
+            return "127.0.0.1"
+        return self.get("SERVER_HOST")
 
     def skipLauncher(self):
         return self.get("SKIP_LAUNCHER") == True

@@ -262,7 +262,7 @@ def bootstrapLauncher():
     file = open(pathUtils.join(pathUtils.join(serverConfig.storagePath(), 'www'), launcherPath), "r")
     launcherHtml = file.read()
 
-    dlsClientScript = launcherUtils.dlsClientScript(server.host)
+    dlsClientScript = launcherUtils.dlsClientScript(server.config.host())
     launcherHtml = launcherHtml.replace('</head>', dlsClientScript + '</head>')
 
     return Response(launcherHtml, mimetype='text/html')

@@ -76,14 +76,11 @@ The Darkspore application makes requests to different domains. In order to use t
 127.0.0.1 fail.spore.rws.ad.ea.com
 127.0.0.1 ea6.com.edgesuite.net
 127.0.0.1 darkspore.alpha.lockbox.ea.com
-127.0.0.1 darkspore.com
-127.0.0.1 www.darkspore.com
 127.0.0.1 www.sporelabs.com
 127.0.0.1 splabbetamydb1b.rspc-iad.ea.com
 127.0.0.1 321917-prodmydb009.spore.rspc-iad.ea.com
 127.0.0.1 telemetry.maxis.com
 127.0.0.1 gosredirector.ea.com
-127.0.0.1 undefined.Home
 ```
 
 ## Reference images

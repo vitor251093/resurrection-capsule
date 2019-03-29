@@ -1,6 +1,18 @@
 import sys
 from cx_Freeze import setup, Executable
 
+import os
+from controllers.config import *
+
+version = "1"
+config = DarkSporeServerConfig()
+versionPath = os.path.join(config.serverPath, "version.txt")
+versionFile = open(versionPath,"r")
+lines = versionFile.readlines()
+for line in lines:
+    if len(line.strip()) > 0:
+        version = line.strip()
+
 # Dependencies are automatically detected, but it might need fine tuning.
 build_exe_options = {"include_msvcr": True}
 
@@ -16,7 +28,7 @@ exe = Executable(
 setup(
     # the actual setup & the definition of other misc. info
     name = "DarksporeServer",
-    version = "0.1",
+    version = version,
     description = "Darkspore LS server",
     options = {"build_exe": build_exe_options},
     executables = [exe]

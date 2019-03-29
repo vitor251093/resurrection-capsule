@@ -60,6 +60,15 @@ class DarkSporeServer(object):
         self.config = config
         self.version = dls_version
         self.gameVersion = None
+
+        self.version = "1"
+        versionPath = os.path.join(config.serverPath, "version.txt")
+        versionFile = open(versionPath,"r")
+        lines = versionFile.readlines()
+        for line in lines:
+            if len(line.strip()) > 0:
+                self.version = line.strip()
+
         self.data = DarkSporeServerData()
         self.loadServerDataFromFile()
 

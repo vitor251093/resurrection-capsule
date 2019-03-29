@@ -63,9 +63,16 @@ In order to start using (or at this point, contributing) the local server, you w
 ## Server redirect
 The Darkspore application makes requests to different domains. In order to use the local server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `127.0.0.1` because it will make things easier when we try to support programs like Hamachi.
 
+Most important ones (so far):
+```
+127.0.0.1 config.darkspore.com
+127.0.0.1 gosredirector.online.ea.com
+127.0.0.1 gosredirector.ea.com
+```
+
+Less important ones (with no purpose so far):
 ```
 127.0.0.1 api.darkspore.com
-127.0.0.1 config.darkspore.com
 127.0.0.1 content.darkspore.com
 127.0.0.1 beta.darkspore.ea.com
 127.0.0.1 beta-sn.darkspore.ea.com
@@ -80,7 +87,6 @@ The Darkspore application makes requests to different domains. In order to use t
 127.0.0.1 splabbetamydb1b.rspc-iad.ea.com
 127.0.0.1 321917-prodmydb009.spore.rspc-iad.ea.com
 127.0.0.1 telemetry.maxis.com
-127.0.0.1 gosredirector.ea.com
 ```
 
 ## Reference images

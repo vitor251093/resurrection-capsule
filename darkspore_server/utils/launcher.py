@@ -5,7 +5,7 @@ def directToGameHtml():
           + 'window.onload = function(){ Client.playCurrentApp(); }'
           + '</script></head><body></body></html>')
 
-def dlsClientScript():
+def dlsClientScript(host):
     return ('\n<script>'
           + '\n    var DLSClient = {};'
           + '\n    DLSClient.getRequest = function(url, callback) {'
@@ -17,6 +17,6 @@ def dlsClientScript():
           + '\n        xmlHttp.send(null);'
           + '\n    };'
           + '\n    DLSClient.request = function(name, params, callback) {'
-          + '\n        DLSClient.getRequest("http://config.darkspore.com/dls/api?method=" + name + (params === undefined ? "" : ("&" + params)), callback); '
+          + '\n        DLSClient.getRequest("http://' + host + '/dls/api?method=" + name + (params === undefined ? "" : ("&" + params)), callback); '
           + '\n    };'
           + '\n</script>')

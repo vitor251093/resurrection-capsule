@@ -60,6 +60,7 @@ class DarkSporeServer(object):
         self.config = config
         self.version = dls_version
         self.gameVersion = None
+        self.host = "127.0.0.1"
         self.data = DarkSporeServerData()
         self.loadServerDataFromFile()
 

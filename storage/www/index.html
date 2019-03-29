@@ -40,7 +40,7 @@
             xmlHttp.send(null);
         }
         DLSClient.request = function(name, params, callback) {
-            DLSClient.getRequest("http://config.darkspore.com/dls/api?method=" + name + (params === undefined ? "" : ("&" + params)), callback);
+            DLSClient.getRequest("http://" + window.location.hostname + "/dls/api?method=" + name + (params === undefined ? "" : ("&" + params)), callback);
         }
 
         DLSClient.request("api.launcher.listThemes", undefined, function(responseText){

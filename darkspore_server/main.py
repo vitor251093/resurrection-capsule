@@ -83,7 +83,7 @@ def api():
 @app.route("/game/api", methods=['GET','POST'])
 def gameApi():
     version = requestUtils.get(request,'version',str)
-    build   = requestUtils.get(request,'build',  str) 
+    build   = requestUtils.get(request,'build',  str)
     method  = requestUtils.get(request,'method', str)
 
     # Different players must be using the same version of the game, otherwise
@@ -93,7 +93,7 @@ def gameApi():
         return responseUtils.xmlResponseWithObject(serverApi.bootstrapApi_error_object())
 
     if method == 'api.status.getStatus':
-        include_broadcasts = requestUtils.get(request,'include_broadcasts', str) 
+        include_broadcasts = requestUtils.get(request,'include_broadcasts', str)
         return responseUtils.xmlResponseWithObject(serverApi.gameApi_getStatus_object(include_broadcasts))
 
     print " "
@@ -106,7 +106,7 @@ def gameApi():
 @app.route("/bootstrap/api", methods=['GET','POST'])
 def bootstrapApi():
     version = requestUtils.get(request,'version',str)
-    build   = requestUtils.get(request,'build',  str) 
+    build   = requestUtils.get(request,'build',  str)
     method  = requestUtils.get(request,'method', str)
 
     # Different players must be using the same version of the game, otherwise
@@ -262,7 +262,7 @@ def bootstrapLauncher():
     file = open(pathUtils.join(pathUtils.join(serverConfig.storagePath(), 'www'), launcherPath), "r")
     launcherHtml = file.read()
 
-    dlsClientScript = launcherUtils.dlsClientScript()
+    dlsClientScript = launcherUtils.dlsClientScript(server.host)
     launcherHtml = launcherHtml.replace('</head>', dlsClientScript + '</head>')
 
     return Response(launcherHtml, mimetype='text/html')
@@ -336,5 +336,3 @@ if __name__ == "__main__":
     apiThread.start()
 
     startBlaze()
-            
-        

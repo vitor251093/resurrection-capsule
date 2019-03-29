@@ -18,9 +18,12 @@ RUN pip install twisted
 RUN pip install pyopenssl
 RUN pip install service_identity
 
-# Used by the build-exe.sh script
-# RUN pip install cx_Freeze
+# Used to build the server into an EXE
 RUN apt-get install lib32z1-dev -y
 RUN python -m pip install cx_Freeze --upgrade
+
+# Used to compress the server EXE into a single EXE file
+RUN apt-get install p7zip-full -y
+RUN apt-get install wget -y
 
 COPY darkspore_server /darkspore_server

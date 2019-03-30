@@ -18,14 +18,15 @@ class DarkSporeServerConfig(object):
         }
 
         try:
-            application_path = None
+            serverPath = None
             if getattr(sys, 'frozen', False):
                 application_path = os.path.dirname(sys.executable)
+                serverPath = os.path.abspath(application_path)
             elif __file__:
                 application_path = os.path.dirname(__file__)
+                scriptPath = os.path.abspath(application_path)
+                serverPath = os.path.dirname(scriptPath)
 
-            scriptPath = os.path.abspath(application_path)
-            serverPath = os.path.dirname(scriptPath)
             self.serverPath = serverPath
 
             configPath = os.path.join(serverPath, "config.txt")

@@ -42,9 +42,9 @@ def startBlaze():
 	privkeyPath = os.path.join(serverPath,'crt','privkey.pem')
 	cacertPath = os.path.join(serverPath,'crt','cacert.pem')
 
-	SSLInfo = ssl.DefaultOpenSSLContextFactory(privkeyPath, cacertPath)
-	ctx = SSLInfo.getContext()
-	ctx.set_verify((SSL.VERIFY_PEER | SSL.VERIFY_FAIL_IF_NO_PEER_CERT), verifyCallback)
+	# SSLInfo = ssl.DefaultOpenSSLContextFactory(privkeyPath, cacertPath)
+	# ctx = SSLInfo.getContext()
+	# ctx.set_verify((SSL.VERIFY_PEER | SSL.VERIFY_FAIL_IF_NO_PEER_CERT), verifyCallback)
 
 	factory = Factory()
 	factory.protocol = GosRedirector.GOSRedirector
@@ -61,9 +61,9 @@ def startBlaze():
 	reactor.listenTCP(10071, factory)
 	print("[TCP REACTOR] BLAZE SERVER [10071]")
 
-	sites = server.Site(Https.Simple())
-	reactor.listenSSL(443, sites, SSLInfo)
-	print("[WEB REACTOR] Https [443]")
+	# sites = server.Site(Https.Simple())
+	# reactor.listenSSL(443, sites, SSLInfo)
+	# print("[WEB REACTOR] Https [443]")
 
 	reactor.run()
 

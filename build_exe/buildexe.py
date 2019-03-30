@@ -2,7 +2,7 @@ import sys
 from cx_Freeze import setup, Executable
 
 import os
-from controllers.config import *
+from ..darkspore_server.controllers.config import *
 
 version = "1"
 config = DarkSporeServerConfig()

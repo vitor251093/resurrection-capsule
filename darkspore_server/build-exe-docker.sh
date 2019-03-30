@@ -11,6 +11,8 @@ cd /darkspore_server_storage
 mv /darkspore_server/dist/main.exe build/DarksporeServer.exe
 cp /darkspore_server/config.txt build/config.txt
 cp /darkspore_server/version.txt build/version.txt
+mkdir build/storage
+cp -r /darkspore_server_storage/www build/storage/www
 
 # Turning EXE and dependencies into a single EXE file
 cd /darkspore_server_storage/build

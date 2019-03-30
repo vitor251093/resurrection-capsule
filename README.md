@@ -45,21 +45,6 @@ At this moment (25/03/19): the game launches, but the login screen gives a lost 
 ## Architecture
 The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrapper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.
 
-## Requirements
-In order to start using (or at this point, contributing) the local server, you will need:
-
-### Docker version
-- A computer with Linux, MacOS or Windows 10;
-- The Docker application installed;
-- Darkspore installed (use Wine, or relatives, if you are in Linux/macOS);
-- Your `hosts` file modified according to the specifications in **Server redirect** (will change in the future).
-
-### Non-Docker version
-- A computer with Linux, MacOS or Windows XP (or above);
-- Python 2.7 and Flask installed;
-- Darkspore installed (use Wine, or relatives, if you are in Linux/macOS);
-- Your `hosts` file modified according to the specifications in **Server redirect** (will change in the future).
-
 ## Server redirect
 The Darkspore application makes requests to different domains. In order to use the local server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `127.0.0.1` because it will make things easier when we try to support programs like Hamachi.
 

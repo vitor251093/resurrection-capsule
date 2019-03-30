@@ -39,3 +39,18 @@ To start the server:
 To start the server:
 - Windows: Open the Command Prompt (cmd) and run the darkspore_server/run-nodocker.bat file with it
 - Linux/macOS: Open the Terminal and run the darkspore_server/run-nodocker.sh file with it
+
+## Common errors
+
+### twisted.internet.error.CannotListenError (Error 10048)
+DLS needs to listen to the 80 and 42127 ports in order to work. If that happens, use that command to find out the process ID of the process that is doing that:
+
+```
+netstat -ano | findstr PORT_NUMBER_HERE
+```
+
+And then use the command below to kill it:
+
+```
+taskkill /PID PROCESS_ID_HERE /F
+```

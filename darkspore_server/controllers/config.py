@@ -42,7 +42,7 @@ class DarkSporeServerConfig(object):
                     self.config[key] = value
         except Exception as e:
             print('')
-            print('Error while reading config file: ' + e)
+            print('Error while reading config file: %s' % e)
             print('')
 
         print self.config

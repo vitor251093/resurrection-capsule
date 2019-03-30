@@ -1,4 +1,0 @@
-;!@Install@!UTF-8!
-Title="DarksporeServer"
-RunProgram="DarksporeServer.exe"
-;!@InstallEnd@!

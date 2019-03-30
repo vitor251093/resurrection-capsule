@@ -5,7 +5,6 @@ import warnings
 import time
 import timeit
 import datetime
-import magic
 import socket
 import logging
 import threading
@@ -33,7 +32,6 @@ serverConfig = DarkSporeServerConfig()
 server = DarkSporeServer(serverConfig)
 serverApi = DarkSporeServerApi(server)
 
-mime = magic.Magic(mime=True)
 staticFolderPath = pathUtils.join(pathUtils.join(serverConfig.storagePath(), 'www'), 'static')
 app = Flask(__name__, static_url_path='/static', static_folder=staticFolderPath)
 
@@ -292,7 +290,7 @@ def bootstrapLauncherImages(path):
     resourcePath = pathUtils.join(launcherFolder, path)
 
     filePath = pathUtils.join(pathUtils.join(serverConfig.storagePath(), 'www'), resourcePath)
-    return send_file(filePath, mimetype=mime.from_file(filePath))
+    return send_file(filePath)
 
 @app.route('/favicon.ico')
 def favicon():

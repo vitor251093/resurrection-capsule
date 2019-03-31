@@ -2,6 +2,7 @@
 This is the list of known OpenSSL functions inside the Darkspore.exe. We are trying to find out how the game works to make the server, and for that, the more we know about the game code, the best.
 
 - **sub_D2ECE0:** crypto/rsa/rsa_lib.c -> RSA_free
+- **sub_D2EE00:** crypto/rsa/rsa_lib.c -> RSA_up_ref
 - **sub_D2FA40:** crypto/bn/bn_lib.c -> BN_clear_free
 - **sub_D3A0C0:** ? -> ENGINE_finish
 - **sub_D36C80:** ? -> CRYPTO_add

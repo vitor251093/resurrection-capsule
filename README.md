@@ -5,6 +5,8 @@
 
 Join our [Discord](https://discord.gg/sDxuRNv) to keep in touch with the latest updates and/or to help with the project.
 
+Just want to test it in your computer? Check [HOW_I_RUN_IT.md](HOW_I_RUN_IT.md).
+
 ## Overall progress
 - [ ] Making the game playable offline;
 - [ ] Making the game playable on LAN;

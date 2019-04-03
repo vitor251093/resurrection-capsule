@@ -1,0 +1,9 @@
+services:
+  - docker
+
+before_install:
+  - git clone https://github.com/vitor251093/Darkspore-LS.git
+  - ./Darkspore-LS/rebuild-exe.sh
+
+script:
+  - ./Darkspore-LS/restart-server.sh

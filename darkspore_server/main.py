@@ -322,6 +322,9 @@ def startApi(debug):
         app.run(debug=runInDebug, port=80, threaded=True)
 
 if __name__ == "__main__":
+    if "travis" in sys.argv:
+        sys.exit()
+
     if "blaze-only" in sys.argv:
         startBlaze()
         sys.exit()

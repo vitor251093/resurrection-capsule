@@ -6,4 +6,4 @@ before_install:
   - ./Darkspore-LS/rebuild-exe.sh
 
 script:
-  - ./Darkspore-LS/restart-server.sh
+  - ./Darkspore-LS/travis-test.sh

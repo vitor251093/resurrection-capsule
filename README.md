@@ -1,5 +1,7 @@
 # Darkspore-LS
-[WIP] A small local server to play Darkspore offline
+[WIP] A small local server to play Darkspore offline 
+
+[![Build Status](https://travis-ci.com/vitor251093/Darkspore-LS.svg?branch=master)](https://travis-ci.com/vitor251093/Darkspore-LS)
 
 ![alt Darkspore launcher with LS](https://raw.githubusercontent.com/vitor251093/Darkspore-LS/master/readme-launcher.png)
 

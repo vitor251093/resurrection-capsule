@@ -220,6 +220,7 @@ Set autodial to enabled/disabled in the Windows registry.
 - sub_C46B50: Create account failed
 
 ## Known strings
+- off_10D9AEC: "gosredirector.online.ea.com"
 - off_11444D4: Darkspore version ("5.3.0.127")
 - off_FDB54C: "gms"
 - off_FDB788: "false"

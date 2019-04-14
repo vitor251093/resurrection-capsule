@@ -1,5 +1,5 @@
 # Darkspore-LS
-[WIP] A small local server to play Darkspore offline 
+[WIP] A small local server to play Darkspore offline
 
 [![Build Status](https://travis-ci.com/vitor251093/Darkspore-LS.svg?branch=master)](https://travis-ci.com/vitor251093/Darkspore-LS)
 
@@ -86,6 +86,7 @@ Less important ones (with no purpose so far):
 ## Projects used has references
 - [buchacho/BF4BlazeEmulator](https://github.com/buchacho/BF4BlazeEmulator)
 - [pedromartins1/BlazeServer](https://github.com/pedromartins1/BlazeServer)
+- [Cloudef/xiloader-wine](https://github.com/Cloudef/xiloader-wine)
 
 ## Special Thanks
 - rob55rod (Discord)

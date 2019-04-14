@@ -7,14 +7,13 @@
 #include <string>
 #include <ctype.h>
 #include <tlhelp32.h>
+
 #include "detours.h"
 
 using namespace std;
 
-#define COPY_STRING_FUNCTION_ADDRESS 0x402270
-#define GET_CONFIGS_FUNCTION_ADDRESS 0x4642E0
-int (__thiscall* copyStringFunction)(int,void*,int);
-BYTE* (__thiscall* getConfigsFunction)(BYTE*);
+int (__thiscall* copyStringFunction)(int,void*,int) = (int(__thiscall*)(int,void*,int))(0x402270);
+BYTE* (__thiscall* getConfigsFunction)(BYTE*) = (BYTE*(__thiscall*)(BYTE*))(0x4642E0);
 
 int copyStringHookedFunction(int v1, void *Src, int a3)
 {
@@ -34,8 +33,11 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD dwReason, LPVOID lpReserved)
   switch (dwReason)
   {
     case DLL_PROCESS_ATTACH:
-      copyStringFunction = (int(__thiscall*)(int,void*,int))DetourFunction((PBYTE)COPY_STRING_FUNCTION_ADDRESS, (PBYTE)copyStringHookedFunction);
-      getConfigsFunction = (BYTE*(__thiscall*)(BYTE*))DetourFunction((PBYTE)GET_CONFIGS_FUNCTION_ADDRESS, (PBYTE)getConfigsHookedFunction);
+      DetourTransactionBegin();
+      DetourUpdateThread(GetCurrentThread());
+      copyStringFunction = (int(__thiscall*)(int,void*,int))DetourAttach((PVOID*)(&copyStringFunction), (PBYTE)copyStringHookedFunction);
+      getConfigsFunction = (BYTE*(__thiscall*)(BYTE*))DetourAttach((PVOID*)(&getConfigsFunction), (PBYTE)getConfigsHookedFunction);
+      DetourTransactionCommit();
       break;
   }
   return TRUE;

@@ -89,7 +89,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **unknown_libname_89:** ?
 - **sub_ABDE00:** RakNet::RakString::operator_Equal
 - **sub_ABDE80:** RakNet::RakString::operator_Equal
-- **unknown_libname_90:** ?
+- **unknown_libname_90:** \*output=$0
 - **sub_ABDF40:** RakNet::RakString::Realloc
 - **sub_ABE010:** RakNet::RakString::operator_Sum
 - **sub_ABE0B0:** RakNet::RakString::operator_Sum
@@ -130,6 +130,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_AC0230:** RakNet::SimpleMutex::Lock
 - **sub_AC0250:** RakNet::SimpleMutex::Unlock
 - **OTHERS...**
+- **sub_AC0E00:** RakNet::StringCompressor::DecodeString
 - **sub_AC0EE0:** RakNet::StringCompressor::DecodeString
 - **OTHERS...**
 - **sub_AC2E00:** RakNet::SplitPacketChannelComp
@@ -213,4 +214,6 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - this+8: this->splitPacketList
 
 ## Defines
+- #define MAX_ALLOCA_STACK_ALLOCATION = 0x100000
 - #define PREALLOCATE_LARGE_MESSAGES = 0
+- #define USE_ALLOCA = 1

@@ -130,6 +130,8 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_AC0230:** RakNet::SimpleMutex::Lock
 - **sub_AC0250:** RakNet::SimpleMutex::Unlock
 - **OTHERS...**
+- **sub_AC0EE0:** RakNet::StringCompressor::DecodeString
+- **OTHERS...**
 - **sub_AC2E00:** RakNet::SplitPacketChannelComp
 - **OTHERS...**
 - **sub_AC7E80:** RakNet::ReliabilityLayer::BuildPacketFromSplitPacketList

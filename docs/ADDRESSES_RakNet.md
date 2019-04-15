@@ -1,20 +1,39 @@
 # Darkspore.exe RakNet Addresses
 This is the list of known RakNet functions inside the Darkspore.exe. We are trying to find out how the game works to make the server, and for that, the more we know about the game code, the best.
 
+- **OTHERS..?**
 - **sub_A91410:** RakNet::BitStream::WriteByte1
+- **OTHERS...**
 - **sub_A96AB0:** RakNet::NonNumericHostString
+- **sub_A96B00:** ?
+- **sub_A96B30:** ?
+- **sub_A96B80:** ?
+- **sub_A96BC0:** ?
+- **sub_A96C00:** ?
+- **sub_A96C50:** ?
+- **sub_A96CA0:** ?
+- **sub_A96D00:** ?
+- **sub_A96DA0:** ?
+- **sub_A96E10:** ?
 - **sub_A96E40:** RakNet::SystemAddress::SetBinaryAddress
+- **OTHERS...**
 - **sub_A97E50:** RakNet::BitStream::destructor
 - **sub_A97E90:** RakNet::BitStream::Reset
 - **sub_A97EB0:** RakNet::BitStream::Write
 - **sub_A97F30:** RakNet::BitStream::Write
 - **sub_A97F60:** RakNet::BitStream::Write
+- **unknown_libname_39:** ?
 - **sub_A982A0:** RakNet::BitStream::Write0
 - **sub_A982E0:** RakNet::BitStream::Write1
 - **sub_A98360:** RakNet::BitStream::ReadBit
 - **sub_A983B0:** RakNet::BitStream::WriteAlignedBytes
 - **sub_A98470:** RakNet::BitStream::Read
+- **sub_A98510:** ?
+- **sub_A985A0:** ?
 - **sub_A98640:** RakNet::BitStream::WriteBits
+- **sub_A987C0:** ?
+- **sub_A988E0:** ?
+- **sub_A98A90:** ?
 - **sub_A98BC0:** RakNet::BitStream::AddBitsAndReallocate
 - **sub_A98D00:** RakNet::BitStream::PadWithZeroToByteLength
 - **sub_A98DA0:** RakNet::BitStream::NumberOfLeadingZeroes
@@ -26,6 +45,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A99320:** RakNet::BitStream::CopyData
 - **sub_A99380:** RakNet::BitStream::IgnoreBits
 - **sub_A993A0:** RakNet::BitStream::IgnoreBytes
+- **sub_A993C0:** ?
 - **sub_A99460:** RakNet::BitStream::IsNetworkOrderInternal
 - **sub_A994A0:** RakNet::BitStream::ReverseBytes
 - **sub_A994E0:** RakNet::BitStream::ReverseBytesInPlace
@@ -37,30 +57,56 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A99830:** RakNet::BitStream::ReadAlignedVar32
 - **sub_A99940:** RakNet::BitStream::ReadFloat16
 - **sub_A99A20:** RakNet::BitStream::WriteFloat16
+- **unknown_libname_43:** $0(RakNet::BitStream)::GetNumberOfBitsUsed
+- **streambuf::unbuffered**
+- **sub_A99B00:** ?
 - **sub_A99B20:** RakNet::BitStream::AlignWriteToByteBoundary
 - **sub_A99B50:** RakNet::BitStream::DoEndianSwap
-- **sub_A99BA0:** RakNet::BitStream::AlignReadToByteBoundary
 - **sub_A99B70:** RakNet::BitStream::IsNetworkOrder
+- **sub_A99BA0:** RakNet::BitStream::AlignReadToByteBoundary
+- **sub_A99BD0:** ?
 - **sub_A99C40:** RakNet::BitStream::GetNumberOfBytesUsed
 - **sub_A99C60:** RakNet::BitStream::Write
 - **sub_A99C80:** RakNet::BitStream::Write
 - **sub_A99CA0:** RakNet::BitStream::Write
 - **sub_A99CD0:** RakNet::BitStream::Read
+- **sub_A99D50:** ?
+- **sub_A99DC0:** ?
+- **sub_A99E40:** ?
 - **sub_A99EB0:** RakNet::StatisticsToString
+- **unknown_libname_44:** RakNet::GetTimeUS
+- **sub_A9A620:** ?
 - **sub_A9A640:** RakNet::TimeUS::GetTimeUS_Windows
+- **unknown_libname_45:** ?
+- **OTHERS...**
 - **sub_AABC00:** RakNet::BitStream::WriteByte1
+- **OTHERS...**
 - **sub_AAE930:** $0(RakNet::freeList)[i]
+- **OTHERS...**
 - **sub_AB20D0:** $0(RakNet::freeList).Clear
+- **OTHERS...**
 - **sub_ABDD60:** RakNet::RakString::constructor
+- **unknown_libname_89:** ?
 - **sub_ABDE00:** RakNet::RakString::operator_Equal
 - **sub_ABDE80:** RakNet::RakString::operator_Equal
+- **unknown_libname_90:** ?
 - **sub_ABDF40:** RakNet::RakString::Realloc
 - **sub_ABE010:** RakNet::RakString::operator_Sum
 - **sub_ABE0B0:** RakNet::RakString::operator_Sum
+- **sub_ABE1B0:** ?
+- **sub_ABE200:** ?
+- **sub_ABE350:** ?
 - **sub_ABE7D0:** RakNet::RakString::IsEmpty
 - **sub_ABE7F0:** RakNet::RakString::GetLength
+- **sub_ABE860:** ?
+- **sub_ABEA00:** ?
+- **sub_ABECD0:** ?
+- **sub_ABED90:** ?
 - **sub_ABF570:** RakNet::RakString::FreeMemoryNoMutex
 - **sub_ABF630:** RakNet::RakString::Serialize
+- **sub_ABF6A0:** ?
+- **sub_ABF770:** ?
+- **unknown_libname_96:** ?
 - **sub_ABF970:** RakNet::RakString::Allocate
 - **sub_ABFAB0:** RakNet::RakString::Assign
 - **sub_ABFB20:** RakNet::RakString::Assign
@@ -69,21 +115,75 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_ABFEC0:** RakNet::RakString::Free
 - **sub_ABFF90:** RakNet::RakString::ToLower
 - **sub_ABFFC0:** RakNet::RakString::ToUpper
+- **sub_AC0030:** ?
 - **sub_AC0060:** RakNet::RakString::C_String
+- **sub_AC0080:** ?
+- **sub_AC00C0:** ?
+- **sub_AC0100:** ?
+- **sub_AC0130:** ?
+- **sub_AC0160:** ?
+- **unknown_libname_97:** ?
+- **sub_AC0180:** ?
+- **sub_AC01B0:** ?
+- **unknown_libname_98:** ?
+- **sub_AC0210:** ?
 - **sub_AC0230:** RakNet::SimpleMutex::Lock
 - **sub_AC0250:** RakNet::SimpleMutex::Unlock
+- **OTHERS...**
 - **sub_AC2E00:** RakNet::SplitPacketChannelComp
+- **OTHERS...**
 - **sub_AC7E80:** RakNet::ReliabilityLayer::BuildPacketFromSplitPacketList
 - **sub_AC8030:** RakNet::ReliabilityLayer::BuildPacketFromSplitPacketList
 - **sub_AC80F0:** RakNet::ReliabilityLayer::CreateInternalPacketCopy
 - **sub_AC81D0:** RakNet::ReliabilityLayer::GetOrderingListAtOrderingStream
+- **sub_AC8210:** ?
+- **sub_AC8300:** ?
+- **sub_AC8320:** ?
+- **sub_AC8340:** ?
+- **sub_AC8380:** ?
+- **sub_AC8670:** ?
+- **sub_AC86A0:** ?
+- **sub_AC8770:** ?
 - **sub_AC87A0:** RakNet::ReliabilityLayer::ResetPacketsAndDatagrams
+- **sub_AC8840:** ?
+- **sub_AC8910:** ?
+- **sub_AC8A30:** ?
+- **sub_AC8BF0:** ?
+- **sub_AC8CA0:** ?
+- **sub_AC8D50:** ?
+- **sub_AC8D80:** ?
 - **sub_AC8DA0:** RakNet::ReliabilityLayer::SendACKs
 - **sub_AC8ED0:** RakNet::ReliabilityLayer::AllocateFromInternalPacketPool
 - **sub_AC8F50:** RakNet::ReliabilityLayer::ReleaseToInternalPacketPool
+- **sub_AC8F80:** ?
+- **sub_AC9010:** ?
+- **unknown_libname_119:** ?
+- **sub_AC90B0:** ?
+- **sub_AC90F0:** ?
+- **sub_AC9190:** ?
+- **sub_AC9220:** ?
+- **sub_AC92A0:** ?
+- **sub_AC9350:** ?
+- **sub_AC93A0:** ?
+- **sub_AC9420:** ?
 - **sub_AC9440:** RakNet::ReliabilityLayer::AllocInternalPacketData
 - **sub_AC9480:** RakNet::ReliabilityLayer::FreeInternalPacketData
+- **OTHERS...**
 - **sub_AC9F70:** $0(RakNet::freeList)::RemoveAtIndex
+- **OTHERS...**
+- **unknown_libname_125:** splitPacketChannelList[$0]
+- **unknown_libname_126:** splitPacketChannelList.RemoveAtIndex($0)
+- **sub_ACB1B0:** ?
+- **sub_ACB1E0:** ?
+- **sub_ACB340:** ?
+- **sub_ACB390:** ?
+- **sub_ACB3B0:** ?
+- **unknown_libname_127:** $0(RakNet::BitStream)::GetData
+- **OTHERS...**
+- **unknown_libname_131:** $0(RakNet::freeList)::Size
+- **OTHERS...**
+- **unknown_libname_141:** $0(RakNet::BitStream)::GetReadOffset
+- **OTHERS...**
 - **sub_ADEB40:** RakNet::ByteQueue::constructor
 - **sub_ADEB80:** RakNet::ByteQueue::destructor
 - **sub_ADEBA0:** RakNet::ByteQueue::WriteBytes
@@ -93,18 +193,13 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_ADEF20:** RakNet::ByteQueue::GetBytesWritten
 - **sub_ADEF60:** RakNet::ByteQueue::IncrementReadOffset
 - **sub_ADEF90:** RakNet::ByteQueue::DecrementReadOffset
+- **OTHERS..?**
+
 - **off_118B7A8:** RakNet::rakMalloc_Ex
 - **off_118B7AC:** RakNet::rakRealloc_Ex
 - **off_118B7B0:** RakNet::rakFree_Ex
 - **off_118B7B4:** RakNet::RakMemoryOverride::notifyOutOfMemory
 - **unk_15C8754:** RakNet::freeList
-- **unknown_libname_43:** $0(RakNet::BitStream)::GetNumberOfBitsUsed
-- **unknown_libname_44:** RakNet::GetTimeUS
-- **unknown_libname_125:** splitPacketChannelList[$0]
-- **unknown_libname_126:** splitPacketChannelList.RemoveAtIndex($0)
-- **unknown_libname_127:** $0(RakNet::BitStream)::GetData
-- **unknown_libname_131:** $0(RakNet::freeList)::Size
-- **unknown_libname_141:** $0(RakNet::BitStream)::GetReadOffset
 
 ## Structures
 ### InternalPacket

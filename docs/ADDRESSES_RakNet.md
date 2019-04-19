@@ -238,7 +238,35 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_AC0210:** ?
 - **sub_AC0230:** RakNet::SimpleMutex::Lock
 - **sub_AC0250:** RakNet::SimpleMutex::Unlock
-- **OTHERS...**
+- **sub_AC0270:** ?
+- **Replicator::Replicator**
+- **unknown_libname_99:** ?
+- **sub_AC02C0:** ?
+- **sub_AC02E0:** ?
+- **Concurrency::details::UMSBackgroundPoller::~UMSBackgroundPoller**
+- **sub_AC0330:** ?
+- **sub_AC0370:** ?
+- **sub_AC03B0:** ?
+- **sub_AC03F0:** ?
+- **unknown_libname_102:** ?
+- **sub_AC0430:** ?
+- **sub_AC04A0:** ?
+- **sub_AC04D0:** ?
+- **sub_AC0700:** ?
+- **sub_AC0730:** ?
+- **sub_AC07B0:** ?
+- **sub_AC07F0:** ?
+- **sub_AC0830:** ?
+- **sub_AC0860:** ?
+- **sub_AC0890:** ?
+- **sub_AC08B0:** ?
+- **sub_AC09A0:** ?
+- **sub_AC0AC0:** ?
+- **sub_AC0AF0:** ?
+- **sub_AC0B30:** ?
+- **sub_AC0B40:** ?
+- **sub_AC0CA0:** ?
+- **sub_AC0D00:** ?
 - **sub_AC0E00:** RakNet::StringCompressor::DecodeString
 - **sub_AC0EE0:** RakNet::StringCompressor::DecodeString
 - **OTHERS...**

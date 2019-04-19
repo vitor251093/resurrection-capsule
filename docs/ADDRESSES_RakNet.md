@@ -181,6 +181,8 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **OTHERS...**
 - **sub_AB20D0:** $0(RakNet::freeList).Clear
 - **OTHERS...**
+- **sub_AB6210:** RakNet::DataStructures::Queue<Packet*>::Size
+- **sub_AB6250:** ?
 - **sub_AB62A0:** RakNet::TelnetTransport::destructor
 - **sub_AB6310:** RakNet::TelnetTransport::Start
 - **sub_AB6340:** RakNet::TelnetTransport::Stop
@@ -229,7 +231,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_AC0100:** ?
 - **sub_AC0130:** ?
 - **sub_AC0160:** ?
-- **unknown_libname_97:** ?
+- **unknown_libname_97:** RakNet::RakSleep($0)
 - **sub_AC0180:** ?
 - **sub_AC01B0:** ?
 - **unknown_libname_98:** ?
@@ -278,7 +280,36 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_AC9420:** ?
 - **sub_AC9440:** RakNet::ReliabilityLayer::AllocInternalPacketData
 - **sub_AC9480:** RakNet::ReliabilityLayer::FreeInternalPacketData
-- **OTHERS...**
+- **sub_AC9550:** ?
+- **sub_AC95B0:** ?
+- **sub_AC95D0:** ?
+- **sub_AC9620:** ?
+- **sub_AC9740:** ?
+- **sub_AC9790:** ?
+- **sub_AC97C0:** ?
+- **unknown_libname_120:** ?
+- **sub_AC9820:** ?
+- **sub_AC9840:** ?
+- **sub_AC9860:** ?
+- **sub_AC9890:** ?
+- **sub_AC98C0:** ?
+- **sub_AC98F0:** ?
+- **sub_AC9920:** ?
+- **sub_AC9A00:** ?
+- **unknown_libname_121:** ?
+- **unknown_libname_122:** ?
+- **unknown_libname_123:** ?
+- **sub_AC9B40:** ?
+- **sub_AC9B50:** ?
+- **sub_AC9C40:** ?
+- **sub_AC9C70:** ?
+- **sub_AC9CA0:** ?
+- **sub_AC9CC0:** ?
+- **sub_AC9DB0:** ?
+- **Concurrency::details::TaskStack::ResetOverflow**
+- **sub_AC9E50:** ?
+- **sub_AC9E70:** ?
+- **sub_AC9F40:** ?
 - **sub_AC9F70:** $0(RakNet::freeList)::RemoveAtIndex
 - **OTHERS...**
 - **unknown_libname_125:** splitPacketChannelList[$0]
@@ -295,6 +326,59 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **unknown_libname_141:** $0(RakNet::BitStream)::GetReadOffset
 - **OTHERS...**
 - **sub_AD3D90:** RakNet::TCPInterface::Stop
+- **sub_AD4340:** ?
+- **sub_AD4370:** ?
+- **sub_AD4580:** ?
+- **sub_AD4600:** ?
+- **sub_AD4760:** ?
+- **sub_AD47F0:** ?
+- **sub_AD4880:** ?
+- **sub_AD48D0:** ?
+- **sub_AD4950:** ?
+- **sub_AD49D0:** ?
+- **sub_AD4A60:** ?
+- **sub_AD4D40:** ?
+- **sub_AD4EA0:** ?
+- **sub_AD5000:** ?
+- **sub_AD5B40:** ?
+- **sub_AD5BA0:** ?
+- **sub_AD5CB0:** ?
+- **sub_AD5CE0:** ?
+- **sub_AD5D10:** ?
+- **sub_AD5D40:** ?
+- **sub_AD5D80:** ?
+- **sub_AD5DC0:** ?
+- **sub_AD5E00:** ?
+- **sub_AD5E40:** ?
+- **sub_AD5E80:** ?
+- **sub_AD5EC0:** ?
+- **sub_AD5F30:** ?
+- **sub_AD5F70:** RakNet::DataStructures::ThreadsafeAllocatingQueue\<Packet\>::Clear
+- **sub_AD6030:** ?
+- **sub_AD6060:** ?
+- **sub_AD6080:** ?
+- **sub_AD60C0:** ?
+- **sub_AD60F0:** ?
+- **sub_AD6130:** ?
+- **sub_AD61A0:** ?
+- **sub_AD6210:** ?
+- **sub_AD6250:** RakNet::DataStructures::ThreadsafeAllocatingQueue\<SystemAddress\>::Clear
+- **sub_AD6310:** ?
+- **sub_AD6330:** ?
+- **sub_AD6360:** RakNet::DataStructures::ThreadsafeAllocatingQueue\<RemoteClient*\>::Clear
+- **sub_AD6420:** ?
+- **sub_AD6460:** RakNet::OP_DELETE_ARRAY
+- **sub_AD64A0:** ?
+- **sub_AD6520:** ?
+- **sub_AD6570:** ?
+- **sub_AD65B0:** ?
+- **sub_AD65F0:** ?
+- **sub_AD6660:** ?
+- **sub_AD6680:** ?
+- **sub_AD66B0:** ?
+- **sub_AD6830:** ?
+- **sub_AD6A00:** ?
+- **sub_AD6A50:** RakNet::DataStructures::Queue\<SystemAddress\>::Clear
 - **OTHERS...**
 - **sub_ADEB40:** RakNet::ByteQueue::constructor
 - **sub_ADEB80:** RakNet::ByteQueue::destructor
@@ -329,3 +413,4 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - #define PREALLOCATE_LARGE_MESSAGES = 0
 - #define USE_ALLOCA = 1
 - #define RAKNET_SUPPORT_IPV6 = 0
+- #define OPEN_SSL_CLIENT_SUPPORT = 0

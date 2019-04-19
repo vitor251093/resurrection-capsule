@@ -22,10 +22,10 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A97150:** ?
 - **sub_A97220:** ?
 - **sub_A972F0:** ?
-- **sub_A97310:** ?
-- **sub_A97360:** ?
-- **sub_A973B0:** ?
-- **sub_A97400:** ?
+- **sub_A97310:** RakNet::RakNetGUID::operator_Equal
+- **sub_A97360:** RakNet::RakNetGUID::operator_Different
+- **sub_A973B0:** RakNet::RakNetGUID::operator_More
+- **sub_A97400:** RakNet::RakNetGUID::operator_Less
 - **sub_A974A0:** RakNet::RakNetGUID::ToString
 - **sub_A97520:** ?
 - **sub_A97560:** ?
@@ -235,6 +235,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **off_118B7AC:** RakNet::rakRealloc_Ex
 - **off_118B7B0:** RakNet::rakFree_Ex
 - **off_118B7B4:** RakNet::RakMemoryOverride::notifyOutOfMemory
+- **unk_15C5578:** UNASSIGNED_RAKNET_GUID
 - **unk_15C8754:** RakNet::freeList
 
 ## Structures

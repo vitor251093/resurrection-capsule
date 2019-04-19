@@ -42,7 +42,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A97A80:** ?
 - **sub_A97AC0:** ?
 - **sub_A97B00:** ?
-- **unknown_libname_37:** ?
+- **unknown_libname_37:** RakNet::OP_DELETE($0)
 - **sub_A97B80:** ?
 - **sub_A97BC0:** ?
 - **sub_A97C00:** ?
@@ -114,10 +114,83 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **unknown_libname_45:** ?
 - **OTHERS...**
 - **sub_AABC00:** RakNet::BitStream::WriteByte1
-- **OTHERS...**
+- **sub_AABC20:** ?
+- **sub_AABC90:** ?
+- **sub_AABCD0:** ?
+- **sub_AABD00:** ?
+- **sub_AABD30:** ?
+- **sub_AABD50:** ?
+- **sub_AABD90:** ?
+- **sub_AABDD0:** ?
+- **sub_AABE50:** ?
+- **sub_AABE90:** ?
+- **unknown_libname_53:** ?
+- **sub_AABEF0:** ?
+- **sub_AABF20:** ?
+- **sub_AABF50:** ?
+- **sub_AABF80:** ?
+- **sub_AABFA0:** ?
+- **unknown_libname_54:** ?
+- **sub_AABFF0:** ?
+- **sub_AAC060:** ?
+- **sub_AAC0D0:** ?
+- **sub_AAC100:** ?
+- **sub_AAC130:** ?
+- **sub_AAC160:** ?
+- **sub_AAC180:** ?
+- **sub_AAC1C0:** ?
+- **sub_AAC1E0:** ?
+- **unknown_libname_55:** RakNet::OP_DELETE($0)
+- **sub_AAC270:** ?
+- **sub_AAC3F0:** ?
+- **sub_AAC5C0:** ?
+- **sub_AAC710:** ?
+- **sub_AAC890:** ?
+- **sub_AACA70:** ?
+- **sub_AACB60:** ?
+- **sub_AACBA0:** ?
+- **unknown_libname_56:** ?
+- **sub_AACC40:** ?
+- **sub_AACDC0:** ?
+- **sub_AACF90:** ?
+- **sub_AACFF0:** ?
+- **sub_AAD030:** ?
+- **sub_AAD0B0:** ?
+- **sub_AAD0D0:** ?
+- **sub_AAD1D0:** ?
+- **sub_AAD2C0:** ?
+- **sub_AAD3B0:** ?
+- **sub_AAD420:** ?
+- **sub_AAD490:** ?
+- **sub_AAD4B0:** ?
+- **sub_AAD5B0:** ?
+- **sub_AAD5F0:** ?
+- **sub_AAD610:** ?
+- **sub_AAD710:** ?
+- **sub_AAD730:** ?
+- **sub_AAD830:** ?
+- **sub_AAD8A0:** ?
+- **sub_AAD910:** ?
+- **sub_AAD950:** ?
+- **sub_AADA70:** ?
+- **sub_AADB40:** ?
+- **sub_AAE780:** ?
+- **sub_AAE820:** ?
+- **sub_AAE900:** ?
 - **sub_AAE930:** $0(RakNet::freeList)[i]
 - **OTHERS...**
 - **sub_AB20D0:** $0(RakNet::freeList).Clear
+- **OTHERS...**
+- **sub_AB62A0:** RakNet::TelnetTransport::destructor
+- **sub_AB6310:** RakNet::TelnetTransport::Start
+- **sub_AB6340:** RakNet::TelnetTransport::Stop
+- **sub_AB63E0:** ?
+- **sub_AB6510:** ?
+- **sub_AB6530:** ?
+- **sub_AB6910:** ?
+- **sub_AB6960:** ?
+- **sub_AB6AC0:** ?
+- **sub_AB6CE0:** RakNet::TelnetTransport::AutoAllocate
 - **OTHERS...**
 - **sub_ABDD60:** RakNet::RakString::constructor
 - **unknown_libname_89:** ?
@@ -220,6 +293,8 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **unknown_libname_131:** $0(RakNet::freeList)::Size
 - **OTHERS...**
 - **unknown_libname_141:** $0(RakNet::BitStream)::GetReadOffset
+- **OTHERS...**
+- **sub_AD3D90:** RakNet::TCPInterface::Stop
 - **OTHERS...**
 - **sub_ADEB40:** RakNet::ByteQueue::constructor
 - **sub_ADEB80:** RakNet::ByteQueue::destructor

@@ -11,10 +11,10 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A96BC0:** ?
 - **sub_A96C00:** ?
 - **sub_A96C50:** ?
-- **sub_A96CA0:** ?
-- **sub_A96D00:** ?
+- **sub_A96CA0:** RakNet::SystemAddress::ToString
+- **sub_A96D00:** RakNet::SystemAddress::ToString_Old
 - **sub_A96DA0:** ?
-- **sub_A96E10:** ?
+- **sub_A96E10:** RakNet::SystemAddress::SystemAddress::constructor (?)
 - **sub_A96E40:** RakNet::SystemAddress::SetBinaryAddress
 - **sub_A96FD0:** ?
 - **sub_A97010:** ?
@@ -26,7 +26,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A97360:** ?
 - **sub_A973B0:** ?
 - **sub_A97400:** ?
-- **sub_A974A0:** ?
+- **sub_A974A0:** RakNet::RakNetGUID::ToString
 - **sub_A97520:** ?
 - **sub_A97560:** ?
 - **sub_A97590:** ?
@@ -248,6 +248,8 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - this+8: this->splitPacketList
 
 ## Defines
+- #define \_WIN32
 - #define MAX_ALLOCA_STACK_ALLOCATION = 0x100000
 - #define PREALLOCATE_LARGE_MESSAGES = 0
 - #define USE_ALLOCA = 1
+- #define RAKNET_SUPPORT_IPV6 = 0

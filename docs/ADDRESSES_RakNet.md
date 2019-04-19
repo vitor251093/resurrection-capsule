@@ -407,10 +407,12 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 ### SplitPacketChannel
 - this+8: this->splitPacketList
 
-## Defines
+## Macros
 - #define \_WIN32
 - #define MAX_ALLOCA_STACK_ALLOCATION = 0x100000
 - #define PREALLOCATE_LARGE_MESSAGES = 0
 - #define USE_ALLOCA = 1
 - #define RAKNET_SUPPORT_IPV6 = 0
 - #define OPEN_SSL_CLIENT_SUPPORT = 0
+- #undef WINDOWS_STORE_RT
+- #undef \_\_native_client\_\_

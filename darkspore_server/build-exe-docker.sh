@@ -7,7 +7,8 @@ mkdir /darkspore_server_storage/dist
 # Building EXE
 cd /darkspore_server
 cp /darkspore_server_storage/www/static/favicon.ico favicon.ico
-wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile --icon=favicon.ico main.py
+cp pyinstaller/info.txt info.txt
+wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile --icon=favicon.ico --version-file=info.txt main.py
 cd /darkspore_server_storage
 mv /darkspore_server/dist/main.exe build/DarksporeServer.exe
 cp /darkspore_server/config.txt build/config.txt

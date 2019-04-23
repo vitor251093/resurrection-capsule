@@ -207,7 +207,6 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_AA0870:** RakNet::RakPeer::IsLocalIP
 - **OTHERS...**
 - **sub_AA3F10:** RakNet::RakPeer::IsLoopbackAddress
-- **OTHERS...**
 - **sub_AA4040:** RakNet::RakPeer::GetLoopbackAddress
 - **OTHERS...**
 - **sub_AAA090:** RakNet::AddressOrGUID::IsUndefined

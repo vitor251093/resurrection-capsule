@@ -158,7 +158,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A9D450:** ?
 - **sub_A9D5B0:** ?
 - **sub_A9D5F0:** ?
-- **sub_A9D660:** ?
+- **sub_A9D660:** RakNet::RakPeer::Send
 - **sub_A9D830:** ?
 - **sub_A9D8C0:** RakNet::RakPeer::Send
 - **sub_A9DAA0:** ?

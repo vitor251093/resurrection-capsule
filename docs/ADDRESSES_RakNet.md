@@ -603,9 +603,10 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 ## Macros
 - #define \_WIN32
 - #define MAX_ALLOCA_STACK_ALLOCATION = 0x100000
-- #define PREALLOCATE_LARGE_MESSAGES = 0
-- #define USE_ALLOCA = 1
-- #define RAKNET_SUPPORT_IPV6 = 0
 - #define OPEN_SSL_CLIENT_SUPPORT = 0
+- #define PREALLOCATE_LARGE_MESSAGES = 0
+- #define RAKNET_SUPPORT_IPV6 = 0
+- #define UNRELIABLE_WITH_ACK_RECEIPT = 5
+- #define USE_ALLOCA = 1
 - #undef WINDOWS_STORE_RT
 - #undef \_\_native_client\_\_

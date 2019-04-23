@@ -27,8 +27,8 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A973B0:** RakNet::RakNetGUID::operator_More
 - **sub_A97400:** RakNet::RakNetGUID::operator_Less
 - **sub_A974A0:** RakNet::RakNetGUID::ToString
-- **sub_A97520:** ?
-- **sub_A97560:** ?
+- **sub_A97520:** RakNet::Packet::SetSystemAddress
+- **sub_A97560:** RakNet::Packet::SetGuid
 - **sub_A97590:** ?
 - **sub_A975C0:** ?
 - **sub_A97600:** ?
@@ -137,7 +137,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A9B7D0:** ?
 - **sub_A9B810:** ?
 - **sub_A9B840:** ?
-- **sub_A9B870:** ?
+- **sub_A9B870:** RakNet::RakPeer::AllocPacket
 - **sub_A9B940:** ?
 - **sub_A9BA00:** ?
 - **sub_A9BE50:** ?
@@ -159,7 +159,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A9D5B0:** ?
 - **sub_A9D5F0:** ?
 - **sub_A9D660:** RakNet::RakPeer::Send
-- **sub_A9D830:** ?
+- **sub_A9D830:** RakNet::RakPeer::SendLoopback
 - **sub_A9D8C0:** RakNet::RakPeer::Send
 - **sub_A9DAA0:** ?
 - **sub_A9DB70:** ?
@@ -207,6 +207,8 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_AA0870:** RakNet::RakPeer::IsLocalIP
 - **OTHERS...**
 - **sub_AA3F10:** RakNet::RakPeer::IsLoopbackAddress
+- **OTHERS...**
+- **sub_AA4040:** RakNet::RakPeer::GetLoopbackAddress
 - **OTHERS...**
 - **sub_AAA090:** RakNet::AddressOrGUID::IsUndefined
 - **sub_AAA0E0:** ?
@@ -596,6 +598,9 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - this+20: this->dataBitLength
 - this+40: this->creationTime
 - this+60: this->data
+
+### Packet
+- this+8: this->data
 
 ### SplitPacketChannel
 - this+8: this->splitPacketList

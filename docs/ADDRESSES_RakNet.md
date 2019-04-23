@@ -583,7 +583,6 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_ADEF20:** RakNet::ByteQueue::GetBytesWritten
 - **sub_ADEF60:** RakNet::ByteQueue::IncrementReadOffset
 - **sub_ADEF90:** RakNet::ByteQueue::DecrementReadOffset
-- **OTHERS..?**
 - **off_118B7A8:** RakNet::rakMalloc_Ex
 - **off_118B7AC:** RakNet::rakRealloc_Ex
 - **off_118B7B0:** RakNet::rakFree_Ex

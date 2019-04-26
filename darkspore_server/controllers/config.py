@@ -20,9 +20,11 @@ class DarkSporeServerConfig(object):
         try:
             serverPath = None
             if getattr(sys, 'frozen', False):
+                # When running it after being "compiled" by PyInstaller
                 application_path = os.path.dirname(sys.executable)
                 serverPath = os.path.abspath(application_path)
             elif __file__:
+                # When running directly with Python
                 application_path = os.path.dirname(__file__)
                 scriptPath = os.path.abspath(application_path)
                 serverPath = os.path.dirname(scriptPath)

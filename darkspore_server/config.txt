@@ -1,5 +1,5 @@
 # Location where the game storage is saved
-# IMPORTANT: Only works if you are not using Docker
+# IMPORTANT: That variable only works if you are not using Docker
 STORAGE_PATH=storage
 
 # Once the D-LS is working, if you want to play with friends, this must be enabled for a better experience

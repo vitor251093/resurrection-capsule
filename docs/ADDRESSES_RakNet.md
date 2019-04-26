@@ -1,150 +1,294 @@
 # Darkspore.exe RakNet Addresses
-This is the list of known RakNet functions inside the Darkspore.exe. We are trying to find out how the game works to make the server, and for that, the more we know about the game code, the best.
+This is the list of known RakNet functions inside the Darkspore.exe, and those related to it. We are trying to find out how the game works to make the server, and for that, the more we know about the game code, the best.
 
+## Related
+
+### sntransport_message.cpp
 - **OTHERS..?**
-- **sub_A91410:** RakNet::BitStream::WriteByte1
-- **sub_A914E0:** ?
+- **sub_A8D260:** (this) ?
+
+### ?
+- **sub_A8D310:** (this) ?
+- **sub_A8D390:** (this) ?
+- **DNameNode::DNameNode:** (this) ?
+- **sub_A8D3F0:** (this) ?
+- **sub_A8D410:** (this) ?
+- **unknown_libname_21:** (this) ?
+- **sub_A8D470:** (this) ?
+- **sub_A8D4C0:** (this) ?
+- **sub_A8D520:** (cdecl) ?
+- **sub_A8D530:** ?
+- **sub_A8D560:** (this) ?
+- **sub_A8D5D0:** (this) ?
+- **sub_A8D600:** (this) ?
+- **sub_A8D620:** (this) ?
+- **sub_A8D640:** (stdcall) ?
+- **sub_A8D660:** (stdcall) ?
+- **sub_A8D680:** (stdcall) ?
+- **sub_A8D6A0:** (stdcall) ?
+- **sub_A8D6C0:** (stdcall) ?
+- **sub_A8D6E0:** (stdcall) ?
+- **sub_A8D790:** (this) ?
+- **sub_A8D860:** (stdcall) ?
+- **sub_A8D8C0:** (stdcall) ?
+- **sub_A8D940:** (stdcall) ?
+- **sub_A8D970:** (stdcall) ?
+- **sub_A8D9E0:** (stdcall) ?
+- **sub_A8DA10:** (stdcall) ?
+- **sub_A8DAE0:** (this) ?
+- **sub_A8DB10:** (this) ?
+- **sub_A8DB40:** (this) ?
+- **sub_A8DB60:** (this) ?
+- **sub_A8DB90:** (this) ?
+- **sub_A8DC40:** (this) ?
+- **sub_A8DCC0:** (this) ?
+- **sub_A8DCF0:** (this) ?
+- **sub_A8DD70:** (this) ?
+- **sub_A8DD90:** (this) ?
+- **sub_A8DDB0:** (cdecl) ?
+- **sub_A8DDD0:** (this) ?
+- **sub_A8DE00:** (this) ?
+- **sub_A8DE20:** (this) ?
+
+### sntransport_socket_factory_win32.cpp
+- **sub_A8DED0:** (this) ?
+
+### ?
+- **sub_A8DF80:** (this) ?
+- **DNameNode::DNameNode:** (this) ?
+- **sub_A8E010:** (this) ?
+- **sub_A8E040:** (this) ?
+- **sub_A8E060:** (this) ?
+- **Concurrency::details::SchedulingRing::SetOwningNode:** (this) ?
+- **unknown_libname_24:** (this) ?
+- **sub_A8E100:** (this) ?
+- **sub_A8E130:** (this) ?
+- **sub_A8E160:** (this) ?
+- **sub_A8E1B0:** (this) ?
+- **sub_A8E1E0:** (this) ?
+- **sub_A8E200:** (this) ?
+- **sub_A8E230:** (this) ?
+- **sub_A8E260:** (this) ?
+- **Concurrency::details::HardwareAffinity::GetGroup:** (this) ?
+- **sub_A8E2A0:** (this) ?
+- **sub_A8E2D0:** (this) ?
+- **sub_A8E3F0:** (this) ?
+- **unknown_libname_25:** (this) ?
+- **sub_A8E4B0:** (this) ?
+- **unknown_libname_26:** (stdcall) ?
+- **sub_A8E510:** (this) ?
+- **ios::delbuf:** (this) ?
+
+### sntransport_transport.cpp
+- **sub_A8E550:** (this) ?
+- **sub_A8E620:** (this) ?
+- **sub_A8E6D0:** (this) ?
+
+### ?
+- **sub_A8E760:** (this) ?
+- **sub_A8E790:** (this) ?
+- **sub_A8E7E0:** (this) ?
+- **sub_A8E850:** (this) ?
+- **sub_A8E870:** (this) ?
+- **sub_A8E890:** (this) ?
+- **Concurrency::details::FreeThreadProxy::FreeThreadProxy:** (this) ?
+- **sub_A8E9E0:** (this) ?
+
+### sntransport_transport_raknet.cpp
+- **sub_A8EA40:** (this) ?
+- **sub_A8EC80:** (this) ?
+- **sub_A8EE20:** (this) ?
+- **sub_A8EE40:** (this) ?
+- **sub_A8F030:** (this) ?
+- **sub_A8F0C0:** (this) ?
+- **sub_A8F210:** (this) ?
+- **sub_A8F3A0:** (this) ?
+- **sub_A8F450:** (this) ?
+- **sub_A8F660:** (this) ?
+- **sub_A8F870:** (this) ?
+- **sub_A8F890:** (this) ?
+- **sub_A8FB20:** (this) ?
+- **sub_A8FB90:** (this) ?
+- **sub_A8FC00:** (this) ?
+- **sub_A8FC20:** (this) ?
+- **sub_A8FC40:** (this) ?
+- **sub_A8FEB0:** (this) ?
+- **sub_A8FFC0:** (this) ?
+- **sub_A90170:** (this) ?
+- **sub_A901B0:** (this) ?
+- **sub_A903A0:** (this) ?
+- **sub_A90560:** (this) ?
+- **sub_A90760:** (this) ?
+- **sub_A90920:** (this) ?
+- **sub_A90AE0:** (fastcall) ?
+- **sub_A910B0:** (cdecl) ?
+- **sub_A91110:** (cdecl) ?
+
+### ?
+- **sub_A91180:** (this) ?
+- **sub_A911B0:** (this) ?
+- **sub_A911E0:** (this) ?
+- **sub_A91260:** (this) ?
+- **sub_A91340:** (this) ?
+- **sub_A91360:** (this) ?
+- **sub_A913A0:** (this) ?
+- **sub_A91410:** (this) RakNet::BitStream::WriteByte1
+- **sub_A914E0:** (this) ?
 - **sub_A91600:** ?
-- **sub_A91610:** ?
-- **sub_A91660:** ?
-- **sub_A91690:** ?
-- **sub_A916C0:** ?
-- **sub_A91700:** ?
-- **sub_A91760:** ?
-- **sub_A91840:** ?
-- **sub_A918F0:** ?
-- **sub_A91950:** ?
-- **sub_A919B0:** ?
-- **sub_A91BA0:** ?
-- **sub_A91C00:** ?
-- **sub_A91CE0:** ?
-- **sub_A91EE0:** ?
-- **sub_A91F10:** ?
-- **sub_A921C0:** ?
-- **sub_A92250:** ?
-- **sub_A922E0:** ?
-- **sub_A92380:** ?
-- **sub_A92440:** ?
-- **sub_A92470:** ?
-- **sub_A92490:** ?
-- **sub_A924B0:** ?
-- **sub_A924E0:** ?
-- **sub_A92520:** ?
-- **sub_A92540:** ?
-- **sub_A925D0:** ?
-- **sub_A92610:** ?
-- **sub_A92660:** ?
-- **sub_A92680:** ?
-- **sub_A926A0:** ?
-- **sub_A926C0:** ?
-- **sub_A926E0:** ?
-- **std::_Iterator_base12::_Getpnext**
-- **sub_A92750:** ?
-- **sub_A92780:** ?
-- **sub_A927C0:** ?
-- **sub_A92800:** ?
-- **sub_A92840:** ?
-- **Concurrency::details::_NonReentrantPPLLock::_Acquire**
-- **sub_A928A0:** ?
-- **sub_A92900:** ?
-- **sub_A92920:** ?
-- **sub_A92940:** ?
-- **sub_A92960:** ?
-- **sub_A92980:** ?
-- **sub_A929B0:** ?
-- **sub_A929D0:** ?
-- **sub_A929F0:** ?
-- **sub_A92A20:** ?
-- **sub_A92A40:** ?
-- **sub_A92A70:** ?
-- **sub_A92A90:** ?
-- **sub_A92AB0:** ?
-- **sub_A92AD0:** ?
-- **sub_A92AF0:** ?
-- **std::locale::facet::facet**
-- **sub_A92B90:** ?
-- **sub_A92BA0:** ?
-- **sub_A92BB0:** ?
-- **sub_A92BC0:** ?
-- **sub_A92BE0:** ?
-- **sub_A92C00:** ?
-- **sub_A92C30:** ?
-- **sub_A92C70:** ?
-- **sub_A92DA0:** ?
-- **unknown_libname_29:** ?
-- **sub_A92E40:** ?
-- **sub_A92EF0:** ?
-- **ios::fill**
-- **sub_A93630:** ?
-- **sub_A936D0:** ?
-- **sub_A93AE0:** ?
-- **Concurrency::details::ContextBase::SetExecutingCollection**
-- **sub_A93B20:** ?
-- **sub_A93B50:** ?
-- **sub_A93D50:** ?
-- **sub_A93F50:** ?
-- **sub_A94040:** ?
-- **sub_A94130:** ?
-- **sub_A94260:** ?
+- **sub_A91610:** (this) ?
+- **sub_A91660:** (this) ?
+- **sub_A91690:** (this) ?
+- **sub_A916C0:** (this) ?
+- **sub_A91700:** (this) ?
+
+### sntransport_socket_win32.cpp
+- **sub_A91760:** (this) ?
+- **sub_A91840:** (this) ?
+- **sub_A918F0:** (this) ?
+- **sub_A91950:** (this) ?
+- **sub_A919B0:** (this) ?
+- **sub_A91BA0:** (this) ?
+- **sub_A91C00:** (this) ?
+- **sub_A91CE0:** (this) ?
+- **sub_A91EE0:** (this) ?
+- **sub_A91F10:** (this) ?
+- **sub_A921C0:** (this) ?
+- **sub_A92250:** (this) ?
+- **sub_A922E0:** (this) ?
+- **sub_A92380:** (this) ?
+
+### ?
+- **sub_A92440:** (this) ?
+- **sub_A92470:** (this) ?
+- **sub_A92490:** (this) ?
+- **sub_A924B0:** (this) ?
+- **sub_A924E0:** (this) ?
+- **sub_A92520:** (this) ?
+- **sub_A92540:** (this) ?
+- **sub_A925D0:** (this) ?
+- **sub_A92610:** (this) ?
+- **sub_A92660:** (this) ?
+- **sub_A92680:** (this) ?
+- **sub_A926A0:** (this) ?
+- **sub_A926C0:** (this) ?
+- **sub_A926E0:** (this) ?
+- **std::_Iterator_base12::_Getpnext:** (this) ?
+- **sub_A92750:** (this) ?
+- **sub_A92780:** (this) ?
+- **sub_A927C0:** (this) ?
+- **sub_A92800:** (this) ?
+- **sub_A92840:** (cdecl) ?
+- **Concurrency::details::_NonReentrantPPLLock::_Acquire:** (this) ?
+- **sub_A928A0:** (fastcall) ?
+- **sub_A92900:** (this) ?
+- **sub_A92920:** (this) ?
+- **sub_A92940:** (this) ?
+- **sub_A92960:** (this) ?
+- **sub_A92980:** (this) ?
+- **sub_A929B0:** (this) ?
+- **sub_A929D0:** (this) ?
+- **sub_A929F0:** (this) ?
+- **sub_A92A20:** (this) ?
+- **sub_A92A40:** (this) ?
+- **sub_A92A70:** (this) ?
+- **sub_A92A90:** (this) ?
+- **sub_A92AB0:** (this) ?
+- **sub_A92AD0:** (this) ?
+- **sub_A92AF0:** (this) ?
+- **std::locale::facet::facet:** (this) ?
+- **sub_A92B90:** (this) ?
+- **sub_A92BA0:** (this) ?
+- **sub_A92BB0:** (this) ?
+- **sub_A92BC0:** (this) ?
+- **sub_A92BE0:** (this) ?
+- **sub_A92C00:** (this) ?
+- **sub_A92C30:** (this) ?
+- **sub_A92C70:** (this) ?
+- **sub_A92DA0:** (this) ?
+- **unknown_libname_29:** (this) ?
+- **sub_A92E40:** (this) ?
+
+### snclient_session.cpp
+- **sub_A92EF0:** (this) ?
+- **ios::fill:** (this) ?
+- **sub_A93630:** (this) ?
+- **sub_A936D0:** (this) ?
+- **sub_A93AE0:** (this) ?
+- **Concurrency::details::ContextBase::SetExecutingCollection:** (this) ?
+- **sub_A93B20:** (this) ?
+- **sub_A93B50:** (this) ?
+- **sub_A93D50:** (this) ?
+- **sub_A93F50:** (this) ?
+- **sub_A94040:** (this) ?
+- **sub_A94130:** (this) ?
+
+### ?
+- **sub_A94260:** (this) ?
 - **unknown_libname_31:** ?
-- **sub_A942D0:** ?
-- **sub_A94320:** ?
-- **sub_A943E0:** ?
-- **sub_A944A0:** ?
-- **sub_A94570:** ?
-- **sub_A94700:** ?
-- **sub_A94890:** ?
-- **sub_A94A20:** ?
-- **sub_A94A50:** ?
-- **sub_A94B10:** ?
-- **sub_A94BC0:** ?
-- **sub_A94C00:** ?
-- **sub_A94C40:** ?
-- **sub_A94D70:** ?
+- **sub_A942D0:** (cdecl) ?
+- **sub_A94320:** (this) ?
+- **sub_A943E0:** (this) ?
+- **sub_A944A0:** (stdcall) ?
+- **sub_A94570:** (this) ?
+- **sub_A94700:** (this) ?
+- **sub_A94890:** (this) ?
+- **sub_A94A20:** (this) ?
+- **sub_A94A50:** (this) ?
+- **sub_A94B10:** (this) ?
+- **sub_A94BC0:** (this) ?
+- **sub_A94C00:** (this) ?
+- **sub_A94C40:** (this) ?
+- **sub_A94D70:** (this) ?
 - **sub_A94E10:** ?
 - **sub_A94EB0:** ?
-- **sub_A94F00:** ?
-- **sub_A95040:** ?
-- **sub_A95210:** ?
-- **sub_A95290:** ?
-- **sub_A95310:** ?
-- **sub_A95380:** ?
-- **sub_A953D0:** ?
-- **sub_A95560:** ?
-- **sub_A95600:** ?
-- **sub_A956A0:** ?
-- **sub_A95750:** ?
-- **sub_A95800:** ?
-- **sub_A95860:** ?
-- **sub_A958A0:** ?
-- **sub_A95910:** ?
-- **unknown_libname_32:** ?
-- **sub_A959A0:** ?
-- **sub_A959E0:** ?
-- **sub_A95A50:** ?
-- **sub_A95A90:** ?
-- **sub_A95AE0:** ?
-- **sub_A95B00:** ?
-- **sub_A95B70:** ?
-- **sub_A95CE0:** ?
-- **sub_A95E50:** ?
-- **sub_A95FC0:** ?
-- **sub_A960E0:** ?
-- **sub_A96220:** ?
-- **sub_A962C0:** ?
-- **sub_A962F0:** ?
-- **sub_A96430:** ?
-- **sub_A964D0:** ?
-- **sub_A96610:** ?
-- **sub_A966B0:** ?
-- **sub_A96740:** ?
-- **sub_A967A0:** ?
+
+### snprotocol_transport.cpp
+- **sub_A94F00:** (this) ?
+- **sub_A95040:** (this) ?
+- **sub_A95210:** (this) ?
+- **sub_A95290:** (this) ?
+
+### ?
+- **sub_A95310:** (this) ?
+- **sub_A95380:** (this) ?
+- **sub_A953D0:** (this) ?
+- **sub_A95560:** (this) ?
+- **sub_A95600:** (this) ?
+- **sub_A956A0:** (this) ?
+- **sub_A95750:** (this) ?
+- **sub_A95800:** (this) ?
+- **sub_A95860:** (this) ?
+- **sub_A958A0:** (this) ?
+- **sub_A95910:** (stdcall) ?
+- **unknown_libname_32:** (stdcall) ?
+- **sub_A959A0:** (this) ?
+- **sub_A959E0:** (this) ?
+- **sub_A95A50:** (this) ?
+- **sub_A95A90:** (stdcall) ?
+- **sub_A95AE0:** (this) ?
+- **sub_A95B00:** (this) ?
+- **sub_A95B70:** (this) ?
+- **sub_A95CE0:** (this) ?
+- **sub_A95E50:** (this) ?
+- **sub_A95FC0:** (this) ?
+- **sub_A960E0:** (this) ?
+- **sub_A96220:** (this) ?
+- **sub_A962C0:** (this) ?
+- **sub_A962F0:** (this) ?
+- **sub_A96430:** (this) ?
+- **sub_A964D0:** (this) ?
+- **sub_A96610:** (this) ?
+- **sub_A966B0:** (this) ?
+- **sub_A96740:** (this) ?
+- **sub_A967A0:** (this) ?
 - **sub_A96800:** ?
-- **sub_A96960:** ?
-- **sub_A969C0:** ?
+- **sub_A96960:** (cdecl) ?
+- **sub_A969C0:** (cdecl) ?
 - **sub_A96A00:** ?
 - **sub_A96A10:** ?
 - **sub_A96A20:** ?
+
+## RakNet Source
 - **sub_A96AB0:** RakNet::NonNumericHostString
 - **sub_A96B00:** ?
 - **sub_A96B30:** ?
@@ -271,7 +415,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_A9B5E0:** ?
 - **sub_A9B630:** ?
 - **sub_A9B6C0:** ?
-- **Concurrency::details::CollectionTypes::Count::Increment** 
+- **Concurrency::details::CollectionTypes::Count::Increment**
 - **sub_A9B720:** ?
 - **sub_A9B770:** ?
 - **sub_A9B790:** ?
@@ -1078,7 +1222,7 @@ This is the list of known RakNet functions inside the Darkspore.exe. We are tryi
 - **sub_AC6AA0:** ?
 - **sub_AC6B60:** ?
 - **sub_AC6BA0:** ?
-- **ios::delbuf** 
+- **ios::delbuf**
 - **sub_AC6C00:** ?
 - **sub_AC6C60:** ?
 - **sub_AC6ED0:** ?

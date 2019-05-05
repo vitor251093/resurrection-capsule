@@ -101,7 +101,7 @@ This is the list of known RakNet functions inside the Darkspore.exe, and those r
 - **sub_A8EA40:** (this) ? (USES sub_A97600)
 - **sub_A8EC80:** (this) ?
 - **sub_A8EE20:** (this) ?
-- **sub_A8EE40:** (this) ? (USES sub_A96E10)
+- **sub_A8EE40:** (this) ? (USES ~~sub_A96E10~~)
 - **sub_A8F030:** (this) ?
 - **sub_A8F0C0:** (this) ?
 - **sub_A8F210:** (this) ? (USES sub_A97620)
@@ -109,21 +109,21 @@ This is the list of known RakNet functions inside the Darkspore.exe, and those r
 - **sub_A8F450:** (this) ?
 - **sub_A8F660:** (this) ?
 - **sub_A8F870:** (this) ?
-- **sub_A8F890:** (this) ? (USES sub_A96CA0, sub_A97CF0, sub_A97EB0, sub_A97E50)
+- **sub_A8F890:** (this) ? (USES ~~sub_A96CA0~~, sub_A97CF0, ~~sub_A97EB0~~, ~~sub_A97E50~~)
 - **sub_A8FB20:** (this) ?
 - **sub_A8FB90:** (this) ?
 - **sub_A8FC00:** (this) ?
 - **sub_A8FC20:** (this) ?
-- **sub_A8FC40:** (this) ? (USES sub_A96DA0, sub_A97CF0, sub_A97EB0, sub_A97E50)
+- **sub_A8FC40:** (this) ? (USES sub_A96DA0, sub_A97CF0, ~~sub_A97EB0~~, ~~sub_A97E50~~)
 - **sub_A8FEB0:** (this) ?
 - **sub_A8FFC0:** (this) ? (USES sub_A96DA0)
-- **sub_A90170:** (this) ? (USES sub_A96CA0)
+- **sub_A90170:** (this) ? (USES ~~sub_A96CA0~~)
 - **sub_A901B0:** (this) ?
-- **sub_A903A0:** (this) ? (USES sub_A96CA0)
-- **sub_A90560:** (this) ? (USES sub_A96CA0)
-- **sub_A90760:** (this) ? (USES sub_A96CA0)
-- **sub_A90920:** (this) ? (USES sub_A96CA0)
-- **sub_A90AE0:** (fastcall) ? (USES sub_A9A620, sub_A99EB0)
+- **sub_A903A0:** (this) ? (USES ~~sub_A96CA0~~)
+- **sub_A90560:** (this) ? (USES ~~sub_A96CA0~~)
+- **sub_A90760:** (this) ? (USES ~~sub_A96CA0~~)
+- **sub_A90920:** (this) ? (USES ~~sub_A96CA0~~)
+- **sub_A90AE0:** (fastcall) ? (USES sub_A9A620, ~~sub_A99EB0~~)
 - **sub_A910B0:** (cdecl) ?
 - **sub_A91110:** (cdecl) ?
 
@@ -167,7 +167,7 @@ This is the list of known RakNet functions inside the Darkspore.exe, and those r
 - **sub_A924B0:** (this) ?
 - **sub_A924E0:** (this) ?
 - **sub_A92520:** (this) ?
-- **sub_A92540:** (this) ? (USES sub_A96CA0)
+- **sub_A92540:** (this) ? (USES ~~sub_A96CA0~~)
 - **sub_A925D0:** (this) ?
 - **sub_A92610:** (this) ?
 - **sub_A92660:** (this) ? (USES sub_A96B80)

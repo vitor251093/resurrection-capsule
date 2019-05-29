@@ -49,3 +49,12 @@ This is the list of known Blaze functions inside the Darkspore.exe. We are tryin
 - **OTHERS..?**
 - **sub_C468D0:** ?
 - **OTHERS..?**
+
+### Unknown
+
+#### sub_DEBAC0: getOnlinePlatformBlazeStateNameById
+```cpp
+char* getOnlinePlatformBlazeStateNameById(int a1);
+getOnlinePlatformBlazeStateNameById(3);
+```
+Returns the name of a Blaze state.

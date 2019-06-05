@@ -10,4 +10,4 @@ This is the list of known EAWebKit functions inside the Darkspore.exe. We are tr
 - **sub_E4E110:** `static int32_t _ProtoSSLUpdateRecvServerFinish(ProtoSSLRefT *pState, const uint8_t *pData)`
 
 ## Important
-If we can use Detours to modify `_ProtoSSLUpdateRecvServerCert`, in order to add `pState->bAllowAnyCert = true;` to the beginning of it (), it will work without SSL.
+If we can use Detours to modify `_ProtoSSLUpdateRecvServerCert`, in order to add `pState->bAllowAnyCert = true;` to the beginning of it, it will work without SSL.

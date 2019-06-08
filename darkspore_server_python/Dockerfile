@@ -15,6 +15,8 @@ RUN pip install python-magic
 # Also requires VCforPython from Microsoft
 
 RUN pip install twisted
+# Trying to fix the SSLv3_method issue
+RUN pip install requests==2.6.0
 RUN pip install pyopenssl
 RUN pip install service_identity
 
@@ -52,6 +54,11 @@ RUN apt-get install p7zip-full -y
 
 RUN cp ~/.wine/drive_c/windows/system32/msvcp90.dll ~/.wine/drive_c/Python27/msvcp90.dll
 RUN cp ~/.wine/drive_c/windows/system32/msvcm90.dll ~/.wine/drive_c/Python27/msvcm90.dll
+
+RUN python2 -m pip install --upgrade pip
+RUN pip uninstall pyopenssl -y
+RUN pip install requests==2.6.0
+RUN pip install pyopenssl
 
 COPY ./ /darkspore_server
 

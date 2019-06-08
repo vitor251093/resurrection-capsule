@@ -42,13 +42,13 @@ def startBlaze():
 	privkeyPath = os.path.join(serverPath,'crt','privkey.pem')
 	cacertPath = os.path.join(serverPath,'crt','cacert.pem')
 
-	# SSLInfo = ssl.DefaultOpenSSLContextFactory(privkeyPath, cacertPath)
-	# ctx = SSLInfo.getContext()
-	# ctx.set_verify((SSL.VERIFY_PEER | SSL.VERIFY_FAIL_IF_NO_PEER_CERT), verifyCallback)
+	SSLInfo = ssl.DefaultOpenSSLContextFactory(privkeyPath, cacertPath, SSL.SSLv3_METHOD)
+	ctx = SSLInfo.getContext()
+	ctx.set_verify((SSL.VERIFY_PEER | SSL.VERIFY_FAIL_IF_NO_PEER_CERT), verifyCallback)
 
 	factory = Factory()
 	factory.protocol = GosRedirector.GOSRedirector
-	reactor.listenTCP(42127, factory)
+	reactor.listenSSL(42127, factory, SSLInfo)
 	print("[SSL REACTOR] GOSREDIRECTOR STARTED [42127]")
 
 	factory = Factory()

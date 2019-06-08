@@ -3,7 +3,7 @@ This is the list of known Blaze functions inside the Darkspore.exe. We are tryin
 
 ### snlobby_platform_blaze.cpp
 - **OTHERS..?**
-- **sub_C2A8D0:** ?
+- **sub_C2A8D0:** ? (Connected with the change of the Blaze state)
 - **sub_C2ACB0:** ?
 - **sub_C2AD30:** ?
 - **sub_C2ADD0:** ?
@@ -49,3 +49,14 @@ This is the list of known Blaze functions inside the Darkspore.exe. We are tryin
 - **OTHERS..?**
 - **sub_C468D0:** ?
 - **OTHERS..?**
+
+### Unknown
+
+#### sub_DEBAC0: getOnlinePlatformBlazeStateNameById
+```cpp
+char* getOnlinePlatformBlazeStateNameById(int a1);
+getOnlinePlatformBlazeStateNameById(3);
+```
+Returns the name of a Blaze state.
+
+#### sub_DF0520: ? (Connected with the change of the Blaze state)

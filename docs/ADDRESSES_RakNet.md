@@ -98,39 +98,39 @@ This is the list of known RakNet functions inside the Darkspore.exe, and those r
 - **sub_A8E9E0:** (this) ?
 
 ### sntransport_transport_raknet.cpp
-- **sub_A8EA40:** (this) ?
+- **sub_A8EA40:** (this) ? (USES sub_A97600)
 - **sub_A8EC80:** (this) ?
 - **sub_A8EE20:** (this) ?
-- **sub_A8EE40:** (this) ?
+- **sub_A8EE40:** (this) ? (USES ~~sub_A96E10~~)
 - **sub_A8F030:** (this) ?
 - **sub_A8F0C0:** (this) ?
-- **sub_A8F210:** (this) ?
+- **sub_A8F210:** (this) ? (USES sub_A97620)
 - **sub_A8F3A0:** (this) ?
 - **sub_A8F450:** (this) ?
 - **sub_A8F660:** (this) ?
 - **sub_A8F870:** (this) ?
-- **sub_A8F890:** (this) ?
+- **sub_A8F890:** (this) ? (USES ~~sub_A96CA0~~, sub_A97CF0, ~~sub_A97EB0~~, ~~sub_A97E50~~)
 - **sub_A8FB20:** (this) ?
 - **sub_A8FB90:** (this) ?
 - **sub_A8FC00:** (this) ?
 - **sub_A8FC20:** (this) ?
-- **sub_A8FC40:** (this) ?
+- **sub_A8FC40:** (this) ? (USES sub_A96DA0, sub_A97CF0, ~~sub_A97EB0~~, ~~sub_A97E50~~)
 - **sub_A8FEB0:** (this) ?
-- **sub_A8FFC0:** (this) ?
-- **sub_A90170:** (this) ?
+- **sub_A8FFC0:** (this) ? (USES sub_A96DA0)
+- **sub_A90170:** (this) ? (USES ~~sub_A96CA0~~)
 - **sub_A901B0:** (this) ?
-- **sub_A903A0:** (this) ?
-- **sub_A90560:** (this) ?
-- **sub_A90760:** (this) ?
-- **sub_A90920:** (this) ?
-- **sub_A90AE0:** (fastcall) ?
+- **sub_A903A0:** (this) ? (USES ~~sub_A96CA0~~)
+- **sub_A90560:** (this) ? (USES ~~sub_A96CA0~~)
+- **sub_A90760:** (this) ? (USES ~~sub_A96CA0~~)
+- **sub_A90920:** (this) ? (USES ~~sub_A96CA0~~)
+- **sub_A90AE0:** (fastcall) ? (USES sub_A9A620, ~~sub_A99EB0~~)
 - **sub_A910B0:** (cdecl) ?
 - **sub_A91110:** (cdecl) ?
 
 ### ?
 - **sub_A91180:** (this) ?
 - **sub_A911B0:** (this) ?
-- **sub_A911E0:** (this) ?
+- **sub_A911E0:** (this) ? (USES sub_A96DA0)
 - **sub_A91260:** (this) ?
 - **sub_A91340:** (this) ?
 - **sub_A91360:** (this) ?
@@ -167,13 +167,13 @@ This is the list of known RakNet functions inside the Darkspore.exe, and those r
 - **sub_A924B0:** (this) ?
 - **sub_A924E0:** (this) ?
 - **sub_A92520:** (this) ?
-- **sub_A92540:** (this) ?
+- **sub_A92540:** (this) ? (USES ~~sub_A96CA0~~)
 - **sub_A925D0:** (this) ?
 - **sub_A92610:** (this) ?
-- **sub_A92660:** (this) ?
-- **sub_A92680:** (this) ?
-- **sub_A926A0:** (this) ?
-- **sub_A926C0:** (this) ?
+- **sub_A92660:** (this) ? (USES sub_A96B80)
+- **sub_A92680:** (this) ? (USES sub_A96BC0)
+- **sub_A926A0:** (this) ? (USES sub_A96C50)
+- **sub_A926C0:** (this) ? (USES sub_A96C00)
 - **sub_A926E0:** (this) ?
 - **std::_Iterator_base12::_Getpnext:** (this) ?
 - **sub_A92750:** (this) ?
@@ -1735,6 +1735,39 @@ This is the list of known RakNet functions inside the Darkspore.exe, and those r
 - **off_118B7B4:** RakNet::RakMemoryOverride::notifyOutOfMemory
 - **unk_15C5578:** UNASSIGNED_RAKNET_GUID
 - **unk_15C8754:** RakNet::freeList
+
+### ?
+- **sub_FA4870:** ? (USES sub_A96E10)
+- **sub_FA48C0:** ? (USES sub_A96E10)
+- **sub_FA4910:** ? (USES sub_A96E10)
+- **sub_FA4960:** ? (USES sub_A96E10)
+- **sub_FA49B0:** ? (USES sub_A96E10)
+- **sub_FA4A00:** ? (USES sub_A96E10)
+- **sub_FA4A50:** ? (USES sub_A96E10)
+- **sub_FA4A70:** ? (USES sub_A97590)
+- **sub_FA4A90:** ? (USES sub_A975C0)
+- **sub_FA4AB0:** ? (USES sub_A96E10)
+- **sub_FA4AD0:** ? (USES sub_A97590)
+- **sub_FA4AF0:** ? (USES sub_A975C0)
+- **sub_FA4B10:** ? (USES sub_A96E10)
+- **sub_FA4B30:** ? (USES sub_A97590)
+- **sub_FA4B50:** ? (USES sub_A975C0)
+- **sub_FA4B70:** ? (USES sub_A96E10)
+- **sub_FA4B90:** ? (USES sub_A97590)
+- **sub_FA4BB0:** ? (USES sub_A975C0)
+- **sub_FA4BD0:** ? (USES sub_A96E10)
+- **sub_FA4BF0:** ? (USES sub_A97590)
+- **sub_FA4C10:** ? (USES sub_A975C0)
+- **sub_FA4C30:** ? (USES sub_A96E10)
+- **sub_FA4C50:** ? (USES sub_A97590)
+- **sub_FA4C70:** ? (USES sub_A975C0)
+- **sub_FA4C90:** ? (USES sub_AC29D0)
+- **sub_FA4CB0:** ? (USES sub_A96E10)
+- **sub_FA4CD0:** ? (USES sub_A97590)
+- **many more**
+- **sub_FC3FF0:** ? (USES sub_AC0130)
+- **sub_FC4000:** ? (USES sub_AC0160)
+- **sub_FC4010:** ? (USES sub_AC0210)
 
 ## Structures
 

@@ -37,8 +37,8 @@ To start the server:
 - Your `hosts` file modified according to the specifications in **Server redirect** area in the README file (will change in the future).
 
 To start the server:
-- Windows: Open the Command Prompt (cmd) and run the darkspore_server/run-nodocker.bat file with it
-- Linux/macOS: Open the Terminal and run the darkspore_server/run-nodocker.sh file with it
+- Windows: Open the Command Prompt (cmd) and run the darkspore_server_python/run-nodocker.bat file with it
+- Linux/macOS: Open the Terminal and run the darkspore_server_python/run-nodocker.sh file with it
 
 ## Common errors
 

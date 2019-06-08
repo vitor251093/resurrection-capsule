@@ -1,0 +1,3 @@
+[submodule "darkspore_server"]
+	path = darkspore_server
+	url = https://github.com/vitor251093/darkspore_server.git

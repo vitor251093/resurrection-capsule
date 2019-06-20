@@ -25,7 +25,7 @@ Just want to test it in your computer? Check [HOW_I_RUN_IT.md](HOW_I_RUN_IT.md).
 ## Introduction
 The focus is creating a local server in order to make Darkspore work again. The game has been dead since 2016 (you can literally buy a new physical copy by 2.99£ in Amazon.com). Since the servers shutdown, the game discs became useless pieces of plastic. This project aims to create a localhost server, which is going to make Darkspore work like if it was the original server, but much faster and private.
 
-Still, be aware: this project will respect every layer of DRM that is above the Darkspore application. If you bought the game in Steam, you will still need Steam to play it. If you bought the game in Origin, you will still need Origin to play it. And if you bought the game disc, you will still need the game disc in your reader to play it, and you will still need a legitimate serial to install it.
+Still, be aware: this project will respect every layer of DRM that is above the Darkspore application. If you bought the game in Steam, you will still need Steam to play it. If you bought the game in Origin, you will still need Origin to play it. And if you bought the game disc, you will still need your serial to install it.
 
 The only layer of DRM that _for now_ cannot be kept is the ingame DRM, which checks if you have the game in your Origin account after the game has already started. There are two reasons for that:
 - Origin has no public API, so there is no way to check if the user is really logged in, nor there is a way to know if he/she really has the game in the library;
@@ -47,7 +47,7 @@ We are only focusing in making it work with the latest version of the game (5.3.
 At this moment (25/03/19): the game launches, but the login screen gives a lost network connection error.
 
 ## Architecture
-The project has been done by now using Python, Flask and a Docker. The reason for using a Docker is because I'm testing Darkspore from macOS using a Wineskin wrapper, and with a Docker we can do that without messing with the local environment. In the future we can use a different method, but for now that one makes retrieving the request's arguments easy, and is compatible with Linux, macOS and Windows 10. Running without the Docker is also possible, but you will need to install the server requirements in your machine.
+The project has been done by now using C++ with Visual Studio 2019 (originally in Python, Flask and a Docker). The reason for this is focusing in the best performance for the server. 
 
 ## Server redirect
 The Darkspore application makes requests to different domains. In order to use the local server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `127.0.0.1` because it will make things easier when we try to support programs like Hamachi.
@@ -89,8 +89,9 @@ Less important ones (with no purpose so far):
 - [Cloudef/xiloader-wine](https://github.com/Cloudef/xiloader-wine)
 
 ## Special Thanks
-- rob55rod (Discord)
-- haradons (Discord)
-- Snek (Discord)
+- dalkon (Discord)
 - Emd (Discord)
+- haradons (Discord)
 - nonchip (Github)
+- rob55rod (Discord)
+- Snek (Discord)

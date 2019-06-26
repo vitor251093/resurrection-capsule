@@ -89,8 +89,9 @@ Less important ones (with no purpose so far):
 - [Cloudef/xiloader-wine](https://github.com/Cloudef/xiloader-wine)
 
 ## Special Thanks
-- rob55rod (Discord)
-- haradons (Discord)
-- Snek (Discord)
+- dalkon (Discord)
 - Emd (Discord)
+- haradons (Discord)
 - nonchip (Github)
+- rob55rod (Discord)
+- Snek (Discord)

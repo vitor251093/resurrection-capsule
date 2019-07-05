@@ -5,9 +5,10 @@
 - Requires a modification in the system `hosts` file in order to work;
 - **Status:** Can only reach the login screen.
 
-### Darkspore LS 1.0:
+### Darkspore LS 1.0 (July 5th 2019):
 - First functional version of the game Blaze API, which can run along with the HTTP API in the localhost with an EXE file;
 - First version to officially get inside the hero editor.
+- Special Thanks to (Dalkon)[https://github.com/dalkon/darkspore_server] for this release! 
 - **Status:** Can get to the hero editor, but it still doesn't work properly.
 
 # Planning (not finished)

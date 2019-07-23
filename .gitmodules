@@ -1,3 +1,6 @@
 [submodule "darkspore_server"]
 	path = server
 	url = https://github.com/vitor251093/darkspore_server.git
+[submodule "recap_panel"]
+	path = panel
+	url = https://github.com/vitor251093/recap_panel.git

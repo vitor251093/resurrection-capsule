@@ -1,0 +1,5 @@
+See the included file IndyLicense.pdf for the terms and conditions of the Indy license. Lacking any other agreement, you agree to be bound by the terms of this license. If you do not agree in full to all terms, you should delete the software immediately.
+
+Note that we do not go through the signing process with Indy licensees. Your use of the software constitutes your agreement to the terms, and we agree to the license by providing you the software. If for legal reasons you want a signed copy of the license, we will provide it for a $100 handling fee upon request.
+
+For questions, contact rakkar@jenkinssoftware.com

@@ -1,0 +1,19 @@
+1. Renamed PlayerID SystemAddress
+2. Replaced RakClient and RakServer with RakPeer (RakPeer is more powerful and does everything the other two did)
+3. Removed Multiplayer class (Parse your own messages)
+4. Removed Static Data (Send your own per-system data if you do indeed want per-system data)
+5. Removed MasterServer / MasterClient (Use lightweight database instead)
+6. Removed ID_RESERVED9.  Use ID_USER_PACKET_ENUM instead.
+7. Renamed PacketEnumerations MessageIdentifiers
+8. Renamed Disconnect Shutdown and OnDisconnect OnShutdown
+9. Renamed Initialize Startup
+10. StringCompressor now supports multiple trees, for different encodings such as different languages.
+11. Added existingReplica to the ReplicaManager::SetReceiveConstructionCB callback.
+12. Removed SystemIDToDottedIP and IPToSystemID since equivalents of both of those functions are in the SystemAddress structure itself now
+13. Renamed NetworkTypes.h RakNetTypes.h
+14. Renamed UNASSIGNED_PLAYER_ID UNASSIGNED_SYSTEM_ADDRESS
+16. Removed Bitstream_NoTemplate.
+17. Added more information to RPCParameters and the RPC funtion now takes a pointer to a timestamp, rather than a boolean (for shiftTimestamp).  Pass 0 to not include a timestamp.
+18. Renamed RakNetStatisticsStruct to RakNetStatistics
+19. ReplicaManager no longer takes C callbacks.  It instead takes class interfaces.
+20. Renamed NetworkIDGenerator to NetworkIDObject.

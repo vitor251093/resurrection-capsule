@@ -95,5 +95,6 @@ Less important ones (with no purpose so far):
 - Emd (Discord)
 - haradons (Discord)
 - nonchip (Github)
+- Otomachi Una (Discord)
 - rob55rod (Discord)
 - Snek (Discord)

@@ -8,7 +8,7 @@ In order to make tests with the local server, you will need:
 - Darkspore installed;
 - Your `hosts` file modified according to the specifications in **Server redirect** area in the README file (it may take a few minutes to take effect; rebooting the computer is faster sometimes) (that step won't be needed in the future).
 
-Copy the Darkspore.exe file to its same folder. Open the Darkspore.exe copy with a hex editor, and then replace `80 BF 2C 01 00 00 00` with `80 BF 2C 01 00 00 01`. If you find more than one occurence of `80 BF 2C 01 00 00 00`, replace only the last one.
+Copy the Darkspore.exe file to its same folder (don't confuse it with the Darkspore.exe.exe file, that may exist; Darkspore.exe size is over 15Mb, while the Darkspore.exe.exe size is around 66Kb). Open the Darkspore.exe copy with a hex editor, and then replace `80 BF 2C 01 00 00 00` with `80 BF 2C 01 00 00 01`. If you find more than one occurence of `80 BF 2C 01 00 00 00`, replace only the last one.
 
 Download the latest version of DLS from the Releases tab here in Github, and just run it. While it is running, launch Darkspore with the exe copy, and keep DLS running while using it.
 

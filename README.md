@@ -20,8 +20,8 @@ Just want to test it in your computer? Check [HOW_I_RUN_IT.md](HOW_I_RUN_IT.md).
 - [x] Make Darkspore believe that the server is online (Error code 102);
 - [x] Make Darkspore open after the Play button has been pressed (Error 3001).
 - [x] Make the login screen appear properly (Network connection was lost / Error 73000).
-- [ ] Make it possible to unlock any of the creatures in the hangar.
-- [ ] Make it possible to unlock any of the parts for creatures.
+- [-] Make it possible to unlock any of the creatures in the hangar.
+- [-] Make it possible to unlock any of the parts for creatures.
 - [ ] ?
 
 ## Introduction
@@ -46,7 +46,7 @@ I have no idea. The biggest issue at this moment is reaching the login screen fi
 ## Actual state
 We are only focusing in making it work with the latest version of the game (5.3.0.127), although it may work with older versions of it, like the DVD version (5.3.0.15) and the Steam Beta (5.3.0.103). Once we have worked through the launcher patching system, DLS should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
 
-At this moment (25/03/19): the game launches, but the login screen gives a lost network connection error.
+At this moment (05/09/19): the game launches, and the hero editor can be used with the help of the panel.
 
 ## Architecture
 The project has been done by now using C++ with Visual Studio 2019 (originally in Python, Flask and a Docker). The reason for this is focusing in the best performance for the server. 

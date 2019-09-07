@@ -11,6 +11,9 @@
 - Special Thanks to (Dalkon)[https://github.com/dalkon/darkspore_server] for this release! 
 - **Status:** Can get to the hero editor, but it still doesn't work 100%.
 
+### Darkspore LS 0.2.1 (September 7th 2019) (Alpha):
+- Now it's possible to add hands and feet to creatures.
+
 # Planning (not finished)
 Everything from here on is just speculation based in the actual status of the project, and in the researches focus. Plans may change along the way, but at the moment this is what we think is gonna happen.
 

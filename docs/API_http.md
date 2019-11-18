@@ -1,4 +1,4 @@
-# Darkspore-LS API
+# Darkspore-LS API (outdated)
 The Darkspore-LS API needs to support all the APIs that Darkspore used to rely on. Due to that, there are multiple APIs that need to be supported, and here we gonna cover each one of them.
 
 ## Main API

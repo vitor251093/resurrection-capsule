@@ -1,9 +1,9 @@
-# Darkspore-LS
-[WIP] A small local server to play Darkspore offline
+# Resurrection Capsule
+[WIP] ReCap for short. A small local server to play Darkspore offline
 
 [![Build Status](https://travis-ci.com/vitor251093/darkspore-ls.svg?branch=master)](https://travis-ci.com/vitor251093/darkspore-ls)
 
-![alt Darkspore launcher with LS](https://raw.githubusercontent.com/vitor251093/Darkspore-LS/master/readme-launcher.png)
+![alt Darkspore launcher with LS](https://raw.githubusercontent.com/vitor251093/resurrection-capsule/master/readme-launcher.png)
 
 Join our [Discord](https://discord.gg/sDxuRNv) to keep in touch with the latest updates and/or to help with the project.
 
@@ -48,7 +48,7 @@ I have no idea. The biggest issue at this moment is reaching the login screen fi
 - Node.JS for the panel (may change in a near future)
 
 ## Actual state
-We are only focusing in making it work with the latest version of the game (5.3.0.127), although it may work with older versions of it, like the DVD version (5.3.0.15) and the Steam Beta (5.3.0.103). Once we have worked through the launcher patching system, DLS should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
+We are only focusing in making it work with the latest version of the game (5.3.0.127), although it may work with older versions of it, like the DVD version (5.3.0.15) and the Steam Beta (5.3.0.103). Once we have worked through the launcher patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
 
 At this moment (05/09/19): the game launches, and the hero editor can be used with the help of the panel.
 

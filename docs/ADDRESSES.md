@@ -47,6 +47,13 @@ value = getValueFromXmlKey((keyAddr + keyAddrSize), ?, keyAddr);
 ```
 Returns the string value of a XML key.
 
+#### sub_459BF0: storeSporelabsUrlsForLaterUse
+```cpp
+void storeSporelabsUrlsForLaterUse(boolean useHttps) {(...)}
+storeSporelabsUrlsForLaterUse(false);
+```
+Stores some of the URLs that the application will be using later.
+
 #### sub_45D810: getXmlValueForKey
 ```cpp
 int getXmlValueForKey(void* xml, int key_begin_address, int u1, int u2, int u3) {(...)}
@@ -75,6 +82,13 @@ retrievePartsDetailsFromXmlObj(response, parts);
 ```
 Read the parts details from a `parts` object retrieved from a xml dictionary/map, and store them in `response`.
 
+#### sub_45FE30: getCodeFromXmlResponse
+```cpp
+int getCodeFromXmlResponse(void* response) {(...)}
+getCodeFromXmlResponse(response);
+```
+Retrieves the element "response -> code" from the XML response as an int.
+
 #### sub_461600: getSurveysCallback
 ```cpp
 void getSurveysCallback(int u1, void* xml) {(...)}
@@ -88,6 +102,105 @@ char bootstrapApiCallback(int u1, void** u2, int u3, int u4) {(...)}
 bootstrapApiCallback(?, ?, ?, ?)
 ```
 The first step of all bootstrap/api functions responses.
+
+#### sub_463990: retrieveCreatureDetailsFromXmlObj
+```cpp
+void retrieveCreatureDetailsFromXmlObj(int response, void* creature) {(...)}
+```
+Read a creature details from a `creatures` object retrieved from a xml dictionary/map, and store them in `response`.
+
+#### sub_4642E0: getConfigsRequestBuilder
+```cpp
+_BYTE* getConfigsRequestBuilder()
+getConfigsRequestBuilder();
+```
+Creates the request that will retrieve the configurations from the server.
+
+#### sub_464670: accountAuthRequestBuilder
+```cpp
+_BYTE* accountAuthCallback(this, int a2, int a3, int a4, void *Src, char a6) {(...)}
+that.accountAuthCallback(?, ?, ?, ?, ?);
+```
+The builder of the accountAuth request, with the returned `xml` dictionary/map.
+
+#### sub_464C50: getAccountRequestBuilder
+```cpp
+void* getAccountRequestBuilder(this, unsigned __int64 a2, char a3) {(...)}
+that.getAccountRequestBuilder(?, ?);
+```
+The builder of the getAccount request, with the returned `xml` dictionary/map.
+
+#### sub_464F80: resetCreatureRequestBuilder
+```cpp
+void* resetCreatureRequestBuilder(this, int a2, int a3, int a4) {(...)}
+that.resetCreatureRequestBuilder(?, ?, ?);
+```
+The builder of the resetCreature request, with the returned `xml` dictionary/map.
+
+#### sub_465310: getPartListRequestBuilder
+```cpp
+void* getPartListRequestBuilder(this, unsigned __int64 a2, char a3) {(...)}
+that.getPartListRequestBuilder(?, ?);
+```
+The builder of the getPartList request, with the returned `xml` dictionary/map.
+
+#### sub_4658D0: builds get request parameters?
+
+#### sub_465CC0: setNewPlayerStatsRequestBuilder
+```cpp
+void* setNewPlayerStatsRequestBuilder(this, int a2, int a3) {(...)}
+that.setNewPlayerStatsRequestBuilder(?, ?);
+```
+The builder of the setNewPlayerStats request, with the returned `xml` dictionary/map.
+
+#### sub_465E70: setSettingsRequestBuilder
+```cpp
+void* setSettingsRequestBuilder(this, int a2) {(...)}
+that.setSettingsRequestBuilder(?);
+```
+The builder of the setSettings request, with the returned `xml` dictionary/map.
+
+#### sub_465FC0: unlockCreatureRequestBuilder
+```cpp
+void* unlockCreatureRequestBuilder(this, int a2) {(...)}
+that.unlockCreatureRequestBuilder(?);
+```
+The builder of the unlockCreature request, with the returned `xml` dictionary/map.
+
+#### sub_466140: updateCreatureRequestBuilder
+```cpp
+void* updateCreatureRequestBuilder(this, int a2, char *a3, int a4, int a5, int a6) {(...)}
+that.updateCreatureRequestBuilder(?, ?, ?, ?, ?);
+```
+The builder of the updateCreature request, with the returned `xml` dictionary/map.
+
+#### sub_466F90: updateDecksRequestBuilder
+```cpp
+void* updateDecksRequestBuilder(this, const void *a2, const void *a3, int a4, int a5) {(...)}
+that.updateDecksRequestBuilder(?, ?, ?, ?);
+```
+The builder of the updateDecks request, with the returned `xml` dictionary/map.
+
+#### sub_4673C0: updatePartStatusRequestBuilder
+```cpp
+void* updatePartStatusRequestBuilder(this, int a2, void *a3, int a4, int a5, int a6) {(...)}
+that.updatePartStatusRequestBuilder(?, ?, ?, ?, ?);
+```
+The builder of the updatePartStatus request, with the returned `xml` dictionary/map.
+
+#### sub_467710: unlockAccountRequestBuilder
+```cpp
+void* unlockAccountRequestBuilder(this, unsigned int accountId) {(...)}
+that.unlockAccountRequestBuilder(1);
+```
+The builder of the unlockAccount request, with the returned `xml` dictionary/map.
+
+#### sub_467890: vendorPartsRequestBuilder
+```cpp
+void* vendorPartsRequestBuilder(this, unsigned int a2) {(...)}
+that.vendorPartsRequestBuilder(?);
+```
+The builder of the vendorParts request, with the returned `xml` dictionary/map.
 
 #### sub_468120: retrieveBroadcastsDetailsFromXmlObj
 ```cpp
@@ -117,12 +230,58 @@ getConfigsCallback(configs, xml);
 ```
 The callback of the getConfigs function, with the returned `xml` dictionary/map, and store them in `configs`.
 
+#### sub_46EBF0: storeOtherUrlsForLaterUse
+```cpp
+void storeOtherUrlsForLaterUse(boolean useHttps) {(...)}
+storeOtherUrlsForLaterUse(false);
+```
+Stores some of the URLs that the application will be using later.
+
+#### sub_51CE40 // line 339217
+
+#### sub_71CC80: retrieveUrlFromStorage
+```cpp
+void retrieveUrlFromStorage(void* storageAddress, char* url) {(...)}
+retrieveUrlFromStorage(storageAddress, "http://<sporenet_cdn_host>/template_png/");
+```
+Retrieve HTTP/HTTPS URL with path from storage. 
+
+#### sub_71D220: storeHttpsUrlWithPath
+```cpp
+void storeHttpsUrlWithPath(void* storageAddress, void* host, void* path) {(...)}
+storeHttpsUrlWithPath(storageAddress, "<sporenet_cdn_host>", "/template_png/");
+```
+Store HTTPS URL with path for later use. 
+
+#### sub_71D2E0: storeHttpUrlWithPath
+```cpp
+void storeHttpUrlWithPath(void* storageAddress, void* host, void* path) {(...)}
+storeHttpUrlWithPath(storageAddress, "<sporenet_cdn_host>", "/template_png/");
+```
+Store HTTP URL with path for later use. 
+
+#### sub_720A20: performGameApiRequest
+```cpp
+unsigned int performGameApiRequest(this, void* request) {(...)}
+that.performGameApiRequest(request);
+```
+Performs a GET request to /game/api with the specified GET parameters. 
+
 #### sub_7B3A20: setDarksporeVersion
 ```cpp
 void setDarksporeVersion(char* version) {(...)}
 setDarksporeVersion("5.3.0.127");
 ```
 Saves the Darkspore version in `off_11444D4`, so it can be used in other places.
+
+#### sub_7BF680: showAlert
+```cpp
+void showAlert(char* message, signed int errorCode, int alertType) {(...)}
+showAlert("o no", 100, 0); -> Information
+showAlert("o no", 100, 1); -> Warning
+showAlert("o no", 100, 2); -> Error
+```
+Shows an alert using Windows. 
 
 #### sub_ADF590: copyString
 ```cpp

@@ -297,6 +297,20 @@ copyString(&destination, &source) {(...)}
 ```
 Copy the contents of `source` to `destination`.
 
+#### sub_ADF6F0: copyString
+```cpp
+int __cdecl copyString(int destination, int source, int sourceLength)
+copyString(&destination, &source, sourceLength) {(...)}
+```
+Copy the contents of `source` to `destination`.
+
+#### sub_ADF820: copyString
+```cpp
+int __cdecl copyString(int destination, int source)
+copyString(&destination, &source) {(...)}
+```
+Copy the contents of `source` to `destination`.
+
 #### sub_AE44B0: stringToInteger
 ```cpp
 unsigned long long stringToInteger(signed __int16* string, int* u1, signed int u2) {(...)}

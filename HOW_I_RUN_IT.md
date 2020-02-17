@@ -40,10 +40,4 @@ To use the server, build it in **Release x64** (VERY IMPORTANT).
 ## Start DLS
 Start DLS. While it is running, launch Darkspore with the exe copy, and keep DLS running while using it.
 
-Press Play in the Darkspore launcher and wait for the login screen. Using the Register button in the Darkspore login screen, create a user account (it will only exist in your computer, and you won't need internet to do that). After creating the user, open the following link in your browser:
-
-- http://config.darkspore.com/panel/
-
-It should show a template page (sorry, still didn't have time to clean it up). Press the Users button in the top, and then you should see a list with all the users in your local server (which at this point should be only the user that you just created). Select your user mail, and then press **"Start testing"**.
-
-After that, go back to Darkspore and login. You should be able to use the hero editor now, which is as far as we could go until this day (05/09/2019).
+Press Play in the Darkspore launcher and wait for the login screen. Using the Register button in the Darkspore login screen, create a user account (it will only exist in your computer, and you won't need internet to do that). After creating the user, login with it. You should be able to use the hero editor, which is as far as we could go until this day (17/02/2020).

@@ -10,14 +10,13 @@ In order to make tests with the local server, you will need:
 - Darkspore installed;
 - Your `hosts` file (C:\Windows\system32\Drivers\etc\hosts) modified according to the specifications in **Server redirect** area in the README file (it may take a few minutes to take effect; rebooting the computer is faster sometimes) (that step won't be needed in the future).
 
-For the next step, you are going to need a hex editor. There are many free options
-available out there. One that has been used and approved by our users is HxD:
-
-- https://mh-nexus.de/en/hxd/
-
-Copy the Darkspore.exe file to its same folder (don't confuse it with the Darkspore.exe.exe file, that may exist; Darkspore.exe size is over 15Mb, while the Darkspore.exe.exe size is around 66Kb). Open the Darkspore.exe copy with a hex editor, and then replace `80 BF 2C 01 00 00 00` with `80 BF 2C 01 00 00 01`. If you find more than one occurence of `80 BF 2C 01 00 00 00`, replace only the last one.
-
 Download the latest version of ReCap from the Releases tab here in Github. 
+
+After that, you will need to localize the Darkspore.exe. Depending of your Darkspore version, its folder will be different:
+- DVD/Latest version: C:\Program Files (x86)\Electronic Arts\Darkspore\DarksporeBin
+- Steam version: C:\Program Files (x86)\Steam\steamapps\common\Darkspore\DarksporeBin
+
+Copy the `patch_darkspore_exe.ps1` file from the patcher folder (from the ReCap release) to the DarksporeBin folder. Run the copied `patch_darkspore_exe.ps1` file, and a new window should pop up; wait until it closes. A new file should appear in the DarksporeBin folder after that, the Darkspore_nossl.exe. Use it to launch Darkspore.
 
 ### I want to help coding
 In order to start contributing with the local server, you will need:
@@ -28,12 +27,11 @@ In order to start contributing with the local server, you will need:
 - Darkspore installed;
 - Your `hosts` file (C:\Windows\system32\Drivers\etc\hosts) modified according to the specifications in **Server redirect** area in the README file (it may take a few minutes to take effect; rebooting the computer is faster sometimes) (that step won't be needed in the future).
 
-For the next step, you are going to need a hex editor. There are many free options
-available out there. One that has been used and approved by our users is HxD:
+After that, you will need to localize the Darkspore.exe. Depending of your Darkspore version, its folder will be different:
+- DVD/Latest version: C:\Program Files (x86)\Electronic Arts\Darkspore\DarksporeBin
+- Steam version: C:\Program Files (x86)\Steam\steamapps\common\Darkspore\DarksporeBin
 
-- https://mh-nexus.de/en/hxd/
-
-Copy the Darkspore.exe file to its same folder (don't confuse it with the Darkspore.exe.exe file, that may exist; Darkspore.exe size is over 15Mb, while the Darkspore.exe.exe size is around 66Kb). Open the Darkspore.exe copy with a hex editor, and then replace `80 BF 2C 01 00 00 00` with `80 BF 2C 01 00 00 01`. If you find more than one occurence of `80 BF 2C 01 00 00 00`, replace only the last one.
+Copy the `patch_darkspore_exe.ps1` file from the patcher folder (from the ReCap server/build folder) to the DarksporeBin folder. Run the copied `patch_darkspore_exe.ps1` file, and a new window should pop up; wait until it closes. A new file should appear in the DarksporeBin folder after that, the Darkspore_nossl.exe. Use it to launch Darkspore.
 
 To use the server, build it in **Release x64** (VERY IMPORTANT).
 

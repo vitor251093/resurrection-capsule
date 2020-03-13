@@ -45,12 +45,11 @@ I have no idea. The biggest issue at this moment is reaching the login screen fi
 
 ### Which programs do I need to modify the project?
 - Visual Studio 2019 for the server and the launcher
-- Node.JS for the panel (may change in a near future)
 
 ## Actual state
 We are only focusing in making it work with the latest version of the game (5.3.0.127), although it may work with older versions of it, like the DVD version (5.3.0.15) and the Steam Beta (5.3.0.103). Once we have worked through the launcher patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
 
-At this moment (05/09/19): the game launches, and the hero editor can be used with the help of the panel.
+At this moment (13/03/20): the game launches, and the hero editor can be used, with support to parts and details.
 
 ## Architecture
 The project has been done by now using C++ with Visual Studio 2019 (originally in Python, Flask and a Docker). The reason for this is focusing in the best performance for the server. 

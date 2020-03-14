@@ -1,6 +1,6 @@
 ---
 name: Milestone
-about: One of the main tasks in DLS development
+about: One of the main tasks in ReCap development
 title: "[MILESTONE] "
 labels: help wanted
 assignees: vitor251093

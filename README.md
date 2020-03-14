@@ -1,9 +1,8 @@
-# Resurrection Capsule
+![alt ReCap logo and title](https://raw.githubusercontent.com/vitor251093/resurrection-capsule/master/readme_head.png)
+
 [WIP] ReCap for short. A small local server to play Darkspore offline
 
-[![Build Status](https://travis-ci.com/vitor251093/darkspore-ls.svg?branch=master)](https://travis-ci.com/vitor251093/darkspore-ls)
-
-![alt Darkspore launcher with LS](https://raw.githubusercontent.com/vitor251093/resurrection-capsule/master/readme-launcher.png)
+[![Build Status](https://travis-ci.com/vitor251093/resurrection-capsule.svg?branch=master)](https://travis-ci.com/vitor251093/resurrection-capsule)
 
 Join our [Discord](https://discord.gg/sDxuRNv) to keep in touch with the latest updates and/or to help with the project.
 

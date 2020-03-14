@@ -25,7 +25,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
  - OS: [e.g. Windows 7]
- - Darkspore-LS version: [e.g. 0.1]
+ - ReCap version: [e.g. 0.2.3]
  - Darkspore version: [e.g. 5.3.0.127]
 
 **Additional context**

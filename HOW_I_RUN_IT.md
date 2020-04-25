@@ -16,7 +16,7 @@ After that, you will need to find the Darkspore.exe. Depending of your Darkspore
 - DVD/Latest version: C:\Program Files (x86)\Electronic Arts\Darkspore\DarksporeBin
 - Steam version: C:\Program Files (x86)\Steam\steamapps\common\Darkspore\DarksporeBin
 
-Copy the `patch_darkspore_exe.exe` file from the patcher folder (from the ReCap release) to the DarksporeBin folder. Run the copied `patch_darkspore_exe.exe` file, and a new window should pop up; wait until it closes. A new file should appear in the DarksporeBin folder after that, the Darkspore_local.exe. Use it to launch Darkspore.
+Copy the `patch_darkspore_exe.exe` file from the patcher folder (from the ReCap release) to the DarksporeBin folder. Run the copied `patch_darkspore_exe.exe` file, and a new window should pop up; you can close after the success message appears. A new file should appear in the DarksporeBin folder after that, the Darkspore_local.exe. Use it to launch Darkspore.
 
 ### I want to help coding
 In order to start contributing with the local server, you will need:

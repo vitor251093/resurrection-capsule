@@ -48,39 +48,10 @@ I have no idea. The biggest issue at this moment is reaching the login screen fi
 ## Actual state
 We are only focusing in making it work with the latest version of the game (5.3.0.127), although it may work with older versions of it, like the DVD version (5.3.0.15) and the Steam Beta (5.3.0.103). Once we have worked through the launcher patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
 
-At this moment (13/03/20): the game launches, and the hero editor can be used, with support to parts and details.
+At this moment (25/04/20): the game launches, and the hero editor can be used, with support to parts and details.
 
 ## Architecture
 The project has been done by now using C++ with Visual Studio 2019 (originally in Python, Flask and a Docker). The reason for this is focusing in the best performance for the server. 
-
-## Server redirect
-The Darkspore application makes requests to different domains. In order to use the local server, we need to redirect those requests to the localhost. For now, the method that we are going with is changing the machine `hosts` file to redirect those requests to the local IP. We are using `127.0.0.1` because it will make things easier when we try to support programs like Hamachi.
-
-Most important ones (so far):
-```
-127.0.0.1 config.darkspore.com
-127.0.0.1 gosredirector.online.ea.com
-127.0.0.1 gosredirector.ea.com
-```
-
-Less important ones (with no purpose so far):
-```
-127.0.0.1 api.darkspore.com
-127.0.0.1 content.darkspore.com
-127.0.0.1 beta.darkspore.ea.com
-127.0.0.1 beta-sn.darkspore.ea.com
-127.0.0.1 beta-sn2.darkspore.ea.com
-127.0.0.1 dev.darkspore.ea.com
-127.0.0.1 dev-sn.darkspore.ea.com
-127.0.0.1 dev-sn2.darkspore.ea.com
-127.0.0.1 fail.spore.rws.ad.ea.com
-127.0.0.1 ea6.com.edgesuite.net
-127.0.0.1 darkspore.alpha.lockbox.ea.com
-127.0.0.1 www.sporelabs.com
-127.0.0.1 splabbetamydb1b.rspc-iad.ea.com
-127.0.0.1 321917-prodmydb009.spore.rspc-iad.ea.com
-127.0.0.1 telemetry.maxis.com
-```
 
 ## Reference images
 - http://kaehlerplanet.com/darkspore/

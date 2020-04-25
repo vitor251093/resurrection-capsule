@@ -19,22 +19,11 @@ After that, you will need to find the Darkspore.exe. Depending of your Darkspore
 Copy the `patch_darkspore_exe.exe` file from the patcher folder (from the ReCap release) to the DarksporeBin folder. Run the copied `patch_darkspore_exe.exe` file, and a new window should pop up; you can close after the success message appears. A new file should appear in the DarksporeBin folder after that, the Darkspore_local.exe. Use it to launch Darkspore.
 
 ### I want to help coding
-In order to start contributing with the local server, you will need:
+Same as above, but you will also need to install Visual Studio 2019 ([Download](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16)).
 
-- A computer with Windows 10;
-- Install the ReCap dependencies;
-   - Install Visual Studio 2019 ([Download](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16));
-- Darkspore installed;
+To build the server properly, use the **Release x64** setting (VERY IMPORTANT).
 
-After that, you will need to find the Darkspore.exe. Depending of your Darkspore version, its folder will be different:
-- DVD/Latest version: C:\Program Files (x86)\Electronic Arts\Darkspore\DarksporeBin
-- Steam version: C:\Program Files (x86)\Steam\steamapps\common\Darkspore\DarksporeBin
-
-Copy the `patch_darkspore_exe.exe` file from the patcher folder (from the ReCap build folder) to the DarksporeBin folder. Run the copied `patch_darkspore_exe.exe` file, and a new window should pop up; wait until it closes. A new file should appear in the DarksporeBin folder after that, the Darkspore_local.exe. Use it to launch Darkspore.
-
-To use the server, build it in **Release x64** (VERY IMPORTANT).
-
-## Start ReCap
+## Start Darkspore
 Start ReCap. While it is running, launch Darkspore with the exe copy, and keep ReCap running while using it.
 
 Press Play in the Darkspore launcher and wait for the login screen. Using the Register button in the Darkspore login screen, create a user account (it will only exist in your computer, and you won't need internet to do that). After creating the user, login with it. You should be able to use the hero editor, which is as far as we could go until this day (25/04/2020).

@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.com/vitor251093/resurrection-capsule.svg?branch=master)](https://travis-ci.com/vitor251093/resurrection-capsule)
 
-Join our [Discord](https://discord.gg/sDxuRNv) to keep in touch with the latest updates and/or to help with the project.
+Join our [Discord](https://discord.gg/btfTw62) to keep in touch with the latest updates and/or to help with the project.
 
 Just want to test it in your computer? Check [HOW_I_RUN_IT.md](HOW_I_RUN_IT.md).
 

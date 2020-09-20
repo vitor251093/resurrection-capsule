@@ -71,3 +71,7 @@ The project has been done by now using C++ with Visual Studio 2019 (originally i
 - Otomachi Una (Discord)
 - rob55rod (Discord)
 - Snek (Discord)
+
+## How can I help?
+We can't accept any form of income in the project, but if want to help Darkspore to be released one day without an internet requirement, endorse the Darkspore wish in GOG's wishlist. That's the best we can do:
+- https://www.gog.com/wishlist/games/darkspore

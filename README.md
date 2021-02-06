@@ -19,8 +19,12 @@ Just want to test it in your computer? Check [HOW_I_RUN_IT.md](HOW_I_RUN_IT.md).
 - [x] Make Darkspore believe that the server is online (Error code 102);
 - [x] Make Darkspore open after the Play button has been pressed (Error 3001).
 - [x] Make the login screen appear properly (Network connection was lost / Error 73000).
-- [-] Make it possible to unlock any of the creatures in the hangar.
-- [-] Make it possible to unlock any of the parts for creatures.
+- [x] Make it possible to access the hangar.
+- [x] Make it possible to access the hero editor.
+- [x] Make it possible to unlock any of the creatures in the hangar.
+- [x] Make it possible to unlock any of the parts for creatures.
+- [ ] Make hero profiles work
+- [ ] Make the chat work
 - [ ] ?
 
 ## Introduction

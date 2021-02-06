@@ -50,7 +50,7 @@ I have no idea. The biggest issue at this moment is reaching the login screen fi
 - Visual Studio 2019 for the server and the launcher
 
 ## Actual state
-We are only focusing in making it work with the latest version of the game (5.3.0.127), although it may work with older versions of it, like the DVD version (5.3.0.15) and the Steam Beta (5.3.0.103). Once we have worked through the launcher patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
+We are only focusing in making it work with the latest version of the game (5.3.0.127), although it may work with older versions of it, like the Steam Demo (5.3.0.103). The DVD version (5.3.0.15) is known not to work properly yet, though. Once we have worked through the launcher patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
 
 At this moment (25/04/20): the game launches, and the hero editor can be used, with support to parts and details.
 

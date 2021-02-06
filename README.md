@@ -67,13 +67,14 @@ The project has been done by now using C++ with Visual Studio 2019 (originally i
 - [pedromartins1/BlazeServer](https://github.com/pedromartins1/BlazeServer)
 - [Cloudef/xiloader-wine](https://github.com/Cloudef/xiloader-wine)
 
+## Credits
+@dalkon developed, and is developing, the majority of the ReCap server code, which includes the login screen, the hangar, the hero editor, missions, the chat, among other things; I, @vitormm, made the first prototype of the server, and some small portions of the ReCap server code, like the registration window; and @rob55rod is our main consultant regarding the way Darkspore used to work, our designer, and the moderator of our Discord.
+
 ## Special Thanks
-- dalkon (Discord)
 - Emd (Discord)
 - haradons (Discord)
 - nonchip (Github)
 - Otomachi Una (Discord)
-- rob55rod (Discord)
 - Snek (Discord)
 
 ## How can I help?

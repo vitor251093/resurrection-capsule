@@ -62,7 +62,7 @@ The project has been done by now using C++ with Visual Studio 2019 (originally i
 
 - http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/DarksporeRefs.html
 
-## Projects used has references
+## Projects used as references
 - [buchacho/BF4BlazeEmulator](https://github.com/buchacho/BF4BlazeEmulator)
 - [pedromartins1/BlazeServer](https://github.com/pedromartins1/BlazeServer)
 - [Cloudef/xiloader-wine](https://github.com/Cloudef/xiloader-wine)

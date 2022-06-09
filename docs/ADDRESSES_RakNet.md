@@ -4,7 +4,6 @@ This is the list of known RakNet functions inside the Darkspore.exe, and those r
 ## Related
 
 ### sntransport_message.cpp
-- **OTHERS..?**
 - **sub_A8D1C0:** (this) ?
 - **sub_A8D1E0:** (this) ?
 - **sub_A8D240:** (this) ?

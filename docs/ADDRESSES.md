@@ -343,6 +343,9 @@ Set autodial to enabled/disabled in the Windows registry.
 #### sub_C2D450: getter from dword_15E64F0
 #### sub_C2D460: setter from dword_15E64F0
 
+#### sub_C44E60: DirtyMemAlloc
+#### sub_C44EB0: DirtyMemFree
+
 #### sub_BE49D0: setter from dword_15E5B30
 #### sub_BE49E0: getter from dword_15E5B30
 

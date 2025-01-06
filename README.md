@@ -2,39 +2,22 @@
 
 [WIP] ReCap for short. A small local server to play Darkspore offline
 
-[![Build Status](https://travis-ci.com/vitor251093/resurrection-capsule.svg?branch=master)](https://travis-ci.com/vitor251093/resurrection-capsule)
-
 Join our [Discord](https://discord.gg/btfTw62) to keep in touch with the latest updates and/or to help with the project.
 
 Just want to test it in your computer? Check [HOW_I_RUN_IT.md](HOW_I_RUN_IT.md).
 
-## Overall progress
-- [ ] Making the game playable offline;
-- [ ] Making the game playable on LAN;
-- [ ] Creating a server-client mechanic so servers can be hosted;
-- [ ] Fix the original game issues, including connectivity issues.
-
-## _Making the game playable offline_ progress
-- [x] Redirect Darkspore requests to the localhost;
-- [x] Make Darkspore believe that the server is online (Error code 102);
-- [x] Make Darkspore open after the Play button has been pressed (Error 3001).
-- [x] Make the login screen appear properly (Network connection was lost / Error 73000).
-- [x] Make it possible to access the hangar.
-- [x] Make it possible to access the hero editor.
-- [x] Make it possible to unlock any of the creatures in the hangar.
-- [x] Make it possible to unlock any of the parts for creatures.
-- [ ] Make hero profiles work
-- [ ] Make the chat work
-- [ ] ?
-
 ## Introduction
 The focus is creating a local server in order to make Darkspore work again. The game has been dead since 2016 (you can literally buy a new physical copy by 2.99£ in Amazon.com). Since the servers shutdown, the game discs became useless pieces of plastic. This project aims to create a localhost server, which is going to make Darkspore work like if it was the original server, but much faster and private.
 
-Still, be aware: this project will respect every layer of DRM that is above the Darkspore application. If you bought the game in Steam, you will still need Steam to play it. If you bought the game in Origin, you will still need Origin to play it. And if you bought the game disc, you will still need your serial to install it.
+## Actual state
+We are only focusing in making it work with the latest version of the game (5.3.0.127) and the Steam Demo version (5.3.0.103). The DVD version (5.3.0.15) is known not to work properly yet, though. Once we develop a proper patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
 
-The only layer of DRM that _for now_ cannot be kept is the ingame DRM, which checks if you have the game in your Origin account after the game has already started. There are two reasons for that:
-- Origin has no public API, so there is no way to check if the user is really logged in, nor there is a way to know if he/she really has the game in the library;
-- Even if we managed to do it, it would be very simple for someone to simply fork the project and remove that. I guess the best that can be done is relying in the serial DRM, which will exist independently of the way that you bought the game.
+At this moment (06/01/25): the game launches, and the hero editor can be used, with support to parts and details.
+
+## Modules
+- [Resurrection Capsule Launcher](https://github.com/vitor251093/recap_launcher)
+- [Resurrection Capsule Server](https://github.com/vitor251093/recap_server)
+- [Resurrection Capsule Web Panel](https://github.com/vitor251093/recap_panel)
 
 ## FAQ
 
@@ -47,15 +30,7 @@ The negative one is that, at this moment, there is no sign of packet logs from t
 I have no idea. The biggest issue at this moment is reaching the login screen fields, so any help is welcome.
 
 ### Which programs do I need to modify the project?
-- Visual Studio 2019 for the server and the launcher
-
-## Actual state
-We are only focusing in making it work with the latest version of the game (5.3.0.127), although it may work with older versions of it, like the Steam Demo (5.3.0.103). The DVD version (5.3.0.15) is known not to work properly yet, though. Once we have worked through the launcher patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
-
-At this moment (25/04/20): the game launches, and the hero editor can be used, with support to parts and details.
-
-## Architecture
-The project has been done by now using C++ with Visual Studio 2019 (originally in Python, Flask and a Docker). The reason for this is focusing in the best performance for the server. 
+That depends on which module are we talking about. Check the page of the module you want to build.
 
 ## Reference images
 - http://kaehlerplanet.com/darkspore/
@@ -68,7 +43,10 @@ The project has been done by now using C++ with Visual Studio 2019 (originally i
 - [Cloudef/xiloader-wine](https://github.com/Cloudef/xiloader-wine)
 
 ## Credits
-@dalkon developed, and is developing, the majority of the ReCap server code, which includes the login screen, the hangar, the hero editor, missions, the chat, among other things; I, @vitormm, made the first prototype of the server, and some small portions of the ReCap server code, like the registration window; and @rob55rod is our main consultant regarding the way Darkspore used to work, our designer, and the moderator of our Discord.
+ * dalkon, for migrating the project from Python to C++, and developing the majority of the ReCap server code from 2019 to 2022
+ * Splitwirez, for being our main consultant regarding the way Darkspore used to work, our designer, and the developer of the Resurrection Capsule Hub
+ * r0ptr, for fixing the CMake build process, allowing us to continue the project after a huge hiatus, and for helping with coding in general
+ * All the members from our Discord server that helped testing and developing the server!
 
 ## Special Thanks
 - Emd (Discord)

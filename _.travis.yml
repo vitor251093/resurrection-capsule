@@ -1,9 +1,0 @@
-services:
-  - docker
-
-before_install:
-  - git clone https://github.com/vitor251093/darkspore-ls.git
-  - ./darkspore-ls/rebuild-exe.sh
-
-script:
-  - ./darkspore-ls/travis-test.sh

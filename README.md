@@ -15,6 +15,7 @@ We are only focusing in making it work with the latest version of the game (5.3.
 At this moment (06/01/25): the game launches, and the hero editor can be used, with support to parts and details.
 
 ## Modules
+- Resurrection Capsule Hub
 - [Resurrection Capsule Launcher](https://github.com/vitor251093/recap_launcher)
 - [Resurrection Capsule Server](https://github.com/vitor251093/recap_server)
 - [Resurrection Capsule Web Panel](https://github.com/vitor251093/recap_panel)

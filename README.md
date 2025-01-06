@@ -4,10 +4,8 @@
 
 Join our [Discord](https://discord.gg/btfTw62) to keep in touch with the latest updates and/or to help with the project.
 
-Just want to test it in your computer? Check [HOW_I_RUN_IT.md](HOW_I_RUN_IT.md).
-
-## Introduction
-The focus is creating a local server in order to make Darkspore work again. The game has been dead since 2016 (you can literally buy a new physical copy by 2.99£ in Amazon.com). Since the servers shutdown, the game discs became useless pieces of plastic. This project aims to create a localhost server, which is going to make Darkspore work like if it was the original server, but much faster and private.
+## How to play
+Check [HOW_I_RUN_IT.md](HOW_I_RUN_IT.md).
 
 ## Actual state
 We are only focusing in making it work with the latest version of the game (5.3.0.127) and the Steam Demo version (5.3.0.103). The DVD version (5.3.0.15) is known not to work properly yet, though. Once we develop a proper patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.

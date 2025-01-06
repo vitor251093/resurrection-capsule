@@ -4,7 +4,7 @@ In order to play the game locally you will need:
 - A computer with Windows 7 (or above);
 - Darkspore installed.
 
-Download the latest version of ReCap from the Releases tab here in Github. 
+Download the latest version of ReCap from the Releases tab here in Github ([Windows](https://github.com/vitor251093/resurrection-capsule/releases/latest/download/resurrection-capsule-windows-x64.zip) / [Ubuntu](https://github.com/vitor251093/resurrection-capsule/releases/latest/download/resurrection-capsule-appimage-x86_64.zip)).
 
 After that, you will need to find the Darkspore.exe. Depending of your Darkspore version, its folder will be different:
 - **DVD/Latest version:** C:\Program Files (x86)\Electronic Arts\Darkspore\DarksporeBin

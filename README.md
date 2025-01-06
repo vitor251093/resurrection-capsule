@@ -7,8 +7,8 @@ Join our [Discord](https://discord.gg/btfTw62) to keep in touch with the latest 
 ## How to play
 Check [HOW_I_RUN_IT.md](HOW_I_RUN_IT.md).
 
-## Actual state
-We are only focusing in making it work with the latest version of the game (5.3.0.127) and the Steam Demo version (5.3.0.103). The DVD version (5.3.0.15) is known not to work properly yet, though. Once we develop a proper patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
+## Current state
+We are only focusing in making it work with the latest version of the game (5.3.0.127) and the Steam Demo version (5.3.0.103). The DVD version (5.3.0.15) is known not to work properly yet. Once we develop a proper patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
 
 At this moment (06/01/25): the game launches, and the hero editor can be used, with support to parts and details.
 
@@ -31,15 +31,15 @@ I have no idea. The biggest issue at this moment is reaching the login screen fi
 ### Which programs do I need to modify the project?
 That depends on which module are we talking about. Check the page of the module you want to build.
 
+### How else can I help the project?
+We can't accept any form of income in the project, but if you want to help Darkspore to be released one day without an internet requirement, endorse the Darkspore wish in GOG's wishlist.
+- https://www.gog.com/wishlist/games/darkspore
+
+
 ## Reference images
 - http://kaehlerplanet.com/darkspore/
 
 - http://davoonline.com/sporemodder/rob55rod/DI9r_Ref/DarksporeRefs.html
-
-## Projects used as references
-- [buchacho/BF4BlazeEmulator](https://github.com/buchacho/BF4BlazeEmulator)
-- [pedromartins1/BlazeServer](https://github.com/pedromartins1/BlazeServer)
-- [Cloudef/xiloader-wine](https://github.com/Cloudef/xiloader-wine)
 
 ## Credits
  * dalkon, for migrating the project from Python to C++, and developing the majority of the ReCap server code from 2019 to 2022
@@ -53,7 +53,3 @@ That depends on which module are we talking about. Check the page of the module 
 - nonchip (Github)
 - Otomachi Una (Discord)
 - Snek (Discord)
-
-## How can I help?
-We can't accept any form of income in the project, but if want to help Darkspore to be released one day without an internet requirement, endorse the Darkspore wish in GOG's wishlist. That's the best we can do:
-- https://www.gog.com/wishlist/games/darkspore

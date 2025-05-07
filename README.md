@@ -1,4 +1,7 @@
-![alt ReCap logo and title](https://raw.githubusercontent.com/vitor251093/resurrection-capsule/master/readme_head.png)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/JeanxPereira/resurrection-capsule/master/res/readme_head_lightmode.png#gh-light-mode-only"/>
+    <img src="https://raw.githubusercontent.com/JeanxPereira/resurrection-capsule/master/res/readme_head_darkmode.png#gh-dark-mode-only"/>
+</p>
 
 [WIP] ReCap for short. A small local server to play Darkspore offline
 

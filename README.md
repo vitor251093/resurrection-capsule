@@ -1,19 +1,27 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/JeanxPereira/resurrection-capsule/master/res/readme_head_lightmode.png#gh-light-mode-only"/>
-    <img src="https://raw.githubusercontent.com/JeanxPereira/resurrection-capsule/master/res/readme_head_darkmode.png#gh-dark-mode-only"/>
+    <img src="https://raw.githubusercontent.com/vitor251093/resurrection-capsule/master/res/readme_head_lightmode.png#gh-light-mode-only"/>
+    <img src="https://raw.githubusercontent.com/vitor251093/resurrection-capsule/master/res/readme_head_darkmode.png#gh-dark-mode-only"/>
 </p>
 
 [WIP] ReCap for short. A small local server to play Darkspore offline
 
 Join our [Discord](https://discord.gg/btfTw62) to keep in touch with the latest updates and/or to help with the project.
 
-## How to play
-Check [HOW_I_RUN_IT.md](HOW_I_RUN_IT.md).
+<hr>
 
-## Current state
-We are only focusing in making it work with the latest version of the game (5.3.0.127) and the Steam Demo version (5.3.0.103). The DVD version (5.3.0.15) is known not to work properly yet. Once we develop a proper patching system, ReCap should be capable of updating any Darkspore version to 5.3.0.127, like it was officially done by EA back when the game servers were online.
+<h2 align="center"><a href="https://github.com/vitor251093/resurrection-capsule/blob/master/HOW_TO_PLAY.md">HOW TO PLAY</a></h2>
 
-At this moment (06/01/25): the game launches, and the hero editor can be used, with support to parts and details.
+<hr>
+
+## What can ReCap do already?
+- Login and registration of users
+- Editing heroes (WIP)
+- Entering levels (WIP)
+
+## Compatibility
+- **Darkspore 5.3.0.15 (DVD version):** Incompatible
+- **Darkspore 5.3.0.103 (Steam Demo):** Compatible
+- **Darkspore 5.3.0.127 (Latest version):** Compatible
 
 ## Modules
 - [Resurrection Capsule Hub](https://github.com/Splitwirez/recap_hub)

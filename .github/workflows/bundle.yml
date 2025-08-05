@@ -170,6 +170,22 @@ jobs:
           $UNLUAC_URL
           EOF
 
+      - name: Fail if tag already exists
+        run: |
+          echo "Checking if tag '${SERVER_TAG}' already exists..."
+          TAG_EXISTS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            https://api.github.com/repos/${{ github.repository }}/git/refs/tags/${SERVER_TAG})
+
+          if [ "$TAG_EXISTS" -eq 200 ]; then
+            echo "❌ Tag '${SERVER_TAG}' already exists. Aborting release creation to avoid overwrite."
+            exit 1
+          else
+            echo "✅ Tag '${SERVER_TAG}' does not exist. Safe to proceed."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:

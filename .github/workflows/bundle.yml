@@ -1,0 +1,175 @@
+name: Bundle Latest Releases
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bundle-releases:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+
+      - name: Set up dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip zip curl jq
+
+      - name: Prepare workspace
+        run: |
+          mkdir -p downloads extracted/Windows/Server extracted/Ubuntu/Server
+
+      - name: recap_launcher
+        run: |
+          API_URL="https://api.github.com/repos/vitor251093/recap_launcher/releases/latest"
+          JSON=$(curl -s $API_URL)
+          TAG=$(echo "$JSON" | jq -r .tag_name)
+          URL="https://github.com/vitor251093/recap_launcher/releases/tag/$TAG"
+          FILE_URL=$(echo "$JSON" | jq -r '.assets[] | select(.name == "recap-launcher-windows-x86.zip") | .browser_download_url')
+
+          echo "LAUNCHER_TAG=$TAG" >> $GITHUB_ENV
+          echo "LAUNCHER_URL=$URL" >> $GITHUB_ENV
+
+          curl -L "$FILE_URL" -o downloads/recap_launcher_win.zip
+          unzip -q downloads/recap_launcher_win.zip -d extracted/Windows/
+          unzip -q downloads/recap_launcher_win.zip -d extracted/Ubuntu/
+
+      #######################
+      # Download for Windows
+      #######################
+
+      - name: recap_server (Windows)
+        run: |
+          API_URL="https://api.github.com/repos/vitor251093/recap_server/releases/latest"
+          JSON=$(curl -s $API_URL)
+          TAG=$(echo "$JSON" | jq -r .tag_name)
+          URL="https://github.com/vitor251093/recap_server/releases/tag/$TAG"
+          FILE_URL=$(echo "$JSON" | jq -r '.assets[] | select(.name == "recap-server-windows-x64.zip") | .browser_download_url')
+
+          echo "SERVER_TAG=$TAG" >> $GITHUB_ENV
+          echo "SERVER_URL=$URL" >> $GITHUB_ENV
+
+          curl -L "$FILE_URL" -o downloads/recap_server_win.zip
+          unzip -q downloads/recap_server_win.zip -d extracted/Windows/Server/
+
+      - name: dbpf_unpacker (Windows)
+        run: |
+          API_URL="https://api.github.com/repos/vitor251093/dbpf_unpacker/releases/latest"
+          JSON=$(curl -s $API_URL)
+          TAG=$(echo "$JSON" | jq -r .tag_name)
+          URL="https://github.com/vitor251093/dbpf_unpacker/releases/tag/$TAG"
+          FILE_URL=$(echo "$JSON" | jq -r '.assets[] | select(.name | test("DBPF-Unpacker-.*_win64.zip")) | .browser_download_url')
+
+          echo "UNPACKER_TAG=$TAG" >> $GITHUB_ENV
+          echo "UNPACKER_URL=$URL" >> $GITHUB_ENV
+
+          curl -L "$FILE_URL" -o downloads/dbpf_unpacker_win.zip
+          unzip -q downloads/dbpf_unpacker_win.zip -d extracted/Windows/Server/
+
+      - name: recap_parser (Windows)
+        run: |
+          API_URL="https://api.github.com/repos/JeanxPereira/recap_parser/releases/latest"
+          JSON=$(curl -s $API_URL)
+          TAG=$(echo "$JSON" | jq -r .tag_name)
+          URL="https://github.com/JeanxPereira/recap_parser/releases/tag/$TAG"
+          FILE_URL=$(echo "$JSON" | jq -r '.assets[] | select(.name | test("recap_parser-.*-windows-x64.zip")) | .browser_download_url')
+
+          echo "PARSER_TAG=$TAG" >> $GITHUB_ENV
+          echo "PARSER_URL=$URL" >> $GITHUB_ENV
+
+          curl -L "$FILE_URL" -o downloads/recap_parser_win.zip
+          unzip -q downloads/recap_parser_win.zip -d extracted/Windows/Server/
+
+      - name: unluac (Windows)
+        run: |
+          API_URL="https://api.github.com/repos/vitor251093/unluac/releases/latest"
+          JSON=$(curl -s $API_URL)
+          TAG=$(echo "$JSON" | jq -r .tag_name)
+          URL="https://github.com/vitor251093/unluac/releases/tag/$TAG"
+          FILE_URL=$(echo "$JSON" | jq -r '.assets[] | select(.name | test("unluac-.*_win64.zip")) | .browser_download_url')
+
+          echo "UNLUAC_TAG=$TAG" >> $GITHUB_ENV
+          echo "UNLUAC_URL=$URL" >> $GITHUB_ENV
+
+          curl -L "$FILE_URL" -o downloads/unluac_win.zip
+          unzip -q downloads/unluac_win.zip -d extracted/Windows/Server/
+
+      #######################
+      # Download for Ubuntu
+      #######################
+
+      - name: recap_server (Ubuntu)
+        run: |
+          API_URL="https://api.github.com/repos/vitor251093/recap_server/releases/latest"
+          JSON=$(curl -s $API_URL)
+          FILE_URL=$(echo "$JSON" | jq -r '.assets[] | select(.name == "recap-server-ubuntu-x64.zip") | .browser_download_url')
+          curl -L "$FILE_URL" -o downloads/recap_server_ubuntu.zip
+          unzip -q downloads/recap_server_ubuntu.zip -d extracted/Ubuntu/Server/
+
+      - name: dbpf_unpacker (Ubuntu)
+        run: |
+          API_URL="https://api.github.com/repos/vitor251093/dbpf_unpacker/releases/latest"
+          JSON=$(curl -s $API_URL)
+          FILE_URL=$(echo "$JSON" | jq -r '.assets[] | select(.name | test("DBPF-Unpacker-.*_linux-x64.zip")) | .browser_download_url')
+          curl -L "$FILE_URL" -o downloads/dbpf_unpacker_ubuntu.zip
+          unzip -q downloads/dbpf_unpacker_ubuntu.zip -d extracted/Ubuntu/Server/
+
+      - name: recap_parser (Ubuntu)
+        run: |
+          API_URL="https://api.github.com/repos/JeanxPereira/recap_parser/releases/latest"
+          JSON=$(curl -s $API_URL)
+          FILE_URL=$(echo "$JSON" | jq -r '.assets[] | select(.name | test("recap_parser-.*-linux-x64.zip")) | .browser_download_url')
+          curl -L "$FILE_URL" -o downloads/recap_parser_ubuntu.zip
+          unzip -q downloads/recap_parser_ubuntu.zip -d extracted/Ubuntu/Server/
+
+      - name: unluac (Ubuntu)
+        run: |
+          API_URL="https://api.github.com/repos/vitor251093/unluac/releases/latest"
+          JSON=$(curl -s $API_URL)
+          FILE_URL=$(echo "$JSON" | jq -r '.assets[] | select(.name | test("unluac-.*_linux-x64.zip")) | .browser_download_url')
+          curl -L "$FILE_URL" -o downloads/unluac_ubuntu.zip
+          unzip -q downloads/unluac_ubuntu.zip -d extracted/Ubuntu/Server/
+
+      ##########################
+      # Bundle and Create Release
+      ##########################
+
+      - name: Bundle all files
+        run: |
+          cd extracted/Windows
+          zip -r ../../resurrection-capsule-windows-x64.zip .
+          cd ../Ubuntu
+          zip -r ../../resurrection-capsule-ubuntu-x64.zip .
+
+      - name: Generate release description
+        run: |
+          cat <<EOF > description.md
+- Resurrection Capsule Launcher $LAUNCHER_TAG  
+$LAUNCHER_URL
+
+- Resurrection Capsule Server $SERVER_TAG  
+$SERVER_URL
+
+- dbpf_unpacker $UNPACKER_TAG  
+$UNPACKER_URL
+
+- Resurrection Capsule Parser $PARSER_TAG  
+$PARSER_URL
+
+- unluac $UNLUAC_TAG build  
+$UNLUAC_URL
+EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ReCap ${{ env.SERVER_TAG }}
+          tag_name: ${{ env.SERVER_TAG }}
+          body_path: description.md
+          drafte: true
+          files: |
+            resurrection-capsule-windows-x64.zip
+            resurrection-capsule-ubuntu-x64.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

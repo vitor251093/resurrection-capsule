@@ -35,6 +35,9 @@ jobs:
           unzip -q downloads/recap_launcher_win.zip -d extracted/Windows/
           unzip -q downloads/recap_launcher_win.zip -d extracted/Ubuntu/
 
+          mv extracted/Windows/bin/* extracted/Windows/
+          mv extracted/Ubuntu/bin/* extracted/Ubuntu/
+
       #######################
       # Download for Windows
       #######################
@@ -52,6 +55,8 @@ jobs:
 
           curl -L "$FILE_URL" -o downloads/recap_server_win.zip
           unzip -q downloads/recap_server_win.zip -d extracted/Windows/Server/
+
+          mv extracted/Windows/Server/bin/* extracted/Windows/Server/
 
       - name: dbpf_unpacker (Windows)
         run: |
@@ -106,6 +111,8 @@ jobs:
           FILE_URL=$(echo "$JSON" | jq -r '.assets[] | select(.name == "recap-server-ubuntu-x64.zip") | .browser_download_url')
           curl -L "$FILE_URL" -o downloads/recap_server_ubuntu.zip
           unzip -q downloads/recap_server_ubuntu.zip -d extracted/Ubuntu/Server/
+
+          mv extracted/Ubuntu/Server/bin/* extracted/Ubuntu/Server/
 
       - name: dbpf_unpacker (Ubuntu)
         run: |
@@ -167,7 +174,7 @@ jobs:
           name: ReCap ${{ env.SERVER_TAG }}
           tag_name: ${{ env.SERVER_TAG }}
           body_path: description.md
-          drafte: true
+          draft: true
           files: |
             resurrection-capsule-windows-x64.zip
             resurrection-capsule-ubuntu-x64.zip

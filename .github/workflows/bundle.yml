@@ -145,21 +145,21 @@ jobs:
       - name: Generate release description
         run: |
           cat <<EOF > description.md
-- Resurrection Capsule Launcher $LAUNCHER_TAG  
-$LAUNCHER_URL
+          - Resurrection Capsule Launcher $LAUNCHER_TAG  
+          $LAUNCHER_URL
 
-- Resurrection Capsule Server $SERVER_TAG  
-$SERVER_URL
+          - Resurrection Capsule Server $SERVER_TAG  
+          $SERVER_URL
 
-- dbpf_unpacker $UNPACKER_TAG  
-$UNPACKER_URL
+          - dbpf_unpacker $UNPACKER_TAG  
+          $UNPACKER_URL
 
-- Resurrection Capsule Parser $PARSER_TAG  
-$PARSER_URL
+          - Resurrection Capsule Parser $PARSER_TAG  
+          $PARSER_URL
 
-- unluac $UNLUAC_TAG build  
-$UNLUAC_URL
-EOF
+          - unluac $UNLUAC_TAG build  
+          $UNLUAC_URL
+          EOF
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

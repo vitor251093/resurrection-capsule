@@ -114,6 +114,8 @@ jobs:
 
           mv extracted/Ubuntu/Server/bin/* extracted/Ubuntu/Server/
 
+          cp -r extracted/Windows/Server/data extracted/Ubuntu/Server/data
+
       - name: dbpf_unpacker (Ubuntu)
         run: |
           API_URL="https://api.github.com/repos/vitor251093/dbpf_unpacker/releases/latest"

@@ -117,6 +117,7 @@ jobs:
           unzip -q downloads/recap_server_ubuntu.zip -d extracted/Ubuntu/Server/
 
           mv extracted/Ubuntu/Server/bin/* extracted/Ubuntu/Server/
+          rm -d extracted/Ubuntu/Server/bin
 
           cp -r extracted/Windows/Server/data    extracted/Ubuntu/Server/data
           cp -r extracted/Windows/Server/storage extracted/Ubuntu/Server/storage

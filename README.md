@@ -47,7 +47,7 @@ That depends on which module are we talking about. Check the page of the module 
 
 ### How else can I help the project?
 We can't accept any form of income in the project, but if you want to help Darkspore to be released one day without an internet requirement, endorse the Darkspore wish in GOG's wishlist.
-- https://www.gog.com/wishlist/games/darkspore
+- https://www.gog.com/dreamlist/game/darkspore
 
 
 ## Reference images
